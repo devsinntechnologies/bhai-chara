@@ -1,6 +1,5 @@
-import 'package:bhai_chara/main.dart';
-import 'package:bhai_chara/utils/CustomIcon/my_flutter_app_icons.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/custom_container_tile.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +22,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           width: double.infinity,
           padding: EdgeInsets.all(20),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -35,14 +36,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     width: 100,
                     decoration: BoxDecoration(
                         color: AppColors.primary,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             scale: 1,
                             image: AssetImage("assets/images/logo.png"),
                             fit: BoxFit.fill)),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -58,118 +59,86 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       )),
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomContainerTile(
+                image: "assets/images/google.png",
+                text: "Continue with Google",
+              ),
               SizedBox(
                 height: 20,
               ),
-              Container(
-                  width: size.width,
-                  padding: EdgeInsets.only(left: 100, top: 10, bottom: 10),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.black),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              height: 30,
-                              width: 30,
-                              child: Image(
-                                image: AssetImage("assets/images/google.png"),
-                                fit: BoxFit.cover,
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Continue with Google",
-                            style: AppTextStyles.textStyleBoldBodySmall,
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
+              CustomContainerTile(
+                image: "assets/images/facebook.png",
+                text: "Continue with Facebook",
+              ),
               SizedBox(
                 height: 20,
               ),
-              Container(
-                  width: size.width,
-                  padding: EdgeInsets.only(left: 100, top: 10, bottom: 10),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.black),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Column(
-                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                              // padding: EdgeInsets.only(left: 10),
-                              height: 30,
-                              width: 30,
-                              child: Icon(
-                                Icons.facebook,
-                                color: AppColors.blue,
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            "Continue with Facebook",
-                            style: AppTextStyles.textStyleBoldBodySmall,
-                          ),
-                        ],
-                      ),
-                    ],
-                  )),
-              SizedBox(
+              CustomContainerTile(
+                image: "assets/images/mail.png",
+                text: "Continue with Email",
+              ),
+              const SizedBox(
                 height: 20,
               ),
+              CustomContainerTile(
+                image: "assets/images/phone.png",
+                text: "Continue with Phone",
+              ),
+              Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "If you continue, you are accepting",
+                    style: AppTextStyles.textStyleBoldBodyXSmall,
+                  ),
+                ],
+              ),
               Container(
-                  width: size.width,
-                  padding: EdgeInsets.only(left: 100, top: 10, bottom: 10),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.black),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.center,
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  softWrap: true,
+                  text: TextSpan(
                     children: [
-                      Column(
-                        children: [
-                          Container(
-                              // padding: EdgeInsets.only(left: 10),
-                              height: 30,
-                              width: 30,
-                              child: Icon(
-                                Icons.mail,
-                                color: AppColors.black,
-                              )),
-                        ],
+                      TextSpan(
+                        text: "Bhai Chara ",
+                        style: AppTextStyles.textStyleBoldBodyXSmall,
                       ),
-                      SizedBox(
-                        width: 50,
+                      TextSpan(
+                        text: "Terms and Conditions ",
+                        style: AppTextStyles
+                            .textStyleNormalBody_BlueColor_Underline,
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            "Continue with Email",
-                            style: AppTextStyles.textStyleBoldBodySmall,
-                          ),
-                        ],
+                      TextSpan(
+                        text: "and ",
+                        style: AppTextStyles.textStyleBoldBodyXSmall,
                       ),
+                      TextSpan(
+                        text: "Privacy",
+                        style: AppTextStyles
+                            .textStyleNormalBody_BlueColor_Underline,
+                        // Apply ellipsis to this TextSpan
+                      ),
+                      const TextSpan(
+                        text: " ",
+                      ),
+                      TextSpan(
+                        text: "Policy",
+                        style: AppTextStyles
+                            .textStyleNormalBody_BlueColor_Underline,
+                      )
                     ],
-                  ))
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              )
             ],
           ),
         ),
