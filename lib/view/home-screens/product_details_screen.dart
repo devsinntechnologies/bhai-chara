@@ -193,12 +193,29 @@ class ProductScreen extends StatelessWidget {
                 height: 190,
                 child: Image(image: AssetImage('assets/images/HILmr (1).png')),
               ),
-               Padding(
-                 padding: const EdgeInsets.only(left: 20),
-                 child: Text('Your safety matters to us!',
-                      style: AppTextStyles.textStyleBoldBodyMedium
-                          .copyWith(fontSize: 20, fontWeight: FontWeight.w600)),
-               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text('Your safety matters to us!',
+                    style: AppTextStyles.textStyleBoldBodyMedium
+                        .copyWith(fontSize: 20, fontWeight: FontWeight.w600)),
+              ),
+              // Wrap the UnorderedList with a ListView
+              ListView(
+                shrinkWrap: true,
+                children: [
+                  'Only meet in public / crowded places',
+                  'Never go alone to meet a buyer / seller, always take someone with you.',
+                  'Check and inspect the product properly before purchasing it.',
+                  'Never pay anything in advance or transfer money before inspecting the product.',
+                ]
+                    .map(
+                      (item) => ListTile(
+                        leading: Text('•', style: AppTextStyles.textStyleBoldBodyXSmall,),
+                        title: Text(item),
+                      ),
+                    )
+                    .toList(),
+              ),
             ],
           ),
         ),
