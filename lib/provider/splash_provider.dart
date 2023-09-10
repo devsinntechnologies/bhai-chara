@@ -1,8 +1,8 @@
 
 
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class SplashProvider extends ChangeNotifier{
-// bool isLoading = false;
+class SplashProvider extends ChangeNotifier{
+bool isLoading = false;
 
-// }
+}

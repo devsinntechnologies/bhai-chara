@@ -1,16 +1,10 @@
-import 'dart:io';
-
-import 'package:bhai_chara/common/custom_text.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/utils.dart';
-import 'package:bhai_chara/view/product_details.dart';
+import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
-import '../utils/circle_avatar.dart';
-import '../utils/container_with_img.dart';
-import '../utils/text.dart';
+import '../../utils/circle_avatar.dart';
+import '../../utils/container_with_img.dart';
+import '../../utils/text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,21 +18,21 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 height: 80,
                 width: double.infinity,
-                decoration: BoxDecoration(color: AppColors.darkBlue),
+                decoration: const BoxDecoration(color: AppColors.darkBlue),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image(
+                    const Image(
                       image: AssetImage('assets/images/Bhai Chara svg 1.png'),
                       height: 45,
                       width: 45,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Icon(Icons.my_location_outlined,
                             size: 24, color: Colors.white),
                         Text(
@@ -50,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    Icon(
+                    const Icon(
                       Icons.notifications,
                       size: 24,
                       color: AppColors.White,
@@ -59,7 +53,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
                 height: 56,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -67,11 +62,10 @@ class HomeScreen extends StatelessWidget {
                   border: Border.all(color: AppColors.Grey, width: 1),
                 ),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       border: InputBorder.none,
                       prefixIcon: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20, top: 15, bottom: 15),
+                        padding: EdgeInsets.only(left: 20, top: 15, bottom: 15),
                         child: Icon(
                           Icons.search,
                           size: 24,
@@ -141,7 +135,7 @@ class HomeScreen extends StatelessWidget {
                       secondText: 'Samsung S3',
                       imgLink: 'assets/images/Rectangle 10.png',
                       ontap: () {
-                        push(context, ProductScreen());
+                        push(context, const ProductScreen());
                       },
                     ),
                     CustomContainer(
@@ -149,23 +143,25 @@ class HomeScreen extends StatelessWidget {
                       secondText: 'Winter ',
                       imgLink: 'assets/images/Rectangle 11.png',
                       ontap: () {
-                        push(context, ProductScreen());
+                        push(context, const ProductScreen());
                       },
                     ),
                     CustomContainer(
-                        text: 'Rs 25000',
-                        secondText: 'Samsung S3',
-                        imgLink: 'assets/images/Rectangle 16.png',
-                        ontap: () {
-                        push(context, ProductScreen());
-                      },),
+                      text: 'Rs 25000',
+                      secondText: 'Samsung S3',
+                      imgLink: 'assets/images/Rectangle 16.png',
+                      ontap: () {
+                        push(context, const ProductScreen());
+                      },
+                    ),
                     CustomContainer(
-                        text: 'Rs 25000',
-                        secondText: 'Winter ',
-                        imgLink: 'assets/images/Rectangle 17.png',
-                        ontap: () {
-                        push(context, ProductScreen());
-                      },)
+                      text: 'Rs 25000',
+                      secondText: 'Winter ',
+                      imgLink: 'assets/images/Rectangle 17.png',
+                      ontap: () {
+                        push(context, const ProductScreen());
+                      },
+                    )
                   ],
                 ),
               ),
@@ -182,33 +178,37 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     CustomContainer(
-                        text: 'Rs 25000',
-                        secondText: 'Samsung S3',
-                        imgLink: 'assets/images/Rectangle 16.png',
-                        ontap: () {
-                        push(context, ProductScreen());
-                      },),
+                      text: 'Rs 25000',
+                      secondText: 'Samsung S3',
+                      imgLink: 'assets/images/Rectangle 16.png',
+                      ontap: () {
+                        push(context, const ProductScreen());
+                      },
+                    ),
                     CustomContainer(
-                        text: 'Rs 25000',
-                        secondText: 'Winter',
-                        imgLink: 'assets/images/Rectangle 17.png',
-                        ontap: () {
-                        push(context, ProductScreen());
-                      },),
+                      text: 'Rs 25000',
+                      secondText: 'Winter',
+                      imgLink: 'assets/images/Rectangle 17.png',
+                      ontap: () {
+                        push(context, const ProductScreen());
+                      },
+                    ),
                     CustomContainer(
-                        text: 'Rs 25000',
-                        secondText: 'Winter',
-                        imgLink: 'assets/images/Rectangle 10.png',
-                        ontap: () {
-                        push(context, ProductScreen());
-                      },),
+                      text: 'Rs 25000',
+                      secondText: 'Winter',
+                      imgLink: 'assets/images/Rectangle 10.png',
+                      ontap: () {
+                        push(context, const ProductScreen());
+                      },
+                    ),
                     CustomContainer(
-                        text: 'Rs 25000',
-                        secondText: 'Winter',
-                        imgLink: 'assets/images/Rectangle 11.png',
-                        ontap: () {
-                        push(context, ProductScreen());
-                      },),
+                      text: 'Rs 25000',
+                      secondText: 'Winter',
+                      imgLink: 'assets/images/Rectangle 11.png',
+                      ontap: () {
+                        push(context, const ProductScreen());
+                      },
+                    ),
                   ],
                 ),
               )
