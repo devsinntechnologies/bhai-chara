@@ -97,9 +97,9 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                       width: 10,
                     ),
                     Container(
-                      height: 30,
-                      width: 2,
-                      color: AppColors.grey,
+                      height: 25,
+                      width: 1,
+                      color: AppColors.light_black,
                     ),
                     Container(
                         height: 30,
@@ -114,17 +114,23 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                 ),
               ),
               Spacer(),
-              Container(
-                  height: 60,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.blue),
-                  child: Center(
-                    child: Text(
-                      "Next",
-                      style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
-                    ),
-                  )),
+              InkWell(
+                onTap: () {
+                  //fuctionality
+                },
+                child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.blue),
+                    child: Center(
+                      child: Text(
+                        "Next",
+                        style:
+                            AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+                      ),
+                    )),
+              ),
               const SizedBox(
                 height: 50,
               )

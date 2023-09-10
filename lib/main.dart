@@ -1,10 +1,7 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
-import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'view/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
