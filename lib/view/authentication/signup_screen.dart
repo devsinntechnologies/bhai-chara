@@ -66,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 image: "assets/images/google.png",
                 text: "Continue with Google",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomContainerTile(
@@ -137,7 +137,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 50,
               )
             ],
           ),
