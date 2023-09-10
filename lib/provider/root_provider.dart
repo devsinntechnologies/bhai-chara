@@ -4,14 +4,13 @@ import 'package:flutter/foundation.dart';
 
 class RootProvider extends ChangeNotifier{
 bool isLoading = false;
-var _selectedScreen;
+var _selectedScreen=0;
 
  selectedScreen(int index)
 {
-  isLoading=true;
-  notifyListeners();
+ 
+  
   _selectedScreen= index;
-  isLoading=false;
-  notifyListeners();
+ notifyListeners();
 }
 }

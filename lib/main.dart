@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'view/home_screen.dart';
+import 'view/product_details.dart';
 import 'view/sell.dart';
 import 'view/splash_screen.dart';
 
@@ -24,6 +25,6 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SellScreen(),));
+        home: RootScreen(),));
   }
 }

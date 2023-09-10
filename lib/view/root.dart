@@ -1,3 +1,4 @@
+import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/view/home_screen.dart';
 import 'package:bhai_chara/view/sell.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ import '../provider/root_provider.dart';
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});
 
-  int selectedScreen = 0;
+  
   var iconsList = [
     Icons.person,
     Icons.scanner,
@@ -40,14 +41,13 @@ class RootScreen extends StatelessWidget {
     return Builder(builder: (context) {
       var myProvider = context.watch<RootProvider>();
 
-      return myProvider.isLoading
-          ? CircularProgressIndicator.adaptive()
-          : Scaffold(
-              body: screensList[selectedScreen],
+      return 
+         Scaffold(
+              body: screensList[myProvider.selectedScreen(0.toInt())],
              // body: myProvider.screensList[myProvider.selectedScreen],
               bottomNavigationBar: Container(
                 height: 70,
-                color: Color.fromARGB(255, 235, 239, 232),
+                color: AppColors.White,
                 padding: EdgeInsets.symmetric(vertical: 8),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -58,7 +58,7 @@ class RootScreen extends StatelessWidget {
                               var pro = context.read<RootProvider>();
                               pro.selectedScreen(i);
                             }),
-                            child: selectedScreen == i
+                            child: myProvider.selectedScreen(0.toInt()) == i
                                 ? Container(
                                     color: Colors.transparent,
                                     // margin: EdgeInsets.only(bottom: 30),
@@ -68,12 +68,12 @@ class RootScreen extends StatelessWidget {
                                         Icon(
                                           iconsList[i],
                                           size: 35,
-                                          color: Colors.blueGrey,
+                                          color: AppColors.blue,
                                         ),
                                         Text(
                                           textList[i],
                                           style: TextStyle(
-                                              color: Colors.blueGrey,
+                                              color: AppColors.blue,
                                               fontFamily: "Poppins-Bold"),
                                         ),
                                       ],
@@ -85,7 +85,7 @@ class RootScreen extends StatelessWidget {
                                       Icon(
                                         iconsList[i],
                                         size: 20,
-                                        color: Colors.blueGrey[200],
+                                        color: AppColors.darkGrey,
                                       ),
                                       Text(textList[i]),
                                     ],

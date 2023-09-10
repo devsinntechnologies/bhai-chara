@@ -48,64 +48,51 @@ class SellScreen extends StatelessWidget {
             fontweight: FontWeight.w600,
           ),
         ),
-        SingleChildScrollView(
-          child: Column(
-            children: [
-              InkWell(
-                onTap: () {
-                  push(context, ProductScreen());
-                },
-                child: CustomCircleAvatarRow(
-                  link: 'assets/images/fluent_animal-cat-28-filled.png',
-                  col: Colors.amber,
-                  txt: 'Animal',
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  push(context, ProductScreen());
-                },
-                child: CustomCircleAvatarRow(
-                    link: 'assets/images/basil_camera-solid.png',
-                    col: Colors.amber,
-                    txt: 'Electronic'),
-              ),
-              InkWell(
-                onTap: () {
-                  push(context, ProductScreen());
-                },
-                child: CustomCircleAvatarRow(
-                    link: 'assets/images/fontisto_mobile.png',
-                    col: Colors.amber,
-                    txt: 'Mobile'),
-              ),
-              InkWell(
-                onTap: () {
-                  push(context, ProductScreen());
-                },
-                child: CustomCircleAvatarRow(
-                    link: 'assets/images/map_furniture-store.png',
-                    col: Colors.amber,
-                    txt: 'Furniture'),
-              ),
-              InkWell(
-                onTap: () {
-                  push(context, ProductScreen());
-                },
-                child: CustomCircleAvatarRow(
-                    link: 'assets/images/ri_motorbike-fill.png',
-                    col: Colors.amber,
-                    txt: 'Bike'),
-              ),
-              InkWell(
-                onTap: () {
-                  push(context, ProductScreen());
-                },
-                child: CustomCircleAvatarRow(
-                    link: 'assets/images/solar_bell-bold.png',
-                    col: Colors.amber,
-                    txt: 'bell'),
-              ),
+        Column(
+          children: [
+            CustomCircleAvatarRow(
+              link: 'assets/images/fluent_animal-cat-28-filled.png',
+              col: Colors.amber,
+              txt: 'Animal',
+              ontap: () {
+                push(context, ProductScreen());
+              },
+            ),
+            CustomCircleAvatarRow(
+                link: 'assets/images/basil_camera-solid.png',
+                col: Colors.amber,
+                txt: 'Electronic',
+                 ontap: () {
+              push(context, ProductScreen());
+            },),
+            CustomCircleAvatarRow(
+                link: 'assets/images/fontisto_mobile.png',
+                col: Colors.amber,
+                txt: 'Mobile',
+                 ontap: () {
+              push(context, ProductScreen());
+            },),
+            CustomCircleAvatarRow(
+                link: 'assets/images/map_furniture-store.png',
+                col: Colors.amber,
+                txt: 'Furniture',
+                 ontap: () {
+                push(context, ProductScreen());
+              },),
+            CustomCircleAvatarRow(
+                link: 'assets/images/ri_motorbike-fill.png',
+                col: Colors.amber,
+                txt: 'Bike',
+                 ontap: () {
+                push(context, ProductScreen());
+              },),
+            CustomCircleAvatarRow(
+                link: 'assets/images/solar_bell-bold.png',
+                col: Colors.amber,
+                txt: 'bell',
+                 ontap: () {
+                push(context, ProductScreen());
+              },),
             //   CustomCircleAvatarRow(
             //       link: 'assets/images/ri_motorbike-fill.png',
             //       col: Colors.amber,
@@ -114,8 +101,7 @@ class SellScreen extends StatelessWidget {
             //       link: 'assets/images/solar_bell-bold.png',
             //       col: Colors.amber,
             //       txt: 'bell'),
-             ],
-          ),
+          ],
         ),
       ]),
     );
