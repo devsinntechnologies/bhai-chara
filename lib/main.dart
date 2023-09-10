@@ -1,8 +1,12 @@
+import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/splash_provider.dart';
+import 'package:bhai_chara/tempoprovider.dart';
+import 'package:bhai_chara/view/root.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'view/home_screen.dart';
+import 'view/sell.dart';
 import 'view/splash_screen.dart';
 
 void main() {
@@ -15,10 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=> SplashProvider() )
+        ChangeNotifierProvider(create: (context)=> SplashProvider() ),
+        ChangeNotifierProvider(create: (context)=> RootProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),));
+        home: SellScreen(),));
   }
 }

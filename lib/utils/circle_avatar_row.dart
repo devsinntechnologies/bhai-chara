@@ -1,21 +1,19 @@
 import 'package:bhai_chara/utils/text.dart';
-import 'package:bhai_chara/utils/utils.dart';
-import 'package:bhai_chara/view/product_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class CustomCircleAvatar extends StatelessWidget {
+class CustomCircleAvatarRow extends StatelessWidget {
   final link, col, txt;
-   CustomCircleAvatar({required this.link, required this.col, required this.txt});
+   CustomCircleAvatarRow({required this.link, required this.col, required this.txt});
 
   @override
   Widget build(BuildContext context) {
     return
           Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
+            padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
+            child: Row(
               children: [
                 CircleAvatar(
                   backgroundColor: col,
@@ -26,11 +24,13 @@ class CustomCircleAvatar extends StatelessWidget {
                       ),
                   radius: 30,
                 ),
-          
+                    
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.only(left: 18),
                   child: Text(txt,style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,),),
                 ),
+                Spacer(),
+               IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios, size: 24,))
               ],
             ),
           );
