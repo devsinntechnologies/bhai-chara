@@ -1,5 +1,5 @@
 import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/custom_container_tile.dart';
+import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 

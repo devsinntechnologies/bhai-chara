@@ -1,5 +1,6 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
 import 'package:bhai_chara/view/authentication/signup_screen.dart';
+import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => SplashProvider())
         ],
-        child: MaterialApp(
-          home: SignUpScreen(),
+        child: const MaterialApp(
+          home: SignUpSCreenByPhone(),
         ));
   }
 }
