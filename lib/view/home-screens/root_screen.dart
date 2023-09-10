@@ -39,7 +39,7 @@ class RootScreen extends StatelessWidget {
       var myProvider = context.watch<RootProvider>();
 
       return Scaffold(
-        body: screensList[myProvider.selectedScreen(0.toInt())],
+        body: screensList[myProvider.selectedScreenValue],
         bottomNavigationBar: Container(
           height: 70,
           color: AppColors.White,
@@ -50,9 +50,9 @@ class RootScreen extends StatelessWidget {
               InkWell(
                   onTap: (() {
                     var pro = context.read<RootProvider>();
-                    pro.selectedScreen(i);
+                    pro.setSelectedScreen(i);
                   }),
-                  child: myProvider.selectedScreen(0) == i
+                  child: myProvider.selectedScreenValue == i
                       ? Container(
                           color: Colors.transparent,
                           // margin: EdgeInsets.only(bottom: 30),
