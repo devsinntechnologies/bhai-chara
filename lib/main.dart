@@ -2,6 +2,7 @@ import 'package:bhai_chara/provider/splash_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'view/review_details.dart';
 import 'view/splash_screen.dart';
 
 void main() {
@@ -16,6 +17,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context)=> SplashProvider() )
       ],
-      child: MaterialApp(home: SplashScreen(),));
+      child: MaterialApp(home: ReviewDetails(),));
   }
 }
