@@ -1,5 +1,9 @@
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
 
-class AppColors{
-  static const primary = "0xff27AAE1";
+class AppColors {
+  static Color primary = Color(0xfaFFFFFF);
+  static Color black = Colors.black;
+  static Color blue = Colors.blue;
 }
