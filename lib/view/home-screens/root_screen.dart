@@ -3,7 +3,6 @@ import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../provider/root_provider.dart';
 
 class RootScreen extends StatelessWidget {
@@ -43,7 +42,7 @@ class RootScreen extends StatelessWidget {
         bottomNavigationBar: Container(
           height: 70,
           color: AppColors.White,
-          padding:const  EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             for (int i = 0; i < iconsList.length; i++)
@@ -81,10 +80,12 @@ class RootScreen extends StatelessWidget {
                               size: 20,
                               color: AppColors.darkGrey,
                             ),
-                            Text(textList[i],
-                            style: const TextStyle(
-                                    color: AppColors.darkGrey,
-                                    fontFamily: "Poppins-Bold"),),
+                            Text(
+                              textList[i],
+                              style: const TextStyle(
+                                  color: AppColors.darkGrey,
+                                  fontFamily: "Poppins-Bold"),
+                            ),
                           ],
                         ))
           ]),

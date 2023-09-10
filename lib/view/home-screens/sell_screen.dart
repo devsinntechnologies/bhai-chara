@@ -1,5 +1,5 @@
 import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/text.dart';
+import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 import '../../utils/circle_avatar_row.dart';
 import '../../utils/utils.dart';
@@ -28,23 +28,16 @@ class SellScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
-                  child: CustomText(
-                    txt: 'What are you offering?',
-                    fontsize: 24,
-                    fontweight: FontWeight.w600,
-                    col: Colors.white,
-                  ),
+                  child: 
+                  Text("What are you offering?",style: AppTextStyles.textStyleBoldBodyMedium, )
+                 
                 )
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
-            child: CustomText(
-              txt: 'Categories',
-              fontsize: 24,
-              fontweight: FontWeight.w600,
-            ),
+            child: Text("Categories",style: AppTextStyles.textStyleBoldBodyMedium, )
           ),
           Column(
             children: [
@@ -91,14 +84,7 @@ class SellScreen extends StatelessWidget {
                    ontap: () {
                   push(context,const ProductScreen());
                 },),
-              //   CustomCircleAvatarRow(
-              //       link: 'assets/images/ri_motorbike-fill.png',
-              //       col: Colors.amber,
-              //       txt: 'Bike'),
-              //   CustomCircleAvatarRow(
-              //       link: 'assets/images/solar_bell-bold.png',
-              //       col: Colors.amber,
-              //       txt: 'bell'),
+             
             ],
           ),
         ]),

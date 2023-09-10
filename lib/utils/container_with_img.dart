@@ -1,8 +1,6 @@
-import 'package:bhai_chara/utils/text.dart';
-import 'package:flutter/cupertino.dart';
+
+import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CustomContainer extends StatelessWidget {
   final text, secondText, imgLink, ontap;
@@ -29,19 +27,11 @@ class CustomContainer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-            child: CustomText(
-              txt: text,
-              fontsize: 16,
-              fontweight: FontWeight.w700,
-            ),
+            child:Text(text, style: AppTextStyles.textStyleBoldBodySmall,)
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: CustomText(
-              txt: secondText,
-              fontsize: 14,
-              fontweight: FontWeight.w400,
-            ),
+            child: Text(text, style: AppTextStyles.textStyleBoldBodyXSmall,)
           ),
         ]),
       ),
