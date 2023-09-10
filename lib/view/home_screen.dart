@@ -79,30 +79,57 @@ class HomeScreen extends StatelessWidget {
                       TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
             ),
           ),
+          
+           Padding(
+            padding: const EdgeInsets.only(left: 20, bottom: 12),
+            child: CustomText(txt:'LatesBrowse Categoriest', fontsize: 24, fontweight: FontWeight.w700,),
+          ),
+
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
                 CustomCircleAvatar(
                     link: 'assets/images/fluent_animal-cat-28-filled.png',
-                    col: Colors.amber),
+                    col: Colors.amber, txt: 'Animal',),
                 CustomCircleAvatar(
                     link: 'assets/images/basil_camera-solid.png',
-                    col: Colors.amber),
+                    col: Colors.amber, txt: 'Electronic'),
                 CustomCircleAvatar(
                     link: 'assets/images/fontisto_mobile.png',
-                    col: Colors.amber),
+                    col: Colors.amber, txt: 'Mobile'),
                 CustomCircleAvatar(
                     link: 'assets/images/map_furniture-store.png',
-                    col: Colors.amber),
+                    col: Colors.amber, txt: 'Furniture'),
                 CustomCircleAvatar(
                     link: 'assets/images/ri_motorbike-fill.png',
-                    col: Colors.amber),
+                    col: Colors.amber, txt: 'Bike'),
                 CustomCircleAvatar(
                     link: 'assets/images/solar_bell-bold.png',
-                    col: Colors.amber),
+                    col: Colors.amber, txt: 'bell'),
               ],
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, bottom: 12),
+            child: CustomText(txt:'Latest', fontsize: 24, fontweight: FontWeight.w700,),
+          ),
+
+          Container(
+            margin: EdgeInsets.only(left: 20),
+            height: 110,
+            // width: 185,
+            width: 100,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.grey, width: 1),
+            ),
+            child: Column(children: [
+              Image(image: AssetImage('assets/images/Rectangle 10.png'), height: 70,),
+              CustomText(txt: 'Rs 25000', fontsize: 16, fontweight: FontWeight.w700,),
+              CustomText(txt: 'Samsung S3', fontsize: 14, fontweight: FontWeight.w400,),
+            ]),
+
           )
         ],
       ),
