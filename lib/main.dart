@@ -1,8 +1,9 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
+import 'package:bhai_chara/view/onboard_screens/onboard_screen_one.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'view/splash_screen.dart';
+import 'view/onboard_screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context)=> SplashProvider() )
       ],
-      child: MaterialApp(home: SplashScreen(),));
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: "Roboto-Regular"),
+        home: SplashScreen(),));
   }
 }
