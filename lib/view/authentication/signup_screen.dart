@@ -87,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 image: "assets/images/phone.png",
                 text: "Continue with Phone",
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

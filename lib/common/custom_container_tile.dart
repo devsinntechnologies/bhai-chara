@@ -52,8 +52,19 @@ class CustomTextFormField extends StatelessWidget {
       required this.controller,
       this.maxlength,
       required this.hint_text,
-      required this.border});
-  var controller, maxlength = null, hint_text = "", border = InputBorder.none;
+      required this.border,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.iconColor});
+  var controller,
+      maxlength = null,
+      hint_text = "",
+      border = InputBorder.none,
+      suffixIcon,
+      prefixIcon,
+      iconColor;
+  var x;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -67,7 +78,12 @@ class CustomTextFormField extends StatelessWidget {
         fontWeight: FontWeight.w400,
         color: AppColors.grey,
       ),
+      autocorrect: false,
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
+        suffixIconColor: iconColor,
+        prefixIcon: prefixIcon,
+        isDense: true,
         contentPadding: EdgeInsets.only(left: 10, bottom: 3),
         border: border,
         hintText: hint_text,

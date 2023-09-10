@@ -1,21 +1,22 @@
-import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_container_tile.dart';
+import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
-class SignupByEmail extends StatefulWidget {
-  const SignupByEmail({super.key});
+class CreatePassword extends StatefulWidget {
+  const CreatePassword({super.key});
 
   @override
-  State<SignupByEmail> createState() => _SignupByEmailState();
+  State<CreatePassword> createState() => _CreatePasswordState();
 }
 
-class _SignupByEmailState extends State<SignupByEmail> {
-  TextEditingController emailController = TextEditingController();
+class _CreatePasswordState extends State<CreatePassword> {
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmpasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size * 1;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: Container(
@@ -65,22 +66,28 @@ class _SignupByEmailState extends State<SignupByEmail> {
               height: 20,
             ),
             Container(
+              height: 50,
               width: size.width,
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.grey),
                 borderRadius: BorderRadius.circular(20),
               ),
               padding: EdgeInsets.all(10),
-              child: Row(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                      height: 30,
-                      width: size.width * .80,
-                      child: CustomTextFormField(
-                        controller: emailController,
-                        hint_text: "Email",
-                        border: InputBorder.none,
-                      )),
+                  Row(
+                    children: [
+                      Container(
+                          width: size.width * .80,
+                          child: CustomTextFormField(
+                            maxlength: 8,
+                            controller: passwordController,
+                            hint_text: "Password",
+                            border: InputBorder.none,
+                          )),
+                    ],
+                  ),
                 ],
               ),
             ),

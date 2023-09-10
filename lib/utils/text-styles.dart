@@ -75,7 +75,7 @@ class AppTextStyles {
   // ignore: non_constant_identifier_names
   static TextStyle textStyleNormalBodySmall_WhiteColor = const TextStyle(
       fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
       color: Colors.white);

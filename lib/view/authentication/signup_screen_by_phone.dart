@@ -97,7 +97,7 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                       width: 10,
                     ),
                     Container(
-                      height: 25,
+                      height: 20,
                       width: 1,
                       color: AppColors.light_black,
                     ),
@@ -113,13 +113,13 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                   ],
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               InkWell(
                 onTap: () {
                   //fuctionality
                 },
                 child: Container(
-                    height: 60,
+                    height: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: AppColors.blue),
