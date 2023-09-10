@@ -10,11 +10,11 @@ class RootScreen extends StatelessWidget {
   RootScreen({super.key});
 
   var iconsList = [
-    Icons.person,
-    Icons.scanner,
     Icons.home,
-    Icons.star,
-    Icons.settings
+    Icons.chat,
+    Icons.sell,
+    Icons.ads_click,
+    Icons.person
   ];
 
   var screensList = [
@@ -54,7 +54,7 @@ class RootScreen extends StatelessWidget {
                   }),
                   child: myProvider.selectedScreenValue == i
                       ? Container(
-                          color: Colors.transparent,
+                          color: AppColors.White,
                           // margin: EdgeInsets.only(bottom: 30),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -81,7 +81,10 @@ class RootScreen extends StatelessWidget {
                               size: 20,
                               color: AppColors.darkGrey,
                             ),
-                            Text(textList[i]),
+                            Text(textList[i],
+                            style: const TextStyle(
+                                    color: AppColors.darkGrey,
+                                    fontFamily: "Poppins-Bold"),),
                           ],
                         ))
           ]),
