@@ -73,9 +73,7 @@ class OnboardScreenThree extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 30,),
-            //  Spacer(),
                 CustomButton(() {
-               //   Navigation.push(context, OnboardScreenThree());
                 }),
                 SizedBox(height: 30,)
               ]),
