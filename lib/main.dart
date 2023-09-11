@@ -1,8 +1,11 @@
+
+
+
 import 'package:bhai_chara/provider/splash_provider.dart';
-import 'package:bhai_chara/view/review_details_screen.dart';
+import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/view/chat_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context)=> SplashProvider() )
       ],
-      child: MaterialApp(home: ReviewDetailsScreen(),));
+      child: MaterialApp(
+       // theme: ThemeData(primarySwatch: Colors.black)
+        
+        home: ChattListScreen(),));
   }
 }

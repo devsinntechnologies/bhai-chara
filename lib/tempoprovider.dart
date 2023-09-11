@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-class SplashProvider extends ChangeNotifier{
-bool isLoading = false;
-
+bool light= false;
+class  SplashProvider extends ChangeNotifier{
+  void change(bool value){
+     light = value;
+     notifyListeners();
+ }
 }
