@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
+import '../../utils/custom_buttons.dart';
 import '../../utils/text-styles.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -208,14 +209,41 @@ class ProductScreen extends StatelessWidget {
                   'Check and inspect the product properly before purchasing it.',
                   'Never pay anything in advance or transfer money before inspecting the product.',
                 ]
-                    .map(
-                      (item) => ListTile(
-                        leading: Text('•', style: AppTextStyles.textStyleBoldBodyXSmall,),
-                        title: Text(item),
-                      ),
-                    )
+                    .map((item) => Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            children: [
+                              Text('•',
+                                  style:
+                                      AppTextStyles.textStyleBoldSubTitleLarge),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(item, 
+                                overflow: TextOverflow.ellipsis,),
+                              ),
+                            ],
+                          ),
+                        ))
                     .toList(),
               ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomButton(
+                    text: 'SMS',
+                    icon: Icons.email,
+                  ),
+                  CustomButton(
+                    text: 'Call',
+                    icon: Icons.phone,
+                  ),
+                  CustomButton(
+                    text: 'Chat',
+                    icon: Icons.chat,
+                  )
+                ],
+              )
             ],
           ),
         ),
