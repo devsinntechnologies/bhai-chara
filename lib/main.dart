@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => SplashProvider())
         ],
-        child: const MaterialApp(
-          home: CreatePassword(),
+        child: MaterialApp(
+          theme: ThemeData(fontFamily: 'Roboto'),
+          home: const CreatePassword(),
         ));
   }
 }

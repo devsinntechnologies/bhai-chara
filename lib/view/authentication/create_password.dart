@@ -51,7 +51,7 @@ class _CreatePasswordState extends State<CreatePassword> {
               height: 50,
             ),
             Text(
-              "Create a Password",
+              "Create a password",
               style: AppTextStyles.textStyleBoldSubTitleLarge,
             ),
             const SizedBox(
