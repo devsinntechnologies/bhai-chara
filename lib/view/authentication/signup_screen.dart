@@ -122,7 +122,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         text: "Privacy",
                         style: AppTextStyles
                             .textStyleNormalBody_BlueColor_Underline,
-                        // Apply ellipsis to this TextSpan
                       ),
                       const TextSpan(
                         text: " ",

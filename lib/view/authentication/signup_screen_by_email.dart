@@ -73,14 +73,13 @@ class _SignupByEmailState extends State<SignupByEmail> {
               padding: EdgeInsets.all(10),
               child: Row(
                 children: [
-                  Container(
+                  CustomTextField(
+                      obsecuretext: false,
                       height: 30,
                       width: size.width * .80,
-                      child: CustomTextFormField(
-                        controller: emailController,
-                        hint_text: "Email",
-                        border: InputBorder.none,
-                      )),
+                      controller: emailController,
+                      border: InputBorder.none,
+                      hintText: "Email"),
                 ],
               ),
             ),

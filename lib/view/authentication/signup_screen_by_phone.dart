@@ -101,15 +101,14 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                       width: 1,
                       color: AppColors.light_black,
                     ),
-                    Container(
-                        height: 30,
-                        width: size.width * .50,
-                        child: CustomTextFormField(
-                          controller: numberController,
-                          hint_text: "Phone Number",
-                          border: InputBorder.none,
-                          maxlength: 10,
-                        )),
+                    CustomTextField(
+                      height: 30,
+                      width: size.width * .60,
+                      controller: numberController,
+                      border: InputBorder.none,
+                      hintText: "Phone Number",
+                      obsecuretext: false,
+                    )
                   ],
                 ),
               ),

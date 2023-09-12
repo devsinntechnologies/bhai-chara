@@ -63,7 +63,6 @@ class CustomTextFormField extends StatelessWidget {
       suffixIcon,
       prefixIcon,
       iconColor;
-  var x;
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +71,7 @@ class CustomTextFormField extends StatelessWidget {
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.start,
       maxLength: maxlength,
+      maxLines: 1,
       controller: controller,
       style: TextStyle(
         fontSize: 16,
@@ -95,5 +95,44 @@ class CustomTextFormField extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CustomTextField extends StatelessWidget {
+  CustomTextField(
+      {super.key,
+      required this.height,
+      required this.width,
+      required this.controller,
+      required this.border,
+      this.suffixIcon,
+      this.suffixIconColor,
+      required this.hintText,
+      required this.obsecuretext});
+  var height, width, controller, border, suffixIcon, suffixIconColor, hintText;
+  bool obsecuretext;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: height,
+        padding: EdgeInsets.only(left: 10),
+        width: width,
+        child: TextField(
+          obscureText: obsecuretext,
+          style: TextStyle(fontWeight: FontWeight.w400, color: AppColors.grey),
+          maxLines: 1,
+          keyboardType: TextInputType.text,
+          controller: controller,
+          decoration: InputDecoration(
+              border: border,
+              suffixIcon: suffixIcon,
+              suffixIconColor: suffixIconColor,
+              hintText: hintText,
+              hintStyle: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.grey)),
+        ));
   }
 }

@@ -12,6 +12,8 @@ class CreatePassword extends StatefulWidget {
 }
 
 class _CreatePasswordState extends State<CreatePassword> {
+  var x = 1;
+  var y = 1;
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmpasswordController = TextEditingController();
   @override
@@ -49,24 +51,34 @@ class _CreatePasswordState extends State<CreatePassword> {
               height: 50,
             ),
             Text(
-              "Enter your email",
+              "Create a Password",
               style: AppTextStyles.textStyleBoldSubTitleLarge,
             ),
             const SizedBox(
               height: 10,
             ),
             Container(
-                child: Text(
-              "We will send a confirmation code to your email",
-              maxLines: 3,
-              textAlign: TextAlign.center,
-              style: AppTextStyles.textStyleNormalBodyXSmall,
-            )),
+                child: Text.rich(
+                    maxLines: 3,
+                    textAlign: TextAlign.center,
+                    TextSpan(children: [
+                      TextSpan(
+                        text: "You are creating a password for",
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      ),
+                      TextSpan(
+                        text: " +923233342939. ",
+                        style: AppTextStyles.textStyleBoldBodyXSmall,
+                      ),
+                      TextSpan(
+                        text: "This will help you login faster next time.",
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      )
+                    ]))),
             const SizedBox(
               height: 20,
             ),
             Container(
-              height: 50,
               width: size.width,
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.grey),
@@ -78,14 +90,89 @@ class _CreatePasswordState extends State<CreatePassword> {
                 children: [
                   Row(
                     children: [
-                      Container(
-                          width: size.width * .80,
-                          child: CustomTextFormField(
-                            maxlength: 8,
-                            controller: passwordController,
-                            hint_text: "Password",
-                            border: InputBorder.none,
-                          )),
+                      CustomTextField(
+                        obsecuretext: x % 2 == 0 ? false : true,
+                        height: 30,
+                        width: size.width * .80,
+                        controller: passwordController,
+                        border: InputBorder.none,
+                        hintText: "Password",
+                        suffixIcon: x % 2 != 0
+                            ? IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    x = x + 1;
+                                  });
+                                },
+                                icon: const Icon(
+                                  Icons.visibility_off,
+                                  size: 20,
+                                ))
+                            : IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    x = x + 1;
+                                  });
+                                },
+                                icon: const Icon(
+                                  Icons.visibility,
+                                  size: 20,
+                                )),
+                        suffixIconColor: AppColors.grey,
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              width: size.width,
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: AppColors.grey,
+                    style: BorderStyle.solid,
+                    strokeAlign: BorderSide.strokeAlignInside),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      CustomTextField(
+                        obsecuretext: y % 2 == 0 ? false : true,
+                        height: 30,
+                        width: size.width * .80,
+                        controller: confirmpasswordController,
+                        border: InputBorder.none,
+                        hintText: "Confirm Password",
+                        suffixIcon: y % 2 != 0
+                            ? IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    y = y + 1;
+                                  });
+                                },
+                                icon: const Icon(
+                                  Icons.visibility_off,
+                                  size: 20,
+                                ))
+                            : IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    y = y + 1;
+                                  });
+                                },
+                                icon: const Icon(
+                                  Icons.visibility,
+                                  size: 20,
+                                )),
+                        suffixIconColor: AppColors.grey,
+                      )
                     ],
                   ),
                 ],
