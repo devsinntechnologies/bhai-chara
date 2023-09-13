@@ -218,8 +218,10 @@ class ProductScreen extends StatelessWidget {
                                       AppTextStyles.textStyleBoldSubTitleLarge),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(item, 
-                                overflow: TextOverflow.ellipsis,),
+                                child: Text(
+                                  item,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),

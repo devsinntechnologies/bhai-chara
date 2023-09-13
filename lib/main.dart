@@ -4,6 +4,7 @@ import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'view/home-screens/product_details_screen.dart';
+import 'view/settings-screens/user_preferences_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: ProductScreen(),
+          home: UserPreferencesScreen(),
         ));
   }
 }
