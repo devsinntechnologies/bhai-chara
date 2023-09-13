@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SplashProvider())
         ],
         child: MaterialApp(
+          title: "Bhai Chara",
           theme: ThemeData(fontFamily: 'Roboto'),
           home: const CreatePassword(),
         ));
