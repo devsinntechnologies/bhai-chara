@@ -2,6 +2,8 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/container.dart';
+
 class SubCategorieScreen extends StatelessWidget {
   const SubCategorieScreen({super.key});
 
@@ -10,27 +12,9 @@ class SubCategorieScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Container(
-            height: 80,
-            decoration: const BoxDecoration(color: AppColors.darkBlue),
-            child: Row(
-              children: [
-                Padding(
-                    padding: EdgeInsets.only(left: 20),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.close,
-                          size: 24,
-                          color: AppColors.White,
-                        ))),
-                Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Text("What are you offering?",
-                        style: AppTextStyles.textStyleBoldBodyMedium
-                            .copyWith(color: AppColors.White))),
-              ],
-            ),
+          CustomContainer(
+            text: 'What are you offering?',
+            iconVar: Icons.close,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
