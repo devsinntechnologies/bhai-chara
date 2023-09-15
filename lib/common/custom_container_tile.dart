@@ -53,47 +53,27 @@ class CustomTextFormField extends StatelessWidget {
       this.maxlength,
       required this.hint_text,
       required this.border,
-      this.prefixIcon,
-      this.suffixIcon,
-      this.iconColor});
+      this.alignment,
+      this.keyboard_type});
   var controller,
       maxlength = null,
+      alignment,
       hint_text = "",
       border = InputBorder.none,
-      suffixIcon,
-      prefixIcon,
-      iconColor;
+      keyboard_type;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: TextInputType.number,
-      textDirection: TextDirection.ltr,
-      textAlign: TextAlign.start,
+      keyboardType: keyboard_type,
+      textAlign: alignment,
       maxLength: maxlength,
-      maxLines: 1,
       controller: controller,
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-        color: AppColors.grey,
-      ),
-      autocorrect: false,
       decoration: InputDecoration(
-        suffixIcon: suffixIcon,
-        suffixIconColor: iconColor,
-        prefixIcon: prefixIcon,
-        isDense: true,
-        contentPadding: EdgeInsets.only(left: 10, bottom: 3),
-        border: border,
-        hintText: hint_text,
-        counterText: " ",
-        hintStyle: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: AppColors.grey,
-        ),
-      ),
+          border: border,
+          hintText: hint_text,
+          counterText: " ",
+          hintStyle: AppTextStyles.textStyleBoldXLBodySmall),
     );
   }
 }
@@ -102,8 +82,8 @@ class CustomTextFormField extends StatelessWidget {
 class CustomTextField extends StatelessWidget {
   CustomTextField(
       {super.key,
-      required this.height,
-      required this.width,
+      this.height,
+      this.width,
       required this.controller,
       required this.border,
       this.suffixIcon,

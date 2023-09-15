@@ -95,23 +95,36 @@ class _OTPScreenState extends State<OTPScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.grey),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: CustomTextField(
-                      height: 50,
-                      width: 50,
-                      controller: otp_1,
-                      border: InputBorder.none,
-                      hintText: "-",
-                      obsecuretext: false),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (int i = 1; i <= 4; i++)
+                    Container(
+                      margin: EdgeInsets.only(right: 20),
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: AppColors.grey),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: CustomTextFormField(
+                        controller: i == 1
+                            ? otp_1
+                            : i == 2
+                                ? otp_2
+                                : i == 3
+                                    ? otp_3
+                                    : otp_4,
+                        keyboard_type: TextInputType.number,
+                        maxlength: 1,
+                        alignment: TextAlign.center,
+                        border: InputBorder.none,
+                        hint_text: i == 1 ? " " : "–",
+                      ),
+                    ),
+                ],
               ),
+
               // Container(
               //   width: size.width,
               //   decoration: BoxDecoration(
