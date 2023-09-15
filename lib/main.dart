@@ -1,4 +1,5 @@
 import 'package:bhai_chara/provider/root_provider.dart';
+import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/tempoprovider.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (context) => SplashProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
+          ChangeNotifierProvider(create: (context) => visibilityProvider()),
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,

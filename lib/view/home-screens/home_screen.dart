@@ -5,6 +5,7 @@ import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../../utils/circle_avatar.dart';
 import '../../utils/container_with_img.dart';
+import '../../utils/custom_textformfield.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -51,32 +52,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                height: 56,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: AppColors.Grey, width: 1),
-                ),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.only(left: 20, top: 15, bottom: 15),
-                        child: Icon(
-                          Icons.search,
-                          size: 24,
-                        ),
-                      ),
-                      contentPadding:
-                          EdgeInsets.only(top: 20, bottom: 20, left: 20),
-                      hintText: "What are you looking for?",
-                      hintStyle:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
-                ),
-              ),
+             CustomTextFormField(),
               Padding(
                 padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
                 child: 

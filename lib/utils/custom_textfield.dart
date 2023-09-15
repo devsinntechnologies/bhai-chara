@@ -1,7 +1,9 @@
+import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 
 import 'app_colors.dart';
 
@@ -24,9 +26,17 @@ class CustomeTextField extends StatelessWidget {
                   decoration: InputDecoration(
                       hintText: hinttext,
                       border: InputBorder.none,
-                      suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.visibility),
+                      suffixIcon: Builder(
+                        builder: (context) {
+                          var pro= context.read<visibilityProvider>();
+                          return IconButton(
+                          
+                            onPressed: () {
+                              pro.toggle();
+                            },
+                            icon: pro.show==true?  Icon(Icons.visibility) : Icon(Icons.visibility_off)
+                          );
+                        }
                       )),
                 ),
               ),

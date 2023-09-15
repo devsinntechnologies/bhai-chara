@@ -1,8 +1,7 @@
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 
 class CustomCircleAvatarRow extends StatelessWidget {
   final link, col, txt, ontap;
@@ -19,7 +18,7 @@ class CustomCircleAvatarRow extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: col,
-                    child: Image(
+                     child:  Image(
                           image: AssetImage(link),
                           height: 32,
                           width: 32,
@@ -29,10 +28,10 @@ class CustomCircleAvatarRow extends StatelessWidget {
                       
                   Padding(
                     padding: const EdgeInsets.only(left: 18),
-                    child: Text(txt,style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,),),
+                    child: Text(txt,style:const  TextStyle(fontSize: 16, fontWeight: FontWeight.w500,),),
                   ),
-                  Spacer(),
-                 IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios, size: 24,))
+                  const Spacer(),
+                 IconButton(onPressed: (){}, icon:const  Icon(Icons.arrow_forward_ios, size: 24,))
                 ],
               ),
             ),
