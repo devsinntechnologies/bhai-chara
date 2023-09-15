@@ -1,5 +1,5 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
+import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: "Bhai Chara",
           theme: ThemeData(fontFamily: 'Roboto'),
-          home: const OTPScreen(),
+          home: const LocationScreen(),
         ));
   }
 }
