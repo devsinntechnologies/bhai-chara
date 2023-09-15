@@ -1,4 +1,5 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/custom_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
@@ -29,7 +30,6 @@ class _OTPScreenState extends State<OTPScreen> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -43,13 +43,13 @@ class _OTPScreenState extends State<OTPScreen> {
                     ),
                     Text(
                       "Login",
-                      style: AppTextStyles.textStyleNormalBoldBodySmall,
+                      style: AppTextStyles.textStyleNormalBodySmall,
                     ),
                   ],
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -67,17 +67,17 @@ class _OTPScreenState extends State<OTPScreen> {
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 20,
               ),
               Text(
                 "Enter Your Confirmation Code",
-                style: AppTextStyles.textStyleBoldSubTitleLarge,
+                style: AppTextStyles.textStyleBoldBodyMedium,
               ),
               const SizedBox(
                 height: 20,
               ),
               Container(
-                  width: size.width * .60,
+                  width: size.width * .80,
                   child: Text.rich(
                       maxLines: 3,
                       textAlign: TextAlign.center,
@@ -91,7 +91,6 @@ class _OTPScreenState extends State<OTPScreen> {
                           style: AppTextStyles.textStyleNormalBoldBodySmall,
                         ),
                       ]))),
-
               const SizedBox(
                 height: 20,
               ),
@@ -100,7 +99,7 @@ class _OTPScreenState extends State<OTPScreen> {
                 children: [
                   for (int i = 1; i <= 4; i++)
                     Container(
-                      margin: EdgeInsets.only(right: 20),
+                      margin: EdgeInsets.only(right: 10),
                       width: 60,
                       height: 60,
                       decoration: BoxDecoration(
@@ -119,114 +118,60 @@ class _OTPScreenState extends State<OTPScreen> {
                         maxlength: 1,
                         alignment: TextAlign.center,
                         border: InputBorder.none,
-                        hint_text: i == 1 ? " " : "–",
+                        hint_text: i == 1 ? " " : "-",
                       ),
                     ),
+                  //–
                 ],
               ),
-
-              // Container(
-              //   width: size.width,
-              //   decoration: BoxDecoration(
-              //     border: Border.all(color: AppColors.grey),
-              //     borderRadius: BorderRadius.circular(20),
-              //   ),
-              //   padding: EdgeInsets.all(10),
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.start,
-              //     children: [
-              //       Row(
-              //         children: [
-              //           CustomTextField(
-              //             obsecuretext: x % 2 == 0 ? false : true,
-              //             height: 30,
-              //             width: size.width * .80,
-              //             controller: passwordController,
-              //             border: InputBorder.none,
-              //             hintText: "Password",
-              //             suffixIcon: x % 2 != 0
-              //                 ? IconButton(
-              //                     onPressed: () {
-              //                       setState(() {
-              //                         x = x + 1;
-              //                       });
-              //                     },
-              //                     icon: const Icon(
-              //                       Icons.visibility_off,
-              //                       size: 20,
-              //                     ))
-              //                 : IconButton(
-              //                     onPressed: () {
-              //                       setState(() {
-              //                         x = x + 1;
-              //                       });
-              //                     },
-              //                     icon: const Icon(
-              //                       Icons.visibility,
-              //                       size: 20,
-              //                     )),
-              //             suffixIconColor: AppColors.grey,
-              //           )
-              //         ],
-              //       ),
-              //     ],
-              //   ),
-              // ),
-
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // Container(
-              //   width: size.width,
-              //   decoration: BoxDecoration(
-              //     border: Border.all(
-              //         color: AppColors.grey,
-              //         style: BorderStyle.solid,
-              //         strokeAlign: BorderSide.strokeAlignInside),
-              //     borderRadius: BorderRadius.circular(20),
-              //   ),
-              //   padding: EdgeInsets.all(10),
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.start,
-              //     children: [
-              //       Row(
-              //         children: [
-              //           CustomTextField(
-              //             obsecuretext: y % 2 == 0 ? false : true,
-              //             height: 30,
-              //             width: size.width * .80,
-              //             controller: confirmpasswordController,
-              //             border: InputBorder.none,
-              //             hintText: "Confirm Password",
-              //             suffixIcon: y % 2 != 0
-              //                 ? IconButton(
-              //                     onPressed: () {
-              //                       setState(() {
-              //                         y = y + 1;
-              //                       });
-              //                     },
-              //                     icon: const Icon(
-              //                       Icons.visibility_off,
-              //                       size: 20,
-              //                     ))
-              //                 : IconButton(
-              //                     onPressed: () {
-              //                       setState(() {
-              //                         y = y + 1;
-              //                       });
-              //                     },
-              //                     icon: const Icon(
-              //                       Icons.visibility,
-              //                       size: 20,
-              //                     )),
-              //             suffixIconColor: AppColors.grey,
-              //           )
-              //         ],
-              //       ),
-              //     ],
-              //   ),
-              // ),
-
+              const SizedBox(
+                height: 20,
+              ),
+              CustomText(
+                text: "RESEND CODE BY CALL IN 56",
+                fontsize: 16,
+                fontweight: FontWeight.bold,
+                decorationtext: TextDecoration.underline,
+                color: AppColors.black,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomText(
+                text: "RESEND CODE BY SMS IN 56",
+                fontsize: 16,
+                fontweight: FontWeight.bold,
+                decorationtext: TextDecoration.underline,
+                color: AppColors.black,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text.rich(
+                  textAlign: TextAlign.center,
+                  TextSpan(children: [
+                    TextSpan(
+                        text:
+                            "If you have not received the code through call, please request ",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                          letterSpacing: 0.5,
+                          fontStyle: FontStyle.normal,
+                          color: Color(0xfa808080),
+                        )),
+                    TextSpan(
+                        text: "‘Resend Code by SMS’.",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.5,
+                          fontStyle: FontStyle.normal,
+                          color: Color(0xfa1A1A1A),
+                        ))
+                  ])),
               const Spacer(),
               InkWell(
                 onTap: () {
@@ -245,9 +190,6 @@ class _OTPScreenState extends State<OTPScreen> {
                       ),
                     )),
               ),
-              const SizedBox(
-                height: 50,
-              )
             ],
           ),
         ),

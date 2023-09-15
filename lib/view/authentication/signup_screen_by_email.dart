@@ -100,9 +100,6 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     ),
                   )),
             ),
-            const SizedBox(
-              height: 50,
-            )
           ],
         ),
       ),

@@ -130,9 +130,6 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                       ),
                     )),
               ),
-              const SizedBox(
-                height: 50,
-              )
             ],
           ),
         ),

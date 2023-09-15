@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
@@ -38,6 +39,12 @@ class AppTextStyles {
       color: Colors.black);
   static TextStyle textStyleBoldXLBodySmall = const TextStyle(
       fontSize: 15,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Colors.black);
+  static TextStyle textStyleBoldLargeBody = const TextStyle(
+      fontSize: 30,
       fontWeight: FontWeight.bold,
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
@@ -84,4 +91,18 @@ class AppTextStyles {
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
       color: Colors.white);
+  static TextStyle textStyleNormalBody_GreyColor = const TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0.5,
+    fontStyle: FontStyle.normal,
+    color: Color(0xfa808080),
+  );
+  static TextStyle textStyleNormalBody_BlackColor = const TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.5,
+    fontStyle: FontStyle.normal,
+    color: Color(0xfa1A1A1A),
+  );
 }

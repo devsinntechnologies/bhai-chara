@@ -70,10 +70,11 @@ class CustomTextFormField extends StatelessWidget {
       maxLength: maxlength,
       controller: controller,
       decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(top: 10),
           border: border,
           hintText: hint_text,
           counterText: " ",
-          hintStyle: AppTextStyles.textStyleBoldXLBodySmall),
+          hintStyle: AppTextStyles.textStyleBoldBodyMedium),
     );
   }
 }
