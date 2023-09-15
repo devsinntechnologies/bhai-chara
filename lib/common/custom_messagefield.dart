@@ -8,12 +8,12 @@ Widget BuildTextMesg(String ch) {
     padding: const EdgeInsets.only(left: 10),
     child: Row(
       children: [
-        CircleAvatar(
+       const CircleAvatar(
           radius: 15,
         ),
         Container(
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+          margin:const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          padding:const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             color: AppColors.white,
@@ -39,8 +39,9 @@ Widget BuildReceiveMesg(String ch) {
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
       Container(
-        margin: EdgeInsets.only(right: 15, left: 150, top: 10, bottom: 10),
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+      //width: 200,
+        margin:const EdgeInsets.only(right: 15, left: 150, top: 10, bottom: 10),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: AppColors.skyblue,

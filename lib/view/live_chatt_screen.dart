@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../common/custom_messagefield.dart';
 
-class LiveChatt extends StatelessWidget {
-  const LiveChatt({super.key});
+class LiveChattScreen extends StatelessWidget {
+  const LiveChattScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +14,21 @@ class LiveChatt extends StatelessWidget {
         backgroundColor: AppColors.black,
         foregroundColor: AppColors.white,
         leading: const Icon(Icons.arrow_back_ios),
+        elevation: 0,
+       leadingWidth: 48,
         actions: const [
-          Icon(Icons.phone_enabled_outlined),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(Icons.phone),
+          ),
         ],
         title: Row(
           children: [
            const  CircleAvatar(
-              radius: 15,
+              radius: 20,
             ),
            const  SizedBox(
-              width: 7,
+              width: 15,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +46,7 @@ class LiveChatt extends StatelessWidget {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [Colors.brown, Colors.white])),
+          gradient: LinearGradient(colors: [ Color.fromARGB(255, 220, 236, 250),Colors.white],begin: Alignment.bottomLeft),),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Stack(children: [
@@ -50,21 +55,12 @@ class LiveChatt extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 BuildTextMesg("Hi, how are you doing today"),
-                BuildReceiveMesg("I'm good , How are you doing today"),
                 BuildTextMesg("I'm good too, what's up?"),
                 BuildReceiveMesg("Nothing speciall"),
                 BuildReceiveMesg("What's going on?"),
                 BuildTextMesg("Working "),
                 BuildReceiveMesg("That's good"),
-                BuildTextMesg("Hi, how are u"),
-                BuildTextMesg("Hi, how are you doing today"),
-                BuildReceiveMesg("I'm good , How are you doing today"),
-                BuildTextMesg("I'm good too, what's up?"),
-                BuildReceiveMesg("Nothing speciall"),
-                BuildReceiveMesg("What's going on?"),
-                BuildTextMesg("Working "),
-                BuildReceiveMesg("That's good"),
-                BuildTextMesg("Hi, how are u"),
+                
               ],
             ),
           ),
@@ -94,10 +90,7 @@ class LiveChatt extends StatelessWidget {
                           onPressed: () {},
                           icon: const Icon(Icons.attach_file),
                         ),
-                        // IconButton(
-                        //   onPressed: () {},
-                        //   icon: Icon(Icons.emoji_emotions),
-                        // ),
+                      
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [

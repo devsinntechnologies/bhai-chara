@@ -12,7 +12,7 @@ class ChattListScreen extends StatelessWidget {
       appBar: AppBar(
           backgroundColor:AppColors.black,
           
-        title:  Text("Chats"),
+        title: const Text("Chats"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),

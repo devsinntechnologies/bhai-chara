@@ -1,21 +1,17 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../utils/app_colors.dart';
+import '../../utils/text-styles.dart';
 import '../common/custom_button.dart';
-import '../provider/splash_provider.dart';
-import '../utils/app_colors.dart';
-import '../utils/text-styles.dart';
+import '../tempoprovider.dart';
+import 'dialogBox.dart';
 
-class ReviewDetailsScreen extends StatefulWidget {
-  const ReviewDetailsScreen({super.key});
+class ReviewScreen extends StatelessWidget {
+  const ReviewScreen({super.key});
 
-  @override
-  State<ReviewDetailsScreen> createState() => _ReviewDetailsScreenState();
-}
-
-class _ReviewDetailsScreenState extends State<ReviewDetailsScreen> {
-
-bool light = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,91 +26,80 @@ bool light = false;
           color: AppColors.white,
         ),
       ),
-      body: Builder(
-        builder: (context) {
-          var provider = context.watch<SplashProvider>();
-         
-          return Padding(
-              padding: const EdgeInsets.all(15),
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: Row(
-                    children: [
-                      const CircleAvatar(
-                        radius: 40,
-                      ),
-                      const SizedBox(width: 30),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Your name",
-                            style: AppTextStyles.textStyleNormalBodyXSmall,
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            height: 50,
-                            child: TextFormField(
-                                decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15)),
-                              hintText: "Type here",
-                              hintStyle: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w400),
-                            )),
-                          ),
-                        ],
-                      )
-                    ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10),
+            child: Row(children: [
+              const CircleAvatar(
+                radius: 40,
+              ),
+              const SizedBox(width: 30),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Your name",
+                    style: AppTextStyles.textStyleNormalBodyXSmall,
                   ),
-                ),
-                Row(children: [
-                  Text("Verified phone number",
-                      style: AppTextStyles.textStyleBoldBodyXSmall),
-                  Spacer(),
-                  Icon(Icons.done_outlined),
-                  SizedBox(
-                    width: 8,
+                  const SizedBox(
+                    height: 5,
                   ),
-                  Text("0311-6743657",
-                      style: AppTextStyles.textStyleBoldBodyXSmall),
-                ]),
-            Row(children: [
-              Text("Show my phone number on ads",
-                  style: AppTextStyles.textStyleBoldBodyXSmall),
-              Spacer(),
-              
-            //  Consumer<SplashProvider>(
-            //   builder: (context, provider, child) {
-            //     return Switch(
-            //       value: provider.light,
-            //       onChanged: (bool value) {
-            //         provider.change(value);
-            //       },
-            //     );
-            //   },
-            // ),
-Switch(value: light, onChanged:(bool value){
-light = !light;
-setState(() {
-  
-});
-})
-
-
-
+                  Container(
+                    width: MediaQuery.of(context).size.width - 150,
+                    height: 50,
+                    child: TextFormField(
+                        decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      hintText: "Type here",
+                      hintStyle: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w400),
+                    )),
+                  ),
+                ],
+              )
             ]),
-              
-                 
-                Spacer(),
-                CustomButton(() {}, "Post Now")
-              ]));
-        }
+          ),
+          Row(children: [
+            Text("Verified phone number",
+                style: AppTextStyles.textStyleBoldBodyXSmall),
+            Spacer(),
+            Icon(Icons.done_outlined),
+            SizedBox(
+              width: 8,
+            ),
+            Text("0311-6743657", style: AppTextStyles.textStyleBoldBodyXSmall),
+          ]),
+          Row(children: [
+            Text("Show my phone number on ads",
+                style: AppTextStyles.textStyleBoldBodyXSmall),
+            // ),
+            Spacer(),
+            Consumer<SwitchProvider>(
+              builder: (context, pro, _) {
+                return Switch(
+                  value: pro.on,
+                  onChanged: (newValue) {
+                    pro.toggle(); // Call the toggle method when the switch is changed
+                  },
+                );
+              },
+            ),
+          ]),
+          Spacer(),
+          CustomButton(() {
+            showDialog(
+                context: context,
+                builder: (
+                  context,
+                ) {
+                  return DialogBox();
+                });
+          }, "Post Now"),
+        ]),
       ),
     );
   }
