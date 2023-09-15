@@ -11,7 +11,7 @@ import 'view/home-screens/product_details_screen.dart';
 import 'view/home-screens/sell_screen.dart';
 import 'view/home-screens/sell_sub_categorie_screen.dart';
 import 'view/settings-screens/create_pasward_screen.dart';
-import 'view/settings-screens/review_screen.dart';
+
 import 'view/settings-screens/user_preferences_screen.dart';
 
 void main() {
@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
+          theme: ThemeData(fontFamily: 'Roboto-light.ttf'),
           home: RootScreen(),
         ));
   }
