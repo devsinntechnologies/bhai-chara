@@ -219,18 +219,14 @@ class ProductScreen extends StatelessWidget {
                             
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-<<<<<<< HEAD
+
                                 Padding(
         padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(radius: 3,backgroundColor: AppColors.black,),
       ),
-                               Padding(
-=======
-                              Text('•',
-                                  style:
-                                      AppTextStyles.textStyleBoldSubTitleLarge.copyWith()),
+                             
                               Padding(
->>>>>>> f94de68e8167e7d283df36fb9609bae15d40cd29
+
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: SizedBox(
                                   width: 220,

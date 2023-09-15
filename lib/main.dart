@@ -34,12 +34,11 @@ class MyApp extends StatelessWidget {
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
+
           home: ProductScreen(),
-=======
+
           theme: ThemeData(fontFamily: 'Roboto-light.ttf'),
-          home: RootScreen(),
->>>>>>> f94de68e8167e7d283df36fb9609bae15d40cd29
+        
         ));
   }
 }
