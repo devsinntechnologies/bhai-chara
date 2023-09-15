@@ -2,13 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/visibility_provider.dart';
 import '../../utils/container.dart';
 import '../../utils/custom_button_create_password.dart';
 import '../../utils/custom_textfield.dart';
 
 class CreatePasswardScreen extends StatelessWidget {
-   CreatePasswardScreen ({super.key});
+  CreatePasswardScreen({Key? key});
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
+  final visibilityProvider passwordVisibilityProvider = visibilityProvider();
+  final visibilityProvider confirmPasswordVisibilityProvider =
+      visibilityProvider();
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +26,21 @@ class CreatePasswardScreen extends StatelessWidget {
             text: 'User Preferences',
             iconVar: Icons.arrow_back_ios,
           ),
-          CustomeTextField(
-            hinttext: 'Passward',
+          ChangeNotifierProvider(
+            create: (_) => visibilityProvider(),
+            child: CustomeTextField(
+              hinttext: 'Password',
+              controller: passwordController,
+            ),
           ),
-          CustomeTextField(
-            hinttext: 'confirm Passward',
+          ChangeNotifierProvider(
+            create: (_) => visibilityProvider(),
+            child: CustomeTextField(
+              hinttext: 'Confirm Password',
+              controller: confirmPasswordController,
+            ),
           ),
-          CustomButtonCreatePassword(),
+          CustomButtonCreatePassword(text: "Create Password",),
         ],
       ),
     );

@@ -1,27 +1,16 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
 
-import '../../utils/app_colors.dart';
+import '../../provider/slider_provider.dart';
 import '../../utils/container.dart';
 import '../../utils/text-styles.dart';
 
-class UserPreferencesScreen extends StatefulWidget {
+class UserPreferencesScreen extends StatelessWidget {
   UserPreferencesScreen({super.key});
-
-  @override
-  State<UserPreferencesScreen> createState() => _UserPreferencesScreenState();
-}
-
-class _UserPreferencesScreenState extends State<UserPreferencesScreen> {
-  double _fontSize = 16.0;
-
-  // Function to update font size
-  void _updateFontSize(double value) {
-    setState(() {
-      _fontSize = value;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +22,58 @@ class _UserPreferencesScreenState extends State<UserPreferencesScreen> {
             text: 'User Preferences',
             iconVar: Icons.arrow_back_ios,
           ),
-          Text(
-            'Font size',
-            style: AppTextStyles.textStyleBoldBodyMedium,
+          Padding(
+            padding: EdgeInsets.only(left: 20, top: 35),
+            child: Text(
+              'Font size',
+              style: AppTextStyles.textStyleBoldBodyMedium,
+            ),
           ),
-          Slider(
-            value: _fontSize,
-            min: 10.0,
-            max: 30.0,
-            onChanged: _updateFontSize,
-          ),
+
+          Padding(
+            padding: EdgeInsets.only(
+              left: 20,
+            ),
+            child: Row(
+             // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'A',
+                  style: AppTextStyles.textStyleBoldBodySmall,
+                ),
+                Consumer<SliderProvider>(
+                  builder: (context, sliderProvider, _) {
+                    return Slider(
+                      value: sliderProvider.fontSize,
+                      min: 10.0,
+                      max: 30.0,
+                      onChanged: (value) {
+                        sliderProvider.updateFontSize(value);
+                      },
+                    );
+                  },
+                ),
+                Text(
+                  'A',
+                  style: AppTextStyles.textStyleBoldBodyMedium,
+                ),
+              ],
+            ),
+          )
+
+          //  Builder(
+          //   builder: (context) {
+          //     final sliderProvider = context.read<SliderProvider>();
+          //     return Slider(
+          //       value: sliderProvider.fontSize,
+          //       min: 10.0,
+          //       max: 30.0,
+          //       onChanged: (value) {
+          //         sliderProvider.updateFontSize(value);
+          //       },
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

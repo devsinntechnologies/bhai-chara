@@ -4,7 +4,8 @@ import 'app_colors.dart';
 import 'text-styles.dart';
 
 class CustomButtonCreatePassword extends StatelessWidget {
-   CustomButtonCreatePassword({super.key});
+  var text;
+   CustomButtonCreatePassword({required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +18,12 @@ class CustomButtonCreatePassword extends StatelessWidget {
           color: AppColors.blue,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: AppColors.blue)),
-      child: Text(
-        "Create Password",
-        style: AppTextStyles.textStyleBoldBodySmall
-            .copyWith(color: AppColors.White),
+      child: Center(
+        child: Text(
+          text,
+          style: AppTextStyles.textStyleBoldBodySmall
+              .copyWith(color: AppColors.White),
+        ),
       ),
     );
   }

@@ -5,7 +5,7 @@ class visibilityProvider extends ChangeNotifier{
 
   toggle()
   {
-    notifyListeners();
+    
    show= !show;
    notifyListeners();
   }

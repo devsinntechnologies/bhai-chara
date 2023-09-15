@@ -31,13 +31,13 @@ class ProductScreen extends StatelessWidget {
                     children: [
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_back_ios,
                             color: AppColors.White,
                           )),
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.forward,
                             color: AppColors.White,
                           ))
@@ -66,7 +66,7 @@ class ProductScreen extends StatelessWidget {
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on_outlined,
                       size: 30,
                     ),
@@ -77,7 +77,7 @@ class ProductScreen extends StatelessWidget {
                           style: AppTextStyles.textStyleBoldBodySmall.copyWith(
                               fontSize: 16, fontWeight: FontWeight.w400),
                         )),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       '18/08/2023',
                       style: AppTextStyles.textStyleBoldBodySmall,
@@ -149,9 +149,9 @@ class ProductScreen extends StatelessWidget {
                       .copyWith(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                leading: CircleAvatar(
+                leading: const CircleAvatar(
                   backgroundImage: AssetImage('assets/images/Rectangle 10.png'),
                 ),
                 title: Text('Laiba Azam',
@@ -162,7 +162,7 @@ class ProductScreen extends StatelessWidget {
                   style: AppTextStyles.textStyleNormalBodySmall,
                 ),
               ),
-              Divider(),
+              const Divider(),
               Padding(
                 padding: const EdgeInsets.only(left: 20, top: 25),
                 child: Text(
@@ -176,7 +176,7 @@ class ProductScreen extends StatelessWidget {
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on_outlined,
                       size: 30,
                     ),
@@ -192,7 +192,8 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 190,
-                child: Image(image: AssetImage('assets/images/HILmr (1).png')),
+                child: const Image(
+                    image: AssetImage('assets/images/HILmr (1).png')),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20),

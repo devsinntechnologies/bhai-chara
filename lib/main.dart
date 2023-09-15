@@ -1,4 +1,5 @@
 import 'package:bhai_chara/provider/root_provider.dart';
+import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/tempoprovider.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'view/home-screens/product_details_screen.dart';
 import 'view/settings-screens/create_pasward_screen.dart';
+import 'view/settings-screens/review_screen.dart';
 import 'view/settings-screens/user_preferences_screen.dart';
 
 void main() {
@@ -22,10 +24,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SplashProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
           ChangeNotifierProvider(create: (context) => visibilityProvider()),
+          ChangeNotifierProvider(create: (context) => SliderProvider()),
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: CreatePasswardScreen(),
+          home: ReviewScreen(),
         ));
   }
 }
