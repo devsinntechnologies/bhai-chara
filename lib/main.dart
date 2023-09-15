@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: RootScreen(),
+          home: ProductScreen(),
         ));
   }
 }

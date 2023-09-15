@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
 import '../../utils/custom_buttons.dart';
+import '../../utils/custom_list.dart';
 import '../../utils/text-styles.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -18,11 +19,12 @@ class ProductScreen extends StatelessWidget {
               Stack(children: [
                 Container(
                   height: 300,
+                  width: double.infinity,
                   child: Image(
                     image: AssetImage('assets/images/Rectangle 16.png'),
                     fit: BoxFit.cover,
                   ),
-                  decoration: BoxDecoration(),
+                 
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -80,7 +82,7 @@ class ProductScreen extends StatelessWidget {
                     const Spacer(),
                     Text(
                       '18/08/2023',
-                      style: AppTextStyles.textStyleBoldBodySmall,
+                      style: AppTextStyles.textStyleNormalBodyXSmall,
                     ),
                   ],
                 ),
@@ -89,11 +91,11 @@ class ProductScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 25),
                 child: Text(
                   'Details',
-                  style: AppTextStyles.textStyleBoldBodyMedium,
+                  style: AppTextStyles.textStyleBoldBodySmall,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 25),
+                padding: const EdgeInsets.only(left: 20, top: 20),
                 child: Row(
                   children: [
                     Column(
@@ -138,7 +140,7 @@ class ProductScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 25),
                 child: Text(
                   'Description',
-                  style: AppTextStyles.textStyleBoldBodyMedium,
+                  style: AppTextStyles.textStyleBoldBodySmall,
                 ),
               ),
               Padding(
@@ -155,7 +157,7 @@ class ProductScreen extends StatelessWidget {
                   backgroundImage: AssetImage('assets/images/Rectangle 10.png'),
                 ),
                 title: Text('Laiba Azam',
-                    style: AppTextStyles.textStyleBoldBodyMedium
+                    style: AppTextStyles.textStyleBoldBodySmall
                         .copyWith(fontSize: 20, fontWeight: FontWeight.w600)),
                 subtitle: Text(
                   'Member since Jul 2018',
@@ -167,11 +169,11 @@ class ProductScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20, top: 25),
                 child: Text(
                   'Location',
-                  style: AppTextStyles.textStyleBoldBodyMedium,
+                  style: AppTextStyles.textStyleBoldBodySmall,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 25, right: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical:25 ),
                 child: Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -192,13 +194,14 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 190,
+                width: double.infinity,
                 child: const Image(
                     image: AssetImage('assets/images/HILmr (1).png')),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(top: 20,left: 8),
                 child: Text('Your safety matters to us!',
-                    style: AppTextStyles.textStyleBoldBodyMedium
+                    style: AppTextStyles.textStyleBoldBodySmall
                         .copyWith(fontSize: 20, fontWeight: FontWeight.w600)),
               ),
               // Wrap the UnorderedList with a ListView
@@ -213,12 +216,14 @@ class ProductScreen extends StatelessWidget {
                     .map((item) => Padding(
                           padding: const EdgeInsets.only(left: 20, top: 20),
                           child: Row(
+                            
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('•',
-                                  style:
-                                      AppTextStyles.textStyleBoldSubTitleLarge.copyWith(fontFamily: "Roboto-Light")),
-                              Padding(
+                                Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: CircleAvatar(radius: 3,backgroundColor: AppColors.black,),
+      ),
+                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: SizedBox(
                                   width: 220,
@@ -235,8 +240,14 @@ class ProductScreen extends StatelessWidget {
                     .toList(),
               ),
 
+    // CustomList(text: "Only meet in public / crowded places"),
+    // CustomList(text: "Never go alone to meet a buyer / seller, always take someone with you."),
+    // CustomList(text: "Check and inspect the product properly before purchasing it."),
+    // CustomList(text: "Never pay anything in advance or transfer money before inspecting the product."),
+            
+            
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomButton(
                     text: 'SMS',
