@@ -5,6 +5,7 @@ import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/tempoprovider.dart';
 import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
+import 'package:bhai_chara/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'view/home-screens/product_details_screen.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(fontFamily: 'Roboto-light.ttf'),
-          home: RootScreen(),
+          home: SplashScreen(),
         ));
   }
 }
