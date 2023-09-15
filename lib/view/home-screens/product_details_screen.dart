@@ -217,7 +217,7 @@ class ProductScreen extends StatelessWidget {
                             children: [
                               Text('•',
                                   style:
-                                      AppTextStyles.textStyleBoldSubTitleLarge.copyWith(fontFamily: "Roboto-Light")),
+                                      AppTextStyles.textStyleBoldSubTitleLarge.copyWith()),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: SizedBox(
