@@ -27,11 +27,11 @@ class CustomContainer extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-            child:Text(text, style: AppTextStyles.textStyleBoldBodySmall,)
+            child:Text(text, style: AppTextStyles.textStyleBoldBodySmall.copyWith(fontFamily: 'Roboto-Light'),)
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Text(text, style: AppTextStyles.textStyleBoldBodyXSmall,)
+            child: Text(text, style: AppTextStyles.textStyleBoldBodyXSmall.copyWith(fontFamily: 'Roboto-Light'),)
           ),
         ]),
       ),

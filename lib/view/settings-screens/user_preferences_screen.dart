@@ -26,40 +26,42 @@ class UserPreferencesScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: 20, top: 35),
             child: Text(
               'Font size',
-              style: AppTextStyles.textStyleBoldBodyMedium,
+              style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
             ),
           ),
 
           Padding(
             padding: EdgeInsets.only(
-              left: 20,
+              left: 20,right: 20
             ),
             child: Row(
-             // mainAxisAlignment: MainAxisAlignment.center,
+             
               children: [
                 Text(
                   'A',
-                  style: AppTextStyles.textStyleBoldBodySmall,
+                  style: AppTextStyles.textStyleBoldBodySmall.copyWith(fontFamily: 'Roboto-Light'),
                 ),
-                Consumer<SliderProvider>(
-                  builder: (context, sliderProvider, _) {
-                    return Slider(
-                      value: sliderProvider.fontSize,
-                      min: 10.0,
-                      max: 30.0,
-                      onChanged: (value) {
-                        sliderProvider.updateFontSize(value);
-                      },
-                    );
-                  },
+                Expanded(
+                  child: Consumer<SliderProvider>(
+                    builder: (context, sliderProvider, _) {
+                      return Slider(
+                        value: sliderProvider.fontSize,
+                        min: 10.0,
+                        max: 30.0,
+                        onChanged: (value) {
+                          sliderProvider.updateFontSize(value);
+                        },
+                      );
+                    },
+                  ),
                 ),
                 Text(
                   'A',
-                  style: AppTextStyles.textStyleBoldBodyMedium,
+                  style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
                 ),
               ],
             ),
-          )
+          ),
 
           //  Builder(
           //   builder: (context) {
@@ -74,6 +76,8 @@ class UserPreferencesScreen extends StatelessWidget {
           //     );
           //   },
           // ),
+
+       
         ],
       ),
     );

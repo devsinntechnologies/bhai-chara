@@ -35,7 +35,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                           EdgeInsets.only(top: 20, bottom: 20, left: 20),
                       hintText: "What are you looking for?",
                       hintStyle:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400, fontFamily: 'Roboto-Light')),
                 ),
               );
   }

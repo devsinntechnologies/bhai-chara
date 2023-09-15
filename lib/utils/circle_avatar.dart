@@ -24,9 +24,9 @@ class CustomCircleAvatar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(
               txt,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 16,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w500, fontFamily: 'Roboto-Light'
               ),
             ),
           ),

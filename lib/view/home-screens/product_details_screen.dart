@@ -211,17 +211,22 @@ class ProductScreen extends StatelessWidget {
                   'Never pay anything in advance or transfer money before inspecting the product.',
                 ]
                     .map((item) => Padding(
-                          padding: const EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(left: 20, top: 20),
                           child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('•',
                                   style:
-                                      AppTextStyles.textStyleBoldSubTitleLarge),
+                                      AppTextStyles.textStyleBoldSubTitleLarge.copyWith(fontFamily: "Roboto-Light")),
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  item,
-                                  overflow: TextOverflow.ellipsis,
+                                child: SizedBox(
+                                  width: 220,
+                                  child: Text(
+                                    item,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
                               ),
                             ],

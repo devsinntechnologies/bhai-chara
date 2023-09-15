@@ -22,13 +22,13 @@ class SellScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
               child: Text(
                 "Categories",
-                style: AppTextStyles.textStyleBoldBodyMedium,
+                style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
               )),
           Column(
             children: [
               CustomCircleAvatarRow(
                 link: 'assets/images/fluent_animal-cat-28-filled.png',
-                col: Colors.amber,
+                col: AppColors.yellow,
                 txt: 'Animal',
                 ontap: () {
                   push(context, const ProductScreen());
@@ -36,7 +36,7 @@ class SellScreen extends StatelessWidget {
               ),
               CustomCircleAvatarRow(
                 link: 'assets/images/basil_camera-solid.png',
-                col: Colors.amber,
+                col: AppColors.oange,
                 txt: 'Electronic',
                 ontap: () {
                   push(context, const ProductScreen());
@@ -44,7 +44,7 @@ class SellScreen extends StatelessWidget {
               ),
               CustomCircleAvatarRow(
                 link: 'assets/images/fontisto_mobile.png',
-                col: Colors.amber,
+                col: AppColors.Green,
                 txt: 'Mobile',
                 ontap: () {
                   push(context, const ProductScreen());
@@ -52,7 +52,7 @@ class SellScreen extends StatelessWidget {
               ),
               CustomCircleAvatarRow(
                 link: 'assets/images/map_furniture-store.png',
-                col: Colors.amber,
+               col: AppColors.pink,
                 txt: 'Furniture',
                 ontap: () {
                   push(context, const ProductScreen());
@@ -60,7 +60,7 @@ class SellScreen extends StatelessWidget {
               ),
               CustomCircleAvatarRow(
                 link: 'assets/images/ri_motorbike-fill.png',
-                col: Colors.amber,
+                col: AppColors.yellow,
                 txt: 'Bike',
                 ontap: () {
                   push(context, const ProductScreen());
@@ -68,7 +68,7 @@ class SellScreen extends StatelessWidget {
               ),
               CustomCircleAvatarRow(
                 link: 'assets/images/solar_bell-bold.png',
-                col: Colors.amber,
+                col: AppColors.blue,
                 txt: 'bell',
                 ontap: () {
                   push(context, const ProductScreen());

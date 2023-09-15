@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
             ),
             Text(
               text,
-              style: AppTextStyles.textStyleBoldBodyMedium,
+              style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
             )
           ],
         ),

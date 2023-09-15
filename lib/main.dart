@@ -3,10 +3,13 @@ import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/tempoprovider.dart';
+import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'view/home-screens/product_details_screen.dart';
+import 'view/home-screens/sell_screen.dart';
+import 'view/home-screens/sell_sub_categorie_screen.dart';
 import 'view/settings-screens/create_pasward_screen.dart';
 import 'view/settings-screens/review_screen.dart';
 import 'view/settings-screens/user_preferences_screen.dart';
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
         ],
         child:  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: ReviewScreen(),
+          home: ProductScreen(),
         ));
   }
 }

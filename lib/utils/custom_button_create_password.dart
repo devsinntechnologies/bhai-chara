@@ -22,7 +22,7 @@ class CustomButtonCreatePassword extends StatelessWidget {
         child: Text(
           text,
           style: AppTextStyles.textStyleBoldBodySmall
-              .copyWith(color: AppColors.White),
+              .copyWith(color: AppColors.White, fontFamily: 'Roboto-Light'),
         ),
       ),
     );
