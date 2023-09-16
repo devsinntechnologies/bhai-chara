@@ -18,7 +18,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
    startTimer() async {
-    var _duration = Duration(seconds: 5);
+    var _duration = Duration(seconds: 55);
     return Timer(_duration, Navigation.pushUntil(context, OnboardScreenOne()));
   }
 
