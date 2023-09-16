@@ -25,7 +25,6 @@ class ProductScreen extends StatelessWidget {
                     image: AssetImage('assets/images/Rectangle 16.png'),
                     fit: BoxFit.cover,
                   ),
-                 
                 ),
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -176,7 +175,8 @@ class ProductScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20,vertical:25 ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
                 child: Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +202,7 @@ class ProductScreen extends StatelessWidget {
                     image: AssetImage('assets/images/HILmr (1).png')),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20,left: 8),
+                padding: const EdgeInsets.only(top: 20, left: 8),
                 child: Text('Your safety matters to us!',
                     style: AppTextStyles.textStyleBoldBodySmall
                         .copyWith(fontSize: 20, fontWeight: FontWeight.w600)),
@@ -219,22 +219,22 @@ class ProductScreen extends StatelessWidget {
                     .map((item) => Padding(
                           padding: const EdgeInsets.only(left: 20, top: 20),
                           child: Row(
-                            
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-
-                                Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(radius: 3,backgroundColor: AppColors.black,),
-      ),
-                             
                               Padding(
-
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  radius: 3,
+                                  backgroundColor: AppColors.black,
+                                ),
+                              ),
+                              Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: SizedBox(
-                                  width: 220,
+                                  width: 250,
                                   child: Text(
                                     item,
+                                    softWrap: true,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -246,12 +246,11 @@ class ProductScreen extends StatelessWidget {
                     .toList(),
               ),
 
-    // CustomList(text: "Only meet in public / crowded places"),
-    // CustomList(text: "Never go alone to meet a buyer / seller, always take someone with you."),
-    // CustomList(text: "Check and inspect the product properly before purchasing it."),
-    // CustomList(text: "Never pay anything in advance or transfer money before inspecting the product."),
-            
-            
+              // CustomList(text: "Only meet in public / crowded places"),
+              // CustomList(text: "Never go alone to meet a buyer / seller, always take someone with you."),
+              // CustomList(text: "Check and inspect the product properly before purchasing it."),
+              // CustomList(text: "Never pay anything in advance or transfer money before inspecting the product."),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
