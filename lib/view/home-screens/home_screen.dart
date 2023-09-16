@@ -56,7 +56,8 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
                 child: 
-                Text('LatesBrowse Categoriest', style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),)
+                Text('LatesBrowse Categoriest', style: AppTextStyles.textStyleBoldBodyMedium ,
+                )
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -135,7 +136,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
-                child: Text('Sales', style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: "Roboto-Light"),)
+                child: Text('Sales', style: AppTextStyles.textStyleBoldBodyMedium,)
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,

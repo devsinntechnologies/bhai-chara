@@ -17,7 +17,7 @@ class CustomContainer extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 20),
             child: IconButton(
               onPressed: () {
                 pop(context);
@@ -33,7 +33,7 @@ class CustomContainer extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20),
               child: Text(text,
                   style: AppTextStyles.textStyleBoldBodyMedium.copyWith(
-                    color: AppColors.White, fontFamily: 'Roboto-Light'
+                    color: AppColors.White
                   )))
         ],
       ),

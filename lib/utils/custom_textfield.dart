@@ -20,7 +20,7 @@ class CustomeTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final pro = context.watch<visibilityProvider>();
     return Container(
-      margin: EdgeInsets.only(left: 24, right: 24, top: 20),
+      margin:const EdgeInsets.only(left: 24, right: 24, top: 20),
       height: 56,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

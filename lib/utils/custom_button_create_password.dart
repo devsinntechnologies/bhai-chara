@@ -10,8 +10,8 @@ class CustomButtonCreatePassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 24, right: 24, top: 30),
-      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+      margin: const EdgeInsets.only(left: 24, right: 24, top: 30),
+      padding:const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
       height: 56,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -22,7 +22,7 @@ class CustomButtonCreatePassword extends StatelessWidget {
         child: Text(
           text,
           style: AppTextStyles.textStyleBoldBodySmall
-              .copyWith(color: AppColors.White, fontFamily: 'Roboto-Light'),
+              .copyWith(color: AppColors.White, ),
         ),
       ),
     );

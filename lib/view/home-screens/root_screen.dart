@@ -67,7 +67,7 @@ class RootScreen extends StatelessWidget {
                                 textList[i],
                                 style: const TextStyle(
                                     color: AppColors.blue,
-                                    fontFamily: "Roboto-Light"),
+                                    ),
                               ),
                             ],
                           ),
@@ -84,7 +84,7 @@ class RootScreen extends StatelessWidget {
                               textList[i],
                               style: const TextStyle(
                                   color: AppColors.darkGrey,
-                                  fontFamily: "Roboto-Light"),
+                                ),
                             ),
                           ],
                         ))

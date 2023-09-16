@@ -30,7 +30,7 @@ class UserPreferencesScreen extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 20,right: 20
             ),
             child: Row(

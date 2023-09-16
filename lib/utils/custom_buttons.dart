@@ -27,10 +27,10 @@ class CustomButton extends StatelessWidget {
               color: AppColors.darkBlue,
               size: 20,
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Text(
               text,
-              style: AppTextStyles.textStyleBoldBodySmall.copyWith(fontFamily: 'Roboto-Light'),
+              style: AppTextStyles.textStyleBoldBodySmall,
             )
           ],
         ),

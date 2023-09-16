@@ -22,7 +22,7 @@ class SellScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, top: 15, bottom: 15),
               child: Text(
                 "Categories",
-                style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
+                style: AppTextStyles.textStyleBoldBodyMedium,
               )),
           Column(
             children: [
