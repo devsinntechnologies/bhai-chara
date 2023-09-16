@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: RootScreen(),
-          theme: ThemeData(fontFamily: 'Roboto-light.ttf'),
+          theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
 }
