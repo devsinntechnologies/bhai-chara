@@ -1,10 +1,5 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
-import 'package:bhai_chara/view/authentication/create_password.dart';
-import 'package:bhai_chara/view/authentication/location.dart';
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
-import 'package:bhai_chara/view/authentication/signup_screen.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
+import 'package:bhai_chara/view/account/account_screen.dart';
 import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +7,11 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
   runApp(const MyApp());
 }
 
@@ -33,7 +27,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: "Bhai Chara",
           theme: ThemeData(fontFamily: 'Roboto'),
-          home: const SignUpScreen(),
+          home: const AccountScreen(),
         ));
   }
 }

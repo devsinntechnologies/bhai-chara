@@ -1,3 +1,4 @@
+import 'package:bhai_chara/common/custom_appbar.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
@@ -25,23 +26,15 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80.0),
-        child: AppBar(
-          toolbarHeight: 100,
-          backgroundColor: AppColors.appbar,
-          title: CustomText(
-            text: "Include some details",
-            fontsize: 26,
-            fontweight: FontWeight.normal,
-            color: AppColors.primary,
-          ),
-          leading: Icon(
-            Icons.close,
-            size: 30,
-            color: AppColors.primary,
-          ),
-        ),
-      ),
+          preferredSize: Size.fromHeight(80.0),
+          child: CustomAppBar(
+            leading_widget: Icon(
+              Icons.close,
+              size: 30,
+              color: AppColors.primary,
+            ),
+            title_text: "Include some details",
+          )),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -149,7 +142,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 title_style: AppTextStyles.textStyleTitleBodySmall,
                 subtitle_text: "None",
                 subtitle_style: AppTextStyles.textStyleSubtitleBody,
-                trailing_widget: Icon(
+                trailing_widget: const Icon(
                   Icons.arrow_forward_ios,
                   color: Color(0xfa000000),
                   size: 20,
@@ -224,7 +217,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 title_style: AppTextStyles.textStyleTitleBodySmall,
                 subtitle_text: "Choose",
                 subtitle_style: AppTextStyles.textStyleSubtitleBody,
-                trailing_widget: Icon(
+                trailing_widget: const Icon(
                   Icons.arrow_forward_ios,
                   color: Color(0xfa000000),
                   size: 20,
@@ -300,7 +293,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       ),
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],
