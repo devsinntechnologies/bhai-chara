@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "952736500858",
+    "project_id": "bhai-chr",
+    "storage_bucket": "bhai-chr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952736500858:android:859cd64c3dc8c0c2edffc3",
+        "android_client_info": {
+          "package_name": "com.example.bhai_chara"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo8hJ8YVmxsA-UT_Ct8-ez9MwbThgJk6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
