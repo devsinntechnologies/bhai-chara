@@ -4,6 +4,7 @@ import '../../utils/app_colors.dart';
 import '../../utils/custom_buttons.dart';
 import '../../utils/custom_list.dart';
 import '../../utils/text-styles.dart';
+import '../../utils/utils.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -32,7 +33,9 @@ class ProductScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            pop(context);
+                          },
                           icon: const Icon(
                             Icons.arrow_back_ios,
                             color: AppColors.White,
