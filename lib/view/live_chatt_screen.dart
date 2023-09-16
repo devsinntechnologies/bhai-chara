@@ -13,9 +13,12 @@ class LiveChattScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         foregroundColor: AppColors.white,
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: const Padding(
+          padding:  EdgeInsets.only(left:8.0),
+          child:  Icon(Icons.arrow_back_ios),
+        ),
         elevation: 0,
-       leadingWidth: 60,
+       leadingWidth: 20,
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -46,7 +49,7 @@ class LiveChattScreen extends StatelessWidget {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [ AppColors.skyblue,Colors.white],begin: Alignment.bottomLeft),),
+          gradient: LinearGradient(colors: [AppColors.skyblue, Colors.white,],begin: Alignment.bottomLeft),),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Stack(children: [
@@ -62,9 +65,9 @@ class LiveChattScreen extends StatelessWidget {
                   BuildReceiveMesg("What's going on?"),
                   BuildTextMesg("Working "),
                   BuildReceiveMesg("That's good"),
-                  BuildReceiveMesg("That's good asdfghjklswedrtyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower\n\n\n\n\n"),
-                  BuildTextMesg("That's good asdfghjklswedrtyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower\n\n\n\n\n"),
-          
+                  BuildReceiveMesg("That's good\n asdfghjklswedrtyuiozxcvbnhat's good asdfgh\njklswedrtyuiozxcvbnm,werftowerha\nt's at's good asdfghjklswedrty\nuiozxcvbnhat's good asdfghjklswed\nrtyuiozxcvbnm,werftowerhat's good a\nsdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghj\nklswedrtyuiozxcvbn\nm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,we\nrftowerm,werftowertyuiohat's good asdfghjklswedrty\nuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerogood a\nsdfghjklswedrtyuiozxcvbnm,werftowerhat's g\nood asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswed\nrtyuiozxcvbnm,werftowerm,werftowertyui\nohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower"),
+                  BuildTextMesg("That's good asdfghjklswedat's good asdfghjklswedrtyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerortyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower"),
+          SizedBox(height: 50,)
                   
                 ],
               ),
