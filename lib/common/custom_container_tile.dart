@@ -4,12 +4,22 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomContainerTile extends StatelessWidget {
-  CustomContainerTile({super.key, this.image, this.text});
-  var image, text;
+  CustomContainerTile(
+      {super.key,
+      this.image,
+      this.text,
+      this.style_text,
+      this.chil_widget,
+      this.width_container = double.infinity,
+      this.height_contianer = 50});
+  var image, text, chil_widget;
+  var height_contianer;
+  var width_container, style_text;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: height_contianer,
+      width: width_container,
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.grey, style: BorderStyle.solid),
           borderRadius: BorderRadius.circular(20)),
@@ -22,17 +32,21 @@ class CustomContainerTile extends StatelessWidget {
               child: Container(
                 height: 20,
                 width: 20,
-                child: Image(
-                  image: AssetImage("$image"),
-                  fit: BoxFit.contain,
-                ),
+                child: image != null
+                    ? Image(
+                        image: AssetImage("$image"),
+                        fit: BoxFit.contain,
+                      )
+                    : chil_widget,
               ),
             ),
             Expanded(
               flex: 3,
               child: Text(
                 "$text",
-                style: AppTextStyles.textStyleBoldXLBodySmall,
+                style: style_text == null
+                    ? AppTextStyles.textStyleBoldXLBodySmall
+                    : style_text,
               ),
             ),
             SizedBox(),

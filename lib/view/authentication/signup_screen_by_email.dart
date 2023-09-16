@@ -64,25 +64,15 @@ class _SignupByEmailState extends State<SignupByEmail> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              width: size.width,
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.grey),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  CustomTextField(
-                      obsecuretext: false,
-                      height: 30,
-                      width: size.width * .80,
-                      controller: emailController,
-                      border: InputBorder.none,
-                      hintText: "Email"),
-                ],
-              ),
-            ),
+            CustomTextField(
+                height: 60,
+                obsecuretext: false,
+                width: size.width,
+                controller: emailController,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: AppColors.grey)),
+                hintText: "Email"),
             const Spacer(),
             InkWell(
               onTap: () {

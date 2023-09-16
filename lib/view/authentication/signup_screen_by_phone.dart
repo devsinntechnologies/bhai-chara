@@ -102,7 +102,6 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                       color: AppColors.light_black,
                     ),
                     CustomTextField(
-                      height: 30,
                       width: size.width * .60,
                       controller: numberController,
                       border: InputBorder.none,

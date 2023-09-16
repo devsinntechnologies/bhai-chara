@@ -1,4 +1,3 @@
-import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_container_tile.dart';
@@ -100,17 +99,13 @@ class _CreatePasswordState extends State<CreatePassword> {
                         hintText: "Password",
                         suffixIcon: x % 2 != 0
                             ? IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    x = x + 1;
-                                  });
-                                },
+                                onPressed: () {},
                                 icon: const Icon(
                                   Icons.visibility_off,
                                   size: 20,
                                 ))
                             : IconButton(
-                                onPressed: AuthProvider.IncrementVariable(x),
+                                onPressed: () {},
                                 icon: const Icon(
                                   Icons.visibility,
                                   size: 20,
@@ -149,13 +144,13 @@ class _CreatePasswordState extends State<CreatePassword> {
                         hintText: "Confirm Password",
                         suffixIcon: y % 2 != 0
                             ? IconButton(
-                                onPressed: AuthProvider.IncrementVariable(y),
+                                onPressed: () {},
                                 icon: const Icon(
                                   Icons.visibility_off,
                                   size: 20,
                                 ))
                             : IconButton(
-                                onPressed: AuthProvider.IncrementVariable(y),
+                                onPressed: () {},
                                 icon: const Icon(
                                   Icons.visibility,
                                   size: 20,
@@ -180,7 +175,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   child: Center(
                     child: Text(
                       "Next",
-                      style: AppTextStyles.textStyleBoldLargeBody,
+                      style: AppTextStyles.textStyleNormalBodyMedium_whiteColor,
                     ),
                   )),
             ),
