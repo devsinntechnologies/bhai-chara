@@ -34,7 +34,7 @@ class DialogBox extends StatelessWidget {
                     text: "Cancel",
                     fontcolor: AppColors.white),
               
-                CustomButtonSmall(
+               CustomButtonSmall(
                     height: 40,
                     color: AppColors.blue,
                     onPressed: () {},

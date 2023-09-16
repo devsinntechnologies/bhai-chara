@@ -36,7 +36,7 @@ class ChattListScreen extends StatelessWidget {
               ),
               for (int i = 0; i <= 15; i++)
                 ListTile(
-                  leading: CircleAvatar(radius: 25),
+                  leading: const CircleAvatar(radius: 25),
                   title: Text(
                     "Kashaf Waheed",
                     style: AppTextStyles.textStyleNormalBodyMedium,

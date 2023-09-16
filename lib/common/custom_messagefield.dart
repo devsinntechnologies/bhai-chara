@@ -4,59 +4,65 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
 Widget BuildTextMesg(String ch) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 10),
-    child: Row(
-      children: [
-       const CircleAvatar(
-          radius: 15,
-        ),
-        Container(
-          margin:const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          padding:const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: AppColors.white,
+  return Column(
+    children: [
+      Row(
+        children: [
+          const CircleAvatar(
+            radius: 15,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(ch, style: AppTextStyles.textStyleNormalBodyXSmall),
-              Text("1:26",
-                  style: AppTextStyles.textStyleNormalBodyXSmall
-                      .copyWith(fontSize: 10, color: AppColors.grey))
-            ],
+          Text("@ Kashaf", style: AppTextStyles.textStyleNormalBodySmall),
+        ],
+      ),
+      Container(
+        margin: const EdgeInsets.only(right: 150, top: 10, bottom: 5),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(9),
+            bottomRight: Radius.circular(9),
+            topLeft: Radius.circular(9),
           ),
+          color: AppColors.white,
         ),
-      ],
-    ),
+        child: Text(ch, style: AppTextStyles.textStyleNormalBodyXSmall),
+      ),
+      Text("1:26 AM",
+          style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
+            fontSize: 10,
+          ))
+    ],
   );
 }
 
 Widget BuildReceiveMesg(String ch) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.end,
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.end,
     children: [
-      Container(
-      //width: 200,
-        margin:const EdgeInsets.only(right: 15, left: 150, top: 10, bottom: 10),
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: AppColors.skyblue,
-        ),
-       child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(ch, style: AppTextStyles.textStyleNormalBodyXSmall),
-              Text("1:26",
-                  style: AppTextStyles.textStyleNormalBodyXSmall
-                      .copyWith(fontSize: 10, ))
-            ],
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            //width: 200,
+            margin: const EdgeInsets.only(left: 150, top: 10, bottom: 5),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            decoration:const  BoxDecoration(
+              borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(9),
+            bottomRight: Radius.circular(9),
+            bottomLeft: Radius.circular(9),
           ),
+              color: AppColors.skyblue,
+            ),
+            child: Text(ch, style: AppTextStyles.textStyleNormalBodyXSmall),
+          ),
+        ],
       ),
+      Text("1:26 AM",
+          style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
+            fontSize: 10,
+          ))
     ],
   );
 }

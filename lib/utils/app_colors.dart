@@ -8,7 +8,7 @@ class AppColors{
   static const black = Colors.black;
   static const white = Colors.white;
   static const grey = Colors.grey;
-  static const skyblue =  Color.fromARGB(255, 168, 229, 255);
-
+  // static const skyblue =  Color.fromARGB(255, 168, 229, 255);
+  static const skyblue = Color.fromARGB(255, 220, 236, 250);
  
 }

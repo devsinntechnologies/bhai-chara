@@ -15,7 +15,7 @@ class LiveChattScreen extends StatelessWidget {
         foregroundColor: AppColors.white,
         leading: const Icon(Icons.arrow_back_ios),
         elevation: 0,
-       leadingWidth: 48,
+       leadingWidth: 60,
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -46,22 +46,28 @@ class LiveChattScreen extends StatelessWidget {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [ Color.fromARGB(255, 220, 236, 250),Colors.white],begin: Alignment.bottomLeft),),
+          gradient: LinearGradient(colors: [ AppColors.skyblue,Colors.white],begin: Alignment.bottomLeft),),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Stack(children: [
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                BuildTextMesg("Hi, how are you doing today"),
-                BuildTextMesg("I'm good too, what's up?"),
-                BuildReceiveMesg("Nothing speciall"),
-                BuildReceiveMesg("What's going on?"),
-                BuildTextMesg("Working "),
-                BuildReceiveMesg("That's good"),
-                
-              ],
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  BuildTextMesg("Hi, how are you doing today"),
+                  BuildTextMesg("I'm good too, what's up?"),
+                  BuildReceiveMesg("Nothing speciall"),
+                  BuildReceiveMesg("What's going on?"),
+                  BuildTextMesg("Working "),
+                  BuildReceiveMesg("That's good"),
+                  BuildReceiveMesg("That's good asdfghjklswedrtyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower\n\n\n\n\n"),
+                  BuildTextMesg("That's good asdfghjklswedrtyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower\n\n\n\n\n"),
+          
+                  
+                ],
+              ),
             ),
           ),
           Align(
