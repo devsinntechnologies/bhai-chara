@@ -99,9 +99,22 @@ class AppTextStyles {
   );
   static TextStyle textStyleNormalBody_BlackColor = const TextStyle(
     fontSize: 15,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.normal,
     letterSpacing: 0.5,
     fontStyle: FontStyle.normal,
     color: Color(0xfa1A1A1A),
   );
+  static TextStyle textStyleSubtitleBody = const TextStyle(
+      height: 2,
+      fontSize: 16,
+      // fontWeight: FontWeight.normal,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Colors.black);
+  static TextStyle textStyleTitleBodySmall = const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Color(0xfa000000));
 }

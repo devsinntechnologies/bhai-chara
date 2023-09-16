@@ -98,23 +98,26 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: height,
-        padding: EdgeInsets.only(left: 10),
         width: width,
-        child: TextField(
-          obscureText: obsecuretext,
-          style: TextStyle(fontWeight: FontWeight.w400, color: AppColors.grey),
-          maxLines: 1,
-          keyboardType: TextInputType.text,
-          controller: controller,
-          decoration: InputDecoration(
-              border: border,
-              suffixIcon: suffixIcon,
-              suffixIconColor: suffixIconColor,
-              hintText: hintText,
-              hintStyle: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.grey)),
+        child: Center(
+          child: TextField(
+            obscureText: obsecuretext,
+            style:
+                TextStyle(fontWeight: FontWeight.w400, color: AppColors.grey),
+            maxLines: 1,
+            keyboardType: TextInputType.text,
+            controller: controller,
+            decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(left: 10),
+                border: border,
+                suffixIcon: suffixIcon,
+                suffixIconColor: suffixIconColor,
+                hintText: hintText,
+                hintStyle: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.grey)),
+          ),
         ));
   }
 }
