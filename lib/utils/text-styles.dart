@@ -107,14 +107,31 @@ class AppTextStyles {
   static TextStyle textStyleSubtitleBody = const TextStyle(
       height: 2,
       fontSize: 16,
-      // fontWeight: FontWeight.normal,
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
       color: Colors.black);
   static TextStyle textStyleTitleBodySmall = const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w700,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
       color: Color(0xfa000000));
+  static TextStyle textStyleTitleBodyMedium = const TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Color(0xfa000000));
+  static TextStyle textStyleSubtitleUnderlineBody = const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+      color: Color(0xfa000000),
+      decoration: TextDecoration.underline,
+      height: 2);
+  static TextStyle textStyleSubtitleSmallBody = const TextStyle(
+      height: 2,
+      fontSize: 14,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Colors.black);
 }

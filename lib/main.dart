@@ -1,6 +1,5 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
 import 'package:bhai_chara/view/account/account_screen.dart';
-import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
