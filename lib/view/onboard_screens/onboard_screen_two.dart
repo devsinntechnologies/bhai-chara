@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 import '../../common/bulit.dart';
 import '../../common/custom_button.dart';
-import '../../common/navigations.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 import 'onboard_screen_three.dart';
