@@ -28,30 +28,30 @@ class _AdsScreenState extends State<AdsScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(backgroundColor: AppColors.blue,
-          selectedLabelStyle: TextStyle(
-            color: AppColors.TextColor,
-            fontSize: 30,
-            // fontWeight: FontWeight.bold,
-          ),
-          unselectedLabelStyle:
-              TextStyle(fontSize: 30, color: AppColors.greyOutline),
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "home",
-            ),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "chat",),
-            BottomNavigationBarItem(icon: Icon(Icons.sell), label: "sell"),
-            BottomNavigationBarItem(icon: Icon(Icons.ads_click), label: "ads"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.business), label: "business"),
-          ]),
+      // bottomNavigationBar: BottomNavigationBar(backgroundColor: AppColors.blue,
+      //     selectedLabelStyle: TextStyle(
+      //       color: AppColors.TextColor,
+      //       fontSize: 30,
+      //       // fontWeight: FontWeight.bold,
+      //     ),
+      //     unselectedLabelStyle:
+      //         TextStyle(fontSize: 30, color: AppColors.greyOutline),
+      //     onTap: (index) {
+      //       setState(() {
+      //         currentIndex = index;
+      //       });
+      //     },
+      //     items: [
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.home),
+      //         label: "home",
+      //       ),
+      //       BottomNavigationBarItem(icon: Icon(Icons.chat), label: "chat",),
+      //       BottomNavigationBarItem(icon: Icon(Icons.sell), label: "sell"),
+      //       BottomNavigationBarItem(icon: Icon(Icons.ads_click), label: "ads"),
+      //       BottomNavigationBarItem(
+      //           icon: Icon(Icons.business), label: "business"),
+      //     ]),
       appBar: AppBar(
         backgroundColor: AppColors.App,
         title: Text(

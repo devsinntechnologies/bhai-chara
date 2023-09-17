@@ -71,7 +71,7 @@ class _AccountScreenState extends State<AccountScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomNavigationBar(),
+     // bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }

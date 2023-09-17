@@ -4,6 +4,9 @@ import 'package:bhai_chara/view/home-screens/sell_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../provider/root_provider.dart';
+import '../account/account_screen.dart';
+import '../ads/ads_screen.dart';
+import '../chat_list_screen.dart';
 
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});
@@ -18,10 +21,10 @@ class RootScreen extends StatelessWidget {
 
   var screensList = [
     HomeScreen(),
-    HomeScreen(),
+    ChattListScreen(),
     SellScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    AdsScreen(),
+    AccountScreen(),
   ];
 
   var textList = [
