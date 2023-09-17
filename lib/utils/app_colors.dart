@@ -31,5 +31,10 @@ class AppColors{
   // static const skyblue =  Color.fromARGB(255, 168, 229, 255);
   static const skyblue = Color.fromARGB(255, 220, 236, 250);
 
+    static Color appbar = Color(0xfa001B26);
+  static Color light_black = Color(0xfa000000);
+  static Color orangeColor = Color(0xfaF7931E);
+  static Color lightblue = Color.fromARGB(248, 214, 219, 221);
+
 
 }
