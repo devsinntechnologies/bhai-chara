@@ -1,7 +1,11 @@
+import 'package:bhai_chara/common/smakebar.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../common/custom_container_tile.dart';
+import '../../provider/authentication_provider/auth_provider.dart';
 import '../../utils/text-styles.dart';
 
 class SignupByEmail extends StatefulWidget {
@@ -76,7 +80,18 @@ class _SignupByEmailState extends State<SignupByEmail> {
             const Spacer(),
             InkWell(
               onTap: () {
-                //fuctionality
+                if(emailController.text.contains("@gmail.com")){
+
+               Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CreatePassword(
+                            email: emailController.text,
+                           )));
+                }
+                else{
+                  showSnack(context, "Plaease enter valid email");
+                }
               },
               child: Container(
                   height: 50,

@@ -9,4 +9,5 @@ class AppColors {
   static Color light_black = Color(0xfa000000);
   static Color orangeColor = Color(0xfaF7931E);
   static Color lightblue = Color.fromARGB(248, 214, 219, 221);
+  static Color red = Colors.red;
 }
