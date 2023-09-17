@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
 import '../../utils/custom_buttons.dart';
-import '../../utils/custom_list.dart';
 import '../../utils/text-styles.dart';
 import '../../utils/utils.dart';
 

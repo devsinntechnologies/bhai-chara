@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_screen.dart';
@@ -69,8 +71,8 @@ class RootScreen extends StatelessWidget {
                               Text(
                                 textList[i],
                                 style: const TextStyle(
-                                    color: AppColors.blue,
-                                    ),
+                                  color: AppColors.blue,
+                                ),
                               ),
                             ],
                           ),
@@ -86,8 +88,8 @@ class RootScreen extends StatelessWidget {
                             Text(
                               textList[i],
                               style: const TextStyle(
-                                  color: AppColors.darkGrey,
-                                ),
+                                color: AppColors.darkGrey,
+                              ),
                             ),
                           ],
                         ))

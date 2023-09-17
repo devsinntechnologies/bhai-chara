@@ -1,4 +1,3 @@
-import 'package:bhai_chara/utils/listtile_custom.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
@@ -77,7 +76,7 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
               height: 40,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 40,horizontal: 20),
+              padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               // height: 200,
               width: size.width,
               //
@@ -91,12 +90,16 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
                     color: AppColors.blue,
                     size: 32,
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
                   Text(
                     "Are your sure?",
                     style: AppTextStyles.textStyleBoldBodyMedium,
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
                   Text(
                     "All your ada will be set to inactive and will not be showing to the users",
                     style: AppTextStyles.textStyleNormalBodySmall,
@@ -125,7 +128,7 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
                           ),
                         ),
                       ),
-                     Spacer(),
+                      Spacer(),
                       Container(
                         height: 60,
                         width: size.width * .35,

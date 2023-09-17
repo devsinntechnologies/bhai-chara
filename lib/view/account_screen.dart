@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/appBar_custom.dart';
 import '../utils/app_colors.dart';
 import '../utils/text-styles.dart';
 
@@ -51,15 +50,20 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ],
                   ),
-                SizedBox(width: 30,),
+                  SizedBox(
+                    width: 30,
+                  ),
                   // 2 columnnn
-                  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Arham Sarvar",
                         style: AppTextStyles.textStyleBoldSubTitleLarge,
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         "View and edit profile",
                         style: AppTextStyles.textStyleNormalBodySmall,
@@ -68,45 +72,61 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                 ],
               ),
-           SizedBox(
+              SizedBox(
                 height: 50,
               ),
               // 2 row
-            for(int i = 0 ; i<3; i++)
-              Column(
-                children: [
-        //row koo wrap kiya column maiii   lop use kenay kai liyay
-                  Row(
-                    children: [
-                      //1 columnnn
-                      Column(
-                        children: [
-                          Icon(Icons.settings,size: 24,color: AppColors.TextColor,),
-                        ],
-                      ),
-                      SizedBox(width: 30,),
-                      //2 columnnn
-                      Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Settings",
-                            style: AppTextStyles.textStyleBoldBodyMedium,
-                          ),
-                          SizedBox(height: 10,),
-                          Text(
-                            "Privacy and manage account ",
-                            style: AppTextStyles.textStyleNormalBodyXSmall,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-           SizedBox(height: 15,),
-           Divider(thickness: 2,color:Color(0xffE6E6E6) ,),
-        
-           SizedBox(height: 20,),
-                ],
-              )
+              for (int i = 0; i < 3; i++)
+                Column(
+                  children: [
+                    //row koo wrap kiya column maiii   lop use kenay kai liyay
+                    Row(
+                      children: [
+                        //1 columnnn
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.settings,
+                              size: 24,
+                              color: AppColors.TextColor,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        //2 columnnn
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Settings",
+                              style: AppTextStyles.textStyleBoldBodyMedium,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Privacy and manage account ",
+                              style: AppTextStyles.textStyleNormalBodyXSmall,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: Color(0xffE6E6E6),
+                    ),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                )
             ],
           ),
         ),

@@ -2,11 +2,11 @@ import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:provider/provider.dart';
 
 import 'app_colors.dart';
 
+// ignore: must_be_immutable
 class CustomeTextField extends StatelessWidget {
   final hinttext;
   TextEditingController controller;
@@ -20,7 +20,7 @@ class CustomeTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final pro = context.watch<visibilityProvider>();
     return Container(
-      margin:const EdgeInsets.only(left: 24, right: 24, top: 20),
+      margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
       height: 56,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
