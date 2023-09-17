@@ -65,6 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/google.png",
                 text: "Continue with Google",
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
               ),
               const SizedBox(
                 height: 20,
@@ -72,6 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/facebook.png",
                 text: "Continue with Facebook",
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
               ),
               SizedBox(
                 height: 20,
@@ -79,6 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/mail.png",
                 text: "Continue with Email",
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
               ),
               const SizedBox(
                 height: 20,
@@ -86,6 +89,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/phone.png",
                 text: "Continue with Phone",
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
               ),
               const Spacer(),
               Row(
@@ -93,7 +97,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 children: [
                   Text(
                     "If you continue, you are accepting",
-                    style: AppTextStyles.textStyleBoldBodyXSmall,
+                    style: AppTextStyles.textStyleNormalXLBodySmall,
+                    maxLines: 2,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),

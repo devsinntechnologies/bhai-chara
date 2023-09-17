@@ -41,7 +41,7 @@ class CustomContainerTile extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Text(
                 "$text",
                 style: style_text == null
@@ -49,8 +49,9 @@ class CustomContainerTile extends StatelessWidget {
                     : style_text,
               ),
             ),
-            SizedBox(),
-            Expanded(child: Container()),
+
+            // SizedBox(),/
+            // Expanded(child: Container()),
           ],
         ),
       ),
