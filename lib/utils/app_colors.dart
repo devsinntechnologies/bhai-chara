@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,11 @@ class AppColors{
   static const darkGrey=  Color.fromARGB(255, 101, 101, 101);
   static const secondary=  Color.fromARGB(255, 101, 101, 101);
   static const grey = Color.fromARGB(255, 179, 179, 179);
+
+    static const App = Color(0xff001B26);
+  static const TextColor = Color(0xff000000);
+  static const dividerColor = Color(0xffE6E6E6);
+  static const greyOutline = Color(0xff808080);
 
 
 
