@@ -71,9 +71,7 @@ class OnboardScreenOne extends StatelessWidget {
                 ),
                 SizedBox(height: 30,),
             //  Spacer(),
-                CustomButton(() {
-                  Navigation.push(context, OnboardScreenTwo());
-                }),
+               
                 SizedBox(height: 30,)
               ]),
         ),

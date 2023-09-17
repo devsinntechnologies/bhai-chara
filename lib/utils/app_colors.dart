@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 class AppColors{
-  static const primary = "0xff27AAE1";
+  static const primary = Color(0xff27AAE1);
   static const greyColor= "0xff001B26";
-  static const white= #FFFFFF;
+  static const white= Colors.white;
   static const darkBlue=  Color.fromARGB(255, 0, 27, 38);
   static const oange=  Color.fromARGB(255, 247, 147, 30);
   static const yellow=  Color.fromARGB(255, 254, 192, 15);

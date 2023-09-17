@@ -1,4 +1,3 @@
-import 'package:bhai_chara/common/custom_text.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -87,12 +86,12 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                     const SizedBox(
                       width: 10,
                     ),
-                    CustomText(
-                      text: "+92",
-                      fontsize: 16,
-                      fontweight: FontWeight.w400,
-                      color: AppColors.grey,
-                    ),
+                    // CustomText(
+                    //   text: "+92",
+                    //   fontsize: 16,
+                    //   fontweight: FontWeight.w400,
+                    //   color: AppColors.grey,
+                    // ),
                     const SizedBox(
                       width: 10,
                     ),

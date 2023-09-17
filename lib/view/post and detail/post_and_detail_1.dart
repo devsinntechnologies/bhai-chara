@@ -2,7 +2,6 @@ import 'package:bhai_chara/common/custom_appbar.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
-import 'package:bhai_chara/common/custom_text.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
@@ -75,12 +74,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CustomText(
-                            text: "Add images",
-                            fontsize: 16,
-                            fontweight: FontWeight.normal,
-                            color: AppColors.primary,
-                          ),
+                        
                         ],
                       )
                     ],

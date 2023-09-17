@@ -32,7 +32,7 @@ class ReviewDetails extends StatelessWidget {
                     style: AppTextStyles.textStyleNormalBodyXSmall,
                   ),
                  const SizedBox(height: 5,),
-                 const Container(
+                  Container(
                     width: MediaQuery.of(context).size.width-200,
                     height: 50,
                     child: TextFormField(

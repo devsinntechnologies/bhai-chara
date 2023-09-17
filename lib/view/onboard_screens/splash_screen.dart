@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:js_interop';
 
 import 'package:bhai_chara/view/onboard_screens/onboard_screen_one.dart';
 import 'package:flutter/material.dart';

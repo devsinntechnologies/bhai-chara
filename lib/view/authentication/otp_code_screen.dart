@@ -1,5 +1,4 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
-import 'package:bhai_chara/common/custom_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
@@ -127,25 +126,25 @@ class _OTPScreenState extends State<OTPScreen> {
               const SizedBox(
                 height: 20,
               ),
-              CustomText(
-                text: "RESEND CODE BY CALL IN 56",
-                fontsize: 16,
-                fontweight: FontWeight.bold,
-                decorationtext: TextDecoration.underline,
-                color: AppColors.black,
-                overflow: TextOverflow.ellipsis,
-              ),
+              // CustomText(
+              //   text: "RESEND CODE BY CALL IN 56",
+              //   fontsize: 16,
+              //   fontweight: FontWeight.bold,
+              //   decorationtext: TextDecoration.underline,
+              //   color: AppColors.black,
+              //   overflow: TextOverflow.ellipsis,
+              // ),
               const SizedBox(
                 height: 10,
               ),
-              CustomText(
-                text: "RESEND CODE BY SMS IN 56",
-                fontsize: 16,
-                fontweight: FontWeight.bold,
-                decorationtext: TextDecoration.underline,
-                color: AppColors.black,
-                overflow: TextOverflow.ellipsis,
-              ),
+              // CustomText(
+              //   text: "RESEND CODE BY SMS IN 56",
+              //   fontsize: 16,
+              //   fontweight: FontWeight.bold,
+              //   decorationtext: TextDecoration.underline,
+              //   color: AppColors.black,
+              //   overflow: TextOverflow.ellipsis,
+              // ),
               const SizedBox(
                 height: 20,
               ),

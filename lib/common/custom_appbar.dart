@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
-import 'custom_text.dart';
 
 // ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget {
@@ -11,13 +10,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: 100,
-      backgroundColor: AppColors.appbar,
-      title: CustomText(
-        text: title_text,
-        fontsize: 26,
-        fontweight: FontWeight.normal,
-        color: AppColors.primary,
-      ),
+      backgroundColor: AppColors.appbar,     
       leading: leading_widget,
     );
   }

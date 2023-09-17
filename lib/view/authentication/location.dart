@@ -1,4 +1,3 @@
-import 'package:bhai_chara/common/custom_text.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
@@ -87,13 +86,7 @@ class _LocationScreenState extends State<LocationScreen> {
             const SizedBox(
               height: 20,
             ),
-            CustomText(
-              text: "Other Address",
-              fontsize: 16,
-              fontweight: FontWeight.normal,
-              decorationtext: TextDecoration.underline,
-              color: AppColors.black,
-            ),
+            
             const Spacer(),
             const Spacer(),
           ],
