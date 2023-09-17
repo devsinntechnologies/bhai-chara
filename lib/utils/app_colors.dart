@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+
 class AppColors{
   static const primary = "0xff27AAE1";
   static const greyColor= "0xff001B26";
@@ -26,7 +28,8 @@ class AppColors{
   static const TextColor = Color(0xff000000);
   static const dividerColor = Color(0xffE6E6E6);
   static const greyOutline = Color(0xff808080);
-
+  // static const skyblue =  Color.fromARGB(255, 168, 229, 255);
+  static const skyblue = Color.fromARGB(255, 220, 236, 250);
 
 
 }

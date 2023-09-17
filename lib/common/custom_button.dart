@@ -4,7 +4,7 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
-Widget CustomButton(var ontap) {
+Widget CustomButton(var ontap,text) {
   return InkWell(
       onTap: ontap,
       child: Container(
@@ -12,7 +12,7 @@ Widget CustomButton(var ontap) {
         width: double.infinity,
         child: Center(
           child: Text(
-            "Next",
+            text,
             style: AppTextStyles.textStyleNormalBodyMedium
                 .copyWith(color: AppColors.white),
           ),
