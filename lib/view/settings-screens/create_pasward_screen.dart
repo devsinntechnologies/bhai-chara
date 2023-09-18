@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -8,6 +7,7 @@ import '../../utils/container.dart';
 import '../../utils/custom_button_create_password.dart';
 import '../../utils/custom_textfield.dart';
 
+// ignore: must_be_immutable
 class CreatePasswardScreen extends StatelessWidget {
   CreatePasswardScreen({Key? key});
   var passwordController = TextEditingController();
@@ -39,7 +39,9 @@ class CreatePasswardScreen extends StatelessWidget {
               controller: confirmPasswordController,
             ),
           ),
-          CustomButtonCreatePassword(text: "Create Password",),
+          CustomButtonCreatePassword(
+            text: "Create Password",
+          ),
         ],
       ),
     );

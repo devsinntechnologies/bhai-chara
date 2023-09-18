@@ -45,8 +45,18 @@ class RootScreen extends StatelessWidget {
       return Scaffold(
         body: screensList[myProvider.selectedScreenValue],
         bottomNavigationBar: Container(
-          height: 70,
-          color: AppColors.White,
+          margin: EdgeInsets.only(bottom: 10),
+          height: 80,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, -1),
+                  color: AppColors.lightblue),
+            ],
+            color: Color(0xfaFFFFFF),
+          ),
           padding: const EdgeInsets.symmetric(vertical: 8),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [

@@ -22,7 +22,6 @@ class AppColors {
   static const TextColor = Color(0xff000000);
   static const dividerColor = Color(0xffE6E6E6);
   static const greyOutline = Color(0xff808080);
-  // static const skyblue =  Color.fromARGB(255, 168, 229, 255);
   static const skyblue = Color.fromARGB(255, 220, 236, 250);
 
   static Color appbar = Color(0xfa001B26);

@@ -25,7 +25,7 @@ class _AccountScreenState extends State<AccountScreen> {
         title: Text(
           "Account",
           style: AppTextStyles.textStyleNormalLargeTitle
-              .copyWith(color: AppColors.primary),
+              .copyWith(color: AppColors.white),
         ),
       ),
       body: Padding(
@@ -33,24 +33,24 @@ class _AccountScreenState extends State<AccountScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Row(
                 children: [
                   // 1columnn...
-                  Column(
+                  const Column(
                     children: [
                       CircleAvatar(
                         radius: 70,
-                        backgroundColor: AppColors.primary,
+                        backgroundColor: AppColors.white,
                         backgroundImage: AssetImage(
                           "images/lining.jpg",
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 30,
                   ),
                   // 2 columnnn
@@ -61,7 +61,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         "Arham Sarvar",
                         style: AppTextStyles.textStyleBoldSubTitleLarge,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -72,7 +72,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               // 2 row
@@ -83,7 +83,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     Row(
                       children: [
                         //1 columnnn
-                        Column(
+                        const Column(
                           children: [
                             Icon(
                               Icons.settings,
@@ -92,7 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
                         //2 columnnn
@@ -103,7 +103,7 @@ class _AccountScreenState extends State<AccountScreen> {
                               "Settings",
                               style: AppTextStyles.textStyleBoldBodyMedium,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
