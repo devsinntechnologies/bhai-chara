@@ -40,6 +40,7 @@ class _AccountScreenState extends State<AccountScreen> {
             const SizedBox(
               height: 50,
             ),
+<<<<<<< Updated upstream
             CustomListTile(
               tap: (){push(context, SettingScreen());},
               back_color: AppColors.primary,
@@ -47,16 +48,31 @@ class _AccountScreenState extends State<AccountScreen> {
                 Icons.settings,
                 size: 30,
                 color: AppColors.black,
+=======
+            InkWell(
+              // onTap: (){
+              //   push(context,SettingScreen() );
+              // },
+              child: CustomListTile(
+                
+                back_color: AppColors.primary,
+                circularwidget: Icon(
+                  Icons.settings,
+                  size: 30,
+                  color: AppColors.black,
+                ),
+                titletext: "Settings",
+                titleStyle: AppTextStyles.textStyleBoldBodyMedium,
+                subtitleText: "Privacy and Manage Account",
+                subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
+>>>>>>> Stashed changes
               ),
-              titletext: "Settings",
-              titleStyle: AppTextStyles.textStyleBoldBodyMedium,
-              subtitleText: "Privacy and Manage Account",
-              subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
             ),
             const Divider(),
             const SizedBox(
               height: 10,
             ),
+<<<<<<< Updated upstream
             CustomListTile(
               tap: (){},
               back_color: AppColors.primary,
@@ -64,11 +80,24 @@ class _AccountScreenState extends State<AccountScreen> {
                 Icons.help,
                 size: 30,
                 color: AppColors.black,
+=======
+            InkWell(
+              // onTap: (){
+              //   push(context, )
+              // },
+              child: CustomListTile(
+                back_color: AppColors.primary,
+                circularwidget: Icon(
+                  Icons.help,
+                  size: 30,
+                  color: AppColors.black,
+                ),
+                titletext: "Help & Support",
+                titleStyle: AppTextStyles.textStyleBoldBodyMedium,
+                subtitleText: "Help center and legal terms",
+                subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
+>>>>>>> Stashed changes
               ),
-              titletext: "Help & Support",
-              titleStyle: AppTextStyles.textStyleBoldBodyMedium,
-              subtitleText: "Help center and legal terms",
-              subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
             ),
             const Divider(),
           ],

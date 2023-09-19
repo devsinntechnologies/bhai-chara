@@ -1,4 +1,9 @@
+import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:bhai_chara/utils/push.dart';
+>>>>>>> Stashed changes
 import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
 
@@ -175,6 +180,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         ))
                   ])),
               const Spacer(),
+<<<<<<< Updated upstream
               InkWell(
                 onTap: () {
                   // fuctionality
@@ -189,6 +195,28 @@ class _OTPScreenState extends State<OTPScreen> {
                       push(context, LocationScreen());
                     }, 'Next')),),
               ),
+=======
+              CustomButton((){
+                push(context, LocationScreen());
+              }, "Next")
+              // InkWell(
+              //   onTap: () {
+              //     // fuctionality
+              //   },
+              //   child: Container(
+              //       height: 50,
+              //       decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(20),
+              //           color: AppColors.blue),
+              //       child: Center(
+              //         child: Text(
+              //           "Next",
+              //           style:
+              //               AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+              //         ),
+              //       )),
+              // ),
+>>>>>>> Stashed changes
             ],
           ),
         ),

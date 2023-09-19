@@ -1,4 +1,7 @@
+import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_button.dart';
@@ -77,6 +80,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     borderSide: BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
             const Spacer(),
+<<<<<<< Updated upstream
             InkWell(
               onTap: () {
                 //fuctionality
@@ -90,6 +94,27 @@ class _SignupByEmailState extends State<SignupByEmail> {
                       push(context, CreatePasswardScreen());
                     }, 'Next' ),),
             ),
+=======
+            CustomButton((){
+              push(context, CreatePassword());
+            },"Next")
+            // InkWell(
+            //   onTap: () {
+            //     //fuctionality
+            //   },
+            //   child: Container(
+            //       height: 50,
+            //       decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(20),
+            //           color: AppColors.blue),
+            //       child: Center(
+            //         child: Text(
+            //           "Next",
+            //           style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+            //         ),
+            //       )),
+            // ),
+>>>>>>> Stashed changes
           ],
         ),
       ),

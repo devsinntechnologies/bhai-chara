@@ -9,6 +9,7 @@ class CustomContainerTile extends StatelessWidget {
       this.image,
       this.text,
       this.style_text,
+<<<<<<< Updated upstream
       this.chil_widget, required this.tap,
       this.width_container = double.infinity,
       this.height_contianer = 50});
@@ -25,6 +26,25 @@ class CustomContainerTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
       child: InkWell(
         onTap: tap,
+=======
+      this.chil_widget,
+      this.ontap,
+      this.width_container = double.infinity,
+      this.height_contianer = 50});
+  var image, text, chil_widget;
+  var height_contianer,ontap;
+  var width_container, style_text;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: ontap,
+      child: Container(
+        height: height_contianer,
+        width: width_container,
+        decoration: BoxDecoration(
+            border: Border.all(color: AppColors.grey, style: BorderStyle.solid),
+            borderRadius: BorderRadius.circular(20)),
+>>>>>>> Stashed changes
         child: Container(
           child: Row(
             children: [
@@ -51,7 +71,11 @@ class CustomContainerTile extends StatelessWidget {
                       : style_text,
                 ),
               ),
+<<<<<<< Updated upstream
       
+=======
+    
+>>>>>>> Stashed changes
               // SizedBox(),/
               // Expanded(child: Container()),
             ],

@@ -13,10 +13,9 @@ class LiveChattScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.black,
         foregroundColor: AppColors.white,
-        leading: const Padding(
-          padding:  EdgeInsets.only(left:8.0),
-          child:  Icon(Icons.arrow_back_ios),
-        ),
+        leading:IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios)),
         elevation: 0,
        leadingWidth: 20,
         actions: const [
