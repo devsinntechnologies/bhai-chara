@@ -1,7 +1,11 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -11,6 +15,32 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  // Function to handle Google Sign-In
+  Future<User?> _handleSignInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount!.authentication;
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+
+      final UserCredential authResult =
+          await _auth.signInWithCredential(credential);
+      final User? user = authResult.user;
+
+      return user;
+    } catch (error) {
+      print("Google Sign-In Error: $error");
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -63,6 +93,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               CustomContainerTile(
+                tap: () async {
+                    print("Google button tapped"); // Add this line
+                  User? user = await _handleSignInWithGoogle();
+                  if (user != null) {
+                    push(context, OTPScreen());
+                    // Handle successful sign-in, navigate to the next screen, or perform other actions.
+                    // Example: Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NextScreen()));
+                  } else {
+                    // Handle sign-in error or cancellation.
+                  }
+                },
                 image: "assets/images/google.png",
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
@@ -71,6 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               CustomContainerTile(
+                tap: () {},
                 image: "assets/images/facebook.png",
                 text: "Continue with Facebook",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
@@ -79,6 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               CustomContainerTile(
+                tap: () {},
                 image: "assets/images/mail.png",
                 text: "Continue with Email",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
@@ -87,6 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               CustomContainerTile(
+                tap: () {},
                 image: "assets/images/phone.png",
                 text: "Continue with Phone",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,

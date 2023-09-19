@@ -83,9 +83,9 @@ class CutomListTileUser extends StatelessWidget {
       minLeadingWidth: 0,
       leading: leading_widget,
       title: Text(title_text),
-      titleTextStyle: title_style,
+     // titleTextStyle: title_style,
       subtitle: Text(subtitle_text),
-      subtitleTextStyle: subtitle_style,
+      //subtitleTextStyle: subtitle_style,
       trailing: trailing_widget,
     );
   }

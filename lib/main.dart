@@ -1,4 +1,5 @@
 import 'package:bhai_chara/provider/splash_provider.dart';
+import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: "Bhai Chara",
           theme: ThemeData(fontFamily: 'Roboto'),
-          home: const PostDetailScreen1(),
+          home: const SignUpScreen(),
         ));
   }
 }
