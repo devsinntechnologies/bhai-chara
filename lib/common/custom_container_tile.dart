@@ -9,11 +9,11 @@ class CustomContainerTile extends StatelessWidget {
       this.image,
       this.text,
       this.style_text,
-      this.chil_widget,
+      this.chil_widget, required this.tap,
       this.width_container = double.infinity,
       this.height_contianer = 50});
   var image, text, chil_widget;
-  var height_contianer;
+  var height_contianer, tap;
   var width_container, style_text;
   @override
   Widget build(BuildContext context) {
@@ -23,36 +23,39 @@ class CustomContainerTile extends StatelessWidget {
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.grey, style: BorderStyle.solid),
           borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        child: Row(
-          children: [
-            Expanded(child: Container()),
-            Expanded(
-              flex: 2,
-              child: Container(
-                height: 20,
-                width: 20,
-                child: image != null
-                    ? Image(
-                        image: AssetImage("$image"),
-                        fit: BoxFit.contain,
-                      )
-                    : chil_widget,
+      child: InkWell(
+        onTap: tap,
+        child: Container(
+          child: Row(
+            children: [
+              Expanded(child: Container()),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  height: 20,
+                  width: 20,
+                  child: image != null
+                      ? Image(
+                          image: AssetImage("$image"),
+                          fit: BoxFit.contain,
+                        )
+                      : chil_widget,
+                ),
               ),
-            ),
-            Expanded(
-              flex: 4,
-              child: Text(
-                "$text",
-                style: style_text == null
-                    ? AppTextStyles.textStyleBoldXLBodySmall
-                    : style_text,
+              Expanded(
+                flex: 4,
+                child: Text(
+                  "$text",
+                  style: style_text == null
+                      ? AppTextStyles.textStyleBoldXLBodySmall
+                      : style_text,
+                ),
               ),
-            ),
-
-            // SizedBox(),/
-            // Expanded(child: Container()),
-          ],
+      
+              // SizedBox(),/
+              // Expanded(child: Container()),
+            ],
+          ),
         ),
       ),
     );

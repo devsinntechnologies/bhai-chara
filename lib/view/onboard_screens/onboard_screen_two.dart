@@ -1,8 +1,11 @@
+import 'package:bhai_chara/view/onboard_screens/onboard_screen_three.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/bulit.dart';
+import '../../common/custom_button.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
 
 class OnboardScreenTwo extends StatelessWidget {
@@ -69,6 +72,9 @@ class OnboardScreenTwo extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
+                    CustomButton(() {
+                      push(context, OnboardScreenThree());
+                    }, 'Next'),
                     SizedBox(
                       height: 30,
                     )

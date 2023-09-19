@@ -9,25 +9,29 @@ class CustomListTile extends StatelessWidget {
     this.title,
     this.subtitle,
     this.trailing,
+    required this.tap
   });
-  final title, subtitle;
+  final title, subtitle, tap;
   final trailing;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        title,
-        style: AppTextStyles.textStyleBoldBodyMedium,
-      ),
-      subtitle: Text(
-        subtitle,
-        style: AppTextStyles.textStyleNormalBodyXSmall,
-      ),
-      trailing: Icon(
-        Icons.arrow_forward_ios,
-        size: 24,
-        color: AppColors.TextColor,
+    return InkWell(
+      onTap: tap,
+      child: ListTile(
+        title: Text(
+          title,
+          style: AppTextStyles.textStyleBoldBodyMedium,
+        ),
+        subtitle: Text(
+          subtitle,
+          style: AppTextStyles.textStyleNormalBodyXSmall,
+        ),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          size: 24,
+          color: AppColors.TextColor,
+        ),
       ),
     );
   }

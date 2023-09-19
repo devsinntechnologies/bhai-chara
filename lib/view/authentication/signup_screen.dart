@@ -1,6 +1,9 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
+import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -16,7 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.primary,
+       // backgroundColor: AppColors.primary,
         body: Container(
           height: double.infinity,
           width: double.infinity,
@@ -66,6 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 image: "assets/images/google.png",
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+                tap: (){},
               ),
               const SizedBox(
                 height: 20,
@@ -73,7 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/facebook.png",
                 text: "Continue with Facebook",
-                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,tap: (){}
               ),
               SizedBox(
                 height: 20,
@@ -81,7 +85,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/mail.png",
                 text: "Continue with Email",
-                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,tap: (){
+                   push(context, SignupByEmail());
+                }
               ),
               const SizedBox(
                 height: 20,
@@ -89,7 +95,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomContainerTile(
                 image: "assets/images/phone.png",
                 text: "Continue with Phone",
-                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+                style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,tap: (){
+                  push(context, SignUpSCreenByPhone());
+                }
               ),
               const Spacer(),
               Row(

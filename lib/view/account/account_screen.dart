@@ -1,6 +1,8 @@
 import 'package:bhai_chara/common/custom_list_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_appbar.dart';
@@ -39,6 +41,7 @@ class _AccountScreenState extends State<AccountScreen> {
               height: 50,
             ),
             CustomListTile(
+              tap: (){push(context, SettingScreen());},
               back_color: AppColors.primary,
               circularwidget: Icon(
                 Icons.settings,
@@ -55,6 +58,7 @@ class _AccountScreenState extends State<AccountScreen> {
               height: 10,
             ),
             CustomListTile(
+              tap: (){},
               back_color: AppColors.primary,
               circularwidget: Icon(
                 Icons.help,
