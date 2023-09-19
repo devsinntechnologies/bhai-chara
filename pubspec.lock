@@ -37,10 +37,17 @@ packages:
     dependency: transitive
     description:
       name: collection
+<<<<<<< Updated upstream
       sha256: cfc915e6923fe5ce6e153b0723c753045de46de1b4d63771530504004a45fae0
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+=======
+      sha256: "4a07be6cb69c84d677a6c3096fcf960cc3285a8330b4603e0d463d15d9bd934c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.17.1"
+>>>>>>> Stashed changes
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -140,10 +147,10 @@ packages:
     dependency: transitive
     description:
       name: js
-      sha256: "5528c2f391ededb7775ec1daa69e65a2d61276f7552de2b5f7b8d34ee9fd4ab7"
+      sha256: f2c445dce49627136094980615a031419f7f3eb393237e4ecd97ac15dea343f3
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.5"
+    version: "0.6.7"
   lints:
     dependency: transitive
     description:
@@ -156,10 +163,17 @@ packages:
     dependency: transitive
     description:
       name: matcher
+<<<<<<< Updated upstream
       sha256: "16db949ceee371e9b99d22f88fa3a73c4e59fd0afed0bd25fc336eb76c198b72"
       url: "https://pub.dev"
     source: hosted
     version: "0.12.13"
+=======
+      sha256: "6501fbd55da300384b768785b83e5ce66991266cec21af89ab9ae7f5ce1c4cbb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.15"
+>>>>>>> Stashed changes
   material_color_utilities:
     dependency: transitive
     description:
@@ -345,10 +359,17 @@ packages:
     dependency: transitive
     description:
       name: test_api
+<<<<<<< Updated upstream
       sha256: ad540f65f92caa91bf21dfc8ffb8c589d6e4dc0c2267818b4cc2792857706206
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+=======
+      sha256: eb6ac1540b26de412b3403a163d919ba86f6a973fe6cc50ae3541b80092fdcfb
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.1"
+>>>>>>> Stashed changes
   typed_data:
     dependency: transitive
     description:
@@ -382,5 +403,9 @@ packages:
     source: hosted
     version: "1.0.3"
 sdks:
+<<<<<<< Updated upstream
   dart: ">=2.19.2 <3.0.0"
+=======
+  dart: ">=3.0.0-0 <4.0.0"
+>>>>>>> Stashed changes
   flutter: ">=3.7.0"

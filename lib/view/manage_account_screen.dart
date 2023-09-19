@@ -1,3 +1,4 @@
+import 'package:bhai_chara/view/dialogBox.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
@@ -63,13 +64,24 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
             SizedBox(
               height: 20,
             ),
-            ListTile(
-              title: Text("Delete Account",
-                  style: AppTextStyles.textStyleBoldBodyMedium),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                size: 24,
-                color: AppColors.TextColor,
+            InkWell(
+              onTap: (){
+                 showDialog(
+                context: context,
+                builder: (
+                  context,
+                ) {
+                  return DialogBox();
+                });
+              },
+              child: ListTile(
+                title: Text("Delete Account",
+                    style: AppTextStyles.textStyleBoldBodyMedium),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 24,
+                  color: AppColors.TextColor,
+                ),
               ),
             ),
             SizedBox(

@@ -6,6 +6,8 @@ import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/push.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -83,6 +85,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               CustomContainerTile(
+                ontap:(){
+                  push(context,SignupByEmail());
+                },
                 image: "assets/images/mail.png",
                 text: "Continue with Email",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,tap: (){
@@ -93,6 +98,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               CustomContainerTile(
+                ontap:(){
+                  push(context, SignUpSCreenByPhone())
+                },
                 image: "assets/images/phone.png",
                 text: "Continue with Phone",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,tap: (){

@@ -1,11 +1,19 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+<<<<<<< Updated upstream
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_button.dart';
 import '../../utils/push.dart';
+=======
+import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
+import 'package:flutter/material.dart';
+
+import '../../common/custom_button.dart';
+>>>>>>> Stashed changes
 
 class SignUpSCreenByPhone extends StatefulWidget {
   const SignUpSCreenByPhone({super.key});
@@ -115,6 +123,7 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                 ),
               ),
               const Spacer(),
+<<<<<<< Updated upstream
               InkWell(
                 onTap: () {
                   //fuctionality
@@ -128,6 +137,28 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
                       push(context, CreatePasswardScreen());
                     }, 'Next' ),),
               ),
+=======
+              CustomButton((){
+                push(context, OTPScreen())
+              },"Next")
+              // InkWell(
+              //   onTap: () {
+              //     //fuctionality
+              //   },
+              //   child: Container(
+              //       height: 50,
+              //       decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(20),
+              //           color: AppColors.blue),
+              //       child: Center(
+              //         child: Text(
+              //           "Next",
+              //           style:
+              //               AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+              //         ),
+              //       )),
+              // ),
+>>>>>>> Stashed changes
             ],
           ),
         ),

@@ -91,13 +91,7 @@ class ReviewScreen extends StatelessWidget {
           ]),
           Spacer(),
           CustomButton(() {
-            showDialog(
-                context: context,
-                builder: (
-                  context,
-                ) {
-                  return DialogBox();
-                });
+           
           }, "Post Now"),
         ]),
       ),
