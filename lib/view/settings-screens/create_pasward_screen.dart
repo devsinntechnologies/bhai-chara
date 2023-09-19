@@ -42,9 +42,12 @@ class CreatePasswardScreen extends StatelessWidget {
               controller: confirmPasswordController,
             ),
           ),
-           CustomButton((){
-                      push(context, OTPScreen());
-                    }, 'Next' ),
+           Container(
+             margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
+             child: CustomButton((){
+                        push(context, OTPScreen());
+                      }, 'Next' ),
+           ),
         ],
       ),
     );

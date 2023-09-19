@@ -1,6 +1,8 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/listtile_custom.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -80,6 +82,9 @@ class _SettingScreenState extends State<SettingScreen> {
               
               children: [
                 CustomListTile(
+                  tap: (){
+                    push(context, CreatePasswardScreen());
+                  },
                   title: "Privacy",
                   subtitle: "Phone number visibility",
                   // trailing: Icon(Icons.arrow_back_ios),
