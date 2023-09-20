@@ -12,7 +12,8 @@ class CustomListTile extends StatelessWidget {
       this.titletext,
       this.end_icon_widget,
       this.subtitleText,
-      this.subtitleStyle,required this.tap,
+      this.subtitleStyle,
+      required this.tap,
       this.titleStyle});
   var circular_radius,
       back_image,
@@ -22,7 +23,8 @@ class CustomListTile extends StatelessWidget {
       subtitleText,
       end_icon_widget,
       titleStyle,
-      subtitleStyle, tap;
+      subtitleStyle, 
+      tap;
   @override
   Widget build(BuildContext context) {
     return InkWell(

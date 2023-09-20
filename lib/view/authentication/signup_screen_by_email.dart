@@ -80,21 +80,6 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     borderSide: BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
             const Spacer(),
-<<<<<<< Updated upstream
-            InkWell(
-              onTap: () {
-                //fuctionality
-              },
-              child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.blue),
-                  child:  CustomButton((){
-                      push(context, CreatePasswardScreen());
-                    }, 'Next' ),),
-            ),
-=======
             CustomButton((){
               push(context, CreatePassword());
             },"Next")
@@ -114,7 +99,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
             //         ),
             //       )),
             // ),
->>>>>>> Stashed changes
+
           ],
         ),
       ),

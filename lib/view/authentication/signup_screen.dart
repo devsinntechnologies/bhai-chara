@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomContainerTile(
                 ontap:(){
-                  push(context, SignUpSCreenByPhone())
+                  push(context, SignUpSCreenByPhone());
                 },
                 image: "assets/images/phone.png",
                 text: "Continue with Phone",

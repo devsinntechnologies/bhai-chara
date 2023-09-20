@@ -1,10 +1,8 @@
-<<<<<<< Updated upstream
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
-=======
+
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
->>>>>>> Stashed changes
+
 import 'package:flutter/material.dart';
 
 import '../../common/custom_button.dart';
@@ -172,21 +170,6 @@ class _CreatePasswordState extends State<CreatePassword> {
               ),
             ),
             const Spacer(),
-<<<<<<< Updated upstream
-            InkWell(
-              onTap: () {
-                //fuctionality
-              },
-              child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.blue),
-                  child: CustomButton(() {
-                      push(context, OTPScreen());
-                    }, 'Next'),),
-            ),
-=======
             CustomButton((){
               push(context, LocationScreen());
             }, "Next")
@@ -206,7 +189,7 @@ class _CreatePasswordState extends State<CreatePassword> {
             //         ),
             //       )),
             // ),
->>>>>>> Stashed changes
+
           ],
         ),
       ),
