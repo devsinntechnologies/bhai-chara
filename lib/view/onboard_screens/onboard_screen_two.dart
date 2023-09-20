@@ -79,7 +79,7 @@ class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
                     ),
                     CustomButton(
                       onTap: () {
-                        push(context, OnboardScreenThree());
+                        pushUntil(context, OnboardScreenThree());
                       },
                       text: "Next",
                     ),
