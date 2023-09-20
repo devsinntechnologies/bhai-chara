@@ -4,11 +4,8 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/custom_button.dart';
 import '../../common/custom_container_tile.dart';
-import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
-import '../settings-screens/create_pasward_screen.dart';
 
 class SignupByEmail extends StatefulWidget {
   const SignupByEmail({super.key});
@@ -80,9 +77,9 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     borderSide: BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
             const Spacer(),
-            CustomButton((){
+            CustomButton(() {
               push(context, CreatePassword());
-            },"Next")
+            }, "Next")
             // InkWell(
             //   onTap: () {
             //     //fuctionality
@@ -99,7 +96,6 @@ class _SignupByEmailState extends State<SignupByEmail> {
             //         ),
             //       )),
             // ),
-
           ],
         ),
       ),

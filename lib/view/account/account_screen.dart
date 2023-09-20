@@ -49,6 +49,7 @@ class _AccountScreenState extends State<AccountScreen> {
               titleStyle: AppTextStyles.textStyleBoldBodyMedium,
               subtitleText: "Privacy and Manage Account",
               subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
+              tap: null,
             ),
             const Divider(),
             const SizedBox(
@@ -65,6 +66,7 @@ class _AccountScreenState extends State<AccountScreen> {
               titleStyle: AppTextStyles.textStyleBoldBodyMedium,
               subtitleText: "Help center and legal terms",
               subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
+              tap: null,
             ),
             const Divider(),
           ],

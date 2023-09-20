@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,7 +5,6 @@ import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 import '../common/custom_button.dart';
 import '../tempoprovider.dart';
-import 'dialogBox.dart';
 
 class ReviewScreen extends StatelessWidget {
   const ReviewScreen({super.key});
@@ -90,9 +87,7 @@ class ReviewScreen extends StatelessWidget {
             ),
           ]),
           Spacer(),
-          CustomButton(() {
-           
-          }, "Post Now"),
+          CustomButton(() {}, "Post Now"),
         ]),
       ),
     );

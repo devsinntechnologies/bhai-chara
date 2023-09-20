@@ -4,11 +4,9 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 
-import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_button.dart';
-import '../../utils/push.dart';
 
 class SignUpSCreenByPhone extends StatefulWidget {
   const SignUpSCreenByPhone({super.key});
@@ -119,9 +117,9 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
               ),
               const Spacer(),
 
-              CustomButton((){
+              CustomButton(() {
                 push(context, OTPScreen());
-              },"Next")
+              }, "Next")
               // InkWell(
               //   onTap: () {
               //     //fuctionality
@@ -139,7 +137,6 @@ class _SignUpSCreenByPhoneState extends State<SignUpSCreenByPhone> {
               //         ),
               //       )),
               // ),
-
             ],
           ),
         ),

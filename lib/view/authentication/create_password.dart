@@ -1,14 +1,11 @@
-
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../common/custom_button.dart';
 import '../../common/custom_container_tile.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
 
 class CreatePassword extends StatefulWidget {
@@ -170,7 +167,7 @@ class _CreatePasswordState extends State<CreatePassword> {
               ),
             ),
             const Spacer(),
-            CustomButton((){
+            CustomButton(() {
               push(context, LocationScreen());
             }, "Next")
             // InkWell(
@@ -189,7 +186,6 @@ class _CreatePasswordState extends State<CreatePassword> {
             //         ),
             //       )),
             // ),
-
           ],
         ),
       ),

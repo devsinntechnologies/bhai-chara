@@ -5,9 +5,6 @@ import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/custom_button.dart';
-import '../../utils/push.dart';
-
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
 
@@ -65,7 +62,7 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             const Spacer(),
             InkWell(
-              onTap: (){
+              onTap: () {
                 push(context, RootScreen());
               },
               child: Container(
@@ -89,7 +86,8 @@ class _LocationScreenState extends State<LocationScreen> {
                       ),
                       Text(
                         "Near me",
-                        style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+                        style:
+                            AppTextStyles.textStyleNormalBodySmall_WhiteColor,
                       ),
                     ],
                   )),
@@ -97,7 +95,6 @@ class _LocationScreenState extends State<LocationScreen> {
             const SizedBox(
               height: 20,
             ),
-            
             const Spacer(),
             const Spacer(),
           ],
