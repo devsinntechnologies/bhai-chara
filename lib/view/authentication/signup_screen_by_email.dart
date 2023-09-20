@@ -1,6 +1,7 @@
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:flutter/material.dart';
 
@@ -20,10 +21,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
-      backgroundColor: AppColors.primary,
       body: Container(
-        height: double.infinity,
-        width: double.infinity,
         padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -38,9 +36,9 @@ class _SignupByEmailState extends State<SignupByEmail> {
                 Container(
                   height: 130,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: AppColors.primary,
-                      image: const DecorationImage(
+                      image: DecorationImage(
                           scale: 1,
                           image: AssetImage("assets/images/logo.png"),
                           fit: BoxFit.fill)),
@@ -68,7 +66,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
               height: 20,
             ),
             CustomTextField(
-                height: 60,
+                // height: 60,
                 obsecuretext: false,
                 width: size.width,
                 controller: emailController,
@@ -76,10 +74,22 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
+
             const Spacer(),
-            CustomButton(() {
-              push(context, CreatePassword());
-            }, "Next")
+            CustomButton(
+              onTap: () {
+                if (emailController.text.isEmpty) {
+                  showSnack(context: context);
+                } else {
+                  push(context, CreatePassword());
+                }
+              },
+              text: "Next",
+            )
+            // CustomButton(
+            //   onTap: push(context, CreatePassword()),
+            //   text: "Next",
+            // ),
             // InkWell(
             //   onTap: () {
             //     //fuctionality

@@ -87,7 +87,9 @@ class ReviewScreen extends StatelessWidget {
             ),
           ]),
           Spacer(),
-          CustomButton(() {}, "Post Now"),
+          CustomButton(
+            text: "Post Now",
+          )
         ]),
       ),
     );

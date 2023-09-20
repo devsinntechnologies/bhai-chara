@@ -1,5 +1,7 @@
 import 'package:bhai_chara/common/custom_button.dart';
+import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
 
 import 'package:flutter/material.dart';
@@ -24,7 +26,6 @@ class _CreatePasswordState extends State<CreatePassword> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.primary,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -42,9 +43,9 @@ class _CreatePasswordState extends State<CreatePassword> {
                 Container(
                   height: 130,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: AppColors.primary,
-                      image: const DecorationImage(
+                      image: DecorationImage(
                           scale: 1,
                           image: AssetImage("assets/images/logo.png"),
                           fit: BoxFit.fill)),
@@ -103,13 +104,19 @@ class _CreatePasswordState extends State<CreatePassword> {
                         hintText: "Password",
                         suffixIcon: x % 2 != 0
                             ? IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {});
+                                  x = AuthProvider.IncrementVariable(x);
+                                },
                                 icon: const Icon(
                                   Icons.visibility_off,
                                   size: 20,
                                 ))
                             : IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {});
+                                  x = AuthProvider.IncrementVariable(x);
+                                },
                                 icon: const Icon(
                                   Icons.visibility,
                                   size: 20,
@@ -148,13 +155,19 @@ class _CreatePasswordState extends State<CreatePassword> {
                         hintText: "Confirm Password",
                         suffixIcon: y % 2 != 0
                             ? IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {});
+                                  y = AuthProvider.IncrementVariable(y);
+                                },
                                 icon: const Icon(
                                   Icons.visibility_off,
                                   size: 20,
                                 ))
                             : IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {});
+                                  y = AuthProvider.IncrementVariable(y);
+                                },
                                 icon: const Icon(
                                   Icons.visibility,
                                   size: 20,
@@ -167,9 +180,25 @@ class _CreatePasswordState extends State<CreatePassword> {
               ),
             ),
             const Spacer(),
-            CustomButton(() {
-              push(context, LocationScreen());
-            }, "Next")
+
+            CustomButton(
+                onTap: () {
+                  if (passwordController.text.isEmpty) {
+                    showSnack(context: context, text: "Please Enter Password");
+                  } else if (confirmpasswordController.text.isEmpty) {
+                    showSnack(
+                        context: context,
+                        text: "Please Enter Confirm Password");
+                  } else if (passwordController.text !=
+                      confirmpasswordController.text) {
+                    showSnack(
+                        context: context,
+                        text: "Please Enter Correct Password");
+                  } else {
+                    push(context, LocationScreen());
+                  }
+                },
+                text: "Next"),
             // InkWell(
             //   onTap: () {
             //     //fuctionality

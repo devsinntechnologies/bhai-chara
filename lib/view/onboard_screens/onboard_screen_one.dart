@@ -1,16 +1,20 @@
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/onboard_screens/onboard_screen_two.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/bulit.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
-class OnboardScreenOne extends StatelessWidget {
+class OnboardScreenOne extends StatefulWidget {
   const OnboardScreenOne({super.key});
 
+  @override
+  State<OnboardScreenOne> createState() => _OnboardScreenOneState();
+}
+
+class _OnboardScreenOneState extends State<OnboardScreenOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +32,6 @@ class OnboardScreenOne extends StatelessWidget {
                       height: 114,
                       width: 90,
                     ),
-
                     Text(
                       "Welcome to Bhai Chara",
                       textAlign: TextAlign.center,
@@ -70,16 +73,16 @@ class OnboardScreenOne extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 30,
+                    // const Spacer(),
+                    CustomButton(
+                      onTap: () {
+                        pushUntil(context, OnboardScreenTwo());
+                      },
+                      text: "Next",
                     ),
-                    //  Spacer(),
-                    CustomButton((){
-                      push(context, OnboardScreenTwo());
-                    }, 'Next' ),
-                    SizedBox(
-                      height: 30,
-                    )
+                    // const SizedBox(
+                    //   height: 30,
+                    // )
                   ]),
             ),
           ),

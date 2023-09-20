@@ -34,7 +34,7 @@ class _AdsScreenState extends State<AdsScreen> {
                 height: 20,
               ),
               CustomContainerTile(
-              tap: (){},
+                tap: () {},
                 height_contianer: 40,
                 width_container: 100,
                 chil_widget: Icon(
@@ -53,8 +53,8 @@ class _AdsScreenState extends State<AdsScreen> {
                   margin: EdgeInsets.only(bottom: 20),
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius:  BorderRadius.only(
+                      // color: AppColors.primary,
+                      borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20)),
                       border: Border(
@@ -192,7 +192,7 @@ class _AdsScreenState extends State<AdsScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomNavigationBar(),
+      // bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }

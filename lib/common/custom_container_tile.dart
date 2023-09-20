@@ -12,9 +12,10 @@ class CustomContainerTile extends StatelessWidget {
       this.chil_widget,
       this.ontap,
       this.width_container = double.infinity,
-      this.height_contianer = 50, required Null Function() tap});
+      this.height_contianer = 50,
+      required Null Function() tap});
   var image, text, chil_widget;
-  var height_contianer,ontap;
+  var height_contianer, ontap;
   var width_container, style_text;
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class CustomContainerTile extends StatelessWidget {
                       : style_text,
                 ),
               ),
-    
+
               // SizedBox(),/
               // Expanded(child: Container()),
             ],
@@ -115,28 +116,32 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: height,
-        width: width,
-        child: Center(
-          child: TextField(
-            obscureText: obsecuretext,
-            style:
-                TextStyle(fontWeight: FontWeight.w400, color: AppColors.grey),
-            maxLines: 1,
-            keyboardType: TextInputType.text,
-            controller: controller,
-            decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 10),
-                border: border,
-                suffixIcon: suffixIcon,
-                suffixIconColor: suffixIconColor,
-                hintText: hintText,
-                hintStyle: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.grey)),
-          ),
-        ));
+    return Column(
+      children: [
+        Container(
+            height: height,
+            width: width,
+            child: Center(
+              child: TextField(
+                obscureText: obsecuretext,
+                style: TextStyle(
+                    fontWeight: FontWeight.w400, color: AppColors.grey),
+                maxLines: 1,
+                keyboardType: TextInputType.text,
+                controller: controller,
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 20),
+                    border: border,
+                    suffixIcon: suffixIcon,
+                    suffixIconColor: suffixIconColor,
+                    hintText: hintText,
+                    hintStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.grey)),
+              ),
+            )),
+      ],
+    );
   }
 }

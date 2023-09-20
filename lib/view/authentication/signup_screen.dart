@@ -37,9 +37,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Container(
                     height: 130,
                     width: 100,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: AppColors.primary,
-                        image: const DecorationImage(
+                        image: DecorationImage(
                             scale: 1,
                             image: AssetImage("assets/images/logo.png"),
                             fit: BoxFit.fill)),
@@ -79,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   text: "Continue with Facebook",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                   tap: () {}),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CustomContainerTile(
@@ -97,13 +97,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomContainerTile(
                   ontap: () {
-                    push(context, SignUpSCreenByPhone());
+                    push(context, SignUpScreenByPhone());
                   },
                   image: "assets/images/phone.png",
                   text: "Continue with Phone",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                   tap: () {
-                    push(context, SignUpSCreenByPhone());
+                    push(context, SignUpScreenByPhone());
                   }),
               const Spacer(),
               Row(

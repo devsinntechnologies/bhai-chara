@@ -19,13 +19,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   startTimer() async {
     var _duration = const Duration(seconds: 5);
-    return Timer(_duration,pushUntil(context, OnboardScreenOne()));
+    return Timer(_duration, pushUntil(context, OnboardScreenOne()));
   }
 
   @override
   void initState() {
     startTimer();
-
     super.initState();
   }
 

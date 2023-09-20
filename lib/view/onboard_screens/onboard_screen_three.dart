@@ -8,9 +8,14 @@ import '../../utils/app_colors.dart';
 import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
 
-class OnboardScreenThree extends StatelessWidget {
+class OnboardScreenThree extends StatefulWidget {
   const OnboardScreenThree({super.key});
 
+  @override
+  State<OnboardScreenThree> createState() => _OnboardScreenThreeState();
+}
+
+class _OnboardScreenThreeState extends State<OnboardScreenThree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,13 +74,16 @@ class OnboardScreenThree extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    CustomButton(() {
-                      push(context, SignUpScreen());
-                    }, 'Next'),
-                    SizedBox(
+                    CustomButton(
+                      onTap: () {
+                        pushUntil(context, SignUpScreen());
+                      },
+                      text: "Next",
+                    ),
+                    const SizedBox(
                       height: 30,
                     )
                   ]),

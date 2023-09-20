@@ -8,9 +8,14 @@ import '../../utils/app_colors.dart';
 import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
 
-class OnboardScreenTwo extends StatelessWidget {
+class OnboardScreenTwo extends StatefulWidget {
   const OnboardScreenTwo({super.key});
 
+  @override
+  State<OnboardScreenTwo> createState() => _OnboardScreenTwoState();
+}
+
+class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,13 +74,16 @@ class OnboardScreenTwo extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    CustomButton(() {
-                      push(context, OnboardScreenThree());
-                    }, 'Next'),
-                    SizedBox(
+                    CustomButton(
+                      onTap: () {
+                        push(context, OnboardScreenThree());
+                      },
+                      text: "Next",
+                    ),
+                    const SizedBox(
                       height: 30,
                     )
                   ]),

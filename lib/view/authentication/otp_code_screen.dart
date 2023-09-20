@@ -175,9 +175,10 @@ class _OTPScreenState extends State<OTPScreen> {
                         ))
                   ])),
               const Spacer(),
-              CustomButton(() {
-                push(context, LocationScreen());
-              }, "Next")
+              CustomButton(
+                onTap: push(context, LocationScreen()),
+                text: "Next",
+              )
               // InkWell(
               //   onTap: () {
               //     // fuctionality

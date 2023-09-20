@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 2, top: 20,bottom: 20),
+      padding: const EdgeInsets.only(left: 2, top: 20, bottom: 20),
       child: Container(
         height: 50,
         width: 100,
