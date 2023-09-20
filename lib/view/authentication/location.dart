@@ -1,6 +1,12 @@
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../common/custom_button.dart';
+import '../../utils/push.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -58,31 +64,36 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
             ),
             const Spacer(),
-            Container(
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.blue),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 20,
-                      width: 20,
-                      child: const Image(
-                        image: AssetImage("assets/images/location_arrow.png"),
-                        fit: BoxFit.contain,
+            InkWell(
+              onTap: (){
+                push(context, RootScreen());
+              },
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: AppColors.blue),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 20,
+                        width: 20,
+                        child: const Image(
+                          image: AssetImage("assets/images/location_arrow.png"),
+                          fit: BoxFit.contain,
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Near me",
-                      style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
-                    ),
-                  ],
-                )),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Near me",
+                        style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+                      ),
+                    ],
+                  )),
+            ),
             const SizedBox(
               height: 20,
             ),

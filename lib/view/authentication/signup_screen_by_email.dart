@@ -1,8 +1,14 @@
+import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/custom_button.dart';
 import '../../common/custom_container_tile.dart';
+import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
+import '../settings-screens/create_pasward_screen.dart';
 
 class SignupByEmail extends StatefulWidget {
   const SignupByEmail({super.key});
@@ -74,22 +80,26 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     borderSide: BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
             const Spacer(),
-            InkWell(
-              onTap: () {
-                //fuctionality
-              },
-              child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.blue),
-                  child: Center(
-                    child: Text(
-                      "Next",
-                      style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
-                    ),
-                  )),
-            ),
+            CustomButton((){
+              push(context, CreatePassword());
+            },"Next")
+            // InkWell(
+            //   onTap: () {
+            //     //fuctionality
+            //   },
+            //   child: Container(
+            //       height: 50,
+            //       decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(20),
+            //           color: AppColors.blue),
+            //       child: Center(
+            //         child: Text(
+            //           "Next",
+            //           style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+            //         ),
+            //       )),
+            // ),
+
           ],
         ),
       ),

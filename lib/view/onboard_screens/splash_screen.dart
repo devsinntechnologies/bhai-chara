@@ -1,8 +1,12 @@
 // ignore_for_file: unused_local_variable
 
+import 'dart:async';
+
+import 'package:bhai_chara/view/onboard_screens/onboard_screen_one.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
+import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,7 +18,8 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   startTimer() async {
-    var _duration = const Duration(seconds: 55);
+    var _duration = const Duration(seconds: 5);
+    return Timer(_duration,pushUntil(context, OnboardScreenOne()));
   }
 
   @override

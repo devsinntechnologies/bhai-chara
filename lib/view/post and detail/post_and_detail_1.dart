@@ -90,6 +90,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 height: 10,
               ),
               CustomListTile(
+                tap: (){},
                   back_color: AppColors.orangeColor,
                   circular_radius: 34,
                   circularwidget: Container(

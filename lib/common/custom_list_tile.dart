@@ -13,6 +13,7 @@ class CustomListTile extends StatelessWidget {
       this.end_icon_widget,
       this.subtitleText,
       this.subtitleStyle,
+      required this.tap,
       this.titleStyle});
   var circular_radius,
       back_image,
@@ -22,37 +23,41 @@ class CustomListTile extends StatelessWidget {
       subtitleText,
       end_icon_widget,
       titleStyle,
-      subtitleStyle;
+      subtitleStyle, 
+      tap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(bottom: 20),
-      child: Row(
-        children: [
-          CircleAvatar(
-              backgroundColor: back_color,
-              radius: circular_radius,
-              child: circularwidget),
-          const SizedBox(
-            width: 20,
-          ),
-          Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  titletext,
-                  style: titleStyle,
-                ),
-                Text(
-                  subtitleText,
-                  style: subtitleStyle,
-                )
-              ],
+    return InkWell(
+      onTap: tap,
+      child: Container(
+        padding: EdgeInsets.only(bottom: 20),
+        child: Row(
+          children: [
+            CircleAvatar(
+                backgroundColor: back_color,
+                radius: circular_radius,
+                child: circularwidget),
+            const SizedBox(
+              width: 20,
             ),
-          )
-        ],
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    titletext,
+                    style: titleStyle,
+                  ),
+                  Text(
+                    subtitleText,
+                    style: subtitleStyle,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

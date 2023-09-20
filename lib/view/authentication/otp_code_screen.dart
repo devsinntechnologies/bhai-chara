@@ -1,7 +1,12 @@
+import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/custom_button.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/push.dart';
 import '../../utils/text-styles.dart';
 
 class OTPScreen extends StatefulWidget {
@@ -172,23 +177,26 @@ class _OTPScreenState extends State<OTPScreen> {
                         ))
                   ])),
               const Spacer(),
-              InkWell(
-                onTap: () {
-                  // fuctionality
-                },
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: AppColors.blue),
-                    child: Center(
-                      child: Text(
-                        "Next",
-                        style:
-                            AppTextStyles.textStyleNormalBodySmall_WhiteColor,
-                      ),
-                    )),
-              ),
+              CustomButton((){
+                push(context, LocationScreen());
+              }, "Next")
+              // InkWell(
+              //   onTap: () {
+              //     // fuctionality
+              //   },
+              //   child: Container(
+              //       height: 50,
+              //       decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(20),
+              //           color: AppColors.blue),
+              //       child: Center(
+              //         child: Text(
+              //           "Next",
+              //           style:
+              //               AppTextStyles.textStyleNormalBodySmall_WhiteColor,
+              //         ),
+              //       )),
+              // ),
             ],
           ),
         ),

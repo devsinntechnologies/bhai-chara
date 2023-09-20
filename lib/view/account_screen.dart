@@ -39,7 +39,7 @@ class _AccountScreenState extends State<AccountScreen> {
               Row(
                 children: [
                   // 1columnn...
-                  const Column(
+                   Column(
                     children: [
                       CircleAvatar(
                         radius: 70,
@@ -83,7 +83,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     Row(
                       children: [
                         //1 columnnn
-                        const Column(
+                         Column(
                           children: [
                             Icon(
                               Icons.settings,

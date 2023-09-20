@@ -1,4 +1,6 @@
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/live_chatt_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
@@ -35,21 +37,26 @@ class ChattListScreen extends StatelessWidget {
                 ),
               ),
               for (int i = 0; i <= 15; i++)
-                ListTile(
-                  leading: const CircleAvatar(radius: 25),
-                  title: Text(
-                    "Kashaf Waheed",
-                    style: AppTextStyles.textStyleNormalBodyMedium,
-                  ),
-                  subtitle: Text(
-                    "hello",
-                    style: AppTextStyles.textStyleNormalBodyXSmall
-                        .copyWith(color: AppColors.grey),
-                  ),
-                  trailing: Text(
-                    "3/7/23",
-                    style: AppTextStyles.textStyleNormalBodyXSmall
-                        .copyWith(color: AppColors.grey),
+                InkWell(
+                  onTap: (){
+                    push(context, LiveChattScreen());
+                  },
+                  child: ListTile(
+                    leading: const CircleAvatar(radius: 25),
+                    title: Text(
+                      "Kashaf Waheed",
+                      style: AppTextStyles.textStyleNormalBodyMedium,
+                    ),
+                    subtitle: Text(
+                      "hello",
+                      style: AppTextStyles.textStyleNormalBodyXSmall
+                          .copyWith(color: AppColors.grey),
+                    ),
+                    trailing: Text(
+                      "3/7/23",
+                      style: AppTextStyles.textStyleNormalBodyXSmall
+                          .copyWith(color: AppColors.grey),
+                    ),
                   ),
                 ),
             ],
