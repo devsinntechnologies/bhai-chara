@@ -3,7 +3,6 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_appbar.dart';
-import '../../common/custom_navigation_bar.dart';
 import '../../utils/text-styles.dart';
 
 class AdsScreen extends StatefulWidget {
