@@ -1,3 +1,4 @@
+import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
@@ -9,9 +10,10 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: 100,
-      backgroundColor: AppColors.appbar,     
-      leading: leading_widget,
-    );
+        toolbarHeight: 100,
+        backgroundColor: AppColors.appbar,
+        leading: leading_widget,
+        title: Text(title_text),
+        titleTextStyle: AppTextStyles.textStyleNormalBodySmall_WhiteColor);
   }
 }

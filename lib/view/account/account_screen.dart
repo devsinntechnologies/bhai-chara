@@ -39,7 +39,7 @@ class _AccountScreenState extends State<AccountScreen> {
               height: 50,
             ),
             CustomListTile(
-              back_color: AppColors.primary,
+              back_color: AppColors.white,
               circularwidget: Icon(
                 Icons.settings,
                 size: 30,
@@ -55,7 +55,7 @@ class _AccountScreenState extends State<AccountScreen> {
               height: 10,
             ),
             CustomListTile(
-              back_color: AppColors.primary,
+              back_color: AppColors.white,
               circularwidget: Icon(
                 Icons.help,
                 size: 30,
