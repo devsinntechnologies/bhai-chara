@@ -1,3 +1,4 @@
+import 'package:bhai_chara/controller/services/auth_services.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
@@ -15,31 +16,31 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = GoogleSignIn();
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final GoogleSignIn googleSignIn = GoogleSignIn();
 
-  // Function to handle Google Sign-In
-  Future<User?> _handleSignInWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleSignInAccount =
-          await googleSignIn.signIn();
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
-      );
+  // // Function to handle Google Sign-In
+  // Future<User?> _handleSignInWithGoogle() async {
+  //   try {
+  //     final GoogleSignInAccount? googleSignInAccount =
+  //         await googleSignIn.signIn();
+  //     final GoogleSignInAuthentication googleSignInAuthentication =
+  //         await googleSignInAccount!.authentication;
+  //     final AuthCredential credential = GoogleAuthProvider.credential(
+  //       accessToken: googleSignInAuthentication.accessToken,
+  //       idToken: googleSignInAuthentication.idToken,
+  //     );
 
-      final UserCredential authResult =
-          await _auth.signInWithCredential(credential);
-      final User? user = authResult.user;
+  //     final UserCredential authResult =
+  //         await _auth.signInWithCredential(credential);
+  //     final User? user = authResult.user;
 
-      return user;
-    } catch (error) {
-      print("Google Sign-In Error: $error");
-      return null;
-    }
-  }
+  //     return user;
+  //   } catch (error) {
+  //     print("Google Sign-In Error: $error");
+  //     return null;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -94,15 +95,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomContainerTile(
                 tap: () async {
-                    print("Google button tapped"); // Add this line
-                  User? user = await _handleSignInWithGoogle();
-                  if (user != null) {
-                    push(context, OTPScreen());
-                    // Handle successful sign-in, navigate to the next screen, or perform other actions.
-                    // Example: Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NextScreen()));
-                  } else {
-                    // Handle sign-in error or cancellation.
-                  }
+                  //   print("Google button tapped"); // Add this line
+                  // User? user = await _handleSignInWithGoogle();
+                  // if (user != null) {
+                  //   push(context, OTPScreen());
+                  //   // Handle successful sign-in, navigate to the next screen, or perform other actions.
+                  //   // Example: Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NextScreen()));
+                  // } else {
+                  //   // Handle sign-in error or cancellation.
+                  // }
+
+                  AuthServices().SignInWithGoogle();
                 },
                 image: "assets/images/google.png",
                 text: "Continue with Google",
