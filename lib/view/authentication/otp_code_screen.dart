@@ -1,9 +1,10 @@
-import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/custom_button.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
@@ -176,7 +177,19 @@ class _OTPScreenState extends State<OTPScreen> {
                   ])),
               const Spacer(),
               CustomButton(
-                onTap: push(context, LocationScreen()),
+                onTap: () {
+                  if (otp_1.text.isEmpty) {
+                    showSnack(context: context);
+                  } else if (otp_2.text.isEmpty) {
+                    showSnack(context: context);
+                  } else if (otp_3.text.isEmpty) {
+                    showSnack(context: context);
+                  } else if (otp_4.text.isEmpty) {
+                    showSnack(context: context);
+                  } else {
+                    push(context, LocationScreen());
+                  }
+                },
                 text: "Next",
               )
               // InkWell(

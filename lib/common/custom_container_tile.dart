@@ -125,12 +125,14 @@ class CustomTextField extends StatelessWidget {
               child: TextField(
                 obscureText: obsecuretext,
                 style: TextStyle(
-                    fontWeight: FontWeight.w400, color: AppColors.grey),
+                    fontWeight: FontWeight.w400, color: AppColors.black),
                 maxLines: 1,
                 keyboardType: TextInputType.text,
                 controller: controller,
                 decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 20),
+                    contentPadding: EdgeInsets.only(
+                      left: 20,
+                    ),
                     border: border,
                     suffixIcon: suffixIcon,
                     suffixIconColor: suffixIconColor,
