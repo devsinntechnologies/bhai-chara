@@ -15,24 +15,33 @@ class CustomContainer extends StatelessWidget {
       onTap: ontap,
       child: Container(
         margin: EdgeInsets.only(left: 20),
-        // height: 120,
-        // width: 185,
-        width: 100,
+         height: 205,
+         width: 185,
+      //  width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.grey, width: 1),
         ),
-        child: Column(children: [
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
           Image(
             image: AssetImage(imgLink),
-            height: 70,
+            height: 131,
+            width: 185,
+            fit: BoxFit.cover,
           ),
-          Padding(
+         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               child: Text(text, style: AppTextStyles.textStyleBoldBodySmall)),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: Text(text, style: AppTextStyles.textStyleBoldBodyXSmall)),
+              child: Text(secondText, style: AppTextStyles.textStyleBoldBodyXSmall)),
+          ],
+         )
         ]),
       ),
     );
