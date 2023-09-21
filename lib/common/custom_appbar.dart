@@ -6,7 +6,7 @@ import '../utils/app_colors.dart';
 // ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget {
   CustomAppBar({super.key, this.leading_widget, this.title_text});
-  var title_text, leading_widget;
+  var title_text, leading_widget = null;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -14,6 +14,6 @@ class CustomAppBar extends StatelessWidget {
         backgroundColor: AppColors.appbar,
         leading: leading_widget,
         title: Text(title_text),
-        titleTextStyle: AppTextStyles.textStyleNormalBodySmall_WhiteColor);
+        titleTextStyle: AppTextStyles.textStyleTitleBodyMediumWhiteColor);
   }
 }

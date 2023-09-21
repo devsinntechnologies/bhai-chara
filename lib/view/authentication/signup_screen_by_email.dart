@@ -37,7 +37,8 @@ class _SignupByEmailState extends State<SignupByEmail> {
                   height: 130,
                   width: 100,
                   decoration: const BoxDecoration(
-                      color: AppColors.primary,
+                      // color: AppColors.primary,
+                      color: AppColors.White,
                       image: DecorationImage(
                           scale: 1,
                           image: AssetImage("assets/images/logo.png"),
@@ -66,7 +67,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
               height: 20,
             ),
             CustomTextField(
-                // height: 60,
+                height: 60,
                 obsecuretext: false,
                 width: size.width,
                 controller: emailController,

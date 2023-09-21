@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
+          home: const SplashScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }

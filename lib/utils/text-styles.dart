@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
@@ -151,4 +150,10 @@ class AppTextStyles {
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
       color: Colors.black);
+  static TextStyle textStyleTitleBodyMediumWhiteColor = const TextStyle(
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Color(0xfaFFFFFF));
 }

@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 import '../../common/custom_appbar.dart';
 import '../../utils/text-styles.dart';
+import '../account/account_screen.dart';
+import '../help_and_sports_screen.dart';
+import '../manage_account_screen.dart';
+import '../setting_screen.dart';
 
 class AdsScreen extends StatefulWidget {
   const AdsScreen({super.key});
@@ -15,6 +19,16 @@ class AdsScreen extends StatefulWidget {
 class _AdsScreenState extends State<AdsScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    var currentIndex;
+    // ignore: unused_local_variable
+    final pages = [
+      AccountScreen(),
+      AdsScreen(),
+      HelpAndSportsScreen(),
+      ManageAccountScreen(),
+      SettingScreen(),
+    ];
     // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return Scaffold(
@@ -184,6 +198,9 @@ class _AdsScreenState extends State<AdsScreen> {
                           ])),
                         ],
                       ),
+                      SizedBox(
+                        height: 20,
+                      )
                     ],
                   ),
                 ),
