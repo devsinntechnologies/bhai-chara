@@ -101,17 +101,32 @@ class CustomTextFormField extends StatelessWidget {
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
-      {super.key,
-      this.height,
-      this.width,
-      required this.controller,
-      required this.border,
-      this.suffixIcon,
-      this.suffixIconColor,
-      required this.hintText,
-      required this.obsecuretext});
-  var height, width, controller, border, suffixIcon, suffixIconColor, hintText;
+  CustomTextField({
+    super.key,
+    this.height,
+    this.width,
+    required this.controller,
+    required this.border,
+    this.suffixIcon,
+    this.suffixIconColor,
+    required this.hintText,
+    required this.obsecuretext,
+    this.prefixcolor,
+    this.prfixicon,
+    // this.pad_left = 20,
+    // this.pad_bottom,
+    // this.pad_right,
+    // this.pad_top,
+  });
+  var height,
+      width,
+      controller,
+      border,
+      suffixIcon,
+      suffixIconColor,
+      hintText,
+      prfixicon,
+      prefixcolor;
   bool obsecuretext;
 
   @override
@@ -130,10 +145,10 @@ class CustomTextField extends StatelessWidget {
                 keyboardType: TextInputType.text,
                 controller: controller,
                 decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(
-                      left: 20,
-                    ),
+                    contentPadding: EdgeInsets.only(left: 20),
                     border: border,
+                    prefixIcon: prfixicon,
+                    prefixIconColor: prefixcolor,
                     suffixIcon: suffixIcon,
                     suffixIconColor: suffixIconColor,
                     hintText: hintText,

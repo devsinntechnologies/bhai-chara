@@ -1,3 +1,4 @@
+import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/utils/utils.dart';
@@ -5,10 +6,16 @@ import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import '../../utils/circle_avatar.dart';
 import '../../utils/container_with_img.dart';
-import '../../utils/custom_textformfield.dart';
-class HomeScreen extends StatelessWidget {
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,13 +59,23 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-             CustomTextFormField(),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
-                child: 
-                Text('LatesBrowse Categoriest', style: AppTextStyles.textStyleBoldBodyMedium ,
-                )
+              Container(
+                margin: EdgeInsets.all(10),
+                child: CustomTextField(
+                    prfixicon: Icon(Icons.search),
+                    prefixcolor: AppColors.Grey,
+                    controller: searchController,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: "What are you looking for?",
+                    obsecuretext: false),
               ),
+              Padding(
+                  padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
+                  child: Text(
+                    'LatesBrowse Categoriest',
+                    style: AppTextStyles.textStyleBoldBodyMedium,
+                  )),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -92,9 +109,11 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
-                child: Text('Latest', style: AppTextStyles.textStyleBoldBodyMedium,)
-              ),
+                  padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
+                  child: Text(
+                    'Latest',
+                    style: AppTextStyles.textStyleBoldBodyMedium,
+                  )),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -135,9 +154,11 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
-                child: Text('Sales', style: AppTextStyles.textStyleBoldBodyMedium,)
-              ),
+                  padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
+                  child: Text(
+                    'Sales',
+                    style: AppTextStyles.textStyleBoldBodyMedium,
+                  )),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
