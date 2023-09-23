@@ -20,7 +20,7 @@ class PrivacyScreen extends StatelessWidget {
           child: Row(children: [
             Text("Show my phone number on ads",
                 style: AppTextStyles.textStyleBoldBodySmall),
-            Spacer(),
+          const  Spacer(),
             Consumer<SwitchProvider>(
               builder: (context, pro, _) {
                 return Switch(
@@ -33,7 +33,7 @@ class PrivacyScreen extends StatelessWidget {
             ),
           ]),
         ),
-       Divider(),
+      const  Divider(),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
@@ -44,14 +44,14 @@ class PrivacyScreen extends StatelessWidget {
               children: [
                 Text("Create Password",
                     style: AppTextStyles.textStyleBoldBodySmall),
-                Spacer(),
+              const   Spacer(),
                
-                  Icon(Icons.arrow_forward_ios)
+               const Icon(Icons.arrow_forward_ios)
               ],
             ),
           ),
         ),
-       Divider(),
+      const Divider(),
       
       ]),
     );

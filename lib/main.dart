@@ -6,6 +6,7 @@ import 'package:bhai_chara/view/account/account_screen.dart';
 
 import 'package:bhai_chara/view/help_and_sports_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
+import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +25,18 @@ class MyApp extends StatelessWidget {
         providers: [
           // ChangeNotifierProvider(create: (context) => SplashProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
-          ChangeNotifierProvider(create: (context) => visibilityProvider()),
+          ChangeNotifierProvider(create: (context) => visibilityProvider1()),
+          ChangeNotifierProvider(create: (context) => visibilityProvider2()),
           ChangeNotifierProvider(create: (context) => SliderProvider()),
            ChangeNotifierProvider(create: (context) => SwitchProvider()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
+<<<<<<< Updated upstream
           home: AccountScreen(),
+=======
+          home: CreatePasswardScreen(),
+>>>>>>> Stashed changes
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
