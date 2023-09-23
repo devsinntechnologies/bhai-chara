@@ -11,10 +11,10 @@ class TimerProvider extends ChangeNotifier {
 
   void startTimer(BuildContext context) {
     if (_timer == null) {
-      var _duration = Duration(seconds: 5);
+      var _duration =const  Duration(seconds: 5);
       _timer = Timer(_duration, () {
         Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) =>const  HomeScreen(),
         ));
         _timer?.cancel();
         _timer = null;

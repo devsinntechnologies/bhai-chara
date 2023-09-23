@@ -39,7 +39,7 @@ class ChattListScreen extends StatelessWidget {
               for (int i = 0; i <= 15; i++)
                 InkWell(
                   onTap: (){
-                    push(context, LiveChattScreen());
+                    push(context,const LiveChattScreen());
                   },
                   child: ListTile(
                     leading: const CircleAvatar(radius: 25),

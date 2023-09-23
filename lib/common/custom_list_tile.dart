@@ -30,7 +30,7 @@ class CustomListTile extends StatelessWidget {
     return InkWell(
       onTap: tap,
       child: Container(
-        padding: EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.only(bottom: 20),
         child: Row(
           children: [
             CircleAvatar(

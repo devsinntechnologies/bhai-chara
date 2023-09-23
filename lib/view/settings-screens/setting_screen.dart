@@ -22,11 +22,11 @@ class _SettingScreenState extends State<SettingScreen> {
      
       
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal:20),
+        padding:const EdgeInsets.symmetric(horizontal:20),
         child: Column(
           children: [
             CustomContainer(context, "Setting"),
-            SizedBox(
+          const  SizedBox(
               height: 30,
             ),
         
@@ -42,7 +42,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   subtitle: "Phone number visibility",
                 ),
                 
-                Divider(
+              const  Divider(
                   thickness: 2,
                   color:AppColors.dividerColor ,
                 ),
@@ -54,7 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   subtitle: "Phone number visibility",
                 ),
                 
-                Divider(
+              const  Divider(
                   thickness: 2,
                   color:AppColors.dividerColor ,
                 ),
@@ -66,7 +66,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   subtitle: "Phone number visibility",
                 ),
                 
-                Divider(
+             const   Divider(
                   thickness: 2,
                   color:AppColors.dividerColor ,
                 ),

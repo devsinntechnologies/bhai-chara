@@ -15,7 +15,7 @@ class LiveChattScreen extends StatelessWidget {
         foregroundColor: AppColors.white,
         leading:IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios)),
+        }, icon: const Icon(Icons.arrow_back_ios)),
         elevation: 0,
        leadingWidth: 20,
         actions: const [
@@ -66,7 +66,7 @@ class LiveChattScreen extends StatelessWidget {
                   BuildReceiveMesg("That's good"),
                   BuildReceiveMesg("That's good\n asdfghjklswedrtyuiozxcvbnhat's good asdfgh\njklswedrtyuiozxcvbnm,werftowerha\nt's at's good asdfghjklswedrty\nuiozxcvbnhat's good asdfghjklswed\nrtyuiozxcvbnm,werftowerhat's good a\nsdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghj\nklswedrtyuiozxcvbn\nm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,we\nrftowerm,werftowertyuiohat's good asdfghjklswedrty\nuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerogood a\nsdfghjklswedrtyuiozxcvbnm,werftowerhat's g\nood asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswed\nrtyuiozxcvbnm,werftowerm,werftowertyui\nohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower"),
                   BuildTextMesg("That's good asdfghjklswedat's good asdfghjklswedrtyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerortyuiozxcvbnhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerhat's good asdfghjklswedrtyuiozxcvbnm,werftowerm,werftowertyuiohat's good asdfghjklswedrtyuihat's good asdfghjklswedrtyuiozxcvbnm,werftowerozxcvbnm,werftower"),
-          SizedBox(height: 50,)
+        const  SizedBox(height: 50,)
                   
                 ],
               ),
