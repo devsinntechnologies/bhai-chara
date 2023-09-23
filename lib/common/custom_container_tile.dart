@@ -11,19 +11,19 @@ class CustomContainerTile extends StatelessWidget {
       this.style_text,
       this.chil_widget,
       this.ontap,
-      this.width_container = double.infinity,
-      this.height_contianer = 50,
+      this.width = double.infinity,
+      this.height = 50.0,
       required Null Function() tap});
   var image, text, chil_widget;
-  var height_contianer, ontap;
-  var width_container, style_text;
+  var height, ontap;
+  var width, style_text;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: ontap,
       child: Container(
-        height: height_contianer,
-        width: width_container,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
             border: Border.all(color: AppColors.grey, style: BorderStyle.solid),
             borderRadius: BorderRadius.circular(20)),
