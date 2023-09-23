@@ -32,11 +32,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => visibilityProvider1()),
           ChangeNotifierProvider(create: (context) => visibilityProvider2()),
           ChangeNotifierProvider(create: (context) => SliderProvider()),
-           ChangeNotifierProvider(create: (context) => SwitchProvider()),
+          ChangeNotifierProvider(create: (context) => SwitchProvider()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: AdsScreen(),
+          home: SplashScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
