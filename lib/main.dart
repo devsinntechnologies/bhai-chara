@@ -5,6 +5,7 @@ import 'package:bhai_chara/view/account/account_screen.dart';
 
 import 'package:bhai_chara/view/help_and_sports_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
+import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home:  SettingScreen(),
+          home:  PrivacyScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
