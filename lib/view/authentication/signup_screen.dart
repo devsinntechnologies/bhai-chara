@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         body: Container(
           height: double.infinity,
           width: double.infinity,
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                      width: size.width * .85,
+                      width: size.width * .90,
                       child: Text(
                         "Where trust unites buyers and seller in a strong community",
                         maxLines: 3,

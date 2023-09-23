@@ -1,5 +1,5 @@
 import 'package:bhai_chara/common/Custom_button_small.dart';
-import 'package:bhai_chara/utils/push.dart';
+
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-     // backgroundColor: AppColors.grey,
+      // backgroundColor: AppColors.grey,
       content: Container(
         height: 170,
         child: Column(
@@ -23,8 +23,8 @@ class DialogBox extends StatelessWidget {
               "All your ads will be set to inactive and will not be \nshowing to the users.",
               style: AppTextStyles.textStyleNormalBodyXSmall,
             ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomButtonSmall(
                     height: 40,
@@ -34,12 +34,11 @@ class DialogBox extends StatelessWidget {
                     },
                     text: "Cancel",
                     fontcolor: AppColors.white),
-              
-               CustomButtonSmall(
+                CustomButtonSmall(
                     height: 40,
                     color: AppColors.blue,
                     onPressed: () {
-                     // Navigator.pop(context);
+                      // Navigator.pop(context);
                     },
                     text: "Delete",
                     fontcolor: AppColors.white),
@@ -49,9 +48,6 @@ class DialogBox extends StatelessWidget {
         ),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
       ),
-   
-   
-   
     );
   }
 }

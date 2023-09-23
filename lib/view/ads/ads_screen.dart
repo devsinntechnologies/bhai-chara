@@ -18,7 +18,9 @@ class AdsScreen extends StatefulWidget {
 class _AdsScreenState extends State<AdsScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var currentIndex;
+    // ignore: unused_local_variable
     final pages = [
       const AccountScreen(),
       const AdsScreen(),
@@ -26,8 +28,19 @@ class _AdsScreenState extends State<AdsScreen> {
       const ManageAccountScreen(),
       const SettingScreen(),
     ];
+    // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70),
+        child: AppBar(
+          backgroundColor: AppColors.appbar,
+          title: Text(
+            "Ads",
+            style: AppTextStyles.textStyleTitleBodyMediumWhiteColor,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(

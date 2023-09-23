@@ -29,7 +29,7 @@ class _CreatePasswordState extends State<CreatePassword> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,11 +44,9 @@ class _CreatePasswordState extends State<CreatePassword> {
                   height: 130,
                   width: 100,
                   decoration: const BoxDecoration(
-                      color: AppColors.primary,
                       image: DecorationImage(
-                          scale: 1,
                           image: AssetImage("assets/images/logo.png"),
-                          fit: BoxFit.fill)),
+                          fit: BoxFit.cover)),
                 ),
               ],
             ),
@@ -83,101 +81,88 @@ class _CreatePasswordState extends State<CreatePassword> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              width: size.width,
-              decoration: BoxDecoration(
-                border: Border.all(color: AppColors.grey),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      CustomTextField(
-                        obsecuretext: x % 2 == 0 ? false : true,
-                        height: 30.0,
-                        width: size.width * .80,
-                        controller: passwordController,
-                        border: InputBorder.none,
-                        hintText: "Password",
-                        suffixIcon: x % 2 != 0
-                            ? IconButton(
-                                onPressed: () {
-                                  setState(() {});
-                                  x = AuthProvider.IncrementVariable(x);
-                                },
-                                icon: const Icon(
-                                  Icons.visibility_off,
-                                  size: 20,
-                                ))
-                            : IconButton(
-                                onPressed: () {
-                                  setState(() {});
-                                  x = AuthProvider.IncrementVariable(x);
-                                },
-                                icon: const Icon(
-                                  Icons.visibility,
-                                  size: 20,
-                                )),
-                        suffixIconColor: AppColors.grey,
-                      )
-                    ],
-                  ),
-                ],
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTextField(
+                      obsecuretext: x % 2 == 0 ? false : true,
+                      height: 30,
+                      width: size.width * .90,
+                      controller: passwordController,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.grey),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      hintText: "Password",
+                      suffixIcon: x % 2 != 0
+                          ? IconButton(
+                              onPressed: () {
+                                setState(() {});
+                                x = AuthProvider.IncrementVariable(x);
+                              },
+                              icon: const Icon(
+                                Icons.visibility_off,
+                                size: 20,
+                              ))
+                          : IconButton(
+                              onPressed: () {
+                                setState(() {});
+                                x = AuthProvider.IncrementVariable(x);
+                              },
+                              icon: const Icon(
+                                Icons.visibility,
+                                size: 20,
+                              )),
+                      suffixIconColor: AppColors.grey,
+                    )
+                  ],
+                ),
+              ],
             ),
             const SizedBox(
               height: 10,
             ),
-            Container(
-              width: size.width,
-              decoration: BoxDecoration(
-                border: Border.all(
-                    color: AppColors.grey,
-                    style: BorderStyle.solid,
-                    strokeAlign: BorderSide.strokeAlignInside),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      CustomTextField(
-                        obsecuretext: y % 2 == 0 ? false : true,
-                        height: 30.0,
-                        width: size.width * .80,
-                        controller: confirmpasswordController,
-                        border: InputBorder.none,
-                        hintText: "Confirm Password",
-                        suffixIcon: y % 2 != 0
-                            ? IconButton(
-                                onPressed: () {
-                                  setState(() {});
-                                  y = AuthProvider.IncrementVariable(y);
-                                },
-                                icon: const Icon(
-                                  Icons.visibility_off,
-                                  size: 20,
-                                ))
-                            : IconButton(
-                                onPressed: () {
-                                  setState(() {});
-                                  y = AuthProvider.IncrementVariable(y);
-                                },
-                                icon: const Icon(
-                                  Icons.visibility,
-                                  size: 20,
-                                )),
-                        suffixIconColor: AppColors.grey,
-                      )
-                    ],
-                  ),
-                ],
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomTextField(
+                      obsecuretext: y % 2 == 0 ? false : true,
+                      width: size.width * .90,
+                      controller: confirmpasswordController,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: AppColors.grey)),
+                      hintText: "Confirm Password",
+                      suffixIcon: y % 2 != 0
+                          ? IconButton(
+                              onPressed: () {
+                                setState(() {});
+                                y = AuthProvider.IncrementVariable(y);
+                              },
+                              icon: const Icon(
+                                Icons.visibility_off,
+                                size: 20,
+                              ))
+                          : IconButton(
+                              onPressed: () {
+                                setState(() {});
+                                y = AuthProvider.IncrementVariable(y);
+                              },
+                              icon: const Icon(
+                                Icons.visibility,
+                                size: 20,
+                              )),
+                      suffixIconColor: AppColors.grey,
+                    )
+                  ],
+                ),
+              ],
             ),
             const Spacer(),
 

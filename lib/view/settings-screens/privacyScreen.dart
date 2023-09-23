@@ -1,11 +1,9 @@
-import 'dart:developer';
-
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../common/custom_appbaar.dart';
+import '../../common/custom_container.dart';
 import '../../provider/switch_provider.dart';
 import '../../utils/text-styles.dart';
 
@@ -22,7 +20,7 @@ class PrivacyScreen extends StatelessWidget {
           child: Row(children: [
             Text("Show my phone number on ads",
                 style: AppTextStyles.textStyleBoldBodySmall),
-          const  Spacer(),
+            const Spacer(),
             Consumer<SwitchProvider>(
               builder: (context, pro, _) {
                 return Switch(
@@ -35,27 +33,25 @@ class PrivacyScreen extends StatelessWidget {
             ),
           ]),
         ),
-      const  Divider(),
+        const Divider(),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
-            onTap: (){
-             // debugger();
+            onTap: () {
+              // debugger();
               push(context, CreatePasswardScreen());
             },
             child: Row(
               children: [
                 Text("Create Password",
                     style: AppTextStyles.textStyleBoldBodySmall),
-              const   Spacer(),
-               
-               const Icon(Icons.arrow_forward_ios)
+                const Spacer(),
+                const Icon(Icons.arrow_forward_ios)
               ],
             ),
           ),
         ),
-      const Divider(),
-      
+        const Divider(),
       ]),
     );
   }

@@ -2,19 +2,11 @@ import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/account/account_screen.dart';
-import 'package:bhai_chara/view/ads/ads_screen.dart';
-
-import 'package:bhai_chara/view/help_and_sports_screen.dart';
-import 'package:bhai_chara/view/home-screens/root_screen.dart';
-import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
-import 'package:bhai_chara/view/settings-screens/manage_account_screen.dart';
-import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
-import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
+import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
+import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'view/onboard_screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +28,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: HelpAndSportsScreen(),
+          home: SplashScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }

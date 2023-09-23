@@ -29,10 +29,10 @@ class CustomContainerTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(20)),
         child: Container(
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(child: Container()),
               Expanded(
-                flex: 2,
+                // flex: 1,
                 child: Container(
                   height: 20,
                   width: 20,
@@ -45,7 +45,7 @@ class CustomContainerTile extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 4,
+                flex: 2,
                 child: Text(
                   "$text",
                   style: style_text == null
@@ -136,27 +136,27 @@ class CustomTextField extends StatelessWidget {
         Container(
             height: height,
             width: width,
-            child: Center(
-              child: TextField(
-                obscureText: obsecuretext,
-                style: TextStyle(
-                    fontWeight: FontWeight.w400, color: AppColors.black),
-                maxLines: 1,
-                keyboardType: TextInputType.text,
-                controller: controller,
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 20),
-                    border: border,
-                    prefixIcon: prfixicon,
-                    prefixIconColor: prefixcolor,
-                    suffixIcon: suffixIcon,
-                    suffixIconColor: suffixIconColor,
-                    hintText: hintText,
-                    hintStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.grey)),
-              ),
+            child: TextField(
+              obscureText: obsecuretext,
+              style: TextStyle(
+                  fontWeight: FontWeight.w400, color: AppColors.black),
+              maxLines: 1,
+              keyboardType: TextInputType.text,
+              controller: controller,
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(
+                    left: 20,
+                  ),
+                  border: border,
+                  prefixIcon: prfixicon,
+                  prefixIconColor: prefixcolor,
+                  suffixIcon: suffixIcon,
+                  suffixIconColor: suffixIconColor,
+                  hintText: hintText,
+                  hintStyle: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.grey)),
             )),
       ],
     );

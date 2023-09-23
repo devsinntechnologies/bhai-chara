@@ -6,9 +6,8 @@ import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../common/custom_appbaar.dart';
 import '../../common/custom_listtile.dart';
-
+import '../../utils/app_colors.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -21,9 +20,18 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80),
+        child: AppBar(
+          backgroundColor: AppColors.appbar,
+          title: Text(
+            "Account",
+            style: AppTextStyles.textStyleTitleBodyMediumWhiteColor,
+          ),
+        ),
+      ),
       body: Column(
         children: [
-          CustomContainer(context, 'Account'),
           const SizedBox(
             height: 30,
           ),
@@ -38,17 +46,17 @@ class _AccountScreenState extends State<AccountScreen> {
             height: 50,
           ),
           CustomListTileSetting(
-             tap: (){
+            tap: () {
               push(context, const SettingScreen());
-             },
+            },
             heading: "Settings",
             data: 'privacy and manage account',
             iconOne: Icons.settings,
           ),
           CustomListTileSetting(
-             tap: (){
+            tap: () {
               push(context, const HelpAndSportsScreen());
-             },
+            },
             heading: "Help and Supports",
             data: 'Help center and legal terms',
             iconOne: Icons.help,

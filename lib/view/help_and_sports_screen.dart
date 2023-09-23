@@ -1,10 +1,9 @@
 import 'package:bhai_chara/utils/push.dart';
 import 'package:flutter/material.dart';
 
-import '../common/custom_appbaar.dart';
+import '../common/custom_container.dart';
 import '../common/custom_listtile.dart';
 import '../utils/app_colors.dart';
-import '../utils/text-styles.dart';
 
 class HelpAndSportsScreen extends StatefulWidget {
   const HelpAndSportsScreen({super.key});
@@ -18,20 +17,18 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-     
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-           CustomContainer(context, "Help And Supports"),
+            CustomContainer(context, "Help And Supports"),
             const SizedBox(
               height: 30,
             ),
             Column(
               children: [
                 CustomListTileSetting(
-                  tap: (){
-                    
+                  tap: () {
                     BottomSheetFunction(context);
                   },
                   heading: "Feedback",
@@ -39,22 +36,20 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
                   iconTwo: Icons.arrow_forward_ios,
                 ),
                 CustomListTileSetting(
-                   tap: (){},
+                  tap: () {},
                   heading: "Invite friends to Bhai Chara",
                   data: 'Invite your friends to buy and sell',
                   iconTwo: Icons.arrow_forward_ios,
                 ),
                 CustomListTileSetting(
-                   tap: (){},
+                  tap: () {},
                   heading: "Version",
                   data: '23.1',
                   iconTwo: Icons.arrow_forward_ios,
                 ),
-               
               ],
             ),
           ],
-          
         ),
       ),
     );

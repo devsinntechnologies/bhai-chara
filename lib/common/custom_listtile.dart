@@ -1,6 +1,7 @@
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomListTileSetting extends StatelessWidget {
   var iconOne, iconTwo, heading, data, tap;
   CustomListTileSetting(

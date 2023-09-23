@@ -20,26 +20,28 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   TextEditingController ageController = TextEditingController();
   TextEditingController titlleController = TextEditingController();
   TextEditingController describeController = TextEditingController();
-
-  ImagePicker picker = ImagePicker();
-  XFile? image;
+  List<File> selectedImages = [];
+  final picker = ImagePicker();
+  // ImagePicker picker = ImagePicker();
+  // XFile? image;
 
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
-      // appBar: PreferredSize(
-      //     preferredSize: Size.fromHeight(80.0),
-      // child: CustomAppBar(
-      //   leading_widget: Icon(
-      //     Icons.close,
-      //     size: 30,
-      //     color: AppColors.primary,
-      //   ),
-      //   title_text: "Include some details",
-      // )
-      // ),
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80.0),
+          child: AppBar(
+            backgroundColor: AppColors.appbar,
+            leading: Icon(
+              Icons.close,
+              size: 30,
+              color: AppColors.primary,
+            ),
+            title: Text("Include some details"),
+            titleTextStyle: AppTextStyles.textStyleTitleBodyMediumWhiteColor,
+          )),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -47,55 +49,57 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextButton(
-                onPressed: () async {
-                  image = await picker.pickImage(source: ImageSource.gallery);
-                  // setState(() {
-                  //   //update UI
-                  // });
-                },
-                child: Text(
-                  "UPLOAD UP TO 20 PHOTOS",
-                  style: AppTextStyles.textStyleBoldBodySmall,
-                ),
+              Text(
+                "UPLOAD UP TO 20 PHOTOS",
+                style: AppTextStyles.textStyleBoldBodySmall,
               ),
               const SizedBox(
                 height: 10,
               ),
-              image == null
-                  ? Container(
-                      height: 180,
-                      width: size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: AppColors.blue),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+              // ignore: unnecessary_null_comparison
+              selectedImages.isEmpty
+                  ? InkWell(
+                      onTap: () async {
+                        getImages();
+                      },
+                      child: Container(
+                          height: 180.0,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: AppColors.blue),
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.photo_camera,
-                                color: AppColors.primary,
-                                size: 50,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.photo_camera,
+                                    color: AppColors.primary,
+                                    size: 50,
+                                  ),
+                                ],
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [],
+                              )
                             ],
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [],
-                          )
-                        ],
-                      ))
-                  : Container(
-                      height: 100,
-                      width: 100,
-                      child: Image.file(File(image!.path)),
+                          )),
+                    )
+                  : GridView.builder(
+                      itemCount: selectedImages.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3),
+                      itemBuilder: (BuildContext context, int index) {
+                        return Center(child: Image.file(selectedImages[index]));
+                      },
                     ),
               const SizedBox(
                 height: 20,
@@ -110,10 +114,10 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
               CustomListTile(
                   tap: () {},
                   back_color: AppColors.orangeColor,
-                  circular_radius: 34,
+                  circular_radius: 34.0,
                   circularwidget: Container(
-                      height: 30,
-                      width: 30,
+                      height: 30.0,
+                      width: 30.0,
                       child: const Center(
                           child: Image(
                         image: AssetImage("assets/images/cat_avatar.png"),
@@ -134,15 +138,15 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
               const SizedBox(
                 height: 05,
               ),
-              // CustomTextField(
-              //   // controller: priceController,
-              //   border: OutlineInputBorder(
-              //       borderRadius: BorderRadius.circular(20),
-              //       borderSide: BorderSide(color: AppColors.grey)),
-              //   hintText: "Price",
-              //   obsecuretext: false,
-              //   width: size.width,
-              // ),
+              CustomTextField(
+                controller: priceController,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: BorderSide(color: AppColors.grey)),
+                hintText: "Price",
+                obsecuretext: false,
+                width: size.width,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -313,6 +317,25 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
           ),
         ),
       ),
+    );
+  }
+
+  Future getImages() async {
+    final pickedFile = await picker.pickMultiImage(
+        imageQuality: 100, maxHeight: 1000, maxWidth: 1000);
+    List<XFile> xfilePick = pickedFile;
+
+    setState(
+      () {
+        if (xfilePick.isNotEmpty) {
+          for (var i = 0; i < xfilePick.length; i++) {
+            selectedImages.add(File(xfilePick[i].path));
+          }
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Nothing is selected')));
+        }
+      },
     );
   }
 }

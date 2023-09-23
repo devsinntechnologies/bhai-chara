@@ -1,13 +1,12 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/listtile_custom.dart';
 import 'package:bhai_chara/utils/push.dart';
-import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:bhai_chara/view/settings-screens/manage_account_screen.dart';
 import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:bhai_chara/view/settings-screens/user_preferences_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/custom_appbaar.dart';
+import '../../common/custom_container.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -33,7 +32,7 @@ class _SettingScreenState extends State<SettingScreen> {
               children: [
                 CustomListTile(
                   tap: () {
-                    push(context,const  PrivacyScreen());
+                    push(context, const PrivacyScreen());
                   },
                   title: "Privacy",
                   subtitle: "Phone number visibility",
