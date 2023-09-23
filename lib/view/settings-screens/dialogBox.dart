@@ -1,8 +1,9 @@
 import 'package:bhai_chara/common/Custom_button_small.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
 
 class DialogBox extends StatelessWidget {
   const DialogBox({super.key});
@@ -19,7 +20,7 @@ class DialogBox extends StatelessWidget {
             Icon(Icons.delete, color: AppColors.blue),
             Text("Are you sure?", style: AppTextStyles.textStyleBoldBodySmall),
             Text(
-              "All your ads will be set to inactive and will not be showing to the users.",
+              "All your ads will be set to inactive and will not be \nshowing to the users.",
               style: AppTextStyles.textStyleNormalBodyXSmall,
             ),
           Row(
@@ -37,7 +38,9 @@ class DialogBox extends StatelessWidget {
                CustomButtonSmall(
                     height: 40,
                     color: AppColors.blue,
-                    onPressed: () {},
+                    onPressed: () {
+                     // Navigator.pop(context);
+                    },
                     text: "Delete",
                     fontcolor: AppColors.white),
               ],

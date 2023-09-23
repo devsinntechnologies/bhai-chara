@@ -29,7 +29,7 @@ class _CreatePasswordState extends State<CreatePassword> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding: EdgeInsets.all(20),
+        padding:const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +89,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                 border: Border.all(color: AppColors.grey),
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -140,7 +140,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                     strokeAlign: BorderSide.strokeAlignInside),
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -195,7 +195,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                         context: context,
                         text: "Please Enter Correct Password");
                   } else {
-                    push(context, LocationScreen());
+                    push(context,const  LocationScreen());
                   }
                 },
                 text: "Next"),

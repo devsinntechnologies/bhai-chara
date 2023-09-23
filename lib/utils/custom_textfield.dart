@@ -18,7 +18,7 @@ class CustomeTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pro = context.watch<visibilityProvider>();
+    final pro = context.watch<visibilityProvider1>();
     return Container(
       margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
       height: 56,
@@ -35,7 +35,7 @@ class CustomeTextField extends StatelessWidget {
                 hintText: hinttext,
                 border: InputBorder.none,
                 suffixIcon:
-                    Consumer<visibilityProvider>(builder: (context, pro, _) {
+                    Consumer<visibilityProvider1>(builder: (context, pro, _) {
                   return IconButton(
                       onPressed: () {
                         pro.toggle();

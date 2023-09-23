@@ -15,9 +15,9 @@ class CreatePasswardScreen extends StatelessWidget {
   CreatePasswardScreen({Key? key});
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
-  final visibilityProvider passwordVisibilityProvider = visibilityProvider();
-  final visibilityProvider confirmPasswordVisibilityProvider =
-      visibilityProvider();
+  final visibilityProvider1 passwordVisibilityProvider = visibilityProvider1();
+  final visibilityProvider2 confirmPasswordVisibilityProvider =
+      visibilityProvider2();
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +25,18 @@ class CreatePasswardScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomContainer(
-            text: 'User Preferences',
+            text: 'Create Password',
             iconVar: Icons.arrow_back_ios,
           ),
           ChangeNotifierProvider(
-            create: (_) => visibilityProvider(),
+            create: (_) => visibilityProvider1(),
             child: CustomeTextField(
               hinttext: 'Password',
               controller: passwordController,
             ),
           ),
           ChangeNotifierProvider(
-            create: (_) => visibilityProvider(),
+            create: (_) => visibilityProvider2(),
             child: CustomeTextField(
               hinttext: 'Confirm Password',
               controller: confirmPasswordController,
@@ -45,7 +45,7 @@ class CreatePasswardScreen extends StatelessWidget {
           Container(
               margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
               child: CustomButton(
-                onTap: push(context, OTPScreen()),
+                onTap: (){push(context, OTPScreen());},
                 text: "Next",
               )),
         ],

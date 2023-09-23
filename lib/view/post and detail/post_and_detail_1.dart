@@ -9,18 +9,18 @@ import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class PostDetailScreen1 extends StatefulWidget {
-  const PostDetailScreen1({super.key});
+// class PostDetailScreen1 extends StatefulWidget {
+//   const PostDetailScreen1({super.key});
 
-  @override
-  State<PostDetailScreen1> createState() => _PostDetailScreen1State();
-}
+//   @override
+//   State<PostDetailScreen1> createState() => _PostDetailScreen1State();
+// }
 
-class _PostDetailScreen1State extends State<PostDetailScreen1> {
-  TextEditingController priceController = TextEditingController();
-  TextEditingController ageController = TextEditingController();
-  TextEditingController titlleController = TextEditingController();
-  TextEditingController describeController = TextEditingController();
+// class _PostDetailScreen1State extends State<PostDetailScreen1> {
+//   TextEditingController priceController = TextEditingController();
+//   TextEditingController ageController = TextEditingController();
+//   TextEditingController titlleController = TextEditingController();
+//   TextEditingController describeController = TextEditingController();
 
   ImagePicker picker = ImagePicker();
   XFile? image;

@@ -2,12 +2,11 @@ import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/custom_appbar.dart';
 import '../../utils/text-styles.dart';
 import '../account/account_screen.dart';
 import '../help_and_sports_screen.dart';
-import '../manage_account_screen.dart';
-import '../setting_screen.dart';
+import '../settings-screens/manage_account_screen.dart';
+import '../settings-screens/setting_screen.dart';
 
 class AdsScreen extends StatefulWidget {
   const AdsScreen({super.key});
@@ -23,20 +22,20 @@ class _AdsScreenState extends State<AdsScreen> {
     var currentIndex;
     // ignore: unused_local_variable
     final pages = [
-      AccountScreen(),
-      AdsScreen(),
-      HelpAndSportsScreen(),
-      ManageAccountScreen(),
-      SettingScreen(),
+     const AccountScreen(),
+    const  AdsScreen(),
+    const  HelpAndSportsScreen(),
+    const  ManageAccountScreen(),
+    const  SettingScreen(),
     ];
     // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
-          child: CustomAppBar(
-            title_text: "Ads",
-          )),
+      // appBar: PreferredSize(
+      //     preferredSize: Size.fromHeight(80.0),
+      //     child: CustomAppBar(
+      //       title_text: "Ads",
+      //     )),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
@@ -50,7 +49,7 @@ class _AdsScreenState extends State<AdsScreen> {
                 tap: () {},
                 height: 40,
                 width: 100,
-                chil_widget: Icon(
+                chil_widget:const Icon(
                   Icons.tune,
                   size: 20,
                   color: AppColors.grey,

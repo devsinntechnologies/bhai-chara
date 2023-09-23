@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common/custom_appbaar.dart';
+import '../common/custom_listtile.dart';
 import '../utils/app_colors.dart';
 import '../utils/text-styles.dart';
 
@@ -15,73 +17,40 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      appBar: AppBar(
-        backgroundColor: AppColors.App,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          // color: AppColors.primary,
-          color: AppColors.primary,
-          size: 24,
-        ),
-        title: Text(
-          "Helps & Sports",
-          style: AppTextStyles.textStyleNormalLargeTitle
-              .copyWith(color: AppColors.primary),
-        ),
-      ),
+     
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(
+           CustomContainer(context, "Help And Supports"),
+            const SizedBox(
               height: 30,
             ),
-            for (int i = 0; i < 3; i++)
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      // 1 columnn
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Feedback",
-                              style: AppTextStyles.textStyleBoldBodyMedium),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Take a moment to let us know how we're going ",
-                            style: AppTextStyles.textStyleNormalBodyXSmall,
-                          ),
-                        ],
-                      ),
-                      Spacer(),
-                      // 2columnn....
-                      Column(
-                        children: [
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            size: 24,
-                            color: AppColors.TextColor,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Divider(
-                    thickness: 2,
-                    color: AppColors.dividerColor,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
-              ),
+            Column(
+              children: [
+                CustomListTileSetting(
+                  tap: (){},
+                  heading: "Feedback",
+                  data: 'Take a moment to let us konw how we’re doing',
+                  iconTwo: Icons.arrow_forward_ios,
+                ),
+                CustomListTileSetting(
+                   tap: (){},
+                  heading: "Invite friends to Bhai Chara",
+                  data: 'Invite your friends to buy and sell',
+                  iconTwo: Icons.arrow_forward_ios,
+                ),
+                CustomListTileSetting(
+                   tap: (){},
+                  heading: "Version",
+                  data: '23.1',
+                  iconTwo: Icons.arrow_forward_ios,
+                ),
+               
+              ],
+            ),
           ],
+          
         ),
       ),
     );

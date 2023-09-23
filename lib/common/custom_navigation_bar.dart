@@ -8,19 +8,19 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin:const  EdgeInsets.only(bottom: 20),
       height: 60,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, -1),
+              offset:const  Offset(0, -1),
               color: AppColors.lightblue),
         ],
-        color: Color(0xfaFFFFFF),
+        color:const  Color(0xfaFFFFFF),
       ),
-      padding: EdgeInsets.only(top: 10),
+      padding:const  EdgeInsets.only(top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

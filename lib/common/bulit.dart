@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
 class Builit {
-  static var SelectedBulit = Padding(
+  static  var SelectedBulit = Padding(
     padding: const EdgeInsets.all(4.0),
     child: Container(
       height: 8,
