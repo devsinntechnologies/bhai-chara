@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../../provider/root_provider.dart';
 import '../account/account_screen.dart';
 import '../ads/ads_screen.dart';
-import '../chat_list_screen.dart';
+import '../../chatt/chat_list_screen.dart';
 
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});

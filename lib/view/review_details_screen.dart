@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 import '../common/custom_button.dart';
-import '../tempoprovider.dart';
+import '../provider/tempoprovider.dart';
 
 class ReviewScreen extends StatelessWidget {
   const ReviewScreen({super.key});

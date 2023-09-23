@@ -7,7 +7,7 @@ import '../../utils/text-styles.dart';
 import '../account/account_screen.dart';
 import '../help_and_sports_screen.dart';
 import '../manage_account_screen.dart';
-import '../setting_screen.dart';
+import '../settings-screens/setting_screen.dart';
 
 class AdsScreen extends StatefulWidget {
   const AdsScreen({super.key});

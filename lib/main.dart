@@ -5,7 +5,7 @@ import 'package:bhai_chara/view/account/account_screen.dart';
 
 import 'package:bhai_chara/view/help_and_sports_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
-import 'package:bhai_chara/view/setting_screen.dart';
+import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

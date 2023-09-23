@@ -1,4 +1,4 @@
-import 'package:bhai_chara/view/dialogBox.dart';
+import 'package:bhai_chara/view/settings-screens/dialogBox.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';

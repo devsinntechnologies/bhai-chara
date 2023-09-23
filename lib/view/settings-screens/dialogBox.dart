@@ -2,7 +2,7 @@ import 'package:bhai_chara/common/Custom_button_small.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
 
 class DialogBox extends StatelessWidget {
   const DialogBox({super.key});
