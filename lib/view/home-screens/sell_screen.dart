@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../utils/circle_avatar_row.dart';
 import '../../utils/container.dart';
 import '../../utils/utils.dart';
-import 'product_details_screen.dart';
 
 class SellScreen extends StatelessWidget {
   const SellScreen({super.key});
@@ -53,7 +52,7 @@ class SellScreen extends StatelessWidget {
               ),
               CustomCircleAvatarRow(
                 link: 'assets/images/map_furniture-store.png',
-               col: AppColors.pink,
+                col: AppColors.pink,
                 txt: 'Furniture',
                 ontap: () {
                   push(context, const SubCategorieScreen());
