@@ -25,7 +25,7 @@ class _SettingScreenState extends State<SettingScreen> {
         padding: EdgeInsets.symmetric(horizontal:20),
         child: Column(
           children: [
-            CustomContainer(context, "Setting")
+            CustomContainer(context, "Setting"),
             SizedBox(
               height: 30,
             ),
