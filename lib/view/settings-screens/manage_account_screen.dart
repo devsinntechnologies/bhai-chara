@@ -1,3 +1,5 @@
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:bhai_chara/view/settings-screens/dialogBox.dart';
 import 'package:flutter/material.dart';
 
@@ -37,20 +39,25 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: 50,
-              width: size.width,
-              child: Center(
-                  child: Text(
-                "Logout",
-                style: AppTextStyles.textStyleBoldBodyMedium,
-              )),
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: AppColors.blue,
-                  width: 2,
+            InkWell(
+              onTap: () {
+                pushUntil(context, SignUpScreen());
+              },
+              child: Container(
+                height: 50,
+                width: size.width,
+                child: Center(
+                    child: Text(
+                  "Logout",
+                  style: AppTextStyles.textStyleBoldBodyMedium,
+                )),
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: AppColors.blue,
+                    width: 2,
+                  ),
                 ),
               ),
             ),

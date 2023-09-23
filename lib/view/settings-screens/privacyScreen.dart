@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +40,7 @@ class PrivacyScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
             onTap: (){
+             // debugger();
               push(context, CreatePasswardScreen());
             },
             child: Row(

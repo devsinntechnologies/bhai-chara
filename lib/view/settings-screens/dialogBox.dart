@@ -1,4 +1,5 @@
 import 'package:bhai_chara/common/Custom_button_small.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,9 @@ class DialogBox extends StatelessWidget {
                CustomButtonSmall(
                     height: 40,
                     color: AppColors.blue,
-                    onPressed: () {},
+                    onPressed: () {
+                     // Navigator.pop(context);
+                    },
                     text: "Delete",
                     fontcolor: AppColors.white),
               ],
