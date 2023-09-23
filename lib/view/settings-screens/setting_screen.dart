@@ -19,15 +19,15 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            CustomContainer(context, "Setting"),
-            const SizedBox(
-              height: 30,
-            ),
-            Column(
+      body: Column(
+        children: [
+          CustomContainer(context, "Setting"),
+          const SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
               children: [
                 CustomListTile(
                   tap: () {
@@ -44,8 +44,8 @@ class _SettingScreenState extends State<SettingScreen> {
                   tap: () {
                     push(context, CreatePasswardScreen());
                   },
-                  title: "Privacy",
-                  subtitle: "Phone number visibility",
+                  title: "Manage account",
+                  subtitle: "Take action on account",
                 ),
                 const Divider(
                   thickness: 2,
@@ -55,8 +55,8 @@ class _SettingScreenState extends State<SettingScreen> {
                   tap: () {
                     push(context, CreatePasswardScreen());
                   },
-                  title: "Privacy",
-                  subtitle: "Phone number visibility",
+                  title: "User Preferences",
+                  subtitle: "Customize appearance",
                 ),
                 const Divider(
                   thickness: 2,
@@ -64,8 +64,8 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

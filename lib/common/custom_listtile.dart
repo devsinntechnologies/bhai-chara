@@ -37,7 +37,7 @@ class CustomListTileSetting extends StatelessWidget {
                       style: AppTextStyles.textStyleBoldBodySmall,
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: 6,
                     ),
                     Text(
                       data,
