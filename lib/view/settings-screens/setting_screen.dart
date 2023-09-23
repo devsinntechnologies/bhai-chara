@@ -5,6 +5,8 @@ import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../common/custom_appbaar.dart';
+
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
@@ -17,67 +19,18 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      appBar: AppBar(
-        backgroundColor: AppColors.App,
-        leading: Icon(
-          Icons.arrow_back_ios,
-          // color: AppColors.primary,
-          color: AppColors.primary,
-          size: 24,
-        ),
-        title: Text(
-          "Setting",
-          style: AppTextStyles.textStyleNormalLargeTitle
-              .copyWith(color: AppColors.primary),
-        ),
-      ),
+     
+      
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.symmetric(horizontal:20),
         child: Column(
           children: [
+            CustomContainer(context, "Setting")
             SizedBox(
               height: 30,
             ),
-            // ListTile(
-            //   title: Text("Privacy",style:AppTextStyles.textStyleBoldBodySmall ,),
-            //   subtitle: Text("Phone number visibillity",style:AppTextStyles.textStyleNormalBodyXSmall ,),
-            //   trailing: Icon(
-            //     Icons.arrow_forward_ios,
-            //     size: 24,
-            //     color: AppColors.TextColor,
-            //   ),
-            // ),
-            // 1 row
-            // Row(
-            //   children: [
-            //     Column(crossAxisAlignment: CrossAxisAlignment.start,
-            //       children: [
-            //          Text(
-            //           "Privacy",
-            //           style: AppTextStyles.textStyleBoldBodySmall,
-            //         ),
-            //         SizedBox(height: 5,),
-            //         Text(
-            //           "Phone number visibillity",
-            //           style: AppTextStyles.textStyleNormalBodyXSmall,
-            //         ),
-            //       ],
-            //     ),
-            //     Spacer(),
-            //     // 2 column....
-            //     Column(
-            //       children: [
-            //        Icon(
-            //     Icons.arrow_forward_ios,
-            //     size: 24,
-            //     color: AppColors.TextColor,
-            //   ),
-            //       ],
-            //     ),
-            //   ],
-            // )
-          //  for (int i = 0 ; i<3; i++)
-           for (int i = 0 ; i<3; i++)
+        
+          
             Column(
               
               children: [
@@ -87,7 +40,30 @@ class _SettingScreenState extends State<SettingScreen> {
                   },
                   title: "Privacy",
                   subtitle: "Phone number visibility",
-                  // trailing: Icon(Icons.arrow_back_ios),
+                ),
+                
+                Divider(
+                  thickness: 2,
+                  color:AppColors.dividerColor ,
+                ),
+                 CustomListTile(
+                  tap: (){
+                    push(context, CreatePasswardScreen());
+                  },
+                  title: "Privacy",
+                  subtitle: "Phone number visibility",
+                ),
+                
+                Divider(
+                  thickness: 2,
+                  color:AppColors.dividerColor ,
+                ),
+                 CustomListTile(
+                  tap: (){
+                    push(context, CreatePasswardScreen());
+                  },
+                  title: "Privacy",
+                  subtitle: "Phone number visibility",
                 ),
                 
                 Divider(
@@ -97,20 +73,6 @@ class _SettingScreenState extends State<SettingScreen> {
               ],
             ),
           
-          
-          
-          
-          
-            // CustomListTile(
-            //   title: "Manage account",
-            //   subtitle: "Take action on account",
-            //   // trailing: Icon(Icons.arrow_back_ios,),
-            // ),
-            // CustomListTile(
-            //   title: "User Preferences",
-            //   subtitle: "Customize appearance",
-            //   // trailing: Icon(trailing),
-            // ),
           ],
         ),
       ),

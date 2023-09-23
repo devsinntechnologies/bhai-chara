@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home:  AccountScreen(),
+          home:  SettingScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
@@ -37,3 +37,15 @@ class MyApp extends StatelessWidget {
 //last screen help and support missing
 //privacy screen missing
 //setting screens all errors
+/*
+
+  showDialog(
+        context: context,
+        builder: (
+          context,
+        ) {
+          return DialogBox(controller: _controller, onSave: saveNewTask);
+        });
+
+
+*/

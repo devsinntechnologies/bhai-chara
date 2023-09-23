@@ -11,7 +11,7 @@ return Container(
           child: Row(children: [
             IconButton(onPressed: (){
             Navigator.pop(context);
-            },icon: Icon(Icons.close),color: AppColors.white,),
+            },icon: Icon(Icons.arrow_back_ios),color: AppColors.white,),
             SizedBox(width: 10,),
             Text(text,style: AppTextStyles.textStyleNormalBodyMedium.copyWith(color: AppColors.white),)
           ],),
