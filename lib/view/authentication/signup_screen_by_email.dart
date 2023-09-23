@@ -67,7 +67,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
               height: 20,
             ),
             CustomTextField(
-                height: 60,
+                height: 60.0,
                 obsecuretext: false,
                 width: size.width,
                 controller: emailController,

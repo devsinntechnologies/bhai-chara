@@ -29,7 +29,7 @@ class _CreatePasswordState extends State<CreatePassword> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding:const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,7 +97,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                     children: [
                       CustomTextField(
                         obsecuretext: x % 2 == 0 ? false : true,
-                        height: 30,
+                        height: 30.0,
                         width: size.width * .80,
                         controller: passwordController,
                         border: InputBorder.none,
@@ -148,7 +148,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                     children: [
                       CustomTextField(
                         obsecuretext: y % 2 == 0 ? false : true,
-                        height: 30,
+                        height: 30.0,
                         width: size.width * .80,
                         controller: confirmpasswordController,
                         border: InputBorder.none,
@@ -195,7 +195,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                         context: context,
                         text: "Please Enter Correct Password");
                   } else {
-                    push(context,const  LocationScreen());
+                    push(context, const LocationScreen());
                   }
                 },
                 text: "Next"),

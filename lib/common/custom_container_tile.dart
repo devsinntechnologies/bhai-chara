@@ -118,7 +118,7 @@ class CustomTextField extends StatelessWidget {
     // this.pad_right,
     // this.pad_top,
   });
-  var height,
+  dynamic height,
       width,
       controller,
       border,
