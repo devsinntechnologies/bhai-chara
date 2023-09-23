@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bhai_chara/common/custom_appbar.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
@@ -5,6 +7,7 @@ import 'package:bhai_chara/common/custom_list_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class PostDetailScreen1 extends StatefulWidget {
   const PostDetailScreen1({super.key});
@@ -18,6 +21,9 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   TextEditingController ageController = TextEditingController();
   TextEditingController titlleController = TextEditingController();
   TextEditingController describeController = TextEditingController();
+
+  ImagePicker picker = ImagePicker();
+  XFile? image;
 
   @override
   Widget build(BuildContext context) {
@@ -41,44 +47,56 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "UPLOAD UP TO 20 PHOTOS",
-                style: AppTextStyles.textStyleBoldBodySmall,
+              TextButton(
+                onPressed: () async {
+                  image = await picker.pickImage(source: ImageSource.gallery);
+                  setState(() {
+                    //update UI
+                  });
+                },
+                child: Text(
+                  "UPLOAD UP TO 20 PHOTOS",
+                  style: AppTextStyles.textStyleBoldBodySmall,
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                  height: 180,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.blue),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+              image == null
+                  ? Container(
+                      height: 180,
+                      width: size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: AppColors.blue),
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.photo_camera,
-                            color: AppColors.primary,
-                            size: 50,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.photo_camera,
+                                color: AppColors.primary,
+                                size: 50,
+                              ),
+                            ],
                           ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [],
+                          )
                         ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                        
-                        ],
-                      )
-                    ],
-                  )),
+                      ))
+                  : Container(
+                      height: 100,
+                      width: 100,
+                      child: Image.file(File(image!.path)),
+                    ),
               const SizedBox(
                 height: 20,
               ),
@@ -90,7 +108,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 height: 10,
               ),
               CustomListTile(
-                tap: (){},
+                  tap: () {},
                   back_color: AppColors.orangeColor,
                   circular_radius: 34,
                   circularwidget: Container(
