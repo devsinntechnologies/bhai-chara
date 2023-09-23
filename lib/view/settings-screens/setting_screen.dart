@@ -3,6 +3,7 @@ import 'package:bhai_chara/utils/listtile_custom.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
+import 'package:bhai_chara/view/settings-screens/user_preferences_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_appbaar.dart';
@@ -53,7 +54,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 CustomListTile(
                   tap: () {
-                    push(context, CreatePasswardScreen());
+                    push(context, UserPreferencesScreen());
                   },
                   title: "User Preferences",
                   subtitle: "Customize appearance",
