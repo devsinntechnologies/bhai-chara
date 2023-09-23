@@ -3,25 +3,20 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 import '../utils/text-styles.dart';
 
-class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+class AccountScreen1 extends StatefulWidget {
+  const AccountScreen1({super.key});
 
   @override
-  State<AccountScreen> createState() => _AccountScreenState();
+  State<AccountScreen1> createState() => _AccountScreen1State();
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _AccountScreen1State extends State<AccountScreen1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.App,
-        // leading: Icon(
-        //   Icons.arrow_back_ios,
-        //   // color: AppColors.primary,
-        //   color: AppColors.primary,
-        //   size: 24,
-        // ),
+        
         title: Text(
           "Account",
           style: AppTextStyles.textStyleNormalLargeTitle

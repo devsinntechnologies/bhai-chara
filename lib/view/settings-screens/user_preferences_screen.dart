@@ -62,20 +62,7 @@ class UserPreferencesScreen extends StatelessWidget {
             ),
           ),
 
-          //  Builder(
-          //   builder: (context) {
-          //     final sliderProvider = context.read<SliderProvider>();
-          //     return Slider(
-          //       value: sliderProvider.fontSize,
-          //       min: 10.0,
-          //       max: 30.0,
-          //       onChanged: (value) {
-          //         sliderProvider.updateFontSize(value);
-          //       },
-          //     );
-          //   },
-          // ),
-
+        
        
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
+import 'package:bhai_chara/view/account_screen.dart';
 import 'package:bhai_chara/view/help_and_sports_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
@@ -27,9 +28,12 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home:  SettingScreen(),
+          home:  AccountScreen1(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
 }
-//posi detail 1 & 2
+//post detail 1 & 2 where to attatch?
+//last screen help and support missing
+//privacy screen missing
+//setting screens all errors
