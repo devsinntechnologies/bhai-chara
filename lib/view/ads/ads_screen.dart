@@ -18,9 +18,7 @@ class AdsScreen extends StatefulWidget {
 class _AdsScreenState extends State<AdsScreen> {
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
     var currentIndex;
-    // ignore: unused_local_variable
     final pages = [
      const AccountScreen(),
     const  AdsScreen(),
@@ -28,14 +26,9 @@ class _AdsScreenState extends State<AdsScreen> {
     const  ManageAccountScreen(),
     const  SettingScreen(),
     ];
-    // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: PreferredSize(
-      //     preferredSize: Size.fromHeight(80.0),
-      //     child: CustomAppBar(
-      //       title_text: "Ads",
-      //     )),
+    
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
@@ -65,16 +58,14 @@ class _AdsScreenState extends State<AdsScreen> {
                   margin: const EdgeInsets.only(bottom: 20),
                   padding: const EdgeInsets.all(10),
                   decoration:const  BoxDecoration(
-                      // color: AppColors.primary,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
                       border: Border(
-                        left: BorderSide(width: 5, color: AppColors.black),
+                        left: BorderSide( color: AppColors.black),
                         top: BorderSide(color: AppColors.black),
                         right: BorderSide(color: AppColors.black),
                         bottom: BorderSide(color: AppColors.black),
-                      )),
+                      )
+                      ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -203,11 +194,14 @@ class _AdsScreenState extends State<AdsScreen> {
                     ],
                   ),
                 ),
+            
+            
             ],
           ),
         ),
       ),
-      // bottomNavigationBar: CustomNavigationBar(),
+
+
     );
   }
 }
