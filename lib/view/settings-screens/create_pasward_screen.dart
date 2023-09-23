@@ -25,7 +25,7 @@ class CreatePasswardScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomContainer(
-            text: 'User Preferences',
+            text: 'Create Password',
             iconVar: Icons.arrow_back_ios,
           ),
           ChangeNotifierProvider(
