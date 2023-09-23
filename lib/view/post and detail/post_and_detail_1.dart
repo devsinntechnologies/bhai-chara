@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bhai_chara/common/custom_appbar.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
@@ -9,18 +8,18 @@ import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-// class PostDetailScreen1 extends StatefulWidget {
-//   const PostDetailScreen1({super.key});
+class PostDetailScreen1 extends StatefulWidget {
+  const PostDetailScreen1({super.key});
 
-//   @override
-//   State<PostDetailScreen1> createState() => _PostDetailScreen1State();
-// }
+  @override
+  State<PostDetailScreen1> createState() => _PostDetailScreen1State();
+}
 
-// class _PostDetailScreen1State extends State<PostDetailScreen1> {
-//   TextEditingController priceController = TextEditingController();
-//   TextEditingController ageController = TextEditingController();
-//   TextEditingController titlleController = TextEditingController();
-//   TextEditingController describeController = TextEditingController();
+class _PostDetailScreen1State extends State<PostDetailScreen1> {
+  TextEditingController priceController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController titlleController = TextEditingController();
+  TextEditingController describeController = TextEditingController();
 
   ImagePicker picker = ImagePicker();
   XFile? image;
@@ -30,16 +29,17 @@ import 'package:image_picker/image_picker.dart';
     // ignore: unused_local_variable
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
-          child: CustomAppBar(
-            leading_widget: Icon(
-              Icons.close,
-              size: 30,
-              color: AppColors.primary,
-            ),
-            title_text: "Include some details",
-          )),
+      // appBar: PreferredSize(
+      //     preferredSize: Size.fromHeight(80.0),
+      // child: CustomAppBar(
+      //   leading_widget: Icon(
+      //     Icons.close,
+      //     size: 30,
+      //     color: AppColors.primary,
+      //   ),
+      //   title_text: "Include some details",
+      // )
+      // ),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -50,9 +50,9 @@ import 'package:image_picker/image_picker.dart';
               TextButton(
                 onPressed: () async {
                   image = await picker.pickImage(source: ImageSource.gallery);
-                  setState(() {
-                    //update UI
-                  });
+                  // setState(() {
+                  //   //update UI
+                  // });
                 },
                 child: Text(
                   "UPLOAD UP TO 20 PHOTOS",
@@ -134,15 +134,15 @@ import 'package:image_picker/image_picker.dart';
               const SizedBox(
                 height: 05,
               ),
-              CustomTextField(
-                controller: priceController,
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: AppColors.grey)),
-                hintText: "Price",
-                obsecuretext: false,
-                width: size.width,
-              ),
+              // CustomTextField(
+              //   // controller: priceController,
+              //   border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(20),
+              //       borderSide: BorderSide(color: AppColors.grey)),
+              //   hintText: "Price",
+              //   obsecuretext: false,
+              //   width: size.width,
+              // ),
               const SizedBox(
                 height: 20,
               ),
