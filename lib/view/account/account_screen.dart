@@ -1,9 +1,12 @@
 import 'package:bhai_chara/common/custom_list_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/help_and_sports_screen.dart';
+import 'package:bhai_chara/view/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_appbar.dart';
+import '../../utils/push.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -17,19 +20,19 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
+          preferredSize: const Size.fromHeight(80.0),
           child: CustomAppBar(
             title_text: "Account",
           )),
       body: Container(
-        margin: EdgeInsets.all(20),
+        margin:const  EdgeInsets.all(20),
         child: Column(
           children: [
             const SizedBox(
               height: 30,
             ),
             CustomListAccountTile(
-              asset_image: AssetImage("assets/images/profile_photo.png"),
+              asset_image: const AssetImage("assets/images/profile_photo.png"),
               subtitle_text: "View and edit profile",
               subtitle_style: AppTextStyles.textStyleSubtitleUnderlineBody,
               title_style: AppTextStyles.textStyleBoldBodyMedium,
@@ -39,8 +42,9 @@ class _AccountScreenState extends State<AccountScreen> {
               height: 50,
             ),
             CustomListTile(
+              tap: (){push(context, SettingScreen);},
               back_color: AppColors.white,
-              circularwidget: Icon(
+              circularwidget: const Icon(
                 Icons.settings,
                 size: 30,
                 color: AppColors.black,
@@ -49,7 +53,7 @@ class _AccountScreenState extends State<AccountScreen> {
               titleStyle: AppTextStyles.textStyleBoldBodyMedium,
               subtitleText: "Privacy and Manage Account",
               subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
-              tap: null,
+             
             ),
             const Divider(),
             const SizedBox(
@@ -57,7 +61,7 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             CustomListTile(
               back_color: AppColors.white,
-              circularwidget: Icon(
+              circularwidget: const Icon(
                 Icons.help,
                 size: 30,
                 color: AppColors.black,
@@ -66,7 +70,7 @@ class _AccountScreenState extends State<AccountScreen> {
               titleStyle: AppTextStyles.textStyleBoldBodyMedium,
               subtitleText: "Help center and legal terms",
               subtitleStyle: AppTextStyles.textStyleSubtitleSmallBody,
-              tap: null,
+                tap: (){push(context, HelpAndSportsScreen);},
             ),
             const Divider(),
           ],

@@ -50,7 +50,7 @@ class _AdsScreenState extends State<AdsScreen> {
                 tap: () {},
                 height_contianer: 40,
                 width_container: 100,
-                chil_widget: Icon(
+                chil_widget:const  Icon(
                   Icons.tune,
                   size: 20,
                   color: AppColors.grey,
@@ -63,9 +63,9 @@ class _AdsScreenState extends State<AdsScreen> {
               ),
               for (int i = 0; i < 3; i++)
                 Container(
-                  margin: EdgeInsets.only(bottom: 20),
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  padding: const EdgeInsets.all(10),
+                  decoration:const  BoxDecoration(
                       // color: AppColors.primary,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
@@ -104,7 +104,7 @@ class _AdsScreenState extends State<AdsScreen> {
                             width: 20,
                           ),
                           Container(
-                            padding: EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(top: 10),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,7 +198,7 @@ class _AdsScreenState extends State<AdsScreen> {
                           ])),
                         ],
                       ),
-                      SizedBox(
+                    const   SizedBox(
                         height: 20,
                       )
                     ],

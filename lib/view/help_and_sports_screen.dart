@@ -17,7 +17,7 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
       backgroundColor: AppColors.primary,
       appBar: AppBar(
         backgroundColor: AppColors.App,
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back_ios,
           // color: AppColors.primary,
           color: AppColors.primary,
