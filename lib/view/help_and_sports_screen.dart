@@ -1,3 +1,4 @@
+import 'package:bhai_chara/utils/push.dart';
 import 'package:flutter/material.dart';
 
 import '../common/custom_appbaar.dart';
@@ -29,7 +30,10 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
             Column(
               children: [
                 CustomListTileSetting(
-                  tap: (){},
+                  tap: (){
+                    
+                    BottomSheetFunction(context);
+                  },
                   heading: "Feedback",
                   data: 'Take a moment to let us konw how we’re doing',
                   iconTwo: Icons.arrow_forward_ios,
