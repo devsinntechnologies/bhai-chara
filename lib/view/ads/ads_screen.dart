@@ -20,15 +20,14 @@ class _AdsScreenState extends State<AdsScreen> {
   Widget build(BuildContext context) {
     var currentIndex;
     final pages = [
-     const AccountScreen(),
-    const  AdsScreen(),
-    const  HelpAndSportsScreen(),
-    const  ManageAccountScreen(),
-    const  SettingScreen(),
+      const AccountScreen(),
+      const AdsScreen(),
+      const HelpAndSportsScreen(),
+      const ManageAccountScreen(),
+      const SettingScreen(),
     ];
     var size = MediaQuery.of(context).size;
     return Scaffold(
-    
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
@@ -40,9 +39,9 @@ class _AdsScreenState extends State<AdsScreen> {
               ),
               CustomContainerTile(
                 tap: () {},
-                height: 40,
-                width: 100,
-                chil_widget:const Icon(
+                height: 40.0,
+                width: 100.0,
+                chil_widget: const Icon(
                   Icons.tune,
                   size: 20,
                   color: AppColors.grey,
@@ -57,15 +56,14 @@ class _AdsScreenState extends State<AdsScreen> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 20),
                   padding: const EdgeInsets.all(10),
-                  decoration:const  BoxDecoration(
+                  decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       border: Border(
-                        left: BorderSide( color: AppColors.black),
+                        left: BorderSide(color: AppColors.black),
                         top: BorderSide(color: AppColors.black),
                         right: BorderSide(color: AppColors.black),
                         bottom: BorderSide(color: AppColors.black),
-                      )
-                      ),
+                      )),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -79,8 +77,8 @@ class _AdsScreenState extends State<AdsScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 100,
-                                  width: 100,
+                                  height: 100.0,
+                                  width: 100.0,
                                   decoration: BoxDecoration(
                                     color: AppColors.primary,
                                     image: const DecorationImage(
@@ -188,20 +186,16 @@ class _AdsScreenState extends State<AdsScreen> {
                           ])),
                         ],
                       ),
-                    const   SizedBox(
+                      const SizedBox(
                         height: 20,
                       )
                     ],
                   ),
                 ),
-            
-            
             ],
           ),
         ),
       ),
-
-
     );
   }
 }
