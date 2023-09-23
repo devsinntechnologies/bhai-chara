@@ -3,7 +3,7 @@ import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
+import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -121,7 +121,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                   if (numberController.text.isEmpty) {
                     showSnack(context: context);
                   } else {
-                    push(context, SignupByEmail());
+                    push(context, OTPScreen());
                   }
                 },
                 text: "Next",

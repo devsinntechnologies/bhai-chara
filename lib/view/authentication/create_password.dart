@@ -2,6 +2,7 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
+import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -195,7 +196,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                         context: context,
                         text: "Please Enter Correct Password");
                   } else {
-                    push(context, OTPScreen());
+                    push(context, LocationScreen());
                   }
                 },
                 text: "Next"),

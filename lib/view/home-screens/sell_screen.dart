@@ -1,5 +1,6 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:flutter/material.dart';
 import '../../utils/circle_avatar_row.dart';
 import '../../utils/container.dart';
@@ -31,7 +32,7 @@ class SellScreen extends StatelessWidget {
                 col: AppColors.yellow,
                 txt: 'Animal',
                 ontap: () {
-                  push(context, const ProductScreen());
+                  push(context, const SubCategorieScreen());
                 },
               ),
               CustomCircleAvatarRow(
@@ -39,7 +40,7 @@ class SellScreen extends StatelessWidget {
                 col: AppColors.oange,
                 txt: 'Electronic',
                 ontap: () {
-                  push(context, const ProductScreen());
+                  push(context, const SubCategorieScreen());
                 },
               ),
               CustomCircleAvatarRow(
@@ -47,7 +48,7 @@ class SellScreen extends StatelessWidget {
                 col: AppColors.Green,
                 txt: 'Mobile',
                 ontap: () {
-                  push(context, const ProductScreen());
+                  push(context, const SubCategorieScreen());
                 },
               ),
               CustomCircleAvatarRow(
@@ -55,7 +56,7 @@ class SellScreen extends StatelessWidget {
                col: AppColors.pink,
                 txt: 'Furniture',
                 ontap: () {
-                  push(context, const ProductScreen());
+                  push(context, const SubCategorieScreen());
                 },
               ),
               CustomCircleAvatarRow(
@@ -63,7 +64,7 @@ class SellScreen extends StatelessWidget {
                 col: AppColors.yellow,
                 txt: 'Bike',
                 ontap: () {
-                  push(context, const ProductScreen());
+                  push(context, const SubCategorieScreen());
                 },
               ),
               CustomCircleAvatarRow(
@@ -71,7 +72,7 @@ class SellScreen extends StatelessWidget {
                 col: AppColors.blue,
                 txt: 'bell',
                 ontap: () {
-                  push(context, const ProductScreen());
+                  push(context, const SubCategorieScreen());
                 },
               ),
             ],
