@@ -19,7 +19,7 @@ class DialogBox extends StatelessWidget {
             Icon(Icons.delete, color: AppColors.blue),
             Text("Are you sure?", style: AppTextStyles.textStyleBoldBodySmall),
             Text(
-              "All your ads will be set to inactive and will not be showing to the users.",
+              "All your ads will be set to inactive and will not be \nshowing to the users.",
               style: AppTextStyles.textStyleNormalBodyXSmall,
             ),
           Row(

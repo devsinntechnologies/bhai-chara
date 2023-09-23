@@ -7,6 +7,7 @@ import 'package:bhai_chara/view/account/account_screen.dart';
 import 'package:bhai_chara/view/help_and_sports_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
+import 'package:bhai_chara/view/settings-screens/manage_account_screen.dart';
 import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,11 +33,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-<<<<<<< Updated upstream
-          home: AccountScreen(),
-=======
-          home: CreatePasswardScreen(),
->>>>>>> Stashed changes
+          home: ManageAccountScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
@@ -45,13 +42,7 @@ class MyApp extends StatelessWidget {
 
 /*
 
-  showDialog(
-        context: context,
-        builder: (
-          context,
-        ) {
-          return DialogBox(controller: _controller, onSave: saveNewTask);
-        });
+ 
 
 
 */
