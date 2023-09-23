@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: PrivacyScreen(),
+          home: AccountScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }

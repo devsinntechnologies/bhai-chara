@@ -1,8 +1,8 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/listtile_custom.dart';
 import 'package:bhai_chara/utils/push.dart';
-import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
+import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/custom_appbaar.dart';
@@ -19,64 +19,54 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-     
-      
       body: Padding(
-        padding:const EdgeInsets.symmetric(horizontal:20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             CustomContainer(context, "Setting"),
-          const  SizedBox(
+            const SizedBox(
               height: 30,
             ),
-        
-          
             Column(
-              
               children: [
                 CustomListTile(
-                  tap: (){
+                  tap: () {
+                    push(context,const  PrivacyScreen());
+                  },
+                  title: "Privacy",
+                  subtitle: "Phone number visibility",
+                ),
+                const Divider(
+                  thickness: 2,
+                  color: AppColors.dividerColor,
+                ),
+                CustomListTile(
+                  tap: () {
                     push(context, CreatePasswardScreen());
                   },
                   title: "Privacy",
                   subtitle: "Phone number visibility",
                 ),
-                
-              const  Divider(
+                const Divider(
                   thickness: 2,
-                  color:AppColors.dividerColor ,
+                  color: AppColors.dividerColor,
                 ),
-                 CustomListTile(
-                  tap: (){
+                CustomListTile(
+                  tap: () {
                     push(context, CreatePasswardScreen());
                   },
                   title: "Privacy",
                   subtitle: "Phone number visibility",
                 ),
-                
-              const  Divider(
+                const Divider(
                   thickness: 2,
-                  color:AppColors.dividerColor ,
-                ),
-                 CustomListTile(
-                  tap: (){
-                    push(context, CreatePasswardScreen());
-                  },
-                  title: "Privacy",
-                  subtitle: "Phone number visibility",
-                ),
-                
-             const   Divider(
-                  thickness: 2,
-                  color:AppColors.dividerColor ,
+                  color: AppColors.dividerColor,
                 ),
               ],
             ),
-          
           ],
         ),
       ),
     );
- 
   }
 }
