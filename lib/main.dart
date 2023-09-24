@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+<<<<<<< Updated upstream
         providers: [
           // ChangeNotifierProvider(create: (context) => SplashProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
@@ -31,6 +32,24 @@ class MyApp extends StatelessWidget {
           home: SplashScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
+=======
+      providers: [
+        ChangeNotifierProvider(create: (context)=> SplashProvider() )
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: "Schyler",
+        ),
+        // home: SplashScreen(),
+        // home: SettingScreen(),
+        // home: AccountScreen(),
+        // home: UserPreferencesScreen(),
+        // home: HelpAndSportsScreen(),
+        // home: ManageAccountScreen(),
+        home: AdsScreen(),
+
+      ));
+>>>>>>> Stashed changes
   }
 }
 //post detail 1 & 2 where to attatch?
