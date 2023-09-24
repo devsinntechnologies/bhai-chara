@@ -2,9 +2,7 @@ import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
-import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-<<<<<<< Updated upstream
         providers: [
           // ChangeNotifierProvider(create: (context) => SplashProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
@@ -32,24 +29,6 @@ class MyApp extends StatelessWidget {
           home: SplashScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
-=======
-      providers: [
-        ChangeNotifierProvider(create: (context)=> SplashProvider() )
-      ],
-      child: MaterialApp(
-        theme: ThemeData(
-          fontFamily: "Schyler",
-        ),
-        // home: SplashScreen(),
-        // home: SettingScreen(),
-        // home: AccountScreen(),
-        // home: UserPreferencesScreen(),
-        // home: HelpAndSportsScreen(),
-        // home: ManageAccountScreen(),
-        home: AdsScreen(),
-
-      ));
->>>>>>> Stashed changes
   }
 }
 //post detail 1 & 2 where to attatch?
