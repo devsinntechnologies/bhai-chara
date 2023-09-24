@@ -1,8 +1,9 @@
 import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
+import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:bhai_chara/view/ads_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,25 +18,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          // ChangeNotifierProvider(create: (context) => SplashProvider()),
-          ChangeNotifierProvider(create: (context) => RootProvider()),
+          ChangeNotifierProvider(create: (context) => TimerProvider()),
           ChangeNotifierProvider(create: (context) => visibilityProvider1()),
           ChangeNotifierProvider(create: (context) => visibilityProvider2()),
-          ChangeNotifierProvider(create: (context) => SliderProvider()),
           ChangeNotifierProvider(create: (context) => SwitchProvider()),
+          ChangeNotifierProvider(create: (context) => SliderProvider()),
+          ChangeNotifierProvider(create: (context) => RootProvider()),
         ],
         child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
-          theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
+          theme: ThemeData(
+            fontFamily: "Schyler",
+          ),
+          home: AdsScreen(),
         ));
   }
 }
-//post detail 1 & 2 where to attatch?
-
-/*
-
- 
-
-
-*/
