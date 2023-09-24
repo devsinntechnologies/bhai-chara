@@ -27,15 +27,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
-          theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
+          theme: ThemeData(fontFamily: 'DancingScript-Regular.ttf'),
         ));
   }
 }
-//post detail 1 & 2 where to attatch?
-
-/*
-
- 
-
-
-*/
