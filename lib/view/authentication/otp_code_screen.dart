@@ -63,11 +63,11 @@ class _OTPScreenState extends State<OTPScreen> {
                             height: 130,
                             width: 100,
                             decoration: BoxDecoration(
-                                color: AppColors.primary,
+                                // color: AppColors.primary,
                                 image: const DecorationImage(
                                     scale: 1,
                                     image: AssetImage("assets/images/logo.png"),
-                                    fit: BoxFit.fill)),
+                                    fit: BoxFit.cover)),
                           ),
                         ],
                       ),

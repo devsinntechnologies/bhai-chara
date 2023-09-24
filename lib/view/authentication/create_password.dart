@@ -89,7 +89,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   children: [
                     CustomTextField(
                       obsecuretext: x % 2 == 0 ? false : true,
-                      height: 30,
+                      // height: 30,
                       width: size.width * .90,
                       controller: passwordController,
                       border: OutlineInputBorder(

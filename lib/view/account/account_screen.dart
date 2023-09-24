@@ -6,8 +6,8 @@ import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../common/custom_container.dart';
 import '../../common/custom_listtile.dart';
-import '../../utils/app_colors.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -19,49 +19,46 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBar(
-          backgroundColor: AppColors.appbar,
-          title: Text(
-            "Account",
-            style: AppTextStyles.textStyleTitleBodyMediumWhiteColor,
-          ),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            CustomContainer(context, "Account"),
+            const SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: CustomListAccountTile(
+                asset_image:
+                    const AssetImage("assets/images/profile_photo.png"),
+                subtitle_text: "View and edit profile",
+                subtitle_style: AppTextStyles.textStyleSubtitleUnderlineBody,
+                title_style: AppTextStyles.textStyleBoldBodyMedium,
+                title_text: "Arham Sarwar",
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            CustomListTileSetting(
+              tap: () {
+                push(context, const SettingScreen());
+              },
+              heading: "Settings",
+              data: 'privacy and manage account',
+              iconOne: Icons.settings,
+            ),
+            CustomListTileSetting(
+              tap: () {
+                push(context, const HelpAndSportsScreen());
+              },
+              heading: "Help and Supports",
+              data: 'Help center and legal terms',
+              iconOne: Icons.help,
+            )
+          ],
         ),
-      ),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 30,
-          ),
-          CustomListAccountTile(
-            asset_image: const AssetImage("assets/images/profile_photo.png"),
-            subtitle_text: "View and edit profile",
-            subtitle_style: AppTextStyles.textStyleSubtitleUnderlineBody,
-            title_style: AppTextStyles.textStyleBoldBodyMedium,
-            title_text: "Arham Sarwar",
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          CustomListTileSetting(
-            tap: () {
-              push(context, const SettingScreen());
-            },
-            heading: "Settings",
-            data: 'privacy and manage account',
-            iconOne: Icons.settings,
-          ),
-          CustomListTileSetting(
-            tap: () {
-              push(context, const HelpAndSportsScreen());
-            },
-            heading: "Help and Supports",
-            data: 'Help center and legal terms',
-            iconOne: Icons.help,
-          )
-        ],
       ),
     );
   }

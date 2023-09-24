@@ -38,11 +38,11 @@ class _SignupByEmailState extends State<SignupByEmail> {
                   width: 100,
                   decoration: const BoxDecoration(
                       // color: AppColors.primary,
-                      color: AppColors.White,
+                      // color: AppColors.White,
                       image: DecorationImage(
                           scale: 1,
                           image: AssetImage("assets/images/logo.png"),
-                          fit: BoxFit.fill)),
+                          fit: BoxFit.cover)),
                 ),
               ],
             ),

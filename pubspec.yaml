@@ -42,6 +42,7 @@ dependencies:
   shared_preferences: ^2.1.2 
   fluttertoast: ^8.2.2
   image_picker: ^1.0.4
+  country_picker: ^2.0.21
 
 dev_dependencies:
   flutter_test:
@@ -84,9 +85,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Roboto-Regular
+    - family: Lora-Regular
       fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Lora-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

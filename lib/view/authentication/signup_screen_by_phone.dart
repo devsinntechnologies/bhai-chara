@@ -41,11 +41,11 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                     height: 130,
                     width: 100,
                     decoration: const BoxDecoration(
-                        color: AppColors.primary,
+                        // color: AppColors.primary,
                         image: DecorationImage(
                             scale: 1,
                             image: AssetImage("assets/images/logo.png"),
-                            fit: BoxFit.fill)),
+                            fit: BoxFit.cover)),
                   ),
                 ],
               ),

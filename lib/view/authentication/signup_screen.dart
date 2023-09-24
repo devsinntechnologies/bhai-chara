@@ -1,4 +1,3 @@
-import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -38,11 +37,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 130,
                     width: 100,
                     decoration: const BoxDecoration(
-                        color: AppColors.primary,
+                        // color: AppColors.primary,
                         image: DecorationImage(
-                            scale: 1,
                             image: AssetImage("assets/images/logo.png"),
-                            fit: BoxFit.fill)),
+                            fit: BoxFit.cover)),
                   ),
                 ],
               ),

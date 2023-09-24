@@ -32,9 +32,8 @@ class CustomContainer extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Text(text,
-                  style: AppTextStyles.textStyleBoldBodyMedium.copyWith(
-                    color: AppColors.White
-                  )))
+                  style: AppTextStyles.textStyleBoldBodyMedium
+                      .copyWith(color: AppColors.White)))
         ],
       ),
     );
