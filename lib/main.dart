@@ -2,6 +2,7 @@ import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,16 +28,8 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-<<<<<<< Updated upstream
-          home: SplashScreen(),
-          theme: ThemeData(fontFamily: 'DancingScript-Regular.ttf'),
+          home: RootScreen(),
+          theme: ThemeData(fontFamily: 'Fuggles-Regular.ttf'),
         ));
   }
 }
-=======
-          home:const SplashScreen(),
-          theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
-        ));
-  }
-}
->>>>>>> Stashed changes

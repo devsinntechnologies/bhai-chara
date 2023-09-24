@@ -16,7 +16,7 @@ class CustomContainer extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(left: 20),
          height: 205,
-         width: 185,
+        // width: 185,
       //  width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -28,7 +28,7 @@ class CustomContainer extends StatelessWidget {
           Image(
             image: AssetImage(imgLink),
             height: 131,
-            width: 185,
+           // width: 185,
             fit: BoxFit.cover,
           ),
          Column(

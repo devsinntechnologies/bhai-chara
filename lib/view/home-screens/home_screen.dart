@@ -165,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     CustomContainer(
                       text: 'Rs 25000',
-                      secondText: 'Samsung S3',
+                      secondText: 'Samsung S3 ghf ',
                       imgLink: 'assets/images/Rectangle 16.png',
                       ontap: () {
                         push(context, const ProductScreen());
