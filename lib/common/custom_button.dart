@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
         child: Container(
           height: 50,
           width: size.width,
-          child: Center(
+          child:  Center(
             child: Text(
               text,
               style: AppTextStyles.textStyleNormalBodyMedium

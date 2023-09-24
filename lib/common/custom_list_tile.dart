@@ -108,35 +108,33 @@ class CustomListAccountTile extends StatelessWidget {
   var asset_image, title_text, subtitle_text, title_style, subtitle_style;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          Column(
-            children: [
-              CircleAvatar(
-                radius: 50,
-                child: Image(
-                  image: asset_image,
-                ),
+    return Row(
+      children: [
+        Column(
+          children: [
+            CircleAvatar(
+              radius: 50,
+              child: Image(
+                image: asset_image,
               ),
-            ],
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title_text, style: title_style),
-              Text(
-                subtitle_text,
-                style: subtitle_style,
-              ),
-            ],
-          )
-        ],
-      ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          width: 20,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title_text, style: title_style),
+            Text(
+              subtitle_text,
+              style: subtitle_style,
+            ),
+          ],
+        )
+      ],
     );
   }
 }
@@ -153,7 +151,7 @@ class CustomTile extends StatelessWidget {
           Icon(
             title_widget,
             size: 20,
-            color: Color(0xfa808080),
+            color:const Color(0xfa808080),
           ),
           Text(
             subtitle_widget,

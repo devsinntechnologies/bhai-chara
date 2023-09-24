@@ -31,20 +31,22 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
+          preferredSize:const Size.fromHeight(80.0),
           child: AppBar(
             backgroundColor: AppColors.appbar,
-            leading: Icon(
-              Icons.close,
-              size: 30,
-              color: AppColors.primary,
+            leading:IconButton(
+              icon: const Icon(
+                Icons.close,
+                size: 30,
+                color: AppColors.primary,
+              ),onPressed: (){Navigator.pop(context);},
             ),
-            title: Text("Include some details"),
+            title:const Text("Include some details"),
             titleTextStyle: AppTextStyles.textStyleTitleBodyMediumWhiteColor,
           )),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding:const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,7 +76,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children:const [
                                   Icon(
                                     Icons.photo_camera,
                                     color: AppColors.primary,
@@ -87,7 +89,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [],
+                                children:const [],
                               )
                             ],
                           )),
@@ -142,7 +144,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 controller: priceController,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: AppColors.grey)),
+                    borderSide:const BorderSide(color: AppColors.grey)),
                 hintText: "Price",
                 obsecuretext: false,
                 width: size.width,
@@ -217,7 +219,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 controller: ageController,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: AppColors.grey)),
+                    borderSide:const BorderSide(color: AppColors.grey)),
                 hintText: "Age",
                 obsecuretext: false,
                 width: size.width,
@@ -258,7 +260,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 controller: titlleController,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: AppColors.grey)),
+                    borderSide:const BorderSide(color: AppColors.grey)),
                 hintText: "Title",
                 obsecuretext: false,
                 width: size.width,
@@ -281,7 +283,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                 controller: describeController,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: AppColors.grey)),
+                    borderSide: const BorderSide(color: AppColors.grey)),
                 hintText: "Selling",
                 obsecuretext: false,
                 width: size.width,

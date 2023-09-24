@@ -1,5 +1,5 @@
 import 'package:bhai_chara/view/onboard_screens/onboard_screen_three.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../common/bulit.dart';
@@ -28,7 +28,7 @@ class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image(
+                   const Image(
                       image: AssetImage("assets/images/logo.png"),
                       height: 114,
                       width: 90,
@@ -40,7 +40,7 @@ class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
                         color: AppColors.white,
                       ),
                     ),
-                    Image(
+                  const  Image(
                       image: AssetImage("assets/images/onboard2.png"),
                       height: 350,
                       width: 270,
@@ -53,7 +53,7 @@ class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
                       ),
                     ),
                     Padding(
-                      padding:
+                      padding:const
                           EdgeInsets.symmetric(horizontal: 23, vertical: 15),
                       child: Text(
                         "Bhai Chara is a place where hearts connect, and differences dissolve. Engage in meaningful conversations, share stories, and build lifelong bonds.",
@@ -79,7 +79,7 @@ class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
                     ),
                     CustomButton(
                       onTap: () {
-                        pushUntil(context, OnboardScreenThree());
+                        pushUntil(context,const OnboardScreenThree());
                       },
                       text: "Next",
                     ),

@@ -1,7 +1,5 @@
 import 'package:bhai_chara/view/authentication/signup_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../common/bulit.dart';
 import '../../common/custom_button.dart';
 import '../../utils/app_colors.dart';
@@ -28,7 +26,7 @@ class _OnboardScreenThreeState extends State<OnboardScreenThree> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image(
+                  const  Image(
                       image: AssetImage("assets/images/logo.png"),
                       height: 114,
                       width: 90,
@@ -40,7 +38,7 @@ class _OnboardScreenThreeState extends State<OnboardScreenThree> {
                         color: AppColors.white,
                       ),
                     ),
-                    Image(
+                  const  Image(
                       image: AssetImage("assets/images/onboard3.png"),
                       height: 350,
                       width: 270,
@@ -53,7 +51,7 @@ class _OnboardScreenThreeState extends State<OnboardScreenThree> {
                       ),
                     ),
                     Padding(
-                      padding:
+                      padding:const
                           EdgeInsets.symmetric(horizontal: 23, vertical: 15),
                       child: Text(
                         "In the spirit of Bhai Chara, we empower each other to grow and succeed. Explore opportunities to collaborate, contribute, and uplift our community.",
@@ -79,7 +77,7 @@ class _OnboardScreenThreeState extends State<OnboardScreenThree> {
                     ),
                     CustomButton(
                       onTap: () {
-                        pushUntil(context, SignUpScreen());
+                        pushUntil(context,const SignUpScreen());
                       },
                       text: "Next",
                     ),

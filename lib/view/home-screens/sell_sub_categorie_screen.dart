@@ -1,8 +1,9 @@
-
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
-
+import '../../common/custom_text.dart';
 import '../../utils/container.dart';
+import '../post and detail/post_and_detail_1.dart';
 
 class SubCategorieScreen extends StatelessWidget {
   const SubCategorieScreen({super.key});
@@ -28,70 +29,81 @@ class SubCategorieScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'Gorilla',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'dormouse',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'ermine',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'armadillo',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'hedgehog',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'Indian rhinoceros',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'hedgehog',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'buffalo',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'giraffe',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'elephant',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'hedgehog',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'elephant',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'Indian rhinoceros',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'buffalo',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'Japanese monkey',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
-                  Text(
-                    'giraffe',
-                    style: AppTextStyles.textStyleNormalBodyMedium
-                  ),
+                  CustomText(
+                      text: 'Gorilla',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'dormouse',
+                      tap: () {
+                        push(context,const PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'ermine',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'armadillo',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'hedgehog',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'Indian rhinoceros',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'hedgehog',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'buffalo',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'giraffe',
+                      tap: () {
+                        push(context,const  PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'giraffe',
+                      tap: () {
+                        push(context, const PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'elephant',
+                      tap: () {
+                        push(context,const PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'Indian rhinoceros',
+                      tap: () {
+                        push(context,const PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'buffalo',
+                      tap: () {
+                        push(context,const PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'Japanese monkey',
+                      tap: () {
+                        push(context,const PostDetailScreen1());
+                      }),
+                  CustomText(
+                      text: 'giraffe',
+                      tap: () {
+                        push(context,const PostDetailScreen1());
+                      }),
                 ],
               ),
             ),

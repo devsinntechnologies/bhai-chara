@@ -20,7 +20,7 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.App,
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back_ios,
           // color: AppColors.primary,
           color: AppColors.primary,
@@ -36,17 +36,17 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(
+          const  SizedBox(
               height: 20,
             ),
             InkWell(
               onTap: () {
-                pushUntil(context, SignUpScreen());
+                pushUntil(context,const SignUpScreen());
               },
               child: Container(
                 height: 50,
                 width: size.width,
-                child: Center(
+                 child: Center(
                     child: Text(
                   "Logout",
                   style: AppTextStyles.textStyleBoldBodyMedium,
@@ -61,14 +61,14 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
                 ),
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 20,
             ),
-            Divider(
+         const   Divider(
               thickness: 2,
               color: AppColors.dividerColor,
             ),
-            SizedBox(
+         const   SizedBox(
               height: 20,
             ),
             InkWell(
@@ -78,7 +78,7 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
                 builder: (
                   context,
                 ) {
-                  return DialogBox();
+                  return const DialogBox();
                 });
               },
               child: ListTile(
@@ -91,10 +91,10 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
         builder: (
           context,
         ) {
-          return DialogBox();
+          return  const DialogBox();
         });
                   },
-                  icon: Icon(
+                  icon:const  Icon(
                     Icons.arrow_forward_ios,
                     size: 24,
                     

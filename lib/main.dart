@@ -2,10 +2,10 @@ import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/ads/ads_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'view/help_and_sports_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,16 +27,16 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: AdsScreen(),
+<<<<<<< Updated upstream
+          home: SplashScreen(),
+          theme: ThemeData(fontFamily: 'DancingScript-Regular.ttf'),
+        ));
+  }
+}
+=======
+          home:const SplashScreen(),
           theme: ThemeData(fontFamily: 'Roboto-Regular.ttf'),
         ));
   }
 }
-//post detail 1 & 2 where to attatch?
-
-/*
-
- 
-
-
-*/
+>>>>>>> Stashed changes

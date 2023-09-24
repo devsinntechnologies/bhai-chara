@@ -22,11 +22,11 @@ class RootScreen extends StatelessWidget {
   ];
 
   var screensList = [
-    HomeScreen(),
-    ChattListScreen(),
-    SellScreen(),
-    AdsScreen(),
-    AccountScreen(),
+   const HomeScreen(),
+   const ChattListScreen(),
+   const SellScreen(),
+   const AdsScreen(),
+   const AccountScreen(),
   ];
 
   var textList = [
@@ -45,17 +45,17 @@ class RootScreen extends StatelessWidget {
       return Scaffold(
         body: screensList[myProvider.selectedScreenValue],
         bottomNavigationBar: Container(
-          margin: EdgeInsets.only(bottom: 10),
+          margin:const EdgeInsets.only(bottom: 10),
           height: 80,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, -1),
+                  offset:const Offset(0, -1),
                   color: AppColors.lightblue),
             ],
-            color: Color(0xfaFFFFFF),
+            color:const Color(0xfaFFFFFF),
           ),
           padding: const EdgeInsets.symmetric(vertical: 8),
           child:
@@ -68,7 +68,7 @@ class RootScreen extends StatelessWidget {
                   }),
                   child: myProvider.selectedScreenValue == i
                       ? Container(
-                          color: AppColors.White,
+                          color: AppColors.white,
                           // margin: EdgeInsets.only(bottom: 30),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,

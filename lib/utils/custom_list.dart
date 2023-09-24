@@ -12,13 +12,13 @@ class CustomList extends StatelessWidget {
     return Row(
       children: [
         const Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.all(8.0),
           child: CircleAvatar(
             radius: 5,
             backgroundColor: AppColors.black,
           ),
         ),
-        Container(
+       Container(
             width: double.infinity,
             child: Text(
               text,

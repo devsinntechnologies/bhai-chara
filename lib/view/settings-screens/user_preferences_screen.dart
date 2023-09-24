@@ -22,7 +22,7 @@ class UserPreferencesScreen extends StatelessWidget {
             iconVar: Icons.arrow_back_ios,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 20, top: 35),
+            padding:const EdgeInsets.only(left: 20, top: 35),
             child: Text(
               'Font size',
               style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),

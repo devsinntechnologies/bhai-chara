@@ -15,7 +15,7 @@ class CustomListTileSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 14),
+      margin:const  EdgeInsets.symmetric(horizontal: 14),
       child: Column(children: [
         InkWell(
           onTap: tap,
@@ -46,7 +46,7 @@ class CustomListTileSetting extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+               const Spacer(),
                 Icon(
                   iconTwo,
                   size: 24,

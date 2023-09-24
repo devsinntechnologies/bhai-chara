@@ -17,15 +17,15 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            CustomContainer(context, "Help And Supports"),
-            const SizedBox(
-              height: 30,
-            ),
-            Column(
+      body: Column(
+        children: [
+          CustomContainer(context, "Help And Supports"),
+          const SizedBox(
+            height: 30,
+          ),
+          Padding(
+             padding:const EdgeInsets.all(20),
+            child: Column(
               children: [
                 CustomListTileSetting(
                   tap: () {
@@ -49,8 +49,8 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
