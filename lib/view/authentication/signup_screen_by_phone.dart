@@ -105,6 +105,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                     Container(
                       padding: EdgeInsets.only(top: 3),
                       child: CustomTextField(
+                        keyboardtype: TextInputType.number,
                         width: size.width * .60,
                         controller: numberController,
                         border: InputBorder.none,

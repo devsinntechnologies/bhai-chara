@@ -1,6 +1,7 @@
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // ignore: must_be_immutable
 class CustomContainerTile extends StatelessWidget {
@@ -85,6 +86,9 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      inputFormatters: keyboard_type == TextInputType.number
+          ? [FilteringTextInputFormatter.digitsOnly]
+          : null,
       keyboardType: keyboard_type,
       textAlign: alignment,
       maxLength: maxlength,
@@ -101,23 +105,24 @@ class CustomTextFormField extends StatelessWidget {
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
-    super.key,
-    this.height,
-    this.width,
-    required this.controller,
-    required this.border,
-    this.suffixIcon,
-    this.suffixIconColor,
-    required this.hintText,
-    required this.obsecuretext,
-    this.prefixcolor,
-    this.prfixicon,
-    // this.pad_left = 20,
-    // this.pad_bottom,
-    // this.pad_right,
-    // this.pad_top,
-  });
+  CustomTextField(
+      {super.key,
+      this.height,
+      this.width,
+      required this.controller,
+      required this.border,
+      this.suffixIcon,
+      this.suffixIconColor,
+      required this.hintText,
+      required this.obsecuretext,
+      this.prefixcolor,
+      this.prfixicon,
+      this.keyboardtype = TextInputType.text
+      // this.pad_left = 20,
+      // this.pad_bottom,
+      // this.pad_right,
+      // this.pad_top,
+      });
   dynamic height,
       width,
       controller,
@@ -126,7 +131,8 @@ class CustomTextField extends StatelessWidget {
       suffixIconColor,
       hintText,
       prfixicon,
-      prefixcolor;
+      prefixcolor,
+      keyboardtype;
   bool obsecuretext;
 
   @override
@@ -141,7 +147,10 @@ class CustomTextField extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.w400, color: AppColors.black),
               maxLines: 1,
-              keyboardType: TextInputType.text,
+              keyboardType: keyboardtype,
+              inputFormatters: keyboardtype == TextInputType.number
+                  ? [FilteringTextInputFormatter.digitsOnly]
+                  : null,
               controller: controller,
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(
