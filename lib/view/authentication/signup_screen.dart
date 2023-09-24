@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         body: Container(
           height: double.infinity,
           width: double.infinity,
-          padding: EdgeInsets.all(10),
+          padding:const EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,26 +84,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomContainerTile(
                   ontap: () {
-                    push(context, SignupByEmail());
+                    push(context,const SignupByEmail());
                   },
                   image: "assets/images/mail.png",
                   text: "Continue with Email",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                   tap: () {
-                    push(context, SignupByEmail());
+                    push(context,const SignupByEmail());
                   }),
               const SizedBox(
                 height: 20,
               ),
               CustomContainerTile(
                   ontap: () {
-                    push(context, SignUpScreenByPhone());
+                    push(context,const SignUpScreenByPhone());
                   },
                   image: "assets/images/phone.png",
                   text: "Continue with Phone",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                   tap: () {
-                    push(context, SignUpScreenByPhone());
+                    push(context,const SignUpScreenByPhone());
                   }),
               const Spacer(),
               Row(
@@ -118,42 +118,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ],
               ),
-              Container(
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  softWrap: true,
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Bhai Chara ",
-                        style: AppTextStyles.textStyleBoldBodyXSmall,
-                      ),
-                      TextSpan(
-                        text: "Terms and Conditions ",
-                        style: AppTextStyles
-                            .textStyleNormalBody_BlueColor_Underline,
-                      ),
-                      TextSpan(
-                        text: "and ",
-                        style: AppTextStyles.textStyleBoldBodyXSmall,
-                      ),
-                      TextSpan(
-                        text: "Privacy",
-                        style: AppTextStyles
-                            .textStyleNormalBody_BlueColor_Underline,
-                      ),
-                      const TextSpan(
-                        text: " ",
-                      ),
-                      TextSpan(
-                        text: "Policy",
-                        style: AppTextStyles
-                            .textStyleNormalBody_BlueColor_Underline,
-                      )
-                    ],
-                  ),
+              RichText(
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                softWrap: true,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Bhai Chara ",
+                      style: AppTextStyles.textStyleBoldBodyXSmall,
+                    ),
+                    TextSpan(
+                      text: "Terms and Conditions ",
+                      style: AppTextStyles
+                          .textStyleNormalBody_BlueColor_Underline,
+                    ),
+                    TextSpan(
+                      text: "and ",
+                      style: AppTextStyles.textStyleBoldBodyXSmall,
+                    ),
+                    TextSpan(
+                      text: "Privacy",
+                      style: AppTextStyles
+                          .textStyleNormalBody_BlueColor_Underline,
+                    ),
+                    const TextSpan(
+                      text: " ",
+                    ),
+                    TextSpan(
+                      text: "Policy",
+                      style: AppTextStyles
+                          .textStyleNormalBody_BlueColor_Underline,
+                    )
+                  ],
                 ),
               ),
             ],

@@ -26,7 +26,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
         body: Container(
           height: double.infinity,
           width: double.infinity,
-          padding: EdgeInsets.all(20),
+          padding:const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,13 +59,12 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                  child: Text(
+              Text(
                 "We will send a confirmation code to your phone",
                 maxLines: 3,
                 textAlign: TextAlign.center,
                 style: AppTextStyles.textStyleNormalBodyXSmall,
-              )),
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -91,7 +90,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text(
+                    const Text(
                       "+92",
                     ),
                     const SizedBox(
@@ -103,7 +102,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                       color: AppColors.light_black,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 3),
+                      padding:const EdgeInsets.only(top: 3),
                       child: CustomTextField(
                         width: size.width * .60,
                         controller: numberController,

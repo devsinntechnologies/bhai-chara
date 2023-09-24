@@ -14,9 +14,9 @@ class DialogBox extends StatelessWidget {
       // backgroundColor: AppColors.grey,
       content: Container(
         height: 170,
-        child: Column(
+        child:   Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+          children:  [
             Icon(Icons.delete, color: AppColors.blue),
             Text("Are you sure?", style: AppTextStyles.textStyleBoldBodySmall),
             Text(

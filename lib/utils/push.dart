@@ -20,9 +20,7 @@ BottomSheetFunction(context) {
         return Scaffold(
             body: Container(
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
@@ -37,31 +35,63 @@ BottomSheetFunction(context) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(children: [
-                    Icon(Icons.emoji_emotions),
-                    Text('Hate',style: AppTextStyles.textStyleNormalBodyXSmall,)
-                  ],),
-                  SizedBox(width: 10,),
-                  Column(children: [
-                    Icon(Icons.emoji_emotions),
-                    Text('Dislike',style: AppTextStyles.textStyleNormalBodySmall,)
-                  ],),
-                   SizedBox(width: 10,),
-                  Column(children: [
-                    Icon(Icons.emoji_emotions),
-                    Text('Natural',style: AppTextStyles.textStyleNormalBodySmall,)
-                  ],),
-                   SizedBox(width: 10,),
-                  Column(children: [
-                    Icon(Icons.emoji_emotions),
-                    Text('Like',style: AppTextStyles.textStyleNormalBodySmall,)
-                  ],),
-                   SizedBox(width: 10,),
-                   Column(children: [
-                    Icon(Icons.emoji_emotions),
-                    Text('Love',style: AppTextStyles.textStyleNormalBodySmall,)
-                  ],)
-            
+                  Column(
+                    children: [
+                    const  Icon(Icons.emoji_emotions, size: 24,),
+                      Text(
+                        'Hate',
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      )
+                    ],
+                  ),
+                 const  SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    children: [
+                     const Icon(Icons.emoji_emotions),
+                      Text(
+                        'Dislike',
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      )
+                    ],
+                  ),
+                 const SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    children: [
+                     const Icon(Icons.emoji_emotions),
+                      Text(
+                        'Natural',
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      )
+                    ],
+                  ),
+                 const SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    children: [
+                     const Icon(Icons.emoji_emotions),
+                      Text(
+                        'Like',
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      )
+                    ],
+                  ),
+                const  SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    children: [
+                     const Icon(Icons.emoji_emotions),
+                      Text(
+                        'Love',
+                        style: AppTextStyles.textStyleNormalBodyXSmall,
+                      )
+                    ],
+                  )
                 ],
               ),
             )

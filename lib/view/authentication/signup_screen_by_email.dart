@@ -22,7 +22,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding:const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,7 +38,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                   width: 100,
                   decoration: const BoxDecoration(
                       // color: AppColors.primary,
-                      color: AppColors.White,
+                      color: AppColors.white,
                       image: DecorationImage(
                           scale: 1,
                           image: AssetImage("assets/images/logo.png"),
@@ -56,13 +56,12 @@ class _SignupByEmailState extends State<SignupByEmail> {
             const SizedBox(
               height: 10,
             ),
-            Container(
-                child: Text(
+            Text(
               "We will send a confirmation code to your email",
               maxLines: 3,
               textAlign: TextAlign.center,
               style: AppTextStyles.textStyleNormalBodyXSmall,
-            )),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -73,7 +72,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                 controller: emailController,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: AppColors.grey)),
+                    borderSide:const BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
 
             const Spacer(),
@@ -82,7 +81,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                 if (emailController.text.isEmpty) {
                   showSnack(context: context);
                 } else {
-                  push(context, CreatePassword());
+                  push(context,const CreatePassword());
                 }
               },
               text: "Next",

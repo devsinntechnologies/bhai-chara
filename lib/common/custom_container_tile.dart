@@ -90,7 +90,7 @@ class CustomTextFormField extends StatelessWidget {
       maxLength: maxlength,
       controller: controller,
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: 10),
+          contentPadding:const EdgeInsets.only(top: 10),
           border: border,
           hintText: hint_text,
           counterText: " ",
@@ -138,13 +138,13 @@ class CustomTextField extends StatelessWidget {
             width: width,
             child: TextField(
               obscureText: obsecuretext,
-              style: TextStyle(
+              style:const TextStyle(
                   fontWeight: FontWeight.w400, color: AppColors.black),
               maxLines: 1,
               keyboardType: TextInputType.text,
               controller: controller,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(
+                  contentPadding:const EdgeInsets.only(
                     left: 20,
                   ),
                   border: border,
@@ -153,7 +153,7 @@ class CustomTextField extends StatelessWidget {
                   suffixIcon: suffixIcon,
                   suffixIconColor: suffixIconColor,
                   hintText: hintText,
-                  hintStyle: TextStyle(
+                  hintStyle:const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                       color: AppColors.grey)),

@@ -60,24 +60,23 @@ class _CreatePasswordState extends State<CreatePassword> {
             const SizedBox(
               height: 10,
             ),
-            Container(
-                child: Text.rich(
-                    maxLines: 3,
-                    textAlign: TextAlign.center,
-                    TextSpan(children: [
-                      TextSpan(
-                        text: "You are creating a password for",
-                        style: AppTextStyles.textStyleNormalBodyXSmall,
-                      ),
-                      TextSpan(
-                        text: " +923233342939. ",
-                        style: AppTextStyles.textStyleBoldBodyXSmall,
-                      ),
-                      TextSpan(
-                        text: "This will help you login faster next time.",
-                        style: AppTextStyles.textStyleNormalBodyXSmall,
-                      )
-                    ]))),
+            Text.rich(
+                maxLines: 3,
+                textAlign: TextAlign.center,
+                TextSpan(children: [
+                  TextSpan(
+                    text: "You are creating a password for",
+                    style: AppTextStyles.textStyleNormalBodyXSmall,
+                  ),
+                  TextSpan(
+                    text: " +923233342939. ",
+                    style: AppTextStyles.textStyleBoldBodyXSmall,
+                  ),
+                  TextSpan(
+                    text: "This will help you login faster next time.",
+                    style: AppTextStyles.textStyleNormalBodyXSmall,
+                  )
+                ])),
             const SizedBox(
               height: 20,
             ),
@@ -93,7 +92,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                       width: size.width * .90,
                       controller: passwordController,
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.grey),
+                        borderSide:const BorderSide(color: AppColors.grey),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       hintText: "Password",
@@ -137,7 +136,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                       controller: confirmpasswordController,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(color: AppColors.grey)),
+                          borderSide:const BorderSide(color: AppColors.grey)),
                       hintText: "Confirm Password",
                       suffixIcon: y % 2 != 0
                           ? IconButton(

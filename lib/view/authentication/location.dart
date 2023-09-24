@@ -19,7 +19,7 @@ class _LocationScreenState extends State<LocationScreen> {
     var size = MediaQuery.of(context).size * 1;
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding:const EdgeInsets.all(10),
         child: Column(
           children: [
             const SizedBox(
@@ -44,7 +44,7 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             Container(
               width: size.width,
-              padding: EdgeInsets.all(20),
+              padding:const EdgeInsets.all(20),
               child: Text(
                 "Where do you want to buy/sell products",
                 style: AppTextStyles.textStyleBoldBodyMedium,
@@ -53,7 +53,7 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             Container(
               width: size.width * .85,
-              padding: EdgeInsets.only(left: 20, right: 20),
+              padding:const EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "To unlock the full Bhai Chara experience, we need to know where to look for them.",
                 style: AppTextStyles.textStyleNormalBodyXSmall,

@@ -47,22 +47,22 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: AppColors.White),
+                              color: AppColors.white),
                         )
                       ],
                     ),
                     const Icon(
                       Icons.notifications,
                       size: 24,
-                      color: AppColors.White,
+                      color: AppColors.white,
                     )
                   ],
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 child: CustomTextField(
-                    prfixicon: Icon(Icons.search),
+                    prfixicon:const Icon(Icons.search),
                     prefixcolor: AppColors.Grey,
                     controller: searchController,
                     border: OutlineInputBorder(

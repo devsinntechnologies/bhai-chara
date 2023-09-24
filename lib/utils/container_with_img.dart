@@ -14,7 +14,7 @@ class CustomContainer extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        margin: EdgeInsets.only(left: 20),
+        margin: const EdgeInsets.only(left: 20),
          height: 205,
          width: 185,
       //  width: 100,

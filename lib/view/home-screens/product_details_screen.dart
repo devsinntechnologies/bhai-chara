@@ -20,7 +20,7 @@ class ProductScreen extends StatelessWidget {
                 Container(
                   height: 300,
                   width: double.infinity,
-                  child: Image(
+                  child:const  Image(
                     image: AssetImage('assets/images/Rectangle 16.png'),
                     fit: BoxFit.cover,
                   ),
@@ -36,13 +36,13 @@ class ProductScreen extends StatelessWidget {
                           },
                           icon: const Icon(
                             Icons.arrow_back_ios,
-                            color: AppColors.White,
+                            color: AppColors.white,
                           )),
                       IconButton(
                           onPressed: () {},
                           icon: const Icon(
                             Icons.forward,
-                            color: AppColors.White,
+                            color: AppColors.white,
                           ))
                     ],
                   ),
@@ -220,8 +220,8 @@ class ProductScreen extends StatelessWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                             const Padding(
+                                padding:  EdgeInsets.all(8.0),
                                 child: CircleAvatar(
                                   radius: 3,
                                   backgroundColor: AppColors.black,

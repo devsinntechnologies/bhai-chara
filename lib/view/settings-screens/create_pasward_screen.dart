@@ -45,7 +45,7 @@ class CreatePasswardScreen extends StatelessWidget {
           Container(
               margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
               child: CustomButton(
-                onTap: (){push(context, OTPScreen());},
+                onTap: (){push(context,const OTPScreen());},
                 text: "Next",
               )),
         ],

@@ -31,27 +31,25 @@ class _OTPScreenState extends State<OTPScreen> {
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding:const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Icon(
-                              Icons.arrow_back_ios,
-                              size: 20,
-                              color: AppColors.black,
-                            ),
-                            const SizedBox(
-                              width: 25,
-                            ),
-                            Text(
-                              "Login",
-                              style: AppTextStyles.textStyleNormalBodySmall,
-                            ),
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                         const Icon(
+                            Icons.arrow_back_ios,
+                            size: 20,
+                            color: AppColors.black,
+                          ),
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Text(
+                            "Login",
+                            style: AppTextStyles.textStyleNormalBodySmall,
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
@@ -62,9 +60,9 @@ class _OTPScreenState extends State<OTPScreen> {
                           Container(
                             height: 130,
                             width: 100,
-                            decoration: BoxDecoration(
+                            decoration:const BoxDecoration(
                                 color: AppColors.primary,
-                                image: const DecorationImage(
+                                image:  DecorationImage(
                                     scale: 1,
                                     image: AssetImage("assets/images/logo.png"),
                                     fit: BoxFit.fill)),
@@ -106,7 +104,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         children: [
                           for (int i = 1; i <= 4; i++)
                             Container(
-                              margin: EdgeInsets.only(right: 10),
+                              margin:const EdgeInsets.only(right: 10),
                               width: 60,
                               height: 60,
                               decoration: BoxDecoration(
@@ -179,7 +177,7 @@ class _OTPScreenState extends State<OTPScreen> {
                           } else if (otp_4.text.isEmpty) {
                             showSnack(context: context);
                           } else {
-                            push(context, LocationScreen());
+                            push(context,const  LocationScreen());
                           }
                         },
                         text: "Next",

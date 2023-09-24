@@ -5,7 +5,6 @@ import 'package:bhai_chara/view/settings-screens/manage_account_screen.dart';
 import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:bhai_chara/view/settings-screens/user_preferences_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../../common/custom_container.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -43,7 +42,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 CustomListTile(
                   tap: () {
-                    push(context, ManageAccountScreen());
+                    push(context,const ManageAccountScreen());
                   },
                   title: "Manage account",
                   subtitle: "Take action on account",
