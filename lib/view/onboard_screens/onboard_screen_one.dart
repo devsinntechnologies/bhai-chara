@@ -17,72 +17,70 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.black,
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Image(
-                      image: AssetImage("assets/images/logo.png"),
-                      height: 114,
-                      width: 90,
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Image(
+                    image: AssetImage("assets/images/logo.png"),
+                    height: 114,
+                    width: 90,
+                  ),
+                  SizedBox(height: 25),
+                  Text(
+                    "Welcome to Bhai Chara",
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
+                      color: AppColors.white,
                     ),
-                    Text(
-                      "Welcome to Bhai Chara",
+                  ),
+                 const Image(
+                    image: AssetImage("assets/images/onboard1.png"),
+                    height: 350,
+                    width: 270,
+                  ),
+                  Text(
+                    "Embrace Unity, Foster Brotherhood",
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
+                      color: AppColors.blue,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                       const EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+                    child: Text(
+                      "Join a community that believes in the power of unity and brotherhood. Connect, collaborate, and make a positive impact together.",
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
-                        color: AppColors.white,
+                      style: AppTextStyles.textStyleNormalBodySmall.copyWith(
+                        color: AppColors.grey,
                       ),
                     ),
-                   const Image(
-                      image: AssetImage("assets/images/onboard1.png"),
-                      height: 350,
-                      width: 270,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Builit.SelectedBulit,
+                        Builit.UnSelectBulit,
+                        Builit.UnSelectBulit,
+                      ],
                     ),
-                    Text(
-                      "Embrace Unity, Foster Brotherhood",
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
-                        color: AppColors.blue,
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                         const EdgeInsets.symmetric(horizontal: 23, vertical: 15),
-                      child: Text(
-                        "Join a community that believes in the power of unity and brotherhood. Connect, collaborate, and make a positive impact together.",
-                        textAlign: TextAlign.center,
-                        style: AppTextStyles.textStyleNormalBodySmall.copyWith(
-                          color: AppColors.grey,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Builit.SelectedBulit,
-                          Builit.UnSelectBulit,
-                          Builit.UnSelectBulit,
-                        ],
-                      ),
-                    ),
-                    // const Spacer(),
-                    CustomButton(
-                      onTap: () {
-                        pushUntil(context,const OnboardScreenTwo());
-                      },
-                      text: "Next",
-                    ),
-                    // const SizedBox(
-                    //   height: 30,
-                    // )
-                  ]),
-            ),
+                  ),
+                  SizedBox(height:50),
+                  // const Spacer(),
+                  CustomButton(
+                    onTap: () {
+                      pushUntil(context,const OnboardScreenTwo());
+                    },
+                    text: "Next",
+                  ),
+                 
+                ]),
           ),
         ));
   }

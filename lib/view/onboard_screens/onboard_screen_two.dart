@@ -20,74 +20,74 @@ class _OnboardScreenTwoState extends State<OnboardScreenTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.black,
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                   const Image(
-                      image: AssetImage("assets/images/logo.png"),
-                      height: 114,
-                      width: 90,
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                 const Image(
+                    image: AssetImage("assets/images/logo.png"),
+                    height: 114,
+                    width: 90,
+                  ),
+                  SizedBox(height: 25),
+
+                  Text(
+                    "Connecting Hearts",
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
+                      color: AppColors.white,
                     ),
-                    Text(
-                      "Connecting Hearts",
+                  ),
+                const  Image(
+                    image: AssetImage("assets/images/onboard2.png"),
+                    height: 350,
+                    width: 270,
+                  ),
+                  Text(
+                    "Where Brotherhood Flourishes",
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
+                      color: AppColors.blue,
+                    ),
+                  ),
+                  Padding(
+                    padding:const
+                        EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+                    child: Text(
+                      "Bhai Chara is a place where hearts connect, and differences dissolve. Engage in meaningful conversations, share stories, and build lifelong bonds.",
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
-                        color: AppColors.white,
+                      style: AppTextStyles.textStyleNormalBodySmall.copyWith(
+                        color: AppColors.grey,
                       ),
                     ),
-                  const  Image(
-                      image: AssetImage("assets/images/onboard2.png"),
-                      height: 350,
-                      width: 270,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Builit.UnSelectBulit,
+                        Builit.SelectedBulit,
+                        Builit.UnSelectBulit,
+                      ],
                     ),
-                    Text(
-                      "Where Brotherhood Flourishes",
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
-                        color: AppColors.blue,
-                      ),
-                    ),
-                    Padding(
-                      padding:const
-                          EdgeInsets.symmetric(horizontal: 23, vertical: 15),
-                      child: Text(
-                        "Bhai Chara is a place where hearts connect, and differences dissolve. Engage in meaningful conversations, share stories, and build lifelong bonds.",
-                        textAlign: TextAlign.center,
-                        style: AppTextStyles.textStyleNormalBodySmall.copyWith(
-                          color: AppColors.grey,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Builit.UnSelectBulit,
-                          Builit.SelectedBulit,
-                          Builit.UnSelectBulit,
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomButton(
-                      onTap: () {
-                        pushUntil(context,const OnboardScreenThree());
-                      },
-                      text: "Next",
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    )
-                  ]),
-            ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  CustomButton(
+                    onTap: () {
+                      pushUntil(context,const OnboardScreenThree());
+                    },
+                    text: "Next",
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ]),
           ),
         ));
   }

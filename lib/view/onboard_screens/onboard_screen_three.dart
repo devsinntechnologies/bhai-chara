@@ -18,74 +18,74 @@ class _OnboardScreenThreeState extends State<OnboardScreenThree> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.black,
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                  const  Image(
-                      image: AssetImage("assets/images/logo.png"),
-                      height: 114,
-                      width: 90,
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                const  Image(
+                    image: AssetImage("assets/images/logo.png"),
+                    height: 114,
+                    width: 90,
+                  ),
+                  SizedBox(height: 25),
+
+                  Text(
+                    "Empowering Together",
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
+                      color: AppColors.white,
                     ),
-                    Text(
-                      "Empowering Together",
+                  ),
+                const  Image(
+                    image: AssetImage("assets/images/onboard3.png"),
+                    height: 350,
+                    width: 270,
+                  ),
+                  Text(
+                    "Uniting for Progress",
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
+                      color: AppColors.blue,
+                    ),
+                  ),
+                  Padding(
+                    padding:const
+                        EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+                    child: Text(
+                      "In the spirit of Bhai Chara, we empower each other to grow and succeed. Explore opportunities to collaborate, contribute, and uplift our community.",
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
-                        color: AppColors.white,
+                      style: AppTextStyles.textStyleNormalBodySmall.copyWith(
+                        color: AppColors.grey,
                       ),
                     ),
-                  const  Image(
-                      image: AssetImage("assets/images/onboard3.png"),
-                      height: 350,
-                      width: 270,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Builit.UnSelectBulit,
+                        Builit.UnSelectBulit,
+                        Builit.SelectedBulit,
+                      ],
                     ),
-                    Text(
-                      "Uniting for Progress",
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.textStyleNormalBodyMedium.copyWith(
-                        color: AppColors.blue,
-                      ),
-                    ),
-                    Padding(
-                      padding:const
-                          EdgeInsets.symmetric(horizontal: 23, vertical: 15),
-                      child: Text(
-                        "In the spirit of Bhai Chara, we empower each other to grow and succeed. Explore opportunities to collaborate, contribute, and uplift our community.",
-                        textAlign: TextAlign.center,
-                        style: AppTextStyles.textStyleNormalBodySmall.copyWith(
-                          color: AppColors.grey,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Builit.UnSelectBulit,
-                          Builit.UnSelectBulit,
-                          Builit.SelectedBulit,
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomButton(
-                      onTap: () {
-                        pushUntil(context,const SignUpScreen());
-                      },
-                      text: "Next",
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    )
-                  ]),
-            ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  CustomButton(
+                    onTap: () {
+                      pushUntil(context,const SignUpScreen());
+                    },
+                    text: "Next",
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ]),
           ),
         ));
   }
