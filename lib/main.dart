@@ -3,10 +3,7 @@ import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/account/account_screen.dart';
-import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
-import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

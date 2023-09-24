@@ -1,5 +1,4 @@
-import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/custonPhoneTextField.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -20,6 +19,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
   TextEditingController numberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
@@ -69,53 +69,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                height: 60,
-                width: size.width,
-                decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.grey),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: EdgeInsets.only(left: 10, top: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      child: const Image(
-                        image: AssetImage("assets/images/pakistan.png"),
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "+92",
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      height: 30,
-                      width: 1,
-                      color: AppColors.light_black,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 3),
-                      child: CustomTextField(
-                        keyboardtype: TextInputType.number,
-                        width: size.width * .60,
-                        controller: numberController,
-                        border: InputBorder.none,
-                        hintText: "Phone Number",
-                        obsecuretext: false,
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              CustomCountryPhoneField(),
               const Spacer(),
               CustomButton(
                 onTap: () {

@@ -142,6 +142,9 @@ class _OTPScreenState extends State<OTPScreen> {
                         "RESEND CODE BY SMS IN 56",
                         style: AppTextStyles.textStyleSubtitleUnderlineBody,
                       ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       const Text.rich(
                           textAlign: TextAlign.center,
                           TextSpan(children: [
