@@ -2,9 +2,7 @@ import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
-import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
