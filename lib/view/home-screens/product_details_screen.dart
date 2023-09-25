@@ -189,7 +189,9 @@ class ProductScreen extends StatelessWidget {
                         child: Text(
                           'Garden Town-Aibak Block, Lahore',
                           style: AppTextStyles.textStyleBoldBodySmall.copyWith(
-                              fontSize: 16, fontWeight: FontWeight.w400),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         )),
                   ],
                 ),

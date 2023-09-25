@@ -22,8 +22,6 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   TextEditingController describeController = TextEditingController();
   List<File> selectedImages = [];
   final picker = ImagePicker();
-  // ImagePicker picker = ImagePicker();
-  // XFile? image;
 
   @override
   Widget build(BuildContext context) {

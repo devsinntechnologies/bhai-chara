@@ -69,7 +69,9 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
               const SizedBox(
                 height: 20,
               ),
-              CustomCountryPhoneField(),
+              CustomCountryPhoneField(
+                controller: numberController,
+              ),
               const Spacer(),
               CustomButton(
                 onTap: () {

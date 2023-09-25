@@ -3,7 +3,7 @@ import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
+import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             fontFamily: "Lora-Regular",
           ),
-          home: SignUpScreenByPhone(),
+          home: PostDetailScreen1(),
         ));
   }
 }

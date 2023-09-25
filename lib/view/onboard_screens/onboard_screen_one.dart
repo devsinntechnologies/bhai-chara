@@ -80,9 +80,6 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                       },
                       text: "Next",
                     ),
-                    // const SizedBox(
-                    //   height: 30,
-                    // )
                   ]),
             ),
           ),
