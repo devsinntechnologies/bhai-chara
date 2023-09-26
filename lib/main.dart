@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             fontFamily: "Lora-Regular",
           ),
-          home: SplashScreen(),
+          home: const SplashScreen(),
         ));
   }
 }

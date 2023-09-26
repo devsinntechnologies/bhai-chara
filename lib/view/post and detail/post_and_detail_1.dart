@@ -4,7 +4,10 @@ import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -24,6 +27,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   TextEditingController describeController = TextEditingController();
   List<File> selectedImages = [];
   ImagePicker picker = ImagePicker();
+  var selected = "";
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +93,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: AppColors.blue),
-                                  child: Column(
+                                  child: const Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -105,7 +109,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                           ),
                                         ],
                                       ),
-                                      const SizedBox(
+                                      SizedBox(
                                         height: 10,
                                       ),
                                       Row(
@@ -126,15 +130,13 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                       i++)
                                     Container(
                                       // margin: EdgeInsets.only(right: 10),
-                                      height: 120,
+                                      height: 150,
                                       width: 120,
                                       child: ListView(
                                           scrollDirection: Axis.horizontal,
                                           children: [
                                             Image.file(
                                               selectedImages[i],
-                                              height: 100,
-                                              width: 100,
                                               fit: BoxFit.cover,
                                             ),
                                           ]),
@@ -215,7 +217,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 20,
                       ),
                       Text(
-                        "Sex",
+                        "Gender",
                         style: AppTextStyles.textStyleBoldBodySmall,
                       ),
                       const SizedBox(
@@ -224,20 +226,56 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          CustomContainerText(
-                            text: "Male",
+                          InkWell(
+                            onTap: () {
+                              selected = "first";
+                              setState(() {});
+                            },
+                            child: CustomContainerText(
+                              style: selected == "first"
+                                  ? AppTextStyles
+                                      .textStyleNormalBodySmall_WhiteColor
+                                  : null,
+                              container_color:
+                                  selected == "first" ? AppColors.blue : null,
+                              text: "Male",
+                            ),
                           ),
                           const SizedBox(
                             width: 10,
                           ),
-                          CustomContainerText(
-                            text: "Female",
+                          InkWell(
+                            onTap: () {
+                              selected = "second";
+                              setState(() {});
+                            },
+                            child: CustomContainerText(
+                              style: selected == "second"
+                                  ? AppTextStyles
+                                      .textStyleNormalBodySmall_WhiteColor
+                                  : null,
+                              container_color:
+                                  selected == "second" ? AppColors.blue : null,
+                              text: "Female",
+                            ),
                           ),
                           const SizedBox(
                             width: 10,
                           ),
-                          CustomContainerText(
-                            text: "Pair",
+                          InkWell(
+                            onTap: () {
+                              selected = "third";
+                              setState(() {});
+                            },
+                            child: CustomContainerText(
+                              style: selected == "third"
+                                  ? AppTextStyles
+                                      .textStyleNormalBodySmall_WhiteColor
+                                  : null,
+                              container_color:
+                                  selected == "third" ? AppColors.blue : null,
+                              text: "Pair",
+                            ),
                           ),
                         ],
                       ),
@@ -337,7 +375,17 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       ),
                       InkWell(
                         onTap: () {
-                          //fuctionality
+                          if (priceController.text.isEmpty) {
+                            showSnack();
+                          } else if (ageController.text.isEmpty) {
+                            showSnack();
+                          } else if (titlleController.text.isEmpty) {
+                            showSnack();
+                          } else if (describeController.text.isEmpty) {
+                            showSnack();
+                          } else {
+                            push(context, RootScreen());
+                          }
                         },
                         child: Container(
                             height: 50,
@@ -368,7 +416,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
 
   Future getImages() async {
     final pickedFile = await picker.pickMultiImage(
-        imageQuality: 100, maxHeight: 100, maxWidth: 100);
+      imageQuality: 100,
+    );
     List<XFile> xfilePick = pickedFile;
 
     setState(
