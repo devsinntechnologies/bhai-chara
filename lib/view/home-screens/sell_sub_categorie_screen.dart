@@ -34,43 +34,118 @@ class _SubCategorieScreenState extends State<SubCategorieScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       push(context, PostDetailScreen1());
                     },
                     child: Text('Gorilla',
                         style: AppTextStyles.textStyleNormalBodyMedium),
                   ),
-                  Text('dormouse',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('ermine',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('armadillo',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('hedgehog',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('Indian rhinoceros',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('hedgehog',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('buffalo',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('giraffe',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('elephant',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('hedgehog',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('elephant',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('Indian rhinoceros',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('buffalo',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('Japanese monkey',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
-                  Text('giraffe',
-                      style: AppTextStyles.textStyleNormalBodyMedium),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('dormouse',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('ermine',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('armadillo',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('hedgehog',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('Indian rhinoceros',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('hedgehog',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('buffalo',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('giraffe',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('elephant',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('hedgehog',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('elephant',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('Indian rhinoceros',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('buffalo',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('Japanese monkey',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context, PostDetailScreen1());
+                    },
+                    child: Text('giraffe',
+                        style: AppTextStyles.textStyleNormalBodyMedium),
+                  ),
                 ],
               ),
             ),

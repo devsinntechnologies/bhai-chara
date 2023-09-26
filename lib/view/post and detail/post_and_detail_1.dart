@@ -44,9 +44,35 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "UPLOAD UP TO 20 PHOTOS",
-                        style: AppTextStyles.textStyleBoldBodySmall,
+                      Row(
+                        children: [
+                          Text(
+                            "UPLOAD UP TO 20 PHOTOS",
+                            style: AppTextStyles.textStyleBoldBodySmall,
+                          ),
+                          const Spacer(),
+                          selectedImages.isNotEmpty &&
+                                  selectedImages.length <= 20
+                              ? InkWell(
+                                  onTap: () {
+                                    getImages();
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: AppColors.blue),
+                                    child: Center(
+                                      child: Icon(
+                                        Icons.photo_camera,
+                                        color: AppColors.White,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Text(""),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
