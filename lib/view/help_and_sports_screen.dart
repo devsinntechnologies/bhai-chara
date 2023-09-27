@@ -1,6 +1,5 @@
 import 'package:bhai_chara/utils/push.dart';
 import 'package:flutter/material.dart';
-import '../common/custom_listtile.dart';
 import '../utils/app_colors.dart';
 import '../utils/container.dart';
 import '../utils/listtile_custom.dart';
@@ -19,18 +18,17 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
       backgroundColor: AppColors.primary,
       body: Column(
         children: [
-           CustomContainer(
+          CustomContainer(
             text: 'Help and Supports',
             iconVar: Icons.arrow_back_ios,
           ),
-         
           Padding(
-          padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(20),
             child: Column(
               children: [
                 CustomListTile(
                   tap: () {
-                   BottomSheetFunction(context);
+                    BottomSheetFunction(context);
                   },
                   title: "Feedback",
                   subtitle: "Take a moment to let us konw how we’re doing",
