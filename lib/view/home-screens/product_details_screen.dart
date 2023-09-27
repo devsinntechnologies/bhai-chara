@@ -20,7 +20,7 @@ class ProductScreen extends StatelessWidget {
                 Container(
                   height: 300,
                   width: double.infinity,
-                  child: Image(
+                  child:const Image(
                     image: AssetImage('assets/images/Rectangle 16.png'),
                     fit: BoxFit.cover,
                   ),
@@ -232,7 +232,7 @@ class ProductScreen extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 8.0),
                                 child: SizedBox(
-                                  width: 250,
+                                  width: 280,
                                   child: Text(
                                     item,
                                     softWrap: true,
