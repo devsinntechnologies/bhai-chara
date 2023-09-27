@@ -27,174 +27,167 @@ class _OTPScreenState extends State<OTPScreen> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+          child: Container(
+            height: size.height * .90,
+            padding: EdgeInsets.only(left: 20, right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.arrow_back_ios,
+                              size: 20,
+                              color: AppColors.black,
+                            ),
+                            const SizedBox(
+                              width: 25,
+                            ),
+                            Text(
+                              "Login",
+                              style: AppTextStyles.textStyleNormalBodySmall,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.arrow_back_ios,
-                            size: 20,
-                            color: AppColors.black,
-                          ),
-                          const SizedBox(
-                            width: 25,
-                          ),
-                          Text(
-                            "Login",
-                            style: AppTextStyles.textStyleNormalBodySmall,
+                          Container(
+                            height: 130,
+                            width: 100,
+                            decoration: const BoxDecoration(
+                                // color: AppColors.primary,
+                                image: DecorationImage(
+                                    scale: 1,
+                                    image: AssetImage("assets/images/logo.png"),
+                                    fit: BoxFit.cover)),
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 130,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              // color: AppColors.primary,
-                              image: const DecorationImage(
-                                  scale: 1,
-                                  image: AssetImage("assets/images/logo.png"),
-                                  fit: BoxFit.cover)),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "Enter Your Confirmation Code",
-                      style: AppTextStyles.textStyleBoldBodyMedium,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                        width: size.width * .80,
-                        child: Text.rich(
-                            maxLines: 3,
-                            textAlign: TextAlign.center,
-                            TextSpan(children: [
-                              TextSpan(
-                                text: "Enter the 4-digit code sent via SMS to",
-                                style: AppTextStyles.textStyleNormalBodySmall,
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Enter Your Confirmation Code",
+                        style: AppTextStyles.textStyleBoldBodyMedium,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                          width: size.width * .80,
+                          child: Text.rich(
+                              maxLines: 3,
+                              textAlign: TextAlign.center,
+                              TextSpan(children: [
+                                TextSpan(
+                                  text:
+                                      "Enter the 4-digit code sent via SMS to",
+                                  style: AppTextStyles.textStyleNormalBodySmall,
+                                ),
+                                TextSpan(
+                                  text: " +923233342939. ",
+                                  style: AppTextStyles
+                                      .textStyleNormalBoldBodySmall,
+                                ),
+                              ]))),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (int i = 1; i <= 4; i++)
+                            Container(
+                              margin: EdgeInsets.only(right: 10),
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: AppColors.grey),
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                              TextSpan(
-                                text: " +923233342939. ",
-                                style:
-                                    AppTextStyles.textStyleNormalBoldBodySmall,
+                              child: CustomTextFormField(
+                                controller: i == 1
+                                    ? otp_1
+                                    : i == 2
+                                        ? otp_2
+                                        : i == 3
+                                            ? otp_3
+                                            : otp_4,
+                                keyboard_type: TextInputType.number,
+                                maxlength: 1,
+                                alignment: TextAlign.center,
+                                border: InputBorder.none,
+                                hint_text: i == 1 ? " " : "-",
                               ),
-                            ]))),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (int i = 1; i <= 4; i++)
-                          Container(
-                            margin: EdgeInsets.only(right: 10),
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: AppColors.grey),
-                              borderRadius: BorderRadius.circular(20),
                             ),
-                            child: CustomTextFormField(
-                              controller: i == 1
-                                  ? otp_1
-                                  : i == 2
-                                      ? otp_2
-                                      : i == 3
-                                          ? otp_3
-                                          : otp_4,
-                              keyboard_type: TextInputType.number,
-                              maxlength: 1,
-                              alignment: TextAlign.center,
-                              border: InputBorder.none,
-                              hint_text: i == 1 ? " " : "-",
-                            ),
-                          ),
-                        //–
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "RESEND CODE BY CALL IN 56",
-                      style: AppTextStyles.textStyleSubtitleUnderlineBody,
-                    ),
-                    Text(
-                      "RESEND CODE BY SMS IN 56",
-                      style: AppTextStyles.textStyleSubtitleUnderlineBody,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text.rich(
-                        textAlign: TextAlign.center,
-                        TextSpan(children: [
-                          TextSpan(
-                              text:
-                                  "If you have not received the code through call, please request ",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                                letterSpacing: 0.5,
-                                fontStyle: FontStyle.normal,
-                                color: Color(0xfa808080),
-                              )),
-                          TextSpan(
-                              text: "‘Resend Code by SMS’.",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.5,
-                                fontStyle: FontStyle.normal,
-                                color: Color(0xfa1A1A1A),
-                              ))
-                        ])),
-                    // Spacer(),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10.0, right: 10),
-                  child: CustomButton(
-                    onTap: () {
-                      if (otp_1.text.isEmpty) {
-                        showSnack(context: context);
-                      } else if (otp_2.text.isEmpty) {
-                        showSnack(context: context);
-                      } else if (otp_3.text.isEmpty) {
-                        showSnack(context: context);
-                      } else if (otp_4.text.isEmpty) {
-                        showSnack(context: context);
-                      } else {
-                        push(context, LocationScreen());
-                      }
-                    },
-                    text: "Next",
+                          //–
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "RESEND CODE BY SMS IN 56",
+                        style: AppTextStyles.textStyleSubtitleUnderlineBody,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text.rich(
+                          textAlign: TextAlign.center,
+                          TextSpan(children: [
+                            TextSpan(
+                                text:
+                                    "If you have not received the code through call, please request ",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.normal,
+                                  letterSpacing: 0.5,
+                                  fontStyle: FontStyle.normal,
+                                  color: Color(0xfa808080),
+                                )),
+                            TextSpan(
+                                text: "‘Resend Code by SMS’.",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 0.5,
+                                  fontStyle: FontStyle.normal,
+                                  color: Color(0xfa1A1A1A),
+                                ))
+                          ])),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                CustomButton(
+                  onTap: () {
+                    if (otp_1.text.isEmpty) {
+                      showSnack(context: context);
+                    } else if (otp_2.text.isEmpty) {
+                      showSnack(context: context);
+                    } else if (otp_3.text.isEmpty) {
+                      showSnack(context: context);
+                    } else if (otp_4.text.isEmpty) {
+                      showSnack(context: context);
+                    } else {
+                      push(context, LocationScreen());
+                    }
+                  },
+                  text: "Next",
+                ),
+              ],
+            ),
           ),
         ),
       ),

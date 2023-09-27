@@ -7,7 +7,7 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
-import 'package:bhai_chara/view/home-screens/root_screen.dart';
+import 'package:bhai_chara/view/review_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -67,7 +67,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: AppColors.blue),
-                                    child: Center(
+                                    child: const Center(
                                       child: Icon(
                                         Icons.photo_camera,
                                         color: AppColors.White,
@@ -75,7 +75,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                     ),
                                   ),
                                 )
-                              : Text(""),
+                              : const Text(""),
                         ],
                       ),
                       const SizedBox(
@@ -93,7 +93,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: AppColors.blue),
-                                  child:  Column(
+                                  child: const Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -384,7 +384,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           } else if (describeController.text.isEmpty) {
                             showSnack();
                           } else {
-                            push(context, RootScreen());
+                            push(context, PostDetailScreen2());
                           }
                         },
                         child: Container(
