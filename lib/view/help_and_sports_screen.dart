@@ -108,7 +108,7 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
                     ),
                     Text(
                       "Help & Sports",
-                      style: AppTextStyles.textStyleAppBar,
+                      style: AppTextStyles.textStyleNormalBodyMedium,
                     ),
                   ],
                 ),

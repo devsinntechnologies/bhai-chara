@@ -28,17 +28,9 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-<<<<<<< Updated upstream
-          home: RootScreen(),
-          theme: ThemeData(fontFamily: 'Fuggles-Regular.ttf'),
-        ));
-  }
-}
-=======
           home: SplashScreen(),
           theme: ThemeData(fontFamily: 'Lora-Regular.ttf'),
         ));
   }
 }
   
->>>>>>> Stashed changes
