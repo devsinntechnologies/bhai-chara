@@ -46,7 +46,7 @@ class RootScreen extends StatelessWidget {
         body: screensList[myProvider.selectedScreenValue],
         bottomNavigationBar: Container(
           margin: EdgeInsets.only(bottom: 10),
-          height: 80,
+          height: 75,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(

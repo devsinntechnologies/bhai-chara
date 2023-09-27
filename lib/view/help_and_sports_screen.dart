@@ -1,9 +1,9 @@
 import 'package:bhai_chara/utils/push.dart';
 import 'package:flutter/material.dart';
-
-import '../common/custom_container.dart';
 import '../common/custom_listtile.dart';
 import '../utils/app_colors.dart';
+import '../utils/container.dart';
+import '../utils/listtile_custom.dart';
 
 class HelpAndSportsScreen extends StatefulWidget {
   const HelpAndSportsScreen({super.key});
@@ -17,40 +17,54 @@ class _HelpAndSportsScreenState extends State<HelpAndSportsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            CustomContainer(context, "Help And Supports"),
-            const SizedBox(
-              height: 30,
-            ),
-            Column(
+      body: Column(
+        children: [
+           CustomContainer(
+            text: 'Help and Supports',
+            iconVar: Icons.arrow_back_ios,
+          ),
+         
+          Padding(
+          padding: EdgeInsets.all(20),
+            child: Column(
               children: [
-                CustomListTileSetting(
+                CustomListTile(
                   tap: () {
-                    BottomSheetFunction(context);
+                   BottomSheetFunction(context);
                   },
-                  heading: "Feedback",
-                  data: 'Take a moment to let us konw how we’re doing',
-                  iconTwo: Icons.arrow_forward_ios,
+                  title: "Feedback",
+                  subtitle: "Take a moment to let us konw how we’re doing",
                 ),
-                CustomListTileSetting(
-                  tap: () {},
-                  heading: "Invite friends to Bhai Chara",
-                  data: 'Invite your friends to buy and sell',
-                  iconTwo: Icons.arrow_forward_ios,
+                const Divider(
+                  thickness: 2,
+                  color: AppColors.dividerColor,
                 ),
-                CustomListTileSetting(
-                  tap: () {},
-                  heading: "Version",
-                  data: '23.1',
-                  iconTwo: Icons.arrow_forward_ios,
+                CustomListTile(
+                  tap: () {
+                    //push(context, ManageAccountScreen());
+                  },
+                  title: "Invite friends to Bhai Chara",
+                  subtitle: "Invite your friends to buy and sell",
+                ),
+                const Divider(
+                  thickness: 2,
+                  color: AppColors.dividerColor,
+                ),
+                CustomListTile(
+                  tap: () {
+                    //push(context, ManageAccountScreen());
+                  },
+                  title: "Version",
+                  subtitle: "23.1",
+                ),
+                const Divider(
+                  thickness: 2,
+                  color: AppColors.dividerColor,
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
