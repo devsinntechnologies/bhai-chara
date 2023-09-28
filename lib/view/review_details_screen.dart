@@ -75,9 +75,49 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
                 const SizedBox(
                   height: 10,
                 ),
+                Row(
+                  children: [
+                    Text(
+                      "Verified Phone Number",
+                      style: AppTextStyles.textStyleBoldBodyXSmall,
+                    ),
+                    const Spacer(),
+                    Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xfa000000)),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.done_outlined,
+                          color: Color(0xfa000000),
+                          size: 15,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text("+92311-6743657",
+                        style: AppTextStyles.textStyleBoldBodyXSmall),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Show my phone number in ads",
+                      style: AppTextStyles.textStyleBoldSubTitleLarge,
+                    )
+                  ],
+                )
               ],
             ),
-          )
+          ),
         ],
       ),
     ));
