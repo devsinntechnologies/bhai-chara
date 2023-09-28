@@ -30,19 +30,19 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
+                    const Column(
                       children: [
                         CircleAvatar(
                           radius: 40,
-                          backgroundImage: const AssetImage(
-                              "assets/images/profile_photo.png"),
+                          backgroundImage:
+                              AssetImage("assets/images/profile_photo.png"),
                         ),
                       ],
                     ),
@@ -54,7 +54,7 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
                           "Your Name",
                           style: AppTextStyles.textStyleBoldXLBodySmall,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
@@ -67,11 +67,14 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
                                   borderRadius: BorderRadius.circular(20)),
                               hintText: "Type here",
                               obsecuretext: false),
-                        )
+                        ),
                       ],
                     )
                   ],
-                )
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
               ],
             ),
           )
