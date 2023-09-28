@@ -42,11 +42,11 @@ class _CreatePasswordState extends State<CreatePassword> {
               children: [
                 Container(
                   height: 130,
-                  width: 100,
+                  width: 130,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/images/logo.png"),
-                          fit: BoxFit.cover)),
+                          fit: BoxFit.contain)),
                 ),
               ],
             ),

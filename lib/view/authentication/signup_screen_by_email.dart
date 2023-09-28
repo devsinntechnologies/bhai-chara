@@ -35,14 +35,14 @@ class _SignupByEmailState extends State<SignupByEmail> {
               children: [
                 Container(
                   height: 130,
-                  width: 100,
+                  width: 150,
                   decoration: const BoxDecoration(
                       // color: AppColors.primary,
                       // color: AppColors.White,
                       image: DecorationImage(
                           scale: 1,
                           image: AssetImage("assets/images/logo.png"),
-                          fit: BoxFit.cover)),
+                          fit: BoxFit.contain)),
                 ),
               ],
             ),
