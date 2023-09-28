@@ -130,7 +130,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                       i < selectedImages.length;
                                       i++)
                                     Container(
-                                      // margin: EdgeInsets.only(right: 10),
+                                      margin: EdgeInsets.only(right: 10),
                                       height: 150,
                                       width: 120,
                                       child: ListView(
