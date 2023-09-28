@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-showSnack({context, text = "Please Complete FIll the Field"}) {
-  var snackBar = SnackBar(content: Text(text));
-  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+showSnack({context, text = "Please Fill all fields"}) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(text),
+  ));
 }

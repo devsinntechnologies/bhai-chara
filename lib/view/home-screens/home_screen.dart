@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                   padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
                   child: Text(
-                    'LatestBrowse Categoriest',
+                    'Browse Categories',
                     style: AppTextStyles.textStyleBoldBodyMedium,
                   )),
               SingleChildScrollView(

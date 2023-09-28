@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
@@ -371,34 +372,23 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       ),
                       const Divider(),
                       const SizedBox(
-                        height: 20,
+                        height: 40,
                       ),
-                      InkWell(
+                      CustomButton(
                         onTap: () {
                           if (priceController.text.isEmpty) {
-                            showSnack();
+                            showSnack(context: context);
                           } else if (ageController.text.isEmpty) {
-                            showSnack();
+                            showSnack(context: context);
                           } else if (titlleController.text.isEmpty) {
-                            showSnack();
+                            showSnack(context: context);
                           } else if (describeController.text.isEmpty) {
-                            showSnack();
+                            showSnack(context: context);
                           } else {
                             push(context, PostDetailScreen2());
                           }
                         },
-                        child: Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: AppColors.blue),
-                            child: Center(
-                              child: Text(
-                                "Next",
-                                style: AppTextStyles
-                                    .textStyleNormalBodySmall_WhiteColor,
-                              ),
-                            )),
+                        text: "Next",
                       ),
                       const SizedBox(
                         height: 10,

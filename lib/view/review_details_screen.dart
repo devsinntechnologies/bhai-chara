@@ -1,8 +1,15 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/container.dart';
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../common/custom_button.dart';
+import '../provider/switch_provider.dart';
 
 class PostDetailScreen2 extends StatefulWidget {
   const PostDetailScreen2({super.key});
@@ -109,13 +116,45 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
                 ),
                 Row(
                   children: [
-                    Text(
-                      "Show my phone number in ads",
-                      style: AppTextStyles.textStyleBoldSubTitleLarge,
-                    )
+                    Container(
+                      child: Text(
+                        "Show my phone number in ads",
+                        style: AppTextStyles.textStyleTitleBodySmall,
+                        maxLines: 2,
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const Spacer(),
+                    Consumer<SwitchProvider>(
+                      builder: (context, pro, _) {
+                        return Switch(
+                          activeColor: AppColors.white,
+                          activeTrackColor: AppColors.blue,
+                          value: pro.on,
+                          onChanged: (newValue) {
+                            pro.toggle();
+                          },
+                        );
+                      },
+                    ),
                   ],
-                )
+                ),
               ],
+            ),
+          ),
+          const Spacer(),
+          Container(
+            margin: EdgeInsets.all(20),
+            child: CustomButton(
+              onTap: () {
+                if (nameController.text.isEmpty) {
+                  showSnack(text: "Please Enter Name Field", context: context);
+                } else {
+                  push(context, RootScreen());
+                }
+              },
+              text: "Post Now",
             ),
           ),
         ],

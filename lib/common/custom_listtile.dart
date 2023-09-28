@@ -28,7 +28,7 @@ class CustomListTileSetting extends StatelessWidget {
                   size: 24,
                 ),
                 const SizedBox(
-                  width: 10,
+                  width: 20,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
