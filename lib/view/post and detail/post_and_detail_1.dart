@@ -129,18 +129,21 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   for (int i = 0;
                                       i < selectedImages.length;
                                       i++)
-                                    Container(
-                                      margin: EdgeInsets.only(right: 10),
-                                      height: 150,
-                                      width: 120,
-                                      child: ListView(
-                                          scrollDirection: Axis.horizontal,
-                                          children: [
-                                            Image.file(
-                                              selectedImages[i],
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ]),
+                                    InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        margin: EdgeInsets.only(right: 10),
+                                        height: 150,
+                                        width: 120,
+                                        child: ListView(
+                                            scrollDirection: Axis.horizontal,
+                                            children: [
+                                              Image.file(
+                                                selectedImages[i],
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ]),
+                                      ),
                                     ),
                                 ],
                               ),

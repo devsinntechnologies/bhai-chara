@@ -4,6 +4,7 @@ import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             fontFamily: "Lora-Regular",
           ),
-          home: const SplashScreen(),
+          home: const ImageScreen(),
         ));
   }
 }
