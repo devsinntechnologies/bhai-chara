@@ -15,6 +15,7 @@ class CustomContainer extends StatelessWidget {
       height: 80,
       decoration: const BoxDecoration(color: AppColors.darkBlue),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 20),
