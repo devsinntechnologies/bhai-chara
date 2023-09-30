@@ -36,13 +36,13 @@ class ProductScreen extends StatelessWidget {
                           },
                           icon: const Icon(
                             Icons.arrow_back_ios,
-                            color: AppColors.White,
+                            color: AppColors.white,
                           )),
                       IconButton(
                           onPressed: () {},
                           icon: const Icon(
                             Icons.forward,
-                            color: AppColors.White,
+                            color: AppColors.white,
                           ))
                     ],
                   ),
@@ -51,14 +51,14 @@ class ProductScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20, top: 25),
                 child: Text(
-                  'Rs 40,000',
+                  'Rs 40,000 ',
                   style: AppTextStyles.textStyleBoldBodyMedium,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, top: 8),
                 child: Text(
-                  'Spark 10c',
+                  'Spark 10c ',
                   style: AppTextStyles.textStyleBoldBodySmall
                       .copyWith(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
@@ -74,9 +74,9 @@ class ProductScreen extends StatelessWidget {
                       size: 30,
                     ),
                     Container(
-                        width: 180,
+                        width: MediaQuery.of(context).size.width - 200,
                         child: Text(
-                          'Garden Town-Aibak Block, Lahore',
+                          'Garden Town-Aibak Block, Lahore ',
                           style: AppTextStyles.textStyleBoldBodySmall.copyWith(
                               fontSize: 16, fontWeight: FontWeight.w400),
                         )),

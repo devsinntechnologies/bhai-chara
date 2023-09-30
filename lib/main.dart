@@ -3,8 +3,12 @@ import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
+import 'package:bhai_chara/view/chatt/chat_list_screen.dart';
+import 'package:bhai_chara/view/chatt/live_chatt_screen.dart';
+import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
+import 'package:bhai_chara/view/settings-screens/manage_account_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

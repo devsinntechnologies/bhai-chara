@@ -18,55 +18,57 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primary,
-      body: Column(
-        children: [
-          CustomContainer(context, "Setting"),
-          const SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                CustomListTile(
-                  tap: () {
-                    push(context, const PrivacyScreen());
-                  },
-                  title: "Privacy",
-                  subtitle: "Phone number visibility",
-                ),
-                const Divider(
-                  thickness: 2,
-                  color: AppColors.dividerColor,
-                ),
-                CustomListTile(
-                  tap: () {
-                    push(context, ManageAccountScreen());
-                  },
-                  title: "Manage account",
-                  subtitle: "Take action on account",
-                ),
-                const Divider(
-                  thickness: 2,
-                  color: AppColors.dividerColor,
-                ),
-                CustomListTile(
-                  tap: () {
-                    push(context, UserPreferencesScreen());
-                  },
-                  title: "User Preferences",
-                  subtitle: "Customize appearance",
-                ),
-                const Divider(
-                  thickness: 2,
-                  color: AppColors.dividerColor,
-                ),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.primary,
+        body: Column(
+          children: [
+            CustomContainer(context, "Setting"),
+            const SizedBox(
+              height: 30,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  CustomListTile(
+                    tap: () {
+                      push(context, const PrivacyScreen());
+                    },
+                    title: "Privacy",
+                    subtitle: "Phone number visibility",
+                  ),
+                  const Divider(
+                    thickness: 2,
+                    color: AppColors.dividerColor,
+                  ),
+                  CustomListTile(
+                    tap: () {
+                      push(context, ManageAccountScreen());
+                    },
+                    title: "Manage account",
+                    subtitle: "Take action on account",
+                  ),
+                  const Divider(
+                    thickness: 2,
+                    color: AppColors.dividerColor,
+                  ),
+                  CustomListTile(
+                    tap: () {
+                      push(context, UserPreferencesScreen());
+                    },
+                    title: "User Preferences",
+                    subtitle: "Customize appearance",
+                  ),
+                  const Divider(
+                    thickness: 2,
+                    color: AppColors.dividerColor,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

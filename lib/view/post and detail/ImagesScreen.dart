@@ -12,22 +12,24 @@ class _ImageScreenState extends State<ImageScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            CustomContainer(
-              text: "Image",
-              iconVar: Icons.arrow_back_ios,
-            ),
-            Container(
-                height: size.height * .80,
-                width: size.width,
-                child: Image(
-                  image: AssetImage("assets/images/Rectangle 17.png"),
-                  fit: BoxFit.cover,
-                ))
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: Column(
+            children: [
+              CustomContainer(
+                text: "Image",
+                iconVar: Icons.arrow_back_ios,
+              ),
+              Container(
+                  height: size.height * .80,
+                  width: size.width,
+                  child: Image(
+                    image: AssetImage("assets/images/Rectangle 17.png"),
+                    fit: BoxFit.cover,
+                  ))
+            ],
+          ),
         ),
       ),
     );

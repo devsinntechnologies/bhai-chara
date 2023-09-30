@@ -71,7 +71,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                     child: const Center(
                                       child: Icon(
                                         Icons.photo_camera,
-                                        color: AppColors.White,
+                                        color: AppColors.white,
                                       ),
                                     ),
                                   ),
@@ -238,7 +238,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             child: CustomContainerText(
                               style: selected == "first"
                                   ? AppTextStyles
-                                      .textStyleNormalBodySmall_WhiteColor
+                                  .textStyleNormalBodySmall.copyWith(color: AppColors.white)
+
                                   : null,
                               container_color:
                                   selected == "first" ? AppColors.blue : null,
@@ -256,7 +257,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             child: CustomContainerText(
                               style: selected == "second"
                                   ? AppTextStyles
-                                      .textStyleNormalBodySmall_WhiteColor
+                                   .textStyleNormalBodySmall.copyWith(color: AppColors.white)
+
                                   : null,
                               container_color:
                                   selected == "second" ? AppColors.blue : null,
@@ -274,7 +276,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             child: CustomContainerText(
                               style: selected == "third"
                                   ? AppTextStyles
-                                      .textStyleNormalBodySmall_WhiteColor
+                                      .textStyleNormalBodySmall.copyWith(color: AppColors.white)
                                   : null,
                               container_color:
                                   selected == "third" ? AppColors.blue : null,
