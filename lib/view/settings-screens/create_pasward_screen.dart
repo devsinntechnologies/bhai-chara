@@ -21,34 +21,36 @@ class CreatePasswardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          CustomContainer(
-            text: 'Create Password',
-            iconVar: Icons.arrow_back_ios,
-          ),
-          ChangeNotifierProvider(
-            create: (_) => visibilityProvider1(),
-            child: CustomeTextField(
-              hinttext: 'Password',
-              controller: passwordController,
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            CustomContainer(
+              text: 'Create Password',
+              iconVar: Icons.arrow_back_ios,
             ),
-          ),
-          ChangeNotifierProvider(
-            create: (_) => visibilityProvider2(),
-            child: CustomeTextField(
-              hinttext: 'Confirm Password',
-              controller: confirmPasswordController,
+            ChangeNotifierProvider(
+              create: (_) => visibilityProvider1(),
+              child: CustomeTextField(
+                hinttext: 'Password',
+                controller: passwordController,
+              ),
             ),
-          ),
-          Container(
-              margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
-              child: CustomButton(
-                onTap: (){push(context, OTPScreen());},
-                text: "Next",
-              )),
-        ],
+            ChangeNotifierProvider(
+              create: (_) => visibilityProvider2(),
+              child: CustomeTextField(
+                hinttext: 'Confirm Password',
+                controller: confirmPasswordController,
+              ),
+            ),
+            Container(
+                margin: const EdgeInsets.only(left: 24, right: 24, top: 20),
+                child: CustomButton(
+                  onTap: (){push(context, OTPScreen());},
+                  text: "Next",
+                )),
+          ],
+        ),
       ),
     );
   }

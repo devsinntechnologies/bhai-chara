@@ -12,47 +12,49 @@ class PrivacyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(children: [
-        CustomContainer(context, "Privacy"),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(children: [
-            Text("Show my phone number on ads",
-                style: AppTextStyles.textStyleBoldBodySmall),
-            const Spacer(),
-            Consumer<SwitchProvider>(
-              builder: (context, pro, _) {
-                return Switch(
-                  value: pro.allow,
-                  onChanged: (newValue) {
-                    pro.change(); // Call the toggle method when the switch is changed
-                  },
-                );
+    return SafeArea(
+      child: Scaffold(
+        body: Column(children: [
+          CustomContainer(context, "Privacy"),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(children: [
+              Text("Show my phone number on ads",
+                  style: AppTextStyles.textStyleBoldBodySmall),
+              const Spacer(),
+              Consumer<SwitchProvider>(
+                builder: (context, pro, _) {
+                  return Switch(
+                    value: pro.allow,
+                    onChanged: (newValue) {
+                      pro.change(); // Call the toggle method when the switch is changed
+                    },
+                  );
+                },
+              ),
+            ]),
+          ),
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                // debugger();
+                push(context, CreatePasswardScreen());
               },
-            ),
-          ]),
-        ),
-        const Divider(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: InkWell(
-            onTap: () {
-              // debugger();
-              push(context, CreatePasswardScreen());
-            },
-            child: Row(
-              children: [
-                Text("Create Password",
-                    style: AppTextStyles.textStyleBoldBodySmall),
-                const Spacer(),
-                const Icon(Icons.arrow_forward_ios)
-              ],
+              child: Row(
+                children: [
+                  Text("Create Password",
+                      style: AppTextStyles.textStyleBoldBodySmall),
+                  const Spacer(),
+                  const Icon(Icons.arrow_forward_ios)
+                ],
+              ),
             ),
           ),
-        ),
-        const Divider(),
-      ]),
+          const Divider(),
+        ]),
+      ),
     );
   }
 }

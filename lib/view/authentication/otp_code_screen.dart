@@ -9,7 +9,8 @@ import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
 class OTPScreen extends StatefulWidget {
-  const OTPScreen({super.key});
+  var phone;
+   OTPScreen({ this.phone});
 
   @override
   State<OTPScreen> createState() => _OTPScreenState();
@@ -41,7 +42,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
+                          const  Icon(
                               Icons.arrow_back_ios,
                               size: 20,
                               color: AppColors.black,
@@ -96,7 +97,7 @@ class _OTPScreenState extends State<OTPScreen> {
                                   style: AppTextStyles.textStyleNormalBodySmall,
                                 ),
                                 TextSpan(
-                                  text: " +923233342939. ",
+                                  text: widget.phone,
                                   style: AppTextStyles
                                       .textStyleNormalBoldBodySmall,
                                 ),
@@ -138,7 +139,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         height: 20,
                       ),
                       Text(
-                        "RESEND CODE BY SMS IN 56",
+                        "RESEND CODE BY SMS IN 1 min",
                         style: AppTextStyles.textStyleSubtitleUnderlineBody,
                       ),
                       const SizedBox(

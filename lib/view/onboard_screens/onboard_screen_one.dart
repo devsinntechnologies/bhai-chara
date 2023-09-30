@@ -17,33 +17,37 @@ class OnboardScreenOne extends StatefulWidget {
 class _OnboardScreenOneState extends State<OnboardScreenOne> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.black,
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: AppColors.black,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical:35.0,horizontal:25.0),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image(
+                  const  Image(
                       image: AssetImage("assets/images/logo.png"),
                       height: 114,
                       width: 90,
                     ),
-                    Text(
+                 const  SizedBox(height:20),
+                   Text(
                       "Welcome to Bhai Chara",
                       textAlign: TextAlign.center,
                       style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
                         color: AppColors.white,
                       ),
                     ),
-                    Image(
-                      image: AssetImage("assets/images/onboard1.png"),
-                      height: 350,
-                      width: 270,
-                    ),
+                  const Padding(
+                     padding:  EdgeInsets.symmetric(vertical: 50.0),
+                     child:   Image(
+                        image: AssetImage("assets/images/onboard1.png"),
+                        //height: 350,
+                        width: 270,
+                      ),
+                   ),
                     Text(
                       "Embrace Unity, Foster Brotherhood",
                       textAlign: TextAlign.center,
@@ -53,7 +57,7 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+                        const   EdgeInsets.symmetric(horizontal: 23, vertical: 15),
                       child: Text(
                         "Join a community that believes in the power of unity and brotherhood. Connect, collaborate, and make a positive impact together.",
                         textAlign: TextAlign.center,
@@ -63,7 +67,7 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      padding: const EdgeInsets.symmetric(vertical: 60.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -73,16 +77,18 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                         ],
                       ),
                     ),
-                    // const Spacer(),
+                    
                     CustomButton(
                       onTap: () {
-                        pushUntil(context, OnboardScreenTwo());
+                        pushUntil(context, const OnboardScreenTwo());
                       },
                       text: "Next",
                     ),
+                  
+                  
                   ]),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }
