@@ -71,7 +71,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                     child: const Center(
                                       child: Icon(
                                         Icons.photo_camera,
-                                        color: AppColors.White,
+                                        color: AppColors.white,
                                       ),
                                     ),
                                   ),
@@ -94,7 +94,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: AppColors.blue),
-                                  child: const Column(
+                                  child:  Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -129,18 +129,21 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   for (int i = 0;
                                       i < selectedImages.length;
                                       i++)
-                                    Container(
-                                      margin: EdgeInsets.only(right: 10),
-                                      height: 150,
-                                      width: 120,
-                                      child: ListView(
-                                          scrollDirection: Axis.horizontal,
-                                          children: [
-                                            Image.file(
-                                              selectedImages[i],
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ]),
+                                    InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        margin: EdgeInsets.only(right: 10),
+                                        height: 150,
+                                        width: 120,
+                                        child: ListView(
+                                            scrollDirection: Axis.horizontal,
+                                            children: [
+                                              Image.file(
+                                                selectedImages[i],
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ]),
+                                      ),
                                     ),
                                 ],
                               ),
@@ -235,7 +238,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             child: CustomContainerText(
                               style: selected == "first"
                                   ? AppTextStyles
-                                      .textStyleNormalBodySmall_WhiteColor
+                                  .textStyleNormalBodySmall.copyWith(color: AppColors.white)
+
                                   : null,
                               container_color:
                                   selected == "first" ? AppColors.blue : null,
@@ -253,7 +257,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             child: CustomContainerText(
                               style: selected == "second"
                                   ? AppTextStyles
-                                      .textStyleNormalBodySmall_WhiteColor
+                                   .textStyleNormalBodySmall.copyWith(color: AppColors.white)
+
                                   : null,
                               container_color:
                                   selected == "second" ? AppColors.blue : null,
@@ -271,7 +276,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             child: CustomContainerText(
                               style: selected == "third"
                                   ? AppTextStyles
-                                      .textStyleNormalBodySmall_WhiteColor
+                                      .textStyleNormalBodySmall.copyWith(color: AppColors.white)
                                   : null,
                               container_color:
                                   selected == "third" ? AppColors.blue : null,

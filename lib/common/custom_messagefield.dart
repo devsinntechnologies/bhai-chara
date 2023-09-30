@@ -12,32 +12,30 @@ Widget BuildTextMesg(String ch) {
           const CircleAvatar(
             radius: 15,
           ),
-        const   SizedBox(width:5),
+          const SizedBox(width: 5),
           Text("@Kashaf", style: AppTextStyles.textStyleNormalBodyXSmall),
         ],
       ),
-     
-            Container(
-              margin: const EdgeInsets.only(right: 50, top: 5, bottom: 5,left: 35),
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(9),
-                  bottomRight: Radius.circular(9),
-                  bottomLeft: Radius.circular(9),
-                ),
-                color: AppColors.white,
-              ),
-              child: Text(ch, softWrap: true,style: AppTextStyles.textStyleNormalBodySmall),
-            ),
-              Padding(
-                padding: const EdgeInsets.only(left:35.0,bottom: 20),
-                child: Text("1:26 AM",
-                        style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
-                         
-                        )),
-              )
-        
+      Container(
+        margin: const EdgeInsets.only(right: 50, top: 5, bottom: 5, left: 35),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.lightblue),
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(9),
+            bottomRight: Radius.circular(9),
+            bottomLeft: Radius.circular(9),
+          ),
+          color: AppColors.white,
+        ),
+        child: Text(ch,
+            softWrap: true, style: AppTextStyles.textStyleNormalBodySmall),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(left: 35.0, bottom: 20),
+        child: Text("1:26 AM",
+            style: AppTextStyles.textStyleNormalBodyXSmall.copyWith()),
+      )
     ],
   );
 }
@@ -50,25 +48,26 @@ Widget BuildReceiveMesg(String ch) {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
-          
           margin: const EdgeInsets.only(left: 50, top: 10, bottom: 5),
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-          decoration:const  BoxDecoration(
-            borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(9),
-          bottomRight: Radius.circular(9),
-          bottomLeft: Radius.circular(9),
-        ),
+          decoration: BoxDecoration(
+            border: Border.all(color: AppColors.blue),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(9),
+              bottomRight: Radius.circular(9),
+              bottomLeft: Radius.circular(9),
+            ),
             color: AppColors.skyblue,
           ),
-          child: Text(ch, textAlign: TextAlign.left,softWrap: true,style: AppTextStyles.textStyleNormalBodySmall),
+          child: Text(ch,
+              textAlign: TextAlign.left,
+              softWrap: true,
+              style: AppTextStyles.textStyleNormalBodySmall),
         ),
         Padding(
-           padding: const EdgeInsets.only(left:35.0,bottom: 20),
+          padding: const EdgeInsets.only(left: 35.0, bottom: 20),
           child: Text("1:26 AM",
-              style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
-              
-              )),
+              style: AppTextStyles.textStyleNormalBodyXSmall.copyWith()),
         )
       ],
     ),

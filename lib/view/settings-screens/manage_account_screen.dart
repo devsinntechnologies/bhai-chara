@@ -17,90 +17,83 @@ class _ManageAccountScreenState extends State<ManageAccountScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-    
-      body: Column(
-        children: [
-           CustomContainer(
-            text: 'Manage Account',
-            iconVar: Icons.arrow_back_ios,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                InkWell(
-                  onTap: () {
-                    pushUntil(context, SignUpScreen());
-                  },
-                  child: Container(
-                    height: 50,
-                    width: size.width,
-                    child: Center(
-                        child: Text(
-                      "Logout",
-                      style: AppTextStyles.textStyleBoldBodyMedium,
-                    )),
-                    decoration: BoxDecoration(
-                      color: AppColors.primary,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: AppColors.blue,
-                        width: 2,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Divider(
-                  thickness: 2,
-                  color: AppColors.dividerColor,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                InkWell(
-                  onTap: (){
-                     showDialog(
-                    context: context,
-                    builder: (
-                      context,
-                    ) {
-                      return DialogBox();
-                    });
-                  },
-                  child: ListTile(
-                    title: Text("Delete Account",
-                        style: AppTextStyles.textStyleBoldBodyMedium),
-                    trailing: IconButton(
-                      onPressed: (){
-                         showDialog(
-            context: context,
-            builder: (
-              context,
-            ) {
-              return DialogBox();
-            });
-                      },
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        size: 24,
-                        
-                        color: AppColors.TextColor,
-                      ),
-                    ),
-                  ),
-                ),
-               
-              ],
+    return SafeArea(
+      child: Scaffold(
+      
+        body: Column(
+          children: [
+             CustomContainer(
+              text: 'Manage Account',
+              iconVar: Icons.arrow_back_ios,
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                 const SizedBox(
+                    height: 20,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      pushUntil(context,const SignUpScreen());
+                    },
+                    child: Container(
+                      height: 50,
+                      width: size.width,
+                      child: Center(
+                          child: Text(
+                        "Logout",
+                        style: AppTextStyles.textStyleBoldBodyMedium,
+                      )),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: AppColors.blue,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+                const  SizedBox(
+                    height: 20,
+                  ),
+                 const  Divider(
+                    thickness: 2,
+                    color: AppColors.dividerColor,
+                  ),
+                 const  SizedBox(
+                    height: 20,
+                  ),
+                  InkWell(
+                    onTap: (){
+                       showDialog(
+                      context: context,
+                      builder: (
+                        context,
+                      ) {
+                        return const  DialogBox();
+                      });
+                    },
+                    child: ListTile(
+                      title: Text("Delete Account",
+                          style: AppTextStyles.textStyleBoldBodyMedium),
+                      trailing:
+                       const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 24,
+                          
+                          color: AppColors.TextColor,
+                        ),
+                      
+                    ),
+                  ),
+                 
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

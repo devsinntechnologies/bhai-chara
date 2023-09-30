@@ -13,58 +13,60 @@ class UserPreferencesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomContainer(
-            text: 'User Preferences',
-            iconVar: Icons.arrow_back_ios,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 20, top: 35),
-            child: Text(
-              'Font size',
-              style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomContainer(
+              text: 'User Preferences',
+              iconVar: Icons.arrow_back_ios,
             ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 20,right: 20
+            Padding(
+              padding: EdgeInsets.only(left: 20, top: 35),
+              child: Text(
+                'Font size',
+                style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
+              ),
             ),
-            child: Row(
-             
-              children: [
-                Text(
-                  'A',
-                  style: AppTextStyles.textStyleBoldBodySmall.copyWith(fontFamily: 'Roboto-Light'),
-                ),
-                Expanded(
-                  child: Consumer<SliderProvider>(
-                    builder: (context, sliderProvider, _) {
-                      return Slider(
-                        value: sliderProvider.fontSize,
-                        min: 10.0,
-                        max: 30.0,
-                        onChanged: (value) {
-                          sliderProvider.updateFontSize(value);
-                        },
-                      );
-                    },
+    
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,right: 20
+              ),
+              child: Row(
+               
+                children: [
+                  Text(
+                    'A',
+                    style: AppTextStyles.textStyleBoldBodySmall.copyWith(fontFamily: 'Roboto-Light'),
                   ),
-                ),
-                Text(
-                  'A',
-                  style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
-                ),
-              ],
+                  Expanded(
+                    child: Consumer<SliderProvider>(
+                      builder: (context, sliderProvider, _) {
+                        return Slider(
+                          value: sliderProvider.fontSize,
+                          min: 10.0,
+                          max: 30.0,
+                          onChanged: (value) {
+                            sliderProvider.updateFontSize(value);
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                  Text(
+                    'A',
+                    style: AppTextStyles.textStyleBoldBodyMedium.copyWith(fontFamily: 'Roboto-Light'),
+                  ),
+                ],
+              ),
             ),
-          ),
-
-        
-       
-        ],
+    
+          
+         
+          ],
+        ),
       ),
     );
   }

@@ -17,6 +17,7 @@ class SignUpScreenByPhone extends StatefulWidget {
 
 class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
   TextEditingController numberController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -77,8 +78,12 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                 onTap: () {
                   if (numberController.text.isEmpty) {
                     showSnack(context: context);
-                  } else {
-                    push(context, OTPScreen());
+                  }else if(numberController.text.length < 10){
+                      showSnack(context: "invalid phone number");
+                  } 
+                  
+                  else {
+                    push(context, OTPScreen(phone:numberController.text));
                   }
                 },
                 text: "Next",

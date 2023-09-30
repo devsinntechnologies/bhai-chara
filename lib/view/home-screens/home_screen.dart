@@ -47,14 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
-                              color: AppColors.White),
+                              color: AppColors.white),
                         )
                       ],
                     ),
                     const Icon(
                       Icons.notifications,
                       size: 24,
-                      color: AppColors.White,
+                      color: AppColors.white,
                     )
                   ],
                 ),
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     CustomCircleAvatar(
                       link: 'assets/images/fluent_animal-cat-28-filled.png',
-                      col: AppColors.oange,
+                      col: AppColors.orange,
                       txt: 'Animal',
                     ),
                     CustomCircleAvatar(

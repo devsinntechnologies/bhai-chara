@@ -38,7 +38,7 @@ class SellScreen extends StatelessWidget {
                 ),
                 CustomCircleAvatarRow(
                   link: 'assets/images/basil_camera-solid.png',
-                  col: AppColors.oange,
+                  col: AppColors.orange,
                   txt: 'Electronic',
                   ontap: () {
                     push(context, const SubCategorieScreen());
