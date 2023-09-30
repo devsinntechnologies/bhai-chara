@@ -181,6 +181,7 @@ class _OTPScreenState extends State<OTPScreen> {
                     } else if (otp_4.text.isEmpty) {
                       showSnack(context: context);
                     } else {
+                      FocusScope.of(context).nextFocus();
                       push(context, LocationScreen());
                     }
                   },

@@ -8,6 +8,7 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:bhai_chara/view/review_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -94,7 +95,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: AppColors.blue),
-                                  child:  Column(
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -130,7 +131,12 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                       i < selectedImages.length;
                                       i++)
                                     InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        push(
+                                            context,
+                                            ImageScreen(
+                                                imagePath: selectedImages[i]));
+                                      },
                                       child: Container(
                                         margin: EdgeInsets.only(right: 10),
                                         height: 150,
@@ -187,6 +193,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 05,
                       ),
                       CustomTextField(
+                        keyboardtype: TextInputType.number,
                         controller: priceController,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -298,6 +305,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 05,
                       ),
                       CustomTextField(
+                        keyboardtype: TextInputType.number,
                         controller: ageController,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -339,6 +347,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 05,
                       ),
                       CustomTextField(
+                        keyboardtype: TextInputType.text,
                         controller: titlleController,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -362,6 +371,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 05,
                       ),
                       CustomTextField(
+                        keyboardtype: TextInputType.multiline,
                         controller: describeController,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -388,6 +398,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           } else if (describeController.text.isEmpty) {
                             showSnack(context: context);
                           } else {
+                            FocusScope.of(context).nextFocus();
                             push(context, PostDetailScreen2());
                           }
                         },

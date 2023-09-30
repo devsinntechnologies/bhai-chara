@@ -1,33 +1,25 @@
-import 'package:bhai_chara/utils/container.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
-class ImageScreen extends StatefulWidget {
-  const ImageScreen({super.key});
+// ignore: must_be_immutable
+class ImageScreen extends StatelessWidget {
+  ImageScreen({super.key, required this.imagePath});
+  File imagePath;
 
-  @override
-  State<ImageScreen> createState() => _ImageScreenState();
-}
-
-class _ImageScreenState extends State<ImageScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            CustomContainer(
-              text: "Image",
-              iconVar: Icons.arrow_back_ios,
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: InteractiveViewer(
+            child: Image.file(
+              imagePath,
+              fit: BoxFit.fill,
             ),
-            Container(
-                height: size.height * .80,
-                width: size.width,
-                child: Image(
-                  image: AssetImage("assets/images/Rectangle 17.png"),
-                  fit: BoxFit.cover,
-                ))
-          ],
+          ),
         ),
       ),
     );

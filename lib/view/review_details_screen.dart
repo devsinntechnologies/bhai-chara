@@ -44,7 +44,7 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     Column(
+                    Column(
                       children: [
                         CircleAvatar(
                           radius: 40,
@@ -151,6 +151,7 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
                 if (nameController.text.isEmpty) {
                   showSnack(text: "Please Enter Name Field", context: context);
                 } else {
+                  FocusScope.of(context).nextFocus();
                   push(context, RootScreen());
                 }
               },

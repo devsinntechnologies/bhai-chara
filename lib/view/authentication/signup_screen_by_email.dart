@@ -75,38 +75,19 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide(color: AppColors.grey)),
                 hintText: "Email"),
-
             const Spacer(),
             CustomButton(
               onTap: () {
                 if (emailController.text.isEmpty) {
                   showSnack(context: context);
+                } else if (emailController.text.contains("@") == false) {
+                  showSnack(context: context, text: "Enter correct email");
                 } else {
                   push(context, CreatePassword());
                 }
               },
               text: "Next",
-            )
-            // CustomButton(
-            //   onTap: push(context, CreatePassword()),
-            //   text: "Next",
-            // ),
-            // InkWell(
-            //   onTap: () {
-            //     //fuctionality
-            //   },
-            //   child: Container(
-            //       height: 50,
-            //       decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.circular(20),
-            //           color: AppColors.blue),
-            //       child: Center(
-            //         child: Text(
-            //           "Next",
-            //           style: AppTextStyles.textStyleNormalBodySmall_WhiteColor,
-            //         ),
-            //       )),
-            // ),
+            ),
           ],
         ),
       ),

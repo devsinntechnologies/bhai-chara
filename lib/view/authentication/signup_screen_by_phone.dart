@@ -78,6 +78,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                   if (numberController.text.isEmpty) {
                     showSnack(context: context);
                   } else {
+                    FocusScope.of(context).nextFocus();
                     push(context, OTPScreen());
                   }
                 },
