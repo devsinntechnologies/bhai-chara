@@ -1,3 +1,4 @@
+import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/timer_provider.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SwitchProvider()),
           ChangeNotifierProvider(create: (context) => SliderProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
+          ChangeNotifierProvider(create: (context) => ProductProvider()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

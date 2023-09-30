@@ -4,6 +4,7 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
+import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -12,6 +13,7 @@ import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:bhai_chara/view/review_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
 import '../../utils/container.dart';
 
@@ -398,7 +400,14 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           } else if (describeController.text.isEmpty) {
                             showSnack(context: context);
                           } else {
+                            var product = context.read<ProductProvider>();
+                            product.addProduct(
+                                priceController.text,
+                                ageController.text,
+                                titlleController.text,
+                                describeController.text);
                             FocusScope.of(context).nextFocus();
+
                             push(context, PostDetailScreen2());
                           }
                         },
