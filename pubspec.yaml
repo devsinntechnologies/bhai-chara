@@ -45,6 +45,8 @@ dependencies:
   country_picker: ^2.0.20
   intl_phone_field: ^3.2.0
   cloud_firestore: ^4.9.2
+  firebase_storage: ^11.2.7
+  permission_handler: ^11.0.0
 
 dev_dependencies:
   flutter_test:

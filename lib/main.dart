@@ -1,3 +1,4 @@
+import 'package:bhai_chara/firebase_options.dart';
 import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/provider/root_provider.dart';
 import 'package:bhai_chara/provider/slider_provider.dart';
@@ -5,10 +6,15 @@ import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -26,6 +32,8 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SliderProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
           ChangeNotifierProvider(create: (context) => ProductProvider()),
+
+          // ChangeNotifierProvider(create: (context) => ()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

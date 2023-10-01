@@ -11,8 +11,10 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:bhai_chara/view/review_details_screen.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/container.dart';
@@ -246,9 +248,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             },
                             child: CustomContainerText(
                               style: selected == "first"
-                                  ? AppTextStyles
-                                  .textStyleNormalBodySmall.copyWith(color: AppColors.white)
-
+                                  ? AppTextStyles.textStyleNormalBodySmall
+                                      .copyWith(color: AppColors.white)
                                   : null,
                               container_color:
                                   selected == "first" ? AppColors.blue : null,
@@ -265,9 +266,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             },
                             child: CustomContainerText(
                               style: selected == "second"
-                                  ? AppTextStyles
-                                   .textStyleNormalBodySmall.copyWith(color: AppColors.white)
-
+                                  ? AppTextStyles.textStyleNormalBodySmall
+                                      .copyWith(color: AppColors.white)
                                   : null,
                               container_color:
                                   selected == "second" ? AppColors.blue : null,
@@ -284,8 +284,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             },
                             child: CustomContainerText(
                               style: selected == "third"
-                                  ? AppTextStyles
-                                      .textStyleNormalBodySmall.copyWith(color: AppColors.white)
+                                  ? AppTextStyles.textStyleNormalBodySmall
+                                      .copyWith(color: AppColors.white)
                                   : null,
                               container_color:
                                   selected == "third" ? AppColors.blue : null,
@@ -392,7 +392,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 40,
                       ),
                       CustomButton(
-                        onTap: () {
+                        onTap: () async {
                           if (priceController.text.isEmpty) {
                             showSnack(context: context);
                           } else if (ageController.text.isEmpty) {
@@ -408,6 +408,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 ageController.text,
                                 titlleController.text,
                                 describeController.text);
+
                             FocusScope.of(context).nextFocus();
 
                             push(context, PostDetailScreen2());
@@ -447,5 +448,38 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
         }
       },
     );
+  }
+
+  uploadImage() async {
+    // ignore: unused_local_variable
+    String imageUrl;
+    final _firebaseStorage = FirebaseStorage.instance;
+
+    //Check Permissions
+    await Permission.photos.request();
+
+    var permissionStatus = await Permission.photos.status;
+
+    if (permissionStatus.isGranted) {
+      //Select Image
+      var images = await getImages();
+      var file = File(images.path);
+
+      if (images != null) {
+        //Upload to Firebase
+        var snapshot = await _firebaseStorage
+            .ref()
+            .child('images/imageName')
+            .putFile(file);
+        var downloadUrl = await snapshot.ref.getDownloadURL();
+        setState(() {
+          imageUrl = downloadUrl;
+        });
+      } else {
+        print('No Image Path Received');
+      }
+    } else {
+      print('Permission not granted. Try Again with permission access');
+    }
   }
 }

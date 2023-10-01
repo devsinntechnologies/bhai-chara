@@ -8,9 +8,10 @@ import '../../common/custom_button.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
+// ignore: must_be_immutable
 class OTPScreen extends StatefulWidget {
   var phone;
-   OTPScreen({ this.phone});
+  OTPScreen({this.phone});
 
   @override
   State<OTPScreen> createState() => _OTPScreenState();
@@ -42,7 +43,7 @@ class _OTPScreenState extends State<OTPScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                          const  Icon(
+                            const Icon(
                               Icons.arrow_back_ios,
                               size: 20,
                               color: AppColors.black,
