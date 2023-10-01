@@ -146,4 +146,10 @@ class AppTextStyles {
       letterSpacing: 0.5,
       fontStyle: FontStyle.normal,
       color: Colors.white);
+  static TextStyle textStyleNormalBoldXLBodySmall = const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.5,
+      fontStyle: FontStyle.normal,
+      color: Colors.black);
 }

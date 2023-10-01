@@ -6,6 +6,9 @@ import 'package:bhai_chara/common/custom_text.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
+
+import 'package:image_picker/image_picker.dart';
 
 class PostDetailScreen1 extends StatefulWidget {
   const PostDetailScreen1({super.key});
@@ -15,10 +18,31 @@ class PostDetailScreen1 extends StatefulWidget {
 }
 
 class _PostDetailScreen1State extends State<PostDetailScreen1> {
+  final ImagePicker imagePicker = ImagePicker();
+  List<XFile> imageFileList = [];
+  void selectedImages() async {
+    final List<XFile>? selectedImages =
+        await imagePicker.pickMultiImage(maxHeight: 100, maxWidth: 100);
+    if (selectedImages!.isNotEmpty) {
+      imageFileList.addAll(selectedImages);
+    }
+    setState(() {});
+  }
+  // final ImagePicker _picker = ImagePicker();
+  // void ImageSelect() async {
+  //   final XFile? selectedImage = await _picker.pickImage(
+  //       source: ImageSource.gallery, maxHeight: 100, maxWidth: 100);
+  // }
+
   TextEditingController priceController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController titlleController = TextEditingController();
   TextEditingController describeController = TextEditingController();
+  @override
+  void initState() {
+    selectedImages();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,49 +66,87 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "UPLOAD UP TO 20 PHOTOS",
-                style: AppTextStyles.textStyleBoldBodySmall,
+              MaterialButton(
+                onPressed: (() {
+                  selectedImages();
+                }),
+                child: Text(
+                  "UPLOAD UP TO 20 PHOTOS",
+                  style: AppTextStyles.textStyleBoldBodySmall,
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                  height: 180,
-                  width: size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.blue),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.photo_camera,
-                            color: AppColors.primary,
-                            size: 50,
-                          ),
-                        ],
+              // ignore: unnecessary_null_comparison
+              imageFileList.isNotEmpty
+                  ? SizedBox(
+                      height: 180,
+                      width: size.width,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: imageFileList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            width: 150, // Set the desired width
+                            margin: EdgeInsets.symmetric(horizontal: 5),
+                            child: Image.file(
+                              File(imageFileList[index].path),
+                              fit: BoxFit.cover,
+                            ),
+                          );
+                        },
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
+                    )
+                  : Container(
+                      height: 180,
+                      width: size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: AppColors.blue),
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CustomText(
-                            text: "Add images",
-                            fontsize: 16,
-                            fontweight: FontWeight.normal,
-                            color: AppColors.primary,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.photo_camera,
+                                color: AppColors.primary,
+                                size: 50,
+                              ),
+                            ],
                           ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomText(
+                                text: "Add images",
+                                fontsize: 16,
+                                fontweight: FontWeight.normal,
+                                color: AppColors.primary,
+                              ),
+                            ],
+                          )
                         ],
-                      )
-                    ],
-                  )),
+                      )),
+              // : Center(
+              //     child: CircularProgressIndicator(),
+              //   ),
+              // : ListView.builder(
+              //     scrollDirection: Axis.horizontal,
+              //     itemCount: imageFileList.length,
+              //     itemBuilder: (BuildContext context, int index) {
+              //       return Image.file(
+              //         File(imageFileList[index].path),
+              //         fit: BoxFit.cover,
+              //       );
+              //     },
+              //   ),
               const SizedBox(
                 height: 20,
               ),
