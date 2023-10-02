@@ -410,7 +410,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 describeController.text);
 
                             FocusScope.of(context).nextFocus();
-
+                            uploadImage(selectedImages);
                             push(context, PostDetailScreen2());
                           }
                         },
@@ -450,7 +450,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
     );
   }
 
-  uploadImage() async {
+  uploadImage(path) async {
     // ignore: unused_local_variable
     String imageUrl;
     final _firebaseStorage = FirebaseStorage.instance;
@@ -463,14 +463,14 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
     if (permissionStatus.isGranted) {
       //Select Image
       var images = await getImages();
-      var file = File(images.path);
+      var file = Image.file(path);
 
       if (images != null) {
         //Upload to Firebase
         var snapshot = await _firebaseStorage
             .ref()
             .child('images/imageName')
-            .putFile(file);
+            .putFile(file as File);
         var downloadUrl = await snapshot.ref.getDownloadURL();
         setState(() {
           imageUrl = downloadUrl;
