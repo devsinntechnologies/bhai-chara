@@ -4,6 +4,7 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
+import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
@@ -11,10 +12,8 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:bhai_chara/view/review_details_screen.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/container.dart';
@@ -408,9 +407,15 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 ageController.text,
                                 titlleController.text,
                                 describeController.text);
+                            // for (int i = 0; i < selectedImages.length; i++)
+                            if (selectedImages.isNotEmpty) {
+                              var data = context.read<FireStoreProvider>();
+
+                              data.addImage(selectedImages);
+                            }
 
                             FocusScope.of(context).nextFocus();
-                            uploadImage(selectedImages);
+                            // uploadImage(selectedImages);
                             push(context, PostDetailScreen2());
                           }
                         },
@@ -449,37 +454,37 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
       },
     );
   }
-
-  uploadImage(path) async {
-    // ignore: unused_local_variable
-    String imageUrl;
-    final _firebaseStorage = FirebaseStorage.instance;
-
-    //Check Permissions
-    await Permission.photos.request();
-
-    var permissionStatus = await Permission.photos.status;
-
-    if (permissionStatus.isGranted) {
-      //Select Image
-      var images = await getImages();
-      var file = Image.file(path);
-
-      if (images != null) {
-        //Upload to Firebase
-        var snapshot = await _firebaseStorage
-            .ref()
-            .child('images/imageName')
-            .putFile(file as File);
-        var downloadUrl = await snapshot.ref.getDownloadURL();
-        setState(() {
-          imageUrl = downloadUrl;
-        });
-      } else {
-        print('No Image Path Received');
-      }
-    } else {
-      print('Permission not granted. Try Again with permission access');
-    }
-  }
 }
+//   uploadImage(path) async {
+//     // ignore: unused_local_variable
+//     String imageUrl;
+//     final _firebaseStorage = FirebaseStorage.instance;
+
+//     //Check Permissions
+//     await Permission.photos.request();
+
+//     var permissionStatus = await Permission.photos.status;
+
+//     if (permissionStatus.isGranted) {
+//       //Select Image
+//       var images = await getImages();
+//       var file = Image.file(path);
+
+//       if (images != null) {
+//         //Upload to Firebase
+//         var snapshot = await _firebaseStorage
+//             .ref()
+//             .child('images/imageName')
+//             .putFile(file as File);
+//         var downloadUrl = await snapshot.ref.getDownloadURL();
+//         setState(() {
+//           imageUrl = downloadUrl;
+//         });
+//       } else {
+//         print('No Image Path Received');
+//       }
+//     } else {
+//       print('Permission not granted. Try Again with permission access');
+//     }
+//   }
+// }
