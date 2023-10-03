@@ -1,10 +1,8 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/widgets.dart';
 
 class FirebaseManager {
   static addProduct({price, age, title, description}) async {
@@ -42,16 +40,16 @@ class FirebaseManager {
       final storageReference = storage.ref().child(
           'image_folder'); // Change 'image_folder' to your desired folder name
 
-      for (int i = 0; i < selectedImages.length; i++) {
-        var imageFile = selectedImages;
+      for (var i = 0; i < selectedImages.length;) {
+        var imageFile = selectedImages[i];
         final uniqueId = DateTime.now()
             .millisecondsSinceEpoch
             .toString(); // Generate a unique timestamp-based identifier
         final imageFileName =
             'image_$uniqueId.jpg'; // Create a unique filename with the identifier
         final imageReference = storageReference.child(imageFileName);
-        var data = await imageReference.putFile(imageFile[i]);
-        debugger();
+        var data = await imageReference.putFile(imageFile);
+
         return data;
       }
       showSnack(text: "Images are Uploaded");

@@ -407,10 +407,9 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 ageController.text,
                                 titlleController.text,
                                 describeController.text);
-                            // for (int i = 0; i < selectedImages.length; i++)
+
                             if (selectedImages.isNotEmpty) {
                               var data = context.read<FireStoreProvider>();
-
                               data.addImage(selectedImages);
                             }
 
