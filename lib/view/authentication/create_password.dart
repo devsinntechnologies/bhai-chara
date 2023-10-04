@@ -31,7 +31,7 @@ class _CreatePasswordState extends State<CreatePassword> {
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           children: [
             Container(
-              height: size.height,
+              height: size.height * .95,
               width: size.width,
               padding: const EdgeInsets.all(10),
               child: Column(

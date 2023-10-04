@@ -11,7 +11,7 @@ class ProductProvider extends ChangeNotifier {
       var data = await FirebaseManager.addProduct(
           price: price, age: age, title: title, description: description);
       if (data != null) {
-        showSnack(text: "Product added");
+        return data;
       }
       isLoading = false;
       notifyListeners();
