@@ -201,7 +201,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                               context: context,
                               text: "Please Enter Correct Password");
                         } else {
-                          FocusScope.of(context).nextFocus();
+                          FocusScope.of(context).unfocus();
                           push(context, const LocationScreen());
                         }
                         ;
