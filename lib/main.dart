@@ -40,9 +40,9 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            fontFamily: "Lora-Regular",
-          ),
+          // theme: ThemeData(
+          //   fontFamily: "Lora-Regular",
+          // ),
           home: const SplashScreen(),
         ));
   }
