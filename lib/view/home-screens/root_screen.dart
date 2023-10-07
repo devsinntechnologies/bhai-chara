@@ -59,52 +59,53 @@ class RootScreen extends StatelessWidget {
               color: Color(0xfaFFFFFF),
             ),
             padding: const EdgeInsets.symmetric(vertical: 8),
-            child:
-                Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              for (int i = 0; i < iconsList.length; i++)
-                InkWell(
-                    onTap: (() {
-                      var pro = context.read<RootProvider>();
-                      pro.setSelectedScreen(i);
-                    }),
-                    child: myProvider.selectedScreenValue == i
-                        ? Container(
-                            color: AppColors.white,
-                            // margin: EdgeInsets.only(bottom: 30),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Icon(
-                                  iconsList[i],
-                                  size: 35,
-                                  color: AppColors.blue,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  for (int i = 0; i < iconsList.length; i++)
+                    InkWell(
+                        onTap: (() {
+                          var pro = context.read<RootProvider>();
+                          pro.setSelectedScreen(i);
+                        }),
+                        child: myProvider.selectedScreenValue == i
+                            ? Container(
+                                color: AppColors.white,
+                                // margin: EdgeInsets.only(bottom: 30),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      iconsList[i],
+                                      size: 35,
+                                      color: AppColors.blue,
+                                    ),
+                                    Text(
+                                      textList[i],
+                                      style: const TextStyle(
+                                        color: AppColors.blue,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  textList[i],
-                                  style: const TextStyle(
-                                    color: AppColors.blue,
+                              )
+                            : Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    iconsList[i],
+                                    size: 20,
+                                    color: AppColors.secondary,
                                   ),
-                                ),
-                              ],
-                            ),
-                          )
-                        : Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Icon(
-                                iconsList[i],
-                                size: 20,
-                                color: AppColors.secondary,
-                              ),
-                              Text(
-                                textList[i],
-                                style: const TextStyle(
-                                  color: AppColors.secondary,
-                                ),
-                              ),
-                            ],
-                          ))
-            ]),
+                                  Text(
+                                    textList[i],
+                                    style: const TextStyle(
+                                      color: AppColors.secondary,
+                                    ),
+                                  ),
+                                ],
+                              ))
+                ]),
           ),
         ),
       );

@@ -207,7 +207,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                         ;
                       },
                       text: "Next"),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                 ],
