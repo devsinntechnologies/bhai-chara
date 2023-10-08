@@ -32,17 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 80,
                 width: double.infinity,
                 decoration: const BoxDecoration(color: AppColors.darkBlue),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Image(
+                    Image(
                       image: AssetImage('assets/images/Bhai Chara svg 1.png'),
                       height: 45,
                       width: 45,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Icon(Icons.my_location_outlined,
                             size: 24, color: Colors.white),
                         Text(
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       ],
                     ),
-                    const Icon(
+                    Icon(
                       Icons.notifications,
                       size: 24,
                       color: AppColors.white,
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           },
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2),
                         );
                       }
