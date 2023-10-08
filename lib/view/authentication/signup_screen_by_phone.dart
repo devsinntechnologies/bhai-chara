@@ -78,7 +78,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                 onTap: () {
                   if (numberController.text.isEmpty) {
                     showSnack(context: context);
-                  } else if (numberController.text.length < 10) {
+                  } else if (numberController.text.length < 5) {
                     showSnack(context: "invalid phone number");
                   } else {
                     FocusScope.of(context).nextFocus();

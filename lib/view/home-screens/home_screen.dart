@@ -1,12 +1,8 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
-import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../utils/circle_avatar.dart';
@@ -121,32 +117,39 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Latest',
                     style: AppTextStyles.textStyleBoldBodyMedium,
                   )),
-              StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection("Products")
-                      .snapshots(),
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData) {
-                      QuerySnapshot data = snapshot.data;
+              Center(
+                child: StreamBuilder(
+                    stream: FirebaseFirestore.instance
+                        .collection("Products")
+                        .snapshots(),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasData) {
+                        QuerySnapshot data = snapshot.data;
 
-                      return ListView.builder(
+                        return GridView.builder(
                           shrinkWrap: true,
                           // scrollDirection: Axis.horizontal,
                           itemCount: data.docs.length,
+
                           itemBuilder: (context, index) {
                             DocumentSnapshot dataDoc = data.docs[index];
                             return CustomContainer(
                               text: dataDoc.get('title'),
-                              secondText: 'Winter ',
-                              imgLink: 'assets/images/Rectangle 10.png',
+                              secondText: dataDoc.get('description'),
+                              imgLink: NetworkImage(dataDoc.get('urlImage')[0]),
                               ontap: () {
                                 push(context, const ProductScreen());
                               },
                             );
-                          });
-                    }
-                    return CircularProgressIndicator.adaptive();
-                  }),
+                          },
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2),
+                        );
+                      }
+                      return CircularProgressIndicator.adaptive();
+                    }),
+              ),
               Padding(
                   padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
                   child: Text(
@@ -168,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomContainer(
                       text: 'Rs 25000',
                       secondText: 'Winter',
-                      imgLink: 'assets/images/Rectangle 17.png',
+                      imgLink: AssetImage('assets/images/Rectangle 17.png'),
                       ontap: () {
                         push(context, const ProductScreen());
                       },
@@ -176,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomContainer(
                       text: 'Rs 25000',
                       secondText: 'Winter',
-                      imgLink: 'assets/images/Rectangle 10.png',
+                      imgLink: AssetImage('assets/images/Rectangle 10.png'),
                       ontap: () {
                         push(context, const ProductScreen());
                       },
@@ -184,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomContainer(
                       text: 'Rs 25000',
                       secondText: 'Winter',
-                      imgLink: 'assets/images/Rectangle 11.png',
+                      imgLink: AssetImage('assets/images/Rectangle 11.png'),
                       ontap: () {
                         push(context, const ProductScreen());
                       },

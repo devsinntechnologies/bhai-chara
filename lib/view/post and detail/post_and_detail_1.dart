@@ -5,12 +5,10 @@ import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
 import 'package:bhai_chara/provider/firebase/addImages.dart';
-import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
-import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:bhai_chara/view/review_details_screen.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +30,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   TextEditingController titlleController = TextEditingController();
   TextEditingController describeController = TextEditingController();
   List<File> selectedImages = [];
+  List<String> urlImage = [];
   ImagePicker picker = ImagePicker();
   var selected = "";
 
@@ -402,16 +401,13 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           } else if (describeController.text.isEmpty) {
                             showSnack(context: context);
                           } else {
-                            var product = context.read<ProductProvider>();
-                            product.addProduct(
-                                priceController.text,
-                                ageController.text,
-                                titlleController.text,
-                                describeController.text);
-
                             if (selectedImages.isNotEmpty) {
                               var data = context.read<FireStoreProvider>();
-                              data.addImage(selectedImages);
+                              data.addImage(selectedImages,
+                                  price: priceController.text,
+                                  age: ageController.text,
+                                  title: titlleController.text,
+                                  description: describeController.text);
                             }
 
                             FocusScope.of(context).nextFocus();

@@ -9,7 +9,11 @@ class ProductProvider extends ChangeNotifier {
       isLoading = true;
       notifyListeners();
       var data = await FirebaseManager.addProduct(
-          price: price, age: age, title: title, description: description);
+        price: price,
+        age: age,
+        title: title,
+        description: description,
+      );
       if (data != null) {
         return data;
       }
