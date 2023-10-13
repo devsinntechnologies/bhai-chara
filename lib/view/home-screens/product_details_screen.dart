@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
@@ -5,11 +6,18 @@ import '../../utils/custom_buttons.dart';
 import '../../utils/text-styles.dart';
 import '../../utils/utils.dart';
 
-class ProductScreen extends StatelessWidget {
-  const ProductScreen({super.key});
+// ignore: must_be_immutable
+class ProductScreen extends StatefulWidget {
+  ProductScreen({super.key, this.index});
+  var index;
+  @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
 
+class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -17,14 +25,49 @@ class ProductScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(children: [
-                Container(
-                  height: 300,
-                  width: double.infinity,
-                  child:const Image(
-                    image: AssetImage('assets/images/Rectangle 16.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                // value = widget.index,
+                widget.index == null
+                    ? Center(child: CircularProgressIndicator.adaptive())
+                    : StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection("Products")
+                            .snapshots(),
+                        builder: (context, AsyncSnapshot snapshot) {
+                          if (snapshot.hasData) {
+                            QuerySnapshot data = snapshot.data;
+
+                            // ignore: unused_local_variable
+                            DocumentSnapshot dataDoc = data.docs[widget.index];
+                            // ignore: dead_code
+
+                            // scrollDirection: Axis.horizontal,
+                            // ignore: dead_code
+                            return SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  for (int i = 0;
+                                      i < dataDoc.get('urlImage').length;
+                                      // ignore: dead_code
+                                      i++)
+                                    Container(
+                                      height: 300,
+                                      width: size.width,
+                                      child: Image(
+                                        image: NetworkImage(
+                                            dataDoc.get('urlImage')[i]),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            );
+                          }
+
+                          return Center(
+                              child: CircularProgressIndicator.adaptive());
+                        }),
+
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Row(
@@ -34,15 +77,19 @@ class ProductScreen extends StatelessWidget {
                           onPressed: () {
                             pop(context);
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_back_ios,
-                            color: AppColors.white,
+                            color: widget.index == null
+                                ? AppColors.black
+                                : AppColors.white,
                           )),
                       IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.forward,
-                            color: AppColors.white,
+                            color: widget.index == null
+                                ? AppColors.black
+                                : AppColors.white,
                           ))
                     ],
                   ),
@@ -275,4 +322,6 @@ class ProductScreen extends StatelessWidget {
       ),
     );
   }
+
+  // ignore: unu
 }

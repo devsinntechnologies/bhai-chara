@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SliderProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
           ChangeNotifierProvider(create: (context) => ProductProvider()),
-
           ChangeNotifierProvider(create: (context) => FireStoreProvider()),
 
           // ChangeNotifierProvider(create: (context) => ()),
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
           // theme: ThemeData(
           //   fontFamily: "Lora-Regular",
           // ),
-          home: const SplashScreen(),
+          home: SplashScreen(),
         ));
   }
 }

@@ -10,12 +10,12 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
-import 'package:bhai_chara/view/review_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/container.dart';
+import '../home-screens/root_screen.dart';
 
 class PostDetailScreen1 extends StatefulWidget {
   const PostDetailScreen1({super.key});
@@ -98,7 +98,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: AppColors.blue),
-                                  child: Column(
+                                  child: const Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -168,7 +168,9 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 10,
                       ),
                       CustomListTile(
-                          tap: () {},
+                          tap: () {
+                            push(context, RootScreen());
+                          },
                           back_color: AppColors.orangeColor,
                           circular_radius: 34.0,
                           circularwidget: Container(
@@ -412,7 +414,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
 
                             FocusScope.of(context).nextFocus();
                             // uploadImage(selectedImages);
-                            push(context, PostDetailScreen2());
+                            push(context, RootScreen());
                           }
                         },
                         text: "Next",
@@ -451,36 +453,3 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
     );
   }
 }
-//   uploadImage(path) async {
-//     // ignore: unused_local_variable
-//     String imageUrl;
-//     final _firebaseStorage = FirebaseStorage.instance;
-
-//     //Check Permissions
-//     await Permission.photos.request();
-
-//     var permissionStatus = await Permission.photos.status;
-
-//     if (permissionStatus.isGranted) {
-//       //Select Image
-//       var images = await getImages();
-//       var file = Image.file(path);
-
-//       if (images != null) {
-//         //Upload to Firebase
-//         var snapshot = await _firebaseStorage
-//             .ref()
-//             .child('images/imageName')
-//             .putFile(file as File);
-//         var downloadUrl = await snapshot.ref.getDownloadURL();
-//         setState(() {
-//           imageUrl = downloadUrl;
-//         });
-//       } else {
-//         print('No Image Path Received');
-//       }
-//     } else {
-//       print('Permission not granted. Try Again with permission access');
-//     }
-//   }
-// }

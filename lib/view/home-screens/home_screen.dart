@@ -3,6 +3,7 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
+import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../../utils/circle_avatar.dart';
@@ -84,27 +85,45 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   children: [
                     CustomCircleAvatar(
+                      ontap: () {
+                        push(context, SubCategorieScreen());
+                      },
                       link: 'assets/images/fluent_animal-cat-28-filled.png',
                       col: AppColors.orange,
                       txt: 'Animal',
                     ),
                     CustomCircleAvatar(
+                        ontap: () {
+                          push(context, SubCategorieScreen());
+                        },
                         link: 'assets/images/basil_camera-solid.png',
                         col: AppColors.yellow,
                         txt: 'Electronic'),
                     CustomCircleAvatar(
+                        ontap: () {
+                          push(context, SubCategorieScreen());
+                        },
                         link: 'assets/images/fontisto_mobile.png',
                         col: AppColors.Green,
                         txt: 'Mobile'),
                     CustomCircleAvatar(
+                        ontap: () {
+                          push(context, SubCategorieScreen());
+                        },
                         link: 'assets/images/map_furniture-store.png',
                         col: AppColors.pink,
                         txt: 'Furniture'),
                     CustomCircleAvatar(
+                        ontap: () {
+                          push(context, SubCategorieScreen());
+                        },
                         link: 'assets/images/ri_motorbike-fill.png',
                         col: AppColors.blue,
                         txt: 'Bike'),
                     CustomCircleAvatar(
+                        ontap: () {
+                          push(context, SubCategorieScreen());
+                        },
                         link: 'assets/images/solar_bell-bold.png',
                         col: AppColors.blue,
                         txt: 'bell'),
@@ -117,39 +136,42 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Latest',
                     style: AppTextStyles.textStyleBoldBodyMedium,
                   )),
-              Center(
-                child: StreamBuilder(
-                    stream: FirebaseFirestore.instance
-                        .collection("Products")
-                        .snapshots(),
-                    builder: (context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasData) {
-                        QuerySnapshot data = snapshot.data;
+              StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection("Products")
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      QuerySnapshot data = snapshot.data;
 
-                        return GridView.builder(
-                          shrinkWrap: true,
-                          // scrollDirection: Axis.horizontal,
-                          itemCount: data.docs.length,
-
-                          itemBuilder: (context, index) {
-                            DocumentSnapshot dataDoc = data.docs[index];
-                            return CustomContainer(
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        itemCount: data.docs.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot dataDoc = data.docs[index];
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 10.0),
+                            child: CustomContainer(
                               text: dataDoc.get('title'),
                               secondText: dataDoc.get('description'),
                               imgLink: NetworkImage(dataDoc.get('urlImage')[0]),
                               ontap: () {
-                                push(context, const ProductScreen());
+                                push(
+                                    context,
+                                    ProductScreen(
+                                      index: index,
+                                    ));
                               },
-                            );
-                          },
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2),
-                        );
-                      }
+                            ),
+                          );
+                        },
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2),
+                      );
+                    } else
                       return CircularProgressIndicator.adaptive();
-                    }),
-              ),
+                  }),
               Padding(
                   padding: const EdgeInsets.only(left: 20, bottom: 20, top: 15),
                   child: Text(
@@ -163,9 +185,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomContainer(
                       text: 'Rs 25000',
                       secondText: 'Samsung S3',
-                      imgLink: 'assets/images/Rectangle 16.png',
+                      imgLink: AssetImage('assets/images/Rectangle 16.png'),
                       ontap: () {
-                        push(context, const ProductScreen());
+                        push(context, ProductScreen());
                       },
                     ),
                     CustomContainer(
@@ -173,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       secondText: 'Winter',
                       imgLink: AssetImage('assets/images/Rectangle 17.png'),
                       ontap: () {
-                        push(context, const ProductScreen());
+                        push(context, ProductScreen());
                       },
                     ),
                     CustomContainer(
@@ -181,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       secondText: 'Winter',
                       imgLink: AssetImage('assets/images/Rectangle 10.png'),
                       ontap: () {
-                        push(context, const ProductScreen());
+                        push(context, ProductScreen());
                       },
                     ),
                     CustomContainer(
@@ -189,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       secondText: 'Winter',
                       imgLink: AssetImage('assets/images/Rectangle 11.png'),
                       ontap: () {
-                        push(context, const ProductScreen());
+                        push(context, ProductScreen());
                       },
                     ),
                   ],
