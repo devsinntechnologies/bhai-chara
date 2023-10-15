@@ -1,9 +1,13 @@
+import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 
-import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
+
+import '../../utils/push.dart';
+import '../home-screens/root_screen.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -13,6 +17,9 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+  // ignore: unused_field
+  Position? _currentPosition;
+  String _currentAddress = "";
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -63,7 +70,10 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
               const Spacer(),
               InkWell(
-                onTap: () {
+                onTap: () async {
+                  var loc = context.read<AuthProvider>();
+                  await loc.Location(
+                      context, _currentPosition, _currentAddress);
                   push(context, RootScreen());
                 },
                 child: Container(

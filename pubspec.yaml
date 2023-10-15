@@ -46,7 +46,9 @@ dependencies:
   intl_phone_field: ^3.2.0
   cloud_firestore: ^4.9.2
   firebase_storage: ^11.2.7
-  permission_handler: ^11.0.0
+  permission_handler: ^11.0.1
+  geolocator: ^10.1.0
+  geocoding: ^2.1.1
 
 dev_dependencies:
   flutter_test:

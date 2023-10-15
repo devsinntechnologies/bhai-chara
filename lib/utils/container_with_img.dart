@@ -14,9 +14,9 @@ class CustomContainer extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        margin: EdgeInsets.only(left: 20),
-        height: 205,
-        width: 185,
+        margin: EdgeInsets.only(right: 10, left: 10),
+        height: 200,
+        width: 200,
         //  width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -25,12 +25,13 @@ class CustomContainer extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Image(
             image: imgLink,
-            height: 131,
-            width: 185,
+            height: 130,
+            width: 200,
             fit: BoxFit.cover,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                   padding:

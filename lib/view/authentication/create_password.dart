@@ -1,5 +1,5 @@
 import 'package:bhai_chara/common/custom_button.dart';
-import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
+import 'package:bhai_chara/provider/authentication_provider/variable.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
@@ -114,8 +114,9 @@ class _CreatePasswordState extends State<CreatePassword> {
                                       ? IconButton(
                                           onPressed: () {
                                             setState(() {});
-                                            x = AuthProvider.IncrementVariable(
-                                                x);
+
+                                            x = VariableProvider
+                                                .IncrementVariable(x);
                                           },
                                           icon: const Icon(
                                             Icons.visibility_off,
@@ -124,8 +125,8 @@ class _CreatePasswordState extends State<CreatePassword> {
                                       : IconButton(
                                           onPressed: () {
                                             setState(() {});
-                                            x = AuthProvider.IncrementVariable(
-                                                x);
+                                            x = VariableProvider
+                                                .IncrementVariable(x);
                                           },
                                           icon: const Icon(
                                             Icons.visibility,
@@ -159,8 +160,8 @@ class _CreatePasswordState extends State<CreatePassword> {
                                       ? IconButton(
                                           onPressed: () {
                                             setState(() {});
-                                            y = AuthProvider.IncrementVariable(
-                                                y);
+                                            y = VariableProvider
+                                                .IncrementVariable(y);
                                           },
                                           icon: const Icon(
                                             Icons.visibility_off,
@@ -169,8 +170,8 @@ class _CreatePasswordState extends State<CreatePassword> {
                                       : IconButton(
                                           onPressed: () {
                                             setState(() {});
-                                            y = AuthProvider.IncrementVariable(
-                                                y);
+                                            y = VariableProvider
+                                                .IncrementVariable(y);
                                           },
                                           icon: const Icon(
                                             Icons.visibility,
