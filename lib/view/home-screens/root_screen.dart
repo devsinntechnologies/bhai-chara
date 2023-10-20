@@ -32,7 +32,7 @@ class RootScreen extends StatelessWidget {
   var textList = [
     "Home",
     "Chat",
-    "Sell",
+    "Donate",
     "Ads",
     "Account",
   ];

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
@@ -6,13 +8,45 @@ import 'package:flutter/material.dart';
 import '../../utils/container.dart';
 
 class SubCategorieScreen extends StatefulWidget {
-  const SubCategorieScreen({super.key});
-
+  SubCategorieScreen({super.key, this.link, this.text, this.color});
+  var link, text, color;
   @override
   State<SubCategorieScreen> createState() => _SubCategorieScreenState();
 }
 
 class _SubCategorieScreenState extends State<SubCategorieScreen> {
+  final List<String> animalCategories = [
+    'Mammals',
+    'Birds',
+    'Reptiles',
+    'Amphibians',
+    'Fish',
+    'Invertebrates',
+    'Arthropods',
+    'Mollusks',
+    'Echinoderms',
+    'Cnidarians',
+    'Annelids',
+    'Porifera',
+    'Platyhelminthes',
+    'Nematodes',
+    'Coelenterates',
+    'Arachnids',
+    'Insects',
+    'Crustaceans',
+    'Mammals',
+    'Birds',
+    'Marsupials',
+    'Primates',
+    'Carnivores',
+    'Herbivores',
+    'Rodents',
+    'Hoofed Animals',
+    'Marine Animals',
+    'Domesticated Animals',
+    'Endangered Species',
+    'Extinct Animals'
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,118 +70,21 @@ class _SubCategorieScreenState extends State<SubCategorieScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('Gorilla',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('dormouse',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('ermine',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('armadillo',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('hedgehog',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('Indian rhinoceros',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('hedgehog',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('buffalo',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('giraffe',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('elephant',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('hedgehog',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('elephant',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('Indian rhinoceros',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('buffalo',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('Japanese monkey',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, PostDetailScreen1());
-                      },
-                      child: Text('giraffe',
-                          style: AppTextStyles.textStyleNormalBodyMedium),
-                    ),
+                    for (var i = 0; i < animalCategories.length; i++)
+                      InkWell(
+                        onTap: () {
+                          push(
+                              context,
+                              PostDetailScreen1(
+                                subtext: animalCategories[i],
+                                link: widget.link,
+                                color: widget.color,
+                                titletext: widget.text,
+                              ));
+                        },
+                        child: Text(animalCategories[i],
+                            style: AppTextStyles.textStyleNormalBodyMedium),
+                      ),
                   ],
                 ),
               ),

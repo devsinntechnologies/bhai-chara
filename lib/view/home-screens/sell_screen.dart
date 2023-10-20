@@ -1,16 +1,80 @@
+import 'dart:math';
+
+import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:flutter/material.dart';
+// import '../../common/custom_container_tile.dart';
+import '../../common/custom_container_tile.dart';
 import '../../utils/circle_avatar_row.dart';
 import '../../utils/container.dart';
 import '../../utils/utils.dart';
 
-class SellScreen extends StatelessWidget {
+class SellScreen extends StatefulWidget {
   const SellScreen({super.key});
 
   @override
+  State<SellScreen> createState() => _SellScreenState();
+}
+
+class _SellScreenState extends State<SellScreen> {
+  final List<Color> myColors = [
+    Color(0xfaF7931E),
+    Color.fromARGB(255, 247, 147, 30),
+    Color.fromARGB(255, 254, 192, 15),
+    Color.fromARGB(255, 57, 181, 74),
+    Color.fromARGB(255, 238, 42, 123),
+    Color.fromARGB(255, 39, 170, 225),
+    Color.fromARGB(255, 128, 128, 128),
+    Color.fromARGB(255, 179, 179, 179),
+    Color.fromARGB(255, 101, 101, 101),
+    Color(0xff808080),
+    Color.fromARGB(255, 220, 236, 250),
+    Color.fromARGB(248, 214, 219, 221),
+    Color(0xffE6E6E6),
+    Color(0xff001B26),
+    Color(0xfa001B26),
+    Color.fromARGB(255, 0, 27, 38),
+    Colors.black,
+    Color(0xff000000),
+    Color(0xfa000000),
+  ];
+  List<String> SellCategory = [
+    "Animal",
+    "Electronic",
+    "Mobile",
+    "Furniture",
+    "Bike",
+    "bell",
+  ];
+  List<String> Selling = [
+    'assets/images/fluent_animal-cat-28-filled.png',
+    'assets/images/basil_camera-solid.png',
+    'assets/images/fontisto_mobile.png',
+    'assets/images/map_furniture-store.png',
+    'assets/images/ri_motorbike-fill.png',
+    'assets/images/solar_bell-bold.png',
+  ];
+  bool selected = false;
+  void toggleTextFieldVisibility() {
+    setState(() {
+      selected = !selected;
+    });
+  }
+
+  TextEditingController otherController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
+    Random random = Random();
+    List<Color> randomColorList = [];
+
+    for (int i = 0; i < SellCategory.length; i++) {
+      Color randomColor = myColors[random.nextInt(myColors.length)];
+      randomColorList.add(randomColor);
+    }
+    var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -28,54 +92,64 @@ class SellScreen extends StatelessWidget {
                 )),
             Column(
               children: [
+                for (int i = 0; i < Selling.length; i++)
+                  CustomCircleAvatarRow(
+                    link: Selling[i],
+                    col: randomColorList[i],
+                    txt: SellCategory[i],
+                    ontap: () {
+                      push(
+                          context,
+                          SubCategorieScreen(
+                            link: Selling[i],
+                            color: randomColorList[i],
+                            text: SellCategory[i],
+                          ));
+                    },
+                  ),
                 CustomCircleAvatarRow(
-                  link: 'assets/images/fluent_animal-cat-28-filled.png',
-                  col: AppColors.yellow,
-                  txt: 'Animal',
-                  ontap: () {
-                    push(context, const SubCategorieScreen());
-                  },
+                    link: 'assets/images/logo.png',
+                    txt: 'Other',
+                    col: AppColors.white,
+                    ontap: () {
+                      toggleTextFieldVisibility();
+                    }),
+                const SizedBox(
+                  height: 10,
                 ),
-                CustomCircleAvatarRow(
-                  link: 'assets/images/basil_camera-solid.png',
-                  col: AppColors.orange,
-                  txt: 'Electronic',
-                  ontap: () {
-                    push(context, const SubCategorieScreen());
-                  },
+                if (selected)
+                  CustomTextField(
+                    width: size.width * .80,
+
+                    // height: 30.00,
+                    hintText: "Category",
+                    // prfixicon: Icons.edit,
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.black),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    controller: otherController,
+                    obsecuretext: false,
+                  ),
+                const SizedBox(
+                  height: 5,
                 ),
-                CustomCircleAvatarRow(
-                  link: 'assets/images/fontisto_mobile.png',
-                  col: AppColors.Green,
-                  txt: 'Mobile',
-                  ontap: () {
-                    push(context, const SubCategorieScreen());
-                  },
-                ),
-                CustomCircleAvatarRow(
-                  link: 'assets/images/map_furniture-store.png',
-                  col: AppColors.pink,
-                  txt: 'Furniture',
-                  ontap: () {
-                    push(context, const SubCategorieScreen());
-                  },
-                ),
-                CustomCircleAvatarRow(
-                  link: 'assets/images/ri_motorbike-fill.png',
-                  col: AppColors.yellow,
-                  txt: 'Bike',
-                  ontap: () {
-                    push(context, const SubCategorieScreen());
-                  },
-                ),
-                CustomCircleAvatarRow(
-                  link: 'assets/images/solar_bell-bold.png',
-                  col: AppColors.blue,
-                  txt: 'bell',
-                  ontap: () {
-                    push(context, const SubCategorieScreen());
-                  },
-                ),
+                if (otherController.text.isNotEmpty)
+                  CustomButton(
+                    width: size.width * .30,
+                    text: "Next",
+                    onTap: () {
+                      toggleTextFieldVisibility();
+                      SellCategory.add(otherController.text);
+                      Selling.add('assets/images/logo.png');
+                      push(
+                          context,
+                          SubCategorieScreen(
+                            link: 'assets/images/logo.png',
+                            text: otherController.text,
+                            color: Colors.white,
+                          ));
+                    },
+                  )
               ],
             ),
           ]),

@@ -9,7 +9,6 @@ import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import '../../utils/circle_avatar.dart';
 import '../../utils/container_with_img.dart';

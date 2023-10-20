@@ -1,9 +1,12 @@
+// ignore_for_file: must_be_immutable, unnecessary_null_comparison
+
 import 'dart:io';
 
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
+import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
@@ -11,6 +14,7 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +22,9 @@ import '../../utils/container.dart';
 import '../home-screens/root_screen.dart';
 
 class PostDetailScreen1 extends StatefulWidget {
-  const PostDetailScreen1({super.key});
-
+  PostDetailScreen1(
+      {super.key, this.subtext, this.titletext, this.color, this.link});
+  var subtext, titletext, color, link;
   @override
   State<PostDetailScreen1> createState() => _PostDetailScreen1State();
 }
@@ -33,11 +38,15 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   List<String> urlImage = [];
   ImagePicker picker = ImagePicker();
   var selected = "";
-
+  var pricing = "";
+  Position? _currentPosition;
+  String _currentAddress = "";
+  var loc;
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
     var size = MediaQuery.of(context).size * 1;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -86,7 +95,6 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       const SizedBox(
                         height: 10,
                       ),
-                      // ignore: unnecessary_null_comparison
                       selectedImages.isEmpty
                           ? InkWell(
                               onTap: () async {
@@ -161,73 +169,97 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         height: 20,
                       ),
                       Text(
-                        "Category*",
+                        "Category",
                         style: AppTextStyles.textStyleBoldBodySmall,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      CustomListTile(
-                          tap: () {
-                            push(context, RootScreen());
-                          },
-                          back_color: AppColors.orangeColor,
-                          circular_radius: 34.0,
-                          circularwidget: Container(
-                              height: 30.0,
-                              width: 30.0,
-                              child: const Center(
-                                  child: Image(
-                                image:
-                                    AssetImage("assets/images/cat_avatar.png"),
-                                fit: BoxFit.contain,
-                              ))),
-                          titletext: "Animal",
-                          titleStyle: AppTextStyles.textStyleBoldBodyMedium,
-                          subtitleText: "Dogs",
-                          subtitleStyle: AppTextStyles.textStyleSubtitleBody),
+                      widget.link != null
+                          ? CustomListTile(
+                              tap: () {
+                                push(context, RootScreen());
+                              },
+                              back_color: AppColors.orangeColor,
+                              circular_radius: 30.0,
+                              circularwidget: Container(
+                                  height: 65.0,
+                                  width: 65.0,
+                                  child: Center(
+                                      child: Image(
+                                    image: AssetImage(widget.link),
+                                    fit: BoxFit.cover,
+                                  ))),
+                              titletext: widget.titletext,
+                              titleStyle: AppTextStyles.textStyleBoldBodyMedium,
+                              subtitleText: widget.subtext,
+                              subtitleStyle:
+                                  AppTextStyles.textStyleSubtitleBody)
+                          : Text("Null"),
                       const Divider(),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "Price*",
+                        "Price",
                         style: AppTextStyles.textStyleBoldBodySmall,
-                      ),
-                      const SizedBox(
-                        height: 05,
-                      ),
-                      CustomTextField(
-                        keyboardtype: TextInputType.number,
-                        controller: priceController,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: AppColors.grey)),
-                        hintText: "Price",
-                        obsecuretext: false,
-                        width: size.width,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Divider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      CutomListTileUser(
-                        title_text: "Breed*",
-                        title_style: AppTextStyles.textStyleTitleBodySmall,
-                        subtitle_text: "None",
-                        subtitle_style: AppTextStyles.textStyleSubtitleBody,
-                        trailing_widget: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xfa000000),
-                          size: 20,
-                        ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              pricing = "Free";
+                              setState(() {});
+                            },
+                            child: CustomContainerText(
+                              style: pricing == "Free"
+                                  ? AppTextStyles.textStyleNormalBodySmall
+                                      .copyWith(color: AppColors.white)
+                                  : null,
+                              container_color:
+                                  pricing == "Free" ? AppColors.blue : null,
+                              text: "Free",
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              pricing = "Price";
+                              setState(() {});
+                            },
+                            child: CustomContainerText(
+                              style: pricing == "Price"
+                                  ? AppTextStyles.textStyleNormalBodySmall
+                                      .copyWith(color: AppColors.white)
+                                  : null,
+                              container_color:
+                                  pricing == "Price" ? AppColors.blue : null,
+                              text: "Price",
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      if (pricing == "Price")
+                        CustomTextField(
+                          keyboardtype: TextInputType.number,
+                          controller: priceController,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide(color: AppColors.grey)),
+                          hintText: "Price",
+                          obsecuretext: false,
+                          width: size.width,
+                        ),
+                      const SizedBox(height: 10),
                       const Divider(),
                       const SizedBox(
                         height: 20,
@@ -278,21 +310,6 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           const SizedBox(
                             width: 10,
                           ),
-                          InkWell(
-                            onTap: () {
-                              selected = "third";
-                              setState(() {});
-                            },
-                            child: CustomContainerText(
-                              style: selected == "third"
-                                  ? AppTextStyles.textStyleNormalBodySmall
-                                      .copyWith(color: AppColors.white)
-                                  : null,
-                              container_color:
-                                  selected == "third" ? AppColors.blue : null,
-                              text: "Pair",
-                            ),
-                          ),
                         ],
                       ),
                       const SizedBox(
@@ -315,7 +332,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                             borderSide: BorderSide(color: AppColors.grey)),
-                        hintText: "Age",
+                        hintText: "Years 1 - 2",
                         obsecuretext: false,
                         width: size.width,
                       ),
@@ -326,16 +343,29 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       const SizedBox(
                         height: 20,
                       ),
-                      CutomListTileUser(
-                        title_text: "Location*",
-                        title_style: AppTextStyles.textStyleTitleBodySmall,
-                        subtitle_text: "Choose",
-                        subtitle_style: AppTextStyles.textStyleSubtitleBody,
-                        trailing_widget: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xfa000000),
-                          size: 20,
-                        ),
+                      GestureDetector(
+                        onTap: () async {
+                          loc = context.read<AuthProvider>();
+
+                          await loc.Location(
+                              context, _currentPosition, _currentAddress);
+                        },
+                        child: Builder(builder: (context) {
+                          var pro = context.read<AuthProvider>();
+                          return CutomListTileUser(
+                            title_text: "Location",
+                            title_style: AppTextStyles.textStyleTitleBodySmall,
+                            subtitle_text: pro.currentAddress != null
+                                ? pro.currentAddress
+                                : "Choose",
+                            subtitle_style: AppTextStyles.textStyleSubtitleBody,
+                            trailing_widget: const Icon(
+                              Icons.arrow_forward_ios,
+                              color: Color(0xfa000000),
+                              size: 20,
+                            ),
+                          );
+                        }),
                       ),
                       const SizedBox(
                         height: 10,

@@ -5,16 +5,19 @@ import '../utils/text-styles.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  CustomButton({super.key, this.onTap, this.text});
-  var onTap, text;
+  CustomButton({super.key, this.onTap, this.text, this.width});
+  var onTap, text, height = 50.0, width;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    if (width == null) {
+      width = size.width;
+    }
     return InkWell(
         onTap: onTap,
         child: Container(
-          height: 50,
-          width: size.width,
+          height: height,
+          width: width,
           child: Center(
             child: Text(
               text,
