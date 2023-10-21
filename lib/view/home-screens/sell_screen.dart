@@ -4,6 +4,7 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
+import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 // import '../../common/custom_container_tile.dart';
 import '../../common/custom_container_tile.dart';
@@ -29,16 +30,16 @@ class _SellScreenState extends State<SellScreen> {
     Color.fromARGB(255, 128, 128, 128),
     Color.fromARGB(255, 179, 179, 179),
     Color.fromARGB(255, 101, 101, 101),
-    Color(0xff808080),
-    Color.fromARGB(255, 220, 236, 250),
-    Color.fromARGB(248, 214, 219, 221),
-    Color(0xffE6E6E6),
+    Color.fromARGB(255, 202, 93, 93),
+    Color.fromARGB(255, 226, 70, 200),
+    Color.fromARGB(248, 6, 110, 29),
+    Colors.cyan,
     Color(0xff001B26),
     Color(0xfa001B26),
     Color.fromARGB(255, 0, 27, 38),
     Colors.black,
     Color(0xff000000),
-    Color(0xfa000000),
+    Color.fromARGB(249, 70, 2, 17),
   ];
   List<String> SellCategory = [
     "Animal",
@@ -64,6 +65,25 @@ class _SellScreenState extends State<SellScreen> {
   }
 
   TextEditingController otherController = TextEditingController();
+  bool isTextFieldEmpty = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Listen to changes in the text field and update the button visibility accordingly.
+    otherController.addListener(() {
+      setState(() {
+        isTextFieldEmpty = otherController.text.isEmpty;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    otherController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +114,7 @@ class _SellScreenState extends State<SellScreen> {
               children: [
                 for (int i = 0; i < Selling.length; i++)
                   CustomCircleAvatarRow(
+                    selected: false,
                     link: Selling[i],
                     col: randomColorList[i],
                     txt: SellCategory[i],
@@ -108,6 +129,7 @@ class _SellScreenState extends State<SellScreen> {
                     },
                   ),
                 CustomCircleAvatarRow(
+                    selected: selected,
                     link: 'assets/images/logo.png',
                     txt: 'Other',
                     col: AppColors.white,
@@ -133,8 +155,9 @@ class _SellScreenState extends State<SellScreen> {
                 const SizedBox(
                   height: 5,
                 ),
-                if (otherController.text.isNotEmpty)
-                  CustomButton(
+                Visibility(
+                  visible: !isTextFieldEmpty,
+                  child: CustomButton(
                     width: size.width * .30,
                     text: "Next",
                     onTap: () {
@@ -143,13 +166,15 @@ class _SellScreenState extends State<SellScreen> {
                       Selling.add('assets/images/logo.png');
                       push(
                           context,
-                          SubCategorieScreen(
+                          PostDetailScreen1(
+                            subtext: "",
                             link: 'assets/images/logo.png',
-                            text: otherController.text,
                             color: Colors.white,
+                            titletext: otherController.text,
                           ));
                     },
-                  )
+                  ),
+                )
               ],
             ),
           ]),

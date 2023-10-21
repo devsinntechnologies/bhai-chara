@@ -180,7 +180,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                               tap: () {
                                 push(context, RootScreen());
                               },
-                              back_color: AppColors.orangeColor,
+                              back_color: widget.color,
                               circular_radius: 30.0,
                               circularwidget: Container(
                                   height: 65.0,
