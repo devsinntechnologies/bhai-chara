@@ -6,8 +6,6 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
-import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
-import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -18,6 +16,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
+import '../../controller/provider/authentication_provider/auth_provider.dart';
+import '../../controller/provider/firebase/addImages.dart';
 import '../../utils/container.dart';
 import '../home-screens/root_screen.dart';
 
@@ -425,13 +425,13 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       CustomButton(
                         onTap: () async {
                           if (priceController.text.isEmpty) {
-                            showSnack(context: context);
+                            showSnack( context,"");
                           } else if (ageController.text.isEmpty) {
-                            showSnack(context: context);
+                            showSnack( context,"");
                           } else if (titlleController.text.isEmpty) {
-                            showSnack(context: context);
+                            showSnack( context,"");
                           } else if (describeController.text.isEmpty) {
-                            showSnack(context: context);
+                            showSnack( context,"");
                           } else {
                             if (selectedImages.isNotEmpty) {
                               var data = context.read<FireStoreProvider>();

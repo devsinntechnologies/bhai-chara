@@ -5,7 +5,7 @@ import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../provider/root_provider.dart';
+import '../../controller/provider/root_provider.dart';
 import '../account/account_screen.dart';
 import '../ads/ads_screen.dart';
 import '../chatt/chat_list_screen.dart';

@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../view/home-screens/home_screen.dart';
+import '../../view/home-screens/home_screen.dart';
 
 class TimerProvider extends ChangeNotifier {
   Timer? _timer;

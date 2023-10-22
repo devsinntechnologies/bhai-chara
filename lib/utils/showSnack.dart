@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-showSnack(ontext, text = "Please Enter the Input Field") {
+showSnack(context, text ) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     content: Text(text),
   ));

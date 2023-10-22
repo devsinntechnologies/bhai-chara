@@ -1,9 +1,9 @@
-import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 
+import '../controller/provider/visibility_provider.dart';
 import 'app_colors.dart';
 
 // ignore: must_be_immutable
