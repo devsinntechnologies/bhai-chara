@@ -1,17 +1,14 @@
-import 'package:bhai_chara/common/custom_button.dart';
-import 'package:bhai_chara/provider/authentication_provider/variable.dart';
-import 'package:bhai_chara/utils/push.dart';
-import 'package:bhai_chara/utils/showSnack.dart';
-import 'package:bhai_chara/view/authentication/location.dart';
+import 'package:bhai_chara/controller/provider/authentication_provider/variable_provider.dart';
 
 import 'package:flutter/material.dart';
-
 import '../../common/custom_container_tile.dart';
-import '../../utils/app_colors.dart';
-import '../../utils/text-styles.dart';
+import '../../common/utils/app_colors.dart';
+import '../../common/utils/text-styles.dart';
+import '../../controller/service/ontap_passwordScreen.dart';
 
 class CreatePassword extends StatefulWidget {
-  const CreatePassword({super.key});
+ var email;
+  CreatePassword({super.key, required this.email});
 
   @override
   State<CreatePassword> createState() => _CreatePasswordState();
@@ -187,27 +184,12 @@ class _CreatePasswordState extends State<CreatePassword> {
                     ),
                   ),
                   const Spacer(),
-                  CustomButton(
-                      onTap: () {
-                        if (passwordController.text.isEmpty) {
-                          showSnack(
-                              context: context, text: "Please Enter Password");
-                        } else if (confirmpasswordController.text.isEmpty) {
-                          showSnack(
-                              context: context,
-                              text: "Please Enter Confirm Password");
-                        } else if (passwordController.text !=
-                            confirmpasswordController.text) {
-                          showSnack(
-                              context: context,
-                              text: "Please Enter Correct Password");
-                        } else {
-                          FocusScope.of(context).unfocus();
-                          push(context, const LocationScreen());
-                        }
-                        ;
-                      },
-                      text: "Next"),
+                    ontapPasswordScreen(
+                        context: context,
+                        confirmpasswordController: confirmpasswordController,
+                        passwordController: passwordController,
+                        email: widget.email),
+                 
                   const SizedBox(
                     height: 30,
                   ),
