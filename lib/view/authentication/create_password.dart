@@ -1,10 +1,11 @@
-import 'package:bhai_chara/controller/provider/authentication_provider/variable_provider.dart';
 
 import 'package:flutter/material.dart';
 import '../../common/custom_container_tile.dart';
-import '../../common/utils/app_colors.dart';
-import '../../common/utils/text-styles.dart';
-import '../../controller/service/ontap_passwordScreen.dart';
+import '../../controller/provider/authentication_provider/variable.dart';
+import '../../controller/services/ontap_passwordScreen.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/text-styles.dart';
+
 
 class CreatePassword extends StatefulWidget {
  var email;
