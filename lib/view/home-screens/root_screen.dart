@@ -33,7 +33,7 @@ class RootScreen extends StatelessWidget {
     "Home",
     "Chat",
     "Donate",
-    "Ads",
+    "Item",
     "Account",
   ];
 

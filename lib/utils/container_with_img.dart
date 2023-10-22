@@ -14,35 +14,47 @@ class CustomContainer extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        margin: EdgeInsets.only(right: 10, left: 10),
-        height: 200,
-        width: 200,
+        margin: EdgeInsets.only(right: 10, left: 10, bottom: 10),
+        height: 250,
+        width: 250,
         //  width: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.grey, width: 1),
         ),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Image(
-            image: imgLink,
-            height: 130,
-            width: 200,
-            fit: BoxFit.cover,
+          Container(
+            height: 115,
+            width: 250,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: imgLink,
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10), topLeft: Radius.circular(10)),
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                  child:
-                      Text(text, style: AppTextStyles.textStyleBoldBodySmall)),
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: Text(secondText,
-                      style: AppTextStyles.textStyleBoldBodyXSmall)),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(left: 5.0, top: 5),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: AppTextStyles.textStyleBoldBodySmall,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: true,
+                ),
+                Text(
+                  secondText,
+                  style: AppTextStyles.textStyleBoldBodyXSmall,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: true,
+                ),
+              ],
+            ),
           )
         ]),
       ),

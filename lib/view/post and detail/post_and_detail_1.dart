@@ -14,7 +14,6 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -38,9 +37,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   List<String> urlImage = [];
   ImagePicker picker = ImagePicker();
   var selected = "";
-  var pricing = "";
-  Position? _currentPosition;
-  String _currentAddress = "";
+  var pricing = "Free";
   var loc;
   @override
   Widget build(BuildContext context) {
@@ -65,12 +62,12 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       Row(
                         children: [
                           Text(
-                            "UPLOAD UP TO 20 PHOTOS",
+                            "UPLOAD UP TO 10 PHOTOS",
                             style: AppTextStyles.textStyleBoldBodySmall,
                           ),
                           const Spacer(),
                           selectedImages.isNotEmpty &&
-                                  selectedImages.length <= 20
+                                  selectedImages.length <= 9
                               ? InkWell(
                                   onTap: () {
                                     getImages();
@@ -150,10 +147,10 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(right: 10),
-                                        height: 150,
-                                        width: 120,
+                                        height: 100,
+                                        width: 100,
                                         child: ListView(
-                                            scrollDirection: Axis.horizontal,
+                                            // scrollDirection: Axis.horizontal,
                                             children: [
                                               Image.file(
                                                 selectedImages[i],
@@ -264,92 +261,87 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        "Gender",
-                        style: AppTextStyles.textStyleBoldBodySmall,
-                      ),
-                      const SizedBox(
-                        height: 05,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              selected = "first";
-                              setState(() {});
-                            },
-                            child: CustomContainerText(
-                              style: selected == "first"
-                                  ? AppTextStyles.textStyleNormalBodySmall
-                                      .copyWith(color: AppColors.white)
-                                  : null,
-                              container_color:
-                                  selected == "first" ? AppColors.blue : null,
-                              text: "Male",
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              selected = "second";
-                              setState(() {});
-                            },
-                            child: CustomContainerText(
-                              style: selected == "second"
-                                  ? AppTextStyles.textStyleNormalBodySmall
-                                      .copyWith(color: AppColors.white)
-                                  : null,
-                              container_color:
-                                  selected == "second" ? AppColors.blue : null,
-                              text: "Female",
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Divider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Age",
-                        style: AppTextStyles.textStyleBoldBodySmall,
-                      ),
-                      const SizedBox(
-                        height: 05,
-                      ),
-                      CustomTextField(
-                        keyboardtype: TextInputType.number,
-                        controller: ageController,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide(color: AppColors.grey)),
-                        hintText: "Years 1 - 2",
-                        obsecuretext: false,
-                        width: size.width,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Divider(),
-                      const SizedBox(
-                        height: 20,
-                      ),
+                      // Text(
+                      //   "Gender",
+                      //   style: AppTextStyles.textStyleBoldBodySmall,
+                      // ),
+                      // const SizedBox(
+                      //   height: 05,
+                      // ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.start,
+                      //   children: [
+                      //     InkWell(
+                      //       onTap: () {
+                      //         selected = "first";
+                      //         setState(() {});
+                      //       },
+                      //       child: CustomContainerText(
+                      //         style: selected == "first"
+                      //             ? AppTextStyles.textStyleNormalBodySmall
+                      //                 .copyWith(color: AppColors.white)
+                      //             : null,
+                      //         container_color:
+                      //             selected == "first" ? AppColors.blue : null,
+                      //         text: "Male",
+                      //       ),
+                      //     ),
+                      //     const SizedBox(
+                      //       width: 10,
+                      //     ),
+                      //     InkWell(
+                      //       onTap: () {
+                      //         selected = "second";
+                      //         setState(() {});
+                      //       },
+                      //       child: CustomContainerText(
+                      //         style: selected == "second"
+                      //             ? AppTextStyles.textStyleNormalBodySmall
+                      //                 .copyWith(color: AppColors.white)
+                      //             : null,
+                      //         container_color:
+                      //             selected == "second" ? AppColors.blue : null,
+                      //         text: "Female",
+                      //       ),
+                      //     ),
+                      //     const SizedBox(
+                      //       width: 10,
+                      //     ),
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // const Divider(),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // Text(
+                      //   "Age",
+                      //   style: AppTextStyles.textStyleBoldBodySmall,
+                      // ),
+                      // const SizedBox(
+                      //   height: 05,
+                      // ),
+                      // CustomTextField(
+                      //   keyboardtype: TextInputType.number,
+                      //   controller: ageController,
+                      //   border: OutlineInputBorder(
+                      //       borderRadius: BorderRadius.circular(20),
+                      //       borderSide: BorderSide(color: AppColors.grey)),
+                      //   hintText: "Years 1 - 2",
+                      //   obsecuretext: false,
+                      //   width: size.width,
+                      // ),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // const Divider(),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
                       GestureDetector(
-                        onTap: () async {
-                          loc = context.read<AuthProvider>();
-
-                          await loc.Location(
-                              context, _currentPosition, _currentAddress);
-                        },
+                        onTap: () async {},
                         child: Builder(builder: (context) {
                           var pro = context.read<AuthProvider>();
                           return CutomListTileUser(
@@ -424,14 +416,20 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       ),
                       CustomButton(
                         onTap: () async {
-                          if (priceController.text.isEmpty) {
-                            showSnack(context: context);
-                          } else if (ageController.text.isEmpty) {
-                            showSnack(context: context);
-                          } else if (titlleController.text.isEmpty) {
-                            showSnack(context: context);
+                          if (titlleController.text.isEmpty) {
+                            showSnack(
+                                context: context,
+                                text: "Enter Please Title Field");
                           } else if (describeController.text.isEmpty) {
-                            showSnack(context: context);
+                            showSnack(
+                                context: context,
+                                text: "Enter Please Description Field");
+                          } else if (pricing == "Price") {
+                            priceController.text.isEmpty
+                                ? showSnack(
+                                    context: context,
+                                    text: "Enter Please Price Field")
+                                : Text("");
                           } else {
                             if (selectedImages.isNotEmpty) {
                               var data = context.read<FireStoreProvider>();

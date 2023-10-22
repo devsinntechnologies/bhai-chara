@@ -8,7 +8,6 @@ class FirebaseManager {
   static addProduct(
       {price, age, title, description, List<String>? urlImage}) async {
     try {
-      debugger();
       var data = await FirebaseFirestore.instance.collection("Products").add({
         "price": price,
         "age": age,
@@ -16,7 +15,6 @@ class FirebaseManager {
         "description": description,
         "urlImage": urlImage,
       });
-      debugger();
       return data;
     } catch (e) {
       debugger();
