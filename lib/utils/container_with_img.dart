@@ -1,9 +1,9 @@
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomContainer extends StatelessWidget {
+class CustomContainerBox extends StatelessWidget {
   final text, secondText, imgLink, ontap;
-  CustomContainer(
+  CustomContainerBox(
       {required this.text,
       required this.imgLink,
       required this.secondText,

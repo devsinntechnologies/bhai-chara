@@ -149,14 +149,10 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                         margin: EdgeInsets.only(right: 10),
                                         height: 100,
                                         width: 100,
-                                        child: ListView(
-                                            // scrollDirection: Axis.horizontal,
-                                            children: [
-                                              Image.file(
-                                                selectedImages[i],
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ]),
+                                        child: Image.file(
+                                          selectedImages[i],
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                 ],
@@ -424,12 +420,13 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             showSnack(
                                 context: context,
                                 text: "Enter Please Description Field");
-                          } else if (pricing == "Price") {
-                            priceController.text.isEmpty
-                                ? showSnack(
-                                    context: context,
-                                    text: "Enter Please Price Field")
-                                : Text("");
+                          } else if (pricing == "Price" &&
+                              priceController.text.isEmpty) {
+                            priceController.text = "Free";
+                          } else if (pricing != "Free") {
+                            showSnack(
+                                context: context,
+                                text: "Please Enter Price Field");
                           } else {
                             if (selectedImages.isNotEmpty) {
                               var data = context.read<FireStoreProvider>();

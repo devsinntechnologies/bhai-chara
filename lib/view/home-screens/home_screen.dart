@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemBuilder: (context, index) {
                                       DocumentSnapshot dataDoc =
                                           data.docs[index];
-                                      return CustomContainer(
+                                      return CustomContainerBox(
                                         text: dataDoc.get('title'),
                                         secondText: dataDoc.get('description'),
                                         imgLink: NetworkImage(
