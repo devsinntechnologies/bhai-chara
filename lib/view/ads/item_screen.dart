@@ -43,7 +43,7 @@ class _ItemScreenState extends State<ItemScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              CustomContainer(context, "Ads"),
+              CustomContainer(context, "Items"),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
@@ -86,6 +86,8 @@ class _ItemScreenState extends State<ItemScreen> {
                                       DocumentSnapshot dataDoc =
                                           data.docs[index];
                                       return ItemContainer(
+                                        subcategory: dataDoc.get('subcategory'),
+                                        category: dataDoc.get('category'),
                                         imageLink: dataDoc.get('urlImage')[0],
                                         titleText: dataDoc.get('price'),
                                         ontap: () {

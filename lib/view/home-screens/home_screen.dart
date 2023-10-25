@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onRefresh: () {
             return Future.delayed(Duration(seconds: 1), () {
               setState(() {
-                RootScreen();
+                push(context, RootScreen());
               });
               showSnack(context: context, text: "Page Refresh");
             });

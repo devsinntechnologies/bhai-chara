@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           // theme: ThemeData(
           //   fontFamily: "Lora-Regular",
           // ),
-          home: RootScreen(),
+          home: SplashScreen(),
         ));
   }
 }

@@ -11,11 +11,20 @@ class FireStoreProvider extends ChangeNotifier {
     age,
     title,
     description,
+    category,
+    subcategory,
   }) async {
     isLoading = true;
     notifyListeners();
-    var data = await FirebaseManager.AddImages(selectedImages,
-        price: price, title: title, description: description, age: age);
+    var data = await FirebaseManager.AddImages(
+      selectedImages,
+      price: price,
+      title: title,
+      description: description,
+      age: age,
+      category: category,
+      subcategory: subcategory,
+    );
 
     if (data != null) {
       return data;

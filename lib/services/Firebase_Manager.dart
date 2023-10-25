@@ -6,13 +6,21 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseManager {
   static addProduct(
-      {price, age, title, description, List<String>? urlImage}) async {
+      {price,
+      age,
+      title,
+      description,
+      category,
+      subcategory,
+      List<String>? urlImage}) async {
     try {
       var data = await FirebaseFirestore.instance.collection("Products").add({
         "price": price,
         "age": age,
         "title": title,
         "description": description,
+        "category": category,
+        "subcategory": subcategory,
         "urlImage": urlImage,
       });
       return data;
@@ -23,7 +31,7 @@ class FirebaseManager {
   }
 
   static AddImages(List<File> selectedimages,
-      {price, title, age, description}) async {
+      {price, title, age, description, category, subcategory}) async {
     try {
       List<String> urlImage = [];
       for (var i = 0; i < selectedimages.length; i++) {
@@ -42,7 +50,9 @@ class FirebaseManager {
           price: price,
           age: age,
           title: title,
-          description: description);
+          description: description,
+          category: category,
+          subcategory: subcategory);
     } catch (e) {
       showSnack(text: e.toString());
     }

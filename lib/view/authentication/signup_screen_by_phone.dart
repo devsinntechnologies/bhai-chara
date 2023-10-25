@@ -27,70 +27,70 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
         body: Container(
           padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
-            child: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 130,
-                        width: 150,
-                        decoration: const BoxDecoration(
-                            // color: AppColors.primary,
-                            image: DecorationImage(
-                                scale: 1,
-                                image: AssetImage("assets/images/logo.png"),
-                                fit: BoxFit.contain)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    "Enter your phone",
-                    style: AppTextStyles.textStyleBoldSubTitleLarge,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                      child: Text(
-                    "We will send a confirmation code to your phone",
-                    maxLines: 3,
-                    textAlign: TextAlign.center,
-                    style: AppTextStyles.textStyleNormalBodyXSmall,
-                  )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  CustomCountryPhoneField(
-                    controller: numberController,
-                  ),
-                  SizedBox(
-                    height: size.height * .30,
-                  ),
-                  CustomButton(
-                    onTap: () {
-                      if (numberController.text.isEmpty) {
-                        showSnack(context: context);
-                      } else if (numberController.text.length < 5) {
-                        showSnack(context: "invalid phone number");
-                      } else {
-                        FocusScope.of(context).nextFocus();
-                        push(context, OTPScreen(phone: numberController.text));
-                      }
-                    },
-                    text: "Next",
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 130,
+                      width: 150,
+                      decoration: const BoxDecoration(
+                          // color: AppColors.primary,
+                          image: DecorationImage(
+                              scale: 1,
+                              image: AssetImage("assets/images/logo.png"),
+                              fit: BoxFit.contain)),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  "Enter your phone",
+                  style: AppTextStyles.textStyleBoldSubTitleLarge,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    child: Text(
+                  "We will send a confirmation code to your phone",
+                  maxLines: 3,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.textStyleNormalBodyXSmall,
+                )),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomCountryPhoneField(
+                  controller: numberController,
+                ),
+                SizedBox(
+                  height: (size.height < 400)
+                      ? size.height * .05
+                      : size.height * .35,
+                ),
+                CustomButton(
+                  onTap: () {
+                    if (numberController.text.isEmpty) {
+                      showSnack(context: context);
+                    } else if (numberController.text.length < 5) {
+                      showSnack(context: "invalid phone number");
+                    } else {
+                      FocusScope.of(context).nextFocus();
+                      push(context, OTPScreen(phone: numberController.text));
+                    }
+                  },
+                  text: "Next",
+                ),
+              ],
             ),
           ),
         ),

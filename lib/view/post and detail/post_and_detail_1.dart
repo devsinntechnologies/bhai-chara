@@ -151,6 +151,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                         width: 100,
                                         child: Image.file(
                                           selectedImages[i],
+                                          height: 100,
+                                          width: 100,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -423,18 +425,25 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           } else if (pricing == "Price" &&
                               priceController.text.isEmpty) {
                             priceController.text = "Free";
-                          } else if (pricing != "Free") {
+                          } else if (pricing == "Free") {
+                            priceController.text = "Free";
+                          } else if (pricing != "Free" &&
+                              priceController.text.isEmpty) {
                             showSnack(
                                 context: context,
                                 text: "Please Enter Price Field");
                           } else {
                             if (selectedImages.isNotEmpty) {
                               var data = context.read<FireStoreProvider>();
-                              data.addImage(selectedImages,
-                                  price: priceController.text,
-                                  age: ageController.text,
-                                  title: titlleController.text,
-                                  description: describeController.text);
+                              data.addImage(
+                                selectedImages,
+                                price: priceController.text,
+                                age: ageController.text,
+                                title: titlleController.text,
+                                description: describeController.text,
+                                category: widget.titletext,
+                                subcategory: widget.subtext,
+                              );
                             }
 
                             FocusScope.of(context).nextFocus();
@@ -442,7 +451,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             push(context, RootScreen());
                           }
                         },
-                        text: "Next",
+                        text: "Post Now",
                       ),
                       const SizedBox(
                         height: 10,

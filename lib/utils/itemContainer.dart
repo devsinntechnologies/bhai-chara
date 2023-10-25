@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'text-styles.dart';
 
+// ignore: must_be_immutable
 class ItemContainer extends StatelessWidget {
   ItemContainer(
       {super.key,
       required this.imageLink,
       required this.titleText,
+      required this.category,
+      required this.subcategory,
       this.ontap});
-  var imageLink, titleText, ontap;
+  var imageLink, titleText, ontap, category = "", subcategory = "";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,13 +61,25 @@ class ItemContainer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Car",
+                      category,
                       style: AppTextStyles.textStyleTitleBodyMedium,
                     ),
-                    Text(
-                      titleText,
-                      style: AppTextStyles.textStyleSubtitleSmallBody
-                          .copyWith(color: AppColors.grey),
+                    Row(
+                      children: [
+                        Text(
+                          'Rs:',
+                          style: AppTextStyles.textStyleSubtitleSmallBody
+                              .copyWith(color: AppColors.grey),
+                        ),
+                        SizedBox(
+                          width: 05,
+                        ),
+                        Text(
+                          titleText,
+                          style: AppTextStyles.textStyleBoldBodyXSmall
+                              .copyWith(color: AppColors.grey),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 15,
@@ -74,7 +89,7 @@ class ItemContainer extends StatelessWidget {
                           text: "Category: ",
                           style: AppTextStyles.textStyleBoldXLBodySmall),
                       TextSpan(
-                          text: " Car",
+                          text: subcategory,
                           style: AppTextStyles.textStyleNormalBodyXSmall)
                     ]))
                   ],

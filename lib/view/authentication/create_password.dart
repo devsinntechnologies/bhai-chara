@@ -188,7 +188,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   ),
                   const Spacer(),
                   CustomButton(
-                      onTap: () {
+                      onTap: () async {
                         if (passwordController.text.isEmpty) {
                           showSnack(
                               context: context, text: "Please Enter Password");
@@ -205,7 +205,6 @@ class _CreatePasswordState extends State<CreatePassword> {
                           FocusScope.of(context).unfocus();
                           push(context, const LocationScreen());
                         }
-                        ;
                       },
                       text: "Next"),
                   const SizedBox(

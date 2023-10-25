@@ -72,8 +72,7 @@ class _LocationScreenState extends State<LocationScreen> {
               InkWell(
                 onTap: () async {
                   var loc = context.read<AuthProvider>();
-                  await loc.Location(
-                      context, _currentPosition, _currentAddress);
+                  loc.Location(context, _currentPosition, _currentAddress);
                   push(context, RootScreen());
                 },
                 child: Container(
