@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 
 class ProductProvider extends ChangeNotifier {
   bool isLoading = false;
-  addProduct(price, age, title, description) async {
+  addProduct(price, age, title, description, {category, subcategory}) async {
     try {
       isLoading = true;
       notifyListeners();
       var data = await FirebaseManager.addProduct(
-        price: price,
-        age: age,
-        title: title,
-        description: description,
-      );
+          price: price,
+          age: age,
+          title: title,
+          description: description,
+          category: category,
+          subcategory: subcategory);
       if (data != null) {
         return data;
       }
