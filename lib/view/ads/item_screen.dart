@@ -1,7 +1,6 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/container_with_img.dart';
 import 'package:bhai_chara/utils/itemContainer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

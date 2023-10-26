@@ -73,14 +73,15 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                   controller: numberController,
                 ),
                 SizedBox(
-                  height: (size.height < 400)
+                  height: (size.height < 300)
                       ? size.height * .05
-                      : size.height * .35,
+                      : size.height * .28,
                 ),
                 CustomButton(
                   onTap: () {
                     if (numberController.text.isEmpty) {
-                      showSnack(context: context);
+                      showSnack(
+                          context: context, text: "Please Enter Phone Field");
                     } else if (numberController.text.length < 5) {
                       showSnack(context: "invalid phone number");
                     } else {

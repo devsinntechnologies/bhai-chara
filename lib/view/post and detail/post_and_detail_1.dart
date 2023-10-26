@@ -448,7 +448,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
 
                             FocusScope.of(context).nextFocus();
                             // uploadImage(selectedImages);
-                            push(context, RootScreen());
+                            pushUntil(context, RootScreen());
                           }
                         },
                         text: "Post Now",

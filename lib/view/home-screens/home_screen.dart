@@ -1,10 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
-import 'dart:ffi';
-
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
-import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/refresh.dart';
@@ -16,7 +13,6 @@ import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import '../../utils/circle_avatar.dart';
 import '../../utils/container_with_img.dart';
@@ -37,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<Null> _refresh() {
     return getUser().then((_user) {
+      // ignore: unused_local_variable
       User user;
       setState(() => user = _user);
     });
