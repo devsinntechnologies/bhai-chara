@@ -14,6 +14,7 @@ import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../common/custom_container_children.dart';
 import '../../utils/circle_avatar.dart';
 import '../../utils/container_with_img.dart';
 
@@ -39,6 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  var selected = "All";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -53,13 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
               showSnack(context: context, text: "Page Refresh");
             });
           },
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-              Builder(builder: (context) {
-                // ignore: unused_local_variable
-                var pro = context.read<AuthProvider>();
-                return Column(
+          child: Builder(builder: (context) {
+            // ignore: unused_local_variable
+            var pro = context.read<AuthProvider>();
+            return Container(
+              child: SingleChildScrollView(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
@@ -85,11 +87,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               pro.isLoading == true
                                   ? CircularProgressIndicator.adaptive()
                                   : Text(
-                                      pro.currentAddress,
+                                      pro.currentAddress.isEmpty
+                                          ? "Oops! Error 404"
+                                          : pro.currentAddress,
                                       style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.white),
+                                      textAlign: TextAlign.center,
                                     )
                             ],
                           ),
@@ -177,25 +182,84 @@ class _HomeScreenState extends State<HomeScreen> {
                           'Latest',
                           style: AppTextStyles.textStyleBoldBodyMedium,
                         )),
-                    StreamBuilder(
-                        stream: FirebaseFirestore.instance
-                            .collection("Products")
-                            .snapshots(),
-                        builder: (context, AsyncSnapshot snapshot) {
-                          var pro = context.read<ProductProvider>();
-                          if (snapshot.hasData) {
-                            QuerySnapshot data = snapshot.data;
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            selected = "All";
+                            setState(() {});
+                          },
+                          child: CustomContainerText(
+                            style: selected == "All"
+                                ? AppTextStyles.textStyleNormalBodySmall
+                                    .copyWith(color: AppColors.white)
+                                : AppTextStyles.textStyleNormalBodyXSmall
+                                    .copyWith(color: AppColors.black),
+                            container_color:
+                                selected == "All" ? AppColors.blue : null,
+                            text: "All",
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            selected = "Free";
+                            setState(() {});
+                          },
+                          child: CustomContainerText(
+                            style: selected == "Free"
+                                ? AppTextStyles.textStyleNormalBodySmall
+                                    .copyWith(color: AppColors.white)
+                                : AppTextStyles.textStyleNormalBodyXSmall
+                                    .copyWith(color: AppColors.black),
+                            container_color:
+                                selected == "Free" ? AppColors.blue : null,
+                            text: "Free",
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            selected = "Paid";
+                            setState(() {});
+                          },
+                          child: CustomContainerText(
+                            style: selected == "Paid"
+                                ? AppTextStyles.textStyleNormalBodySmall
+                                    .copyWith(color: AppColors.white)
+                                : AppTextStyles.textStyleNormalBodyXSmall
+                                    .copyWith(color: AppColors.black),
+                            container_color:
+                                selected == "Paid" ? AppColors.blue : null,
+                            text: "Paid",
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    selected == null
+                        ? CircularProgressIndicator()
+                        : StreamBuilder(
+                            stream: FirebaseFirestore.instance
+                                .collection("Products")
+                                .snapshots(),
+                            builder: (context, AsyncSnapshot snapshot) {
+                              var pro = context.read<ProductProvider>();
 
-                            return pro.isLoading
-                                ? Center(child: CircularProgressIndicator())
-                                : GridView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    shrinkWrap: true,
-                                    itemCount: data.docs.length,
-                                    itemBuilder: (context, index) {
-                                      DocumentSnapshot dataDoc =
-                                          data.docs[index];
+                              if (snapshot.hasData) {
+                                QuerySnapshot data = snapshot.data;
+
+                                return GridView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount: data.docs.length,
+                                  itemBuilder: (context, index) {
+                                    DocumentSnapshot dataDoc = data.docs[index];
+
+                                    if (selected == "All") {
                                       return CustomContainerBox(
+                                        isfree: dataDoc.get('isFree'),
                                         text: dataDoc.get('title'),
                                         secondText: dataDoc.get('description'),
                                         imgLink: NetworkImage(
@@ -208,14 +272,99 @@ class _HomeScreenState extends State<HomeScreen> {
                                               ));
                                         },
                                       );
-                                    },
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 2),
-                                  );
-                          } else
-                            return CircularProgressIndicator.adaptive();
-                        }),
+                                    } else if (selected == "Free") {
+                                      if (dataDoc.get('isFree') == "Free") {
+                                        return CustomContainerBox(
+                                          isfree: dataDoc.get('isFree'),
+                                          text: dataDoc.get('title'),
+                                          secondText:
+                                              dataDoc.get('description'),
+                                          imgLink: NetworkImage(
+                                              dataDoc.get('urlImage')[0]),
+                                          ontap: () {
+                                            push(
+                                                context,
+                                                ProductScreen(
+                                                  index: index,
+                                                ));
+                                          },
+                                        );
+                                      }
+                                    } else {
+                                      if (dataDoc.get('isFree') != "Free") {
+                                        return CustomContainerBox(
+                                          isfree: dataDoc.get('isFree'),
+                                          text: dataDoc.get('title'),
+                                          secondText:
+                                              dataDoc.get('description'),
+                                          imgLink: NetworkImage(
+                                              dataDoc.get('urlImage')[0]),
+                                          ontap: () {
+                                            push(
+                                                context,
+                                                ProductScreen(
+                                                  index: index,
+                                                ));
+                                          },
+                                        );
+                                      }
+                                    }
+                                  },
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2),
+                                );
+                              } else
+                                return Center(
+                                    child:
+                                        CircularProgressIndicator.adaptive());
+                            }),
+
+                    // selected == "Paid"
+                    //     ? StreamBuilder(
+                    //         stream: FirebaseFirestore.instance
+                    //             .collection("Products")
+                    //             .snapshots(),
+                    //         builder: (context, AsyncSnapshot snapshot) {
+                    //           var pro = context.read<ProductProvider>();
+
+                    //           if (snapshot.hasData) {
+                    //             QuerySnapshot data = snapshot.data;
+
+                    //             return GridView.builder(
+                    //               physics: NeverScrollableScrollPhysics(),
+                    //               shrinkWrap: true,
+                    //               itemCount: data.docs.length,
+                    //               itemBuilder: (context, index) {
+                    //                 DocumentSnapshot dataDoc = data.docs[index];
+                    //                 if (dataDoc.get('isFree') != "Free") {
+                    //                   return CustomContainerBox(
+                    //                     isfree: dataDoc.get('isFree'),
+                    //                     text: dataDoc.get('title'),
+                    //                     secondText: dataDoc.get('description'),
+                    //                     imgLink: NetworkImage(
+                    //                         dataDoc.get('urlImage')[0]),
+                    //                     ontap: () {
+                    //                       push(
+                    //                           context,
+                    //                           ProductScreen(
+                    //                             index: index,
+                    //                           ));
+                    //                     },
+                    //                   );
+                    //                 }
+                    //               },
+                    //               gridDelegate:
+                    //                   SliverGridDelegateWithFixedCrossAxisCount(
+                    //                       crossAxisCount: 2),
+                    //             );
+                    //           } else
+                    //             return Center(
+                    //                 child:
+                    //                     CircularProgressIndicator.adaptive());
+                    //         })
+                    //     : Text(''),
+
                     // Padding(
                     //     padding:
                     //         const EdgeInsets.only(left: 20, bottom: 20, top: 15),
@@ -263,10 +412,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     //   ),
                     // )
                   ],
-                );
-              }),
-            ],
-          ),
+                ),
+              ),
+            );
+          }),
         ),
       ),
     );

@@ -1,13 +1,15 @@
+import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainerBox extends StatelessWidget {
-  final text, secondText, imgLink, ontap;
+  final text, secondText, imgLink, ontap, isfree;
   CustomContainerBox(
       {required this.text,
       required this.imgLink,
       required this.secondText,
-      required this.ontap});
+      required this.ontap,
+      required this.isfree});
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,16 @@ class CustomContainerBox extends StatelessWidget {
                 Text(
                   secondText,
                   style: AppTextStyles.textStyleBoldBodyXSmall,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: true,
+                ),
+                Text(
+                  isfree,
+                  style: isfree == "Free"
+                      ? AppTextStyles.textStyleBoldBodyXSmall
+                          .copyWith(color: AppColors.Green)
+                      : AppTextStyles.textStyleBoldBodyXSmall
+                          .copyWith(color: AppColors.yellow),
                   overflow: TextOverflow.ellipsis,
                   softWrap: true,
                 ),

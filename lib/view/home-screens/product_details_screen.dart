@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
@@ -36,32 +38,61 @@ class _ProductScreenState extends State<ProductScreen> {
                           if (snapshot.hasData) {
                             QuerySnapshot data = snapshot.data;
 
-                            // ignore: unused_local_variable
                             DocumentSnapshot dataDoc = data.docs[widget.index];
-                            // ignore: dead_code
 
-                            // scrollDirection: Axis.horizontal,
-                            // ignore: dead_code
-                            return SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  for (int i = 0;
-                                      i < dataDoc.get('urlImage').length;
-                                      // ignore: dead_code
-                                      i++)
-                                    Container(
-                                      height: 300,
-                                      width: size.width,
-                                      child: Image(
-                                        image: NetworkImage(
-                                            dataDoc.get('urlImage')[i]),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                ],
+                            return CarouselSlider.builder(
+                              carouselController: CarouselController(),
+                              options: CarouselOptions(
+                                height: 300,
+                                aspectRatio: 16 / 9,
+                                viewportFraction: 0.8,
+                                initialPage: 0,
+                                enableInfiniteScroll: true,
+                                reverse: false,
+                                autoPlay: true,
+                                autoPlayInterval: Duration(seconds: 3),
+                                autoPlayAnimationDuration:
+                                    Duration(milliseconds: 800),
+                                autoPlayCurve: Curves.fastOutSlowIn,
+                                enlargeCenterPage: true,
+                                enlargeFactor: 0.3,
+                                // onPageChanged:,
+                                scrollDirection: Axis.horizontal,
+                              ),
+                              itemCount: dataDoc.get('urlImage').length,
+                              itemBuilder: (BuildContext context, int itemIndex,
+                                      int pageViewIndex) =>
+                                  Container(
+                                height: 300,
+                                width: double.infinity,
+                                child: Image(
+                                  image: NetworkImage(
+                                      dataDoc.get('urlImage')[itemIndex]),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             );
+
+                            // SingleChildScrollView(
+                            //   scrollDirection: Axis.horizontal,
+                            //   child: Row(
+                            //     children: [
+                            //       for (int i = 0;
+                            //           i < dataDoc.get('urlImage').length;
+                            //           // ignore: dead_code
+                            //           i++)
+                            //         Container(
+                            //           height: 300,
+                            //           width: size.width,
+                            //           child: Image(
+                            //             image: NetworkImage(
+                            //                 dataDoc.get('urlImage')[i]),
+                            //             fit: BoxFit.cover,
+                            //           ),
+                            //         ),
+                            //     ],
+                            //   ),
+                            // );
                           }
 
                           return Center(
@@ -78,10 +109,11 @@ class _ProductScreenState extends State<ProductScreen> {
                             pop(context);
                           },
                           icon: Icon(
-                            Icons.arrow_back_ios,
+                            Icons.arrow_back,
                             color: widget.index == null
                                 ? AppColors.black
-                                : AppColors.white,
+                                : Color.fromARGB(255, 223, 81, 15),
+                            size: 35,
                           )),
                       IconButton(
                           onPressed: () {},
@@ -89,7 +121,7 @@ class _ProductScreenState extends State<ProductScreen> {
                             Icons.forward,
                             color: widget.index == null
                                 ? AppColors.black
-                                : AppColors.white,
+                                : Color.fromARGB(255, 223, 81, 15),
                           ))
                     ],
                   ),

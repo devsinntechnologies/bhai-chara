@@ -12,7 +12,8 @@ class FirebaseManager {
       description,
       category,
       subcategory,
-      List<String>? urlImage}) async {
+      List<String>? urlImage,
+      isFree}) async {
     try {
       var data = await FirebaseFirestore.instance.collection("Products").add({
         "price": price,
@@ -22,6 +23,7 @@ class FirebaseManager {
         "category": category,
         "subcategory": subcategory,
         "urlImage": urlImage,
+        "isFree": isFree
       });
       return data;
     } catch (e) {
@@ -31,7 +33,7 @@ class FirebaseManager {
   }
 
   static AddImages(List<File> selectedimages,
-      {price, title, age, description, category, subcategory}) async {
+      {price, title, age, description, category, subcategory, isFree}) async {
     try {
       List<String> urlImage = [];
       for (var i = 0; i < selectedimages.length; i++) {
@@ -45,14 +47,15 @@ class FirebaseManager {
         urlImage.add(await referenceImageToUpload.getDownloadURL());
       }
 
-      await addProduct(
+      addProduct(
           urlImage: urlImage,
           price: price,
           age: age,
           title: title,
           description: description,
           category: category,
-          subcategory: subcategory);
+          subcategory: subcategory,
+          isFree: isFree);
     } catch (e) {
       showSnack(text: e.toString());
     }

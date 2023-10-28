@@ -37,8 +37,9 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   List<String> urlImage = [];
   ImagePicker picker = ImagePicker();
   var selected = "";
-  var pricing = "Free";
   var loc;
+  String pricing = "Paid";
+  bool isFree = false;
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -207,16 +208,15 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         children: [
                           InkWell(
                             onTap: () {
-                              pricing = "Free";
+                              isFree = true;
                               setState(() {});
                             },
                             child: CustomContainerText(
-                              style: pricing == "Free"
+                              style: isFree
                                   ? AppTextStyles.textStyleNormalBodySmall
                                       .copyWith(color: AppColors.white)
                                   : null,
-                              container_color:
-                                  pricing == "Free" ? AppColors.blue : null,
+                              container_color: isFree ? AppColors.blue : null,
                               text: "Free",
                             ),
                           ),
@@ -225,16 +225,16 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                           ),
                           InkWell(
                             onTap: () {
-                              pricing = "Price";
+                              isFree = false;
                               setState(() {});
                             },
                             child: CustomContainerText(
-                              style: pricing == "Price"
+                              style: isFree == false
                                   ? AppTextStyles.textStyleNormalBodySmall
                                       .copyWith(color: AppColors.white)
                                   : null,
                               container_color:
-                                  pricing == "Price" ? AppColors.blue : null,
+                                  isFree == false ? AppColors.blue : null,
                               text: "Price",
                             ),
                           ),
@@ -243,14 +243,14 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                       const SizedBox(
                         height: 10,
                       ),
-                      if (pricing == "Price")
+                      if (isFree == false)
                         CustomTextField(
                           keyboardtype: TextInputType.number,
                           controller: priceController,
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide: BorderSide(color: AppColors.grey)),
-                          hintText: "Price",
+                          hintText: "RS:",
                           obsecuretext: false,
                           width: size.width,
                         ),
@@ -422,12 +422,11 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             showSnack(
                                 context: context,
                                 text: "Enter Please Description Field");
-                          } else if (pricing == "Price" &&
-                              priceController.text.isEmpty) {
+                          } else if (isFree) {
+                            pricing = "Free";
+
                             priceController.text = "Free";
-                          } else if (pricing == "Free") {
-                            priceController.text = "Free";
-                          } else if (pricing != "Free" &&
+                          } else if (isFree == false &&
                               priceController.text.isEmpty) {
                             showSnack(
                                 context: context,
@@ -443,6 +442,17 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 description: describeController.text,
                                 category: widget.titletext,
                                 subcategory: widget.subtext,
+                                isFree: pricing,
+
+                                // categoryID: "",
+                                // subcategoryID:"",
+                                // isFree: ,
+
+                                // itemAddress: "",
+                                // date:"",
+
+                                // ownerID:ownerID,
+                                // itemLocation:""
                               );
                             }
 

@@ -13,6 +13,7 @@ class FireStoreProvider extends ChangeNotifier {
     description,
     category,
     subcategory,
+    isFree,
   }) async {
     isLoading = true;
     notifyListeners();
@@ -24,6 +25,7 @@ class FireStoreProvider extends ChangeNotifier {
       age: age,
       category: category,
       subcategory: subcategory,
+      isFree: isFree,
     );
 
     if (data != null) {

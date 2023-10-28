@@ -6,7 +6,7 @@ import 'package:bhai_chara/provider/slider_provider.dart';
 import 'package:bhai_chara/provider/timer_provider.dart';
 import 'package:bhai_chara/provider/switch_provider.dart';
 import 'package:bhai_chara/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           // theme: ThemeData(
           //   fontFamily: "Lora-Regular",
           // ),
-          home: SplashScreen(),
+          home: RootScreen(),
         ));
   }
 }
