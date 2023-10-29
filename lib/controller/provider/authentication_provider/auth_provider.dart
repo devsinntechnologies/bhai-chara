@@ -20,7 +20,7 @@ class AuthProvider extends ChangeNotifier {
     if (data != null) {
       currentAddress = data;
     }
-    showSnack( context,  "Location Update Successfully");
+    showSnack( context, "Location Update Successfully");
     isLoading = false;
     notifyListeners();
   }
