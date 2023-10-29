@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseManager {
   static addProduct(
@@ -49,4 +48,27 @@ class FirebaseManager {
       showSnack(context, e.toString());
     }
   }
+
+  static SignInWithGoogle() async
+  {
+
+   // begain interactive sign in process
+
+   final GoogleSignInAccount? gUser= await GoogleSignIn().signIn();
+
+   //obtain auth details on request
+
+   final GoogleSignInAuthentication? gAuth= await gUser!.authentication;
+
+   //create a new credential for user
+
+   final Credential = GoogleAuthProvider.credential();
+   accessToken: gAuth?.accessToken;
+   idToken: gAuth?.idToken;
+
+   //finally, lets sign in
+
+   return await FirebaseAuth.instance.signInWithCredential(Credential);
+  }
+
 }
