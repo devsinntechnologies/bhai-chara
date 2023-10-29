@@ -1,7 +1,8 @@
-import 'package:bhai_chara/services/Screen_Manager.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+
+import '../../services/Screen_Manager.dart';
 
 class AuthProvider extends ChangeNotifier {
   bool isLoading = false;
@@ -19,7 +20,7 @@ class AuthProvider extends ChangeNotifier {
     if (data != null) {
       currentAddress = data;
     }
-    showSnack(context: context, text: "Location Update Successfully");
+    showSnack( context,  "Location Update Successfully");
     isLoading = false;
     notifyListeners();
   }

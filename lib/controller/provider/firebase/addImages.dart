@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bhai_chara/services/Firebase_Manager.dart';
+import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
 import 'package:flutter/material.dart';
 
 class FireStoreProvider extends ChangeNotifier {

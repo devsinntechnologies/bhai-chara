@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SliderProvider()),
           ChangeNotifierProvider(create: (context) => VariableProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
+        ChangeNotifierProvider(create: (context) => ChatProvider()),
           ChangeNotifierProvider(create: (context) => ProductProvider()),
           ChangeNotifierProvider(create: (context) => NumberProvider()),
           ChangeNotifierProvider(create: (context) => FireAuthProvider()),

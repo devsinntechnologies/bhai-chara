@@ -77,9 +77,9 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
               CustomButton(
                 onTap: () {
                   if (numberController.text.isEmpty) {
-                    showSnack(context: context);
+                    showSnack( context," ");
                   } else if (numberController.text.length < 5) {
-                    showSnack(context: "invalid phone number");
+                    showSnack( context,"invalid phone number");
                   } else {
                     FocusScope.of(context).nextFocus();
                     push(context, OTPScreen(phone: numberController.text));

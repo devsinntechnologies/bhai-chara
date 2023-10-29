@@ -1,10 +1,11 @@
-import 'package:bhai_chara/services/Firebase_Manager.dart';
-import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:flutter/material.dart';
+
+import '../../../utils/showSnack.dart';
+import '../../services/Firebase_Manager.dart';
 
 class ProductProvider extends ChangeNotifier {
   bool isLoading = false;
-  addProduct(price, age, title, description) async {
+  addProduct(context,price, age, title, description) async {
     try {
       isLoading = true;
       notifyListeners();
@@ -20,7 +21,7 @@ class ProductProvider extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     } catch (e) {
-      showSnack(text: e.toString());
+      showSnack( context,e.toString());
     }
   }
 }

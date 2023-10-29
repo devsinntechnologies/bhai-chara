@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/custom_button.dart';
-import '../../provider/visibility_provider.dart';
+import '../../controller/provider/visibility_provider.dart';
 import '../../utils/container.dart';
 
 import '../../utils/custom_textfield.dart';
