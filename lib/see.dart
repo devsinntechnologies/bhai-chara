@@ -1,21 +1,21 @@
 import 'package:bhai_chara/controller/provider/firebase/addproduct.dart';
-import 'package:bhai_chara/controller/provider/firebase/firebaseauthentication.dart';
 import 'package:bhai_chara/controller/provider/root_provider.dart';
 import 'package:bhai_chara/controller/provider/slider_provider.dart';
 import 'package:bhai_chara/controller/provider/timer_provider.dart';
 import 'package:bhai_chara/controller/provider/switch_provider.dart';
 import 'package:bhai_chara/controller/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/chatt/chat_view.dart';
+import 'package:bhai_chara/controller/provider/chat_provider.dart';
+
+import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../view/home-screens/root_screen.dart';
-import 'controller/provider/authentication_provider/auth_provider.dart';
 import 'controller/provider/authentication_provider/number_provider.dart';
-import 'controller/provider/authentication_provider/variable_provider.dart';
+import 'controller/provider/authentication_provider/variable.dart';
+import 'controller/provider/firebase/firebaseauthentication.dart';
 import 'firebase_options.dart';
-import 'controller/provider/chat_provider.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,20 +32,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-         ChangeNotifierProvider(create: (context) => TimerProvider()),
+          ChangeNotifierProvider(create: (context) => TimerProvider()),
+          ChangeNotifierProvider(create: (context) => VariableProvider()),
           ChangeNotifierProvider(create: (context) => visibilityProvider1()),
           ChangeNotifierProvider(create: (context) => visibilityProvider2()),
           ChangeNotifierProvider(create: (context) => SwitchProvider()),
           ChangeNotifierProvider(create: (context) => SliderProvider()),
           ChangeNotifierProvider(create: (context) => VariableProvider()),
           ChangeNotifierProvider(create: (context) => RootProvider()),
-          ChangeNotifierProvider(create: (context) => ChatProvider()),
+        ChangeNotifierProvider(create: (context) => ChatProvider()),
           ChangeNotifierProvider(create: (context) => ProductProvider()),
           ChangeNotifierProvider(create: (context) => NumberProvider()),
           ChangeNotifierProvider(create: (context) => FireAuthProvider()),
-          ChangeNotifierProvider(create: (context) => AuthProvider()),
-
-          
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -9,6 +9,7 @@ import '../../controller/provider/root_provider.dart';
 import '../account/account_screen.dart';
 import '../ads/ads_screen.dart';
 import '../chatt/chat_list_screen.dart';
+import '../chatt/chat_view.dart';
 
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});
@@ -23,7 +24,7 @@ class RootScreen extends StatelessWidget {
 
   var screensList = [
     HomeScreen(),
-    ChattListScreen(),
+    ChatView(),
     SellScreen(),
     AdsScreen(),
     AccountScreen(),

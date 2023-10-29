@@ -2,6 +2,9 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseManager {
   static addProduct(
@@ -62,13 +65,13 @@ class FirebaseManager {
 
    //create a new credential for user
 
-   final Credential = GoogleAuthProvider.credential();
-   accessToken: gAuth?.accessToken;
-   idToken: gAuth?.idToken;
+  //  final Credential = GoogleAuthProvider.credential();
+  // //  accessToken: gAuth?.accessToken;
+  // //  idToken: gAuth?.idToken;
 
-   //finally, lets sign in
+  //  //finally, lets sign in
 
-   return await FirebaseAuth.instance.signInWithCredential(Credential);
+  //  return await FirebaseAuth.instance.signInWithCredential(Credential);
   }
 
 }
