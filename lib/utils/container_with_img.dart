@@ -56,8 +56,8 @@ class CustomContainerBox extends StatelessWidget {
                   softWrap: true,
                 ),
                 Text(
-                  isfree,
-                  style: isfree == "Free"
+                  isfree ? "Free" : "Paid",
+                  style: isfree
                       ? AppTextStyles.textStyleBoldBodyXSmall
                           .copyWith(color: AppColors.Green)
                       : AppTextStyles.textStyleBoldBodyXSmall

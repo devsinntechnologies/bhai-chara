@@ -238,87 +238,141 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 10,
                     ),
-                    selected == null
-                        ? CircularProgressIndicator()
-                        : StreamBuilder(
-                            stream: FirebaseFirestore.instance
-                                .collection("Products")
-                                .snapshots(),
-                            builder: (context, AsyncSnapshot snapshot) {
-                              var pro = context.read<ProductProvider>();
 
-                              if (snapshot.hasData) {
-                                QuerySnapshot data = snapshot.data;
+                    // StreamBuilder(
+                    //     stream: FirebaseFirestore.instance
+                    //         .collection("Products")
+                    //         .snapshots(),
+                    //     builder: (context, AsyncSnapshot snapshot) {
+                    //       var pro = context.read<ProductProvider>();
 
-                                return GridView.builder(
-                                  physics: NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: data.docs.length,
-                                  itemBuilder: (context, index) {
-                                    DocumentSnapshot dataDoc = data.docs[index];
+                    //       if (snapshot.hasData) {
+                    //         QuerySnapshot data = snapshot.data;
 
-                                    if (selected == "All") {
-                                      return CustomContainerBox(
-                                        isfree: dataDoc.get('isFree'),
-                                        text: dataDoc.get('title'),
-                                        secondText: dataDoc.get('description'),
-                                        imgLink: NetworkImage(
-                                            dataDoc.get('urlImage')[0]),
-                                        ontap: () {
-                                          push(
-                                              context,
-                                              ProductScreen(
-                                                index: index,
-                                              ));
-                                        },
-                                      );
-                                    } else if (selected == "Free") {
-                                      if (dataDoc.get('isFree') == "Free") {
-                                        return CustomContainerBox(
-                                          isfree: dataDoc.get('isFree'),
-                                          text: dataDoc.get('title'),
-                                          secondText:
-                                              dataDoc.get('description'),
-                                          imgLink: NetworkImage(
-                                              dataDoc.get('urlImage')[0]),
-                                          ontap: () {
-                                            push(
-                                                context,
-                                                ProductScreen(
-                                                  index: index,
-                                                ));
-                                          },
-                                        );
-                                      }
-                                    } else {
-                                      if (dataDoc.get('isFree') != "Free") {
-                                        return CustomContainerBox(
-                                          isfree: dataDoc.get('isFree'),
-                                          text: dataDoc.get('title'),
-                                          secondText:
-                                              dataDoc.get('description'),
-                                          imgLink: NetworkImage(
-                                              dataDoc.get('urlImage')[0]),
-                                          ontap: () {
-                                            push(
-                                                context,
-                                                ProductScreen(
-                                                  index: index,
-                                                ));
-                                          },
-                                        );
-                                      }
-                                    }
-                                  },
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2),
-                                );
-                              } else
-                                return Center(
-                                    child:
-                                        CircularProgressIndicator.adaptive());
-                            }),
+                    //         return GridView.builder(
+                    //           physics: NeverScrollableScrollPhysics(),
+                    //           shrinkWrap: true,
+                    //           itemCount: data.docs.length,
+                    //           itemBuilder: (context, index) {
+                    //             DocumentSnapshot dataDoc = data.docs[index];
+
+                    //             if (selected == "All") {
+                    //               return CustomContainerBox(
+                    //                 isfree: dataDoc.get('isFree'),
+                    //                 text: dataDoc.get('title'),
+                    //                 secondText: dataDoc.get('description'),
+                    //                 imgLink: NetworkImage(
+                    //                     dataDoc.get('urlImage')[0]),
+                    //                 ontap: () {
+                    //                   push(
+                    //                       context,
+                    //                       ProductScreen(
+                    //                         index: index,
+                    //                       ));
+                    //                 },
+                    //               );
+                    //             } else if (selected == "Free") {
+                    //               if (dataDoc.get('isFree') == "Free") {
+                    //                 return CustomContainerBox(
+                    //                   isfree: dataDoc.get('isFree'),
+                    //                   text: dataDoc.get('title'),
+                    //                   secondText:
+                    //                       dataDoc.get('description'),
+                    //                   imgLink: NetworkImage(
+                    //                       dataDoc.get('urlImage')[0]),
+                    //                   ontap: () {
+                    //                     push(
+                    //                         context,
+                    //                         ProductScreen(
+                    //                           index: index,
+                    //                         ));
+                    //                   },
+                    //                 );
+                    //               }
+                    //             } else {
+                    //               if (dataDoc.get('isFree') != "Free") {
+                    //                 return CustomContainerBox(
+                    //                   isfree: dataDoc.get('isFree'),
+                    //                   text: dataDoc.get('title'),
+                    //                   secondText:
+                    //                       dataDoc.get('description'),
+                    //                   imgLink: NetworkImage(
+                    //                       dataDoc.get('urlImage')[0]),
+                    //                   ontap: () {
+                    //                     push(
+                    //                         context,
+                    //                         ProductScreen(
+                    //                           index: index,
+                    //                         ));
+                    //                   },
+                    //                 );
+                    //               }
+                    //             }
+                    //           },
+                    //           gridDelegate:
+                    //               SliverGridDelegateWithFixedCrossAxisCount(
+                    //                   crossAxisCount: 2),
+                    //         );
+                    //       } else
+                    //         return Center(
+                    //             child:
+                    //                 CircularProgressIndicator.adaptive());
+                    //     }),
+                    StreamBuilder(
+                      stream: FirebaseFirestore.instance
+                          .collection("Products")
+                          .snapshots(),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.hasData) {
+                          QuerySnapshot data = snapshot.data;
+                          List<DocumentSnapshot> filteredData = [];
+
+                          for (int index = 0;
+                              index < data.docs.length;
+                              index++) {
+                            DocumentSnapshot dataDoc = data.docs[index];
+                            bool isFree = dataDoc.get('isFree');
+                            if (selected == "All" ||
+                                (selected == "Free" && isFree) ||
+                                (selected == "Paid" && !isFree)) {
+                              filteredData.add(dataDoc);
+                            }
+                          }
+
+                          return GridView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: filteredData.length,
+                            itemBuilder: (context, index) {
+                              DocumentSnapshot dataDoc = filteredData[index];
+
+                              return CustomContainerBox(
+                                isfree: dataDoc.get('isFree'),
+                                text: dataDoc.get('title'),
+                                secondText: dataDoc.get('description'),
+                                imgLink:
+                                    NetworkImage(dataDoc.get('urlImage')[0]),
+                                ontap: () {
+                                  push(
+                                    context,
+                                    ProductScreen(
+                                      index: index,
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                            ),
+                          );
+                        } else {
+                          return Center(
+                              child: CircularProgressIndicator.adaptive());
+                        }
+                      },
+                    ),
 
                     // selected == "Paid"
                     //     ? StreamBuilder(
