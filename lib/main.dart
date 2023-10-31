@@ -6,6 +6,7 @@ import 'package:bhai_chara/controller/provider/timer_provider.dart';
 import 'package:bhai_chara/controller/provider/switch_provider.dart';
 import 'package:bhai_chara/controller/provider/visibility_provider.dart';
 import 'package:bhai_chara/view/chatt/chat_view.dart';
+import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
                   return Center(child: CircularProgressIndicator());
                 }
 
-                return RootScreen();
+                return SplashScreen();
               }),
         ));
   }

@@ -10,6 +10,7 @@ import '../account/account_screen.dart';
 import '../ads/ads_screen.dart';
 import '../chatt/chat_list_screen.dart';
 import '../chatt/chat_view.dart';
+import '../chatt/conversation_screen.dart';
 
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});
