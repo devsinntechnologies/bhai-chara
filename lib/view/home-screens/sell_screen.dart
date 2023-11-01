@@ -47,7 +47,7 @@ class _SellScreenState extends State<SellScreen> {
     "Mobile",
     "Furniture",
     "Bike",
-    "bell",
+    "Bell",
   ];
   List<String> Selling = [
     'assets/images/fluent_animal-cat-28-filled.png',

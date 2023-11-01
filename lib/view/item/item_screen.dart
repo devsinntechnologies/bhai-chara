@@ -1,6 +1,7 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/itemContainer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -71,12 +72,12 @@ class _ItemScreenState extends State<ItemScreen> {
                             .collection("Products")
                             .snapshots(),
                         builder: (context, AsyncSnapshot snapshot) {
-                          var pro = context.read<ProductProvider>();
+                          var pro = context.watch<ProductProvider>();
                           if (snapshot.hasData) {
                             QuerySnapshot data = snapshot.data;
 
                             return pro.isLoading
-                                ? Center(child: CircularProgressIndicator())
+                                ? Center(child: CustomLoader())
                                 : ListView.builder(
                                     physics: NeverScrollableScrollPhysics(),
                                     shrinkWrap: true,
@@ -97,19 +98,6 @@ class _ItemScreenState extends State<ItemScreen> {
                                               ));
                                         },
                                       );
-                                      // CustomContainerBox(
-                                      //   text: dataDoc.get('title'),
-                                      //   secondText: dataDoc.get('description'),
-                                      //   imgLink: NetworkImage(
-                                      //       dataDoc.get('urlImage')[0]),
-                                      //   ontap: () {
-                                      //     push(
-                                      //         context,
-                                      //         ProductScreen(
-                                      //           index: index,
-                                      //         ));
-                                      //   },
-                                      // );
                                     },
                                   );
                           } else

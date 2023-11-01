@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../provider/root_provider.dart';
 import '../account/account_screen.dart';
-import '../ads/item_screen.dart';
+import '../item/item_screen.dart';
 import '../chatt/chat_list_screen.dart';
 
 class RootScreen extends StatelessWidget {

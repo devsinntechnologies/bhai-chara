@@ -47,6 +47,67 @@ class _SubCategorieScreenState extends State<SubCategorieScreen> {
     'Endangered Species',
     'Extinct Animals'
   ];
+  List<String> electronics = [
+    'Smartphone',
+    'Laptop',
+    'Tablet',
+    'Smartwatch',
+    'Television',
+    'Digital Camera',
+    'Bluetooth Speaker',
+    'Headphones',
+    'Gaming Console',
+    'Router',
+  ];
+  List<String> mobilePhones = [
+    'iPhone',
+    'Samsung Galaxy',
+    'Google Pixel',
+    'OnePlus',
+    'Sony Xperia',
+    'LG G Series',
+    'Motorola Moto',
+    'Huawei',
+    'Xiaomi',
+    'Oppo',
+  ];
+  List<String> furniture = [
+    'Sofa',
+    'Dining Table',
+    'Bed',
+    'Wardrobe',
+    'Coffee Table',
+    'Bookshelf',
+    'Office Chair',
+    'Dresser',
+    'Recliner',
+    'Nightstand',
+  ];
+  List<String> motorcycles = [
+    'Harley-Davidson',
+    'Honda',
+    'Yamaha',
+    'Kawasaki',
+    'Suzuki',
+    'Ducati',
+    'BMW Motorrad',
+    'Triumph',
+    'KTM',
+    'Indian Motorcycle',
+  ];
+  List<String> BellsSubCategory = [
+    'Crane Bell Co.',
+    'Spurcycle',
+    'Knog',
+    'Timber!',
+    'Mirrycle',
+    'Lezyne',
+    'Incredibell',
+    'Electra',
+    'Cateye',
+    'RockBros',
+  ];
+  var lengthSide = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -66,27 +127,67 @@ class _SubCategorieScreenState extends State<SubCategorieScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 12.0),
               child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    for (var i = 0; i < animalCategories.length; i++)
-                      InkWell(
-                        onTap: () {
-                          push(
-                              context,
-                              PostDetailScreen1(
-                                subtext: animalCategories[i],
-                                link: widget.link,
-                                color: widget.color,
-                                titletext: widget.text,
-                              ));
-                        },
-                        child: Text(animalCategories[i],
-                            style: AppTextStyles.textStyleNormalBodyMedium),
-                      ),
-                  ],
-                ),
+                child: Builder(builder: (context) {
+                  if (widget.text == "Animal") {
+                    lengthSide = animalCategories.length;
+                  } else if (widget.text == "Electronic") {
+                    lengthSide = electronics.length;
+                  } else if (widget.text == "Mobile") {
+                    lengthSide = mobilePhones.length;
+                  } else if (widget.text == "Furniture") {
+                    lengthSide = furniture.length;
+                  } else if (widget.text == "Bike") {
+                    lengthSide = motorcycles.length;
+                  } else if (widget.text == "Bell") {
+                    lengthSide = BellsSubCategory.length;
+                  }
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      for (var i = 0; i < lengthSide; i++)
+                        InkWell(
+                          onTap: () {
+                            push(
+                                context,
+                                PostDetailScreen1(
+                                  subtext: widget.text == "Animal"
+                                      ? animalCategories[i]
+                                      : widget.text == "Electronic"
+                                          ? electronics[i]
+                                          : widget.text == "Mobile"
+                                              ? mobilePhones[i]
+                                              : widget.text == "Furniture"
+                                                  ? furniture[i]
+                                                  : widget.text == "Bike"
+                                                      ? motorcycles[i]
+                                                      : widget.text == "Bell"
+                                                          ? BellsSubCategory[i]
+                                                          : "",
+                                  link: widget.link,
+                                  color: widget.color,
+                                  titletext: widget.text,
+                                ));
+                          },
+                          child: Text(
+                              widget.text == "Animal"
+                                  ? animalCategories[i]
+                                  : widget.text == "Electronic"
+                                      ? electronics[i]
+                                      : widget.text == "Mobile"
+                                          ? mobilePhones[i]
+                                          : widget.text == "Furniture"
+                                              ? furniture[i]
+                                              : widget.text == "Bike"
+                                                  ? motorcycles[i]
+                                                  : widget.text == "Bell"
+                                                      ? BellsSubCategory[i]
+                                                      : "",
+                              style: AppTextStyles.textStyleNormalBodyMedium),
+                        ),
+                    ],
+                  );
+                }),
               ),
             )
           ]),
