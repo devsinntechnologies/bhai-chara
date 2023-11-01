@@ -2,8 +2,8 @@
 
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
-import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/refresh.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: Builder(builder: (context) {
             // ignore: unused_local_variable
-            var pro = context.read<AuthProvider>();
+            var pro = context.watch<AuthProvider>();
             return Container(
               child: SingleChildScrollView(
                 child: Column(
@@ -84,8 +84,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Icon(Icons.my_location_outlined,
                                   size: 24, color: Colors.white),
-                              pro.isLoading == true
-                                  ? CircularProgressIndicator.adaptive()
+                              pro.isLoading
+                                  ? Container(
+                                      height: 55,
+                                      width: 80,
+                                      child: CustomLoader())
                                   : Text(
                                       pro.currentAddress.isEmpty
                                           ? "Oops! Error 404"
@@ -368,8 +371,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         } else {
-                          return Center(
-                              child: CircularProgressIndicator.adaptive());
+                          return Center(child: CustomLoader());
                         }
                       },
                     ),

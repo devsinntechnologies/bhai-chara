@@ -88,7 +88,7 @@ class _ItemScreenState extends State<ItemScreen> {
                                         subcategory: dataDoc.get('subcategory'),
                                         category: dataDoc.get('category'),
                                         imageLink: dataDoc.get('urlImage')[0],
-                                        titleText: dataDoc.get('price'),
+                                        titleText: dataDoc.get('isFree'),
                                         ontap: () {
                                           push(
                                               context,

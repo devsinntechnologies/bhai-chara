@@ -75,7 +75,7 @@ class ItemContainer extends StatelessWidget {
                           width: 05,
                         ),
                         Text(
-                          titleText,
+                          titleText ? "Free" : "Paid",
                           style: AppTextStyles.textStyleBoldBodyXSmall
                               .copyWith(color: AppColors.grey),
                         ),

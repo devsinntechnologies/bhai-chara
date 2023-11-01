@@ -46,7 +46,7 @@ class FirebaseManager {
         await referenceImageToUpload.putFile(File(selectedimages[i].path));
         urlImage.add(await referenceImageToUpload.getDownloadURL());
       }
-
+      debugger();
       addProduct(
           urlImage: urlImage,
           price: price,
