@@ -1,10 +1,9 @@
-import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/utils.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CarouselDemo extends StatelessWidget {
   CarouselController buttonCarouselController = CarouselController();
 
