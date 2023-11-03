@@ -40,6 +40,31 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<Color> ColorList = [
+    AppColors.orange,
+    AppColors.yellow,
+    AppColors.Green,
+    AppColors.pink,
+    AppColors.blue,
+    AppColors.blue,
+  ];
+  List<String> SellCategory = [
+    "Animal",
+    "Electronic",
+    "Mobile",
+    "Furniture",
+    "Bike",
+    "Bell",
+  ];
+  List<String> Selling = [
+    'assets/images/fluent_animal-cat-28-filled.png',
+    'assets/images/basil_camera-solid.png',
+    'assets/images/fontisto_mobile.png',
+    'assets/images/map_furniture-store.png',
+    'assets/images/ri_motorbike-fill.png',
+    'assets/images/solar_bell-bold.png',
+  ];
+
   var selected = "All";
 
   @override
@@ -53,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {
                 push(context, RootScreen());
               });
-              showSnack(context: context, text: "Page Refresh");
             });
           },
           child: Builder(builder: (context) {
@@ -131,50 +155,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          CustomCircleAvatar(
-                            ontap: () {
-                              push(context, SubCategorieScreen());
-                            },
-                            link:
-                                'assets/images/fluent_animal-cat-28-filled.png',
-                            col: AppColors.orange,
-                            txt: 'Animal',
-                          ),
-                          CustomCircleAvatar(
+                          for (int i = 0; i < SellCategory.length; i++)
+                            CustomCircleAvatar(
                               ontap: () {
-                                push(context, SubCategorieScreen());
+                                push(
+                                    context,
+                                    SubCategorieScreen(
+                                      link: Selling[i],
+                                      color: ColorList[i],
+                                      text: SellCategory[i],
+                                    ));
                               },
-                              link: 'assets/images/basil_camera-solid.png',
-                              col: AppColors.yellow,
-                              txt: 'Electronic'),
-                          CustomCircleAvatar(
-                              ontap: () {
-                                push(context, SubCategorieScreen());
-                              },
-                              link: 'assets/images/fontisto_mobile.png',
-                              col: AppColors.Green,
-                              txt: 'Mobile'),
-                          CustomCircleAvatar(
-                              ontap: () {
-                                push(context, SubCategorieScreen());
-                              },
-                              link: 'assets/images/map_furniture-store.png',
-                              col: AppColors.pink,
-                              txt: 'Furniture'),
-                          CustomCircleAvatar(
-                              ontap: () {
-                                push(context, SubCategorieScreen());
-                              },
-                              link: 'assets/images/ri_motorbike-fill.png',
-                              col: AppColors.blue,
-                              txt: 'Bike'),
-                          CustomCircleAvatar(
-                              ontap: () {
-                                push(context, SubCategorieScreen());
-                              },
-                              link: 'assets/images/solar_bell-bold.png',
-                              col: AppColors.blue,
-                              txt: 'bell'),
+                              link: Selling[i],
+                              col: ColorList[i],
+                              txt: SellCategory[i],
+                            ),
                         ],
                       ),
                     ),

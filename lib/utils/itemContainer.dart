@@ -5,13 +5,14 @@ import 'text-styles.dart';
 
 // ignore: must_be_immutable
 class ItemContainer extends StatelessWidget {
-  ItemContainer(
-      {super.key,
-      required this.imageLink,
-      required this.titleText,
-      required this.category,
-      required this.subcategory,
-      this.ontap});
+  ItemContainer({
+    super.key,
+    required this.imageLink,
+    required this.titleText,
+    required this.category,
+    required this.subcategory,
+    this.ontap,
+  });
   var imageLink, titleText, ontap, category = "", subcategory = "";
   @override
   Widget build(BuildContext context) {
@@ -75,7 +76,7 @@ class ItemContainer extends StatelessWidget {
                           width: 05,
                         ),
                         Text(
-                          titleText ? "Free" : "Paid",
+                          titleText,
                           style: AppTextStyles.textStyleBoldBodyXSmall
                               .copyWith(color: AppColors.grey),
                         ),

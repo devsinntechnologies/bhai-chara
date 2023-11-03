@@ -17,7 +17,7 @@ class CustomContainerBox extends StatelessWidget {
       onTap: ontap,
       child: Container(
         margin: EdgeInsets.only(right: 10, left: 10, bottom: 10),
-        height: 250,
+        height: 300,
         width: 250,
         //  width: 100,
         decoration: BoxDecoration(

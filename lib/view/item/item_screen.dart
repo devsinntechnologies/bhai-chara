@@ -85,11 +85,14 @@ class _ItemScreenState extends State<ItemScreen> {
                                     itemBuilder: (context, index) {
                                       DocumentSnapshot dataDoc =
                                           data.docs[index];
+                                      var isFree = dataDoc.get('isFree')
+                                          ? "Free"
+                                          : dataDoc.get('price');
                                       return ItemContainer(
                                         subcategory: dataDoc.get('subcategory'),
                                         category: dataDoc.get('category'),
                                         imageLink: dataDoc.get('urlImage')[0],
-                                        titleText: dataDoc.get('isFree'),
+                                        titleText: isFree,
                                         ontap: () {
                                           push(
                                               context,
@@ -101,7 +104,9 @@ class _ItemScreenState extends State<ItemScreen> {
                                     },
                                   );
                           } else
-                            return CircularProgressIndicator.adaptive();
+                            return Center(
+                              child: CustomLoader(),
+                            );
                         }),
                   ],
                 ),

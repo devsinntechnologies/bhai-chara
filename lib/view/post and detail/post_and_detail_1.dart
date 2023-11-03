@@ -41,6 +41,19 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   var loc;
   String pricing = "Paid";
   bool isFree = false;
+
+  String message = "";
+  @override
+  void initState() {
+    super.initState();
+    // Delay showing the message for 10 seconds
+    Future.delayed(Duration(seconds: 10), () {
+      setState(() {
+        message = "Check Your Internet Connection Down.....";
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -53,7 +66,23 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
             child: Builder(builder: (context) {
               var provider = context.watch<FireStoreProvider>();
               return provider.isLoading
-                  ? CustomLoader()
+                  ? Center(
+                      child: Column(
+                      children: [
+                        CustomLoader(),
+                        Text(
+                          "Please Wait ......",
+                          style: AppTextStyles.textStyleBoldBodyMedium,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          message,
+                          style: AppTextStyles.textStyleBoldBodyMedium,
+                        )
+                      ],
+                    ))
                   : Column(
                       children: [
                         CustomContainer(

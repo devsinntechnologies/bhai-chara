@@ -43,10 +43,9 @@ class FirebaseManager {
         Reference referenceDirImages = referenceRoot.child('images');
         Reference referenceImageToUpload =
             referenceDirImages.child(uniqueFileName);
-        await referenceImageToUpload.putFile(File(selectedimages[i].path));
+        referenceImageToUpload.putFile(File(selectedimages[i].path));
         urlImage.add(await referenceImageToUpload.getDownloadURL());
       }
-      debugger();
       addProduct(
           urlImage: urlImage,
           price: price,
