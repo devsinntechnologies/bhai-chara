@@ -15,6 +15,7 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -43,15 +44,18 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   bool isFree = false;
 
   String message = "";
+  void rebuildPage() {
+    var pro = context.watch<FireStoreProvider>();
+    setState(() {
+      pro.isLoading = false;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+    // rebuildPage();
     // Delay showing the message for 10 seconds
-    Future.delayed(Duration(seconds: 10), () {
-      setState(() {
-        message = "Check Your Internet Connection Down.....";
-      });
-    });
   }
 
   @override
@@ -77,10 +81,6 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          message,
-                          style: AppTextStyles.textStyleBoldBodyMedium,
-                        )
                       ],
                     ))
                   : Column(
@@ -493,7 +493,6 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
 
                                         // categoryID: "",
                                         // subcategoryID:"",
-                                        // isFree: ,
 
                                         // itemAddress: "",
                                         // date:"",
@@ -526,22 +525,37 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   }
 
   Future getImages() async {
-    final pickedFile = await picker.pickMultiImage(
-      imageQuality: 100,
-    );
+    final pickedFile = await picker.pickMultiImage(imageQuality: 85);
     List<XFile> xfilePick = pickedFile;
 
-    setState(
-      () {
-        if (xfilePick.isNotEmpty) {
-          for (var i = 0; i < xfilePick.length; i++) {
-            selectedImages.add(File(xfilePick[i].path));
-          }
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Nothing is selected')));
+    if (xfilePick.isNotEmpty) {
+      for (var i = 0; i < xfilePick.length; i++) {
+        File selectedImage = File(xfilePick[i].path);
+        try {
+          File compressedImage = await compressImage(selectedImage);
+          selectedImages.add(compressedImage);
+        } catch (e) {
+          // Handle the error (e.g., log it or show a message)
+          print('Error compressing image: $e');
         }
-      },
+      }
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('Nothing is selected')));
+    }
+  }
+
+  Future compressImage(File image) async {
+    final result = await FlutterImageCompress.compressAndGetFile(
+      image.path,
+      image.path,
+      quality: 75, // Adjust the quality as needed
     );
+
+    if (result != null) {
+      return result;
+    } else {
+      throw 'Image compression failed'; // You can customize this error message
+    }
   }
 }

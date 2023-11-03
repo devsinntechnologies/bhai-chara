@@ -22,10 +22,12 @@ class _SignupByEmailState extends State<SignupByEmail> {
     var size = MediaQuery.of(context).size * 1;
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.all(20),
-            child: Expanded(
+        body: ListView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          children: [
+            Container(
+              height: size.height * .95,
+              padding: EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,18 +73,15 @@ class _SignupByEmailState extends State<SignupByEmail> {
                   ),
                   CustomTextField(
                       height: 60.0,
+                      labeltext: "E-mail",
                       obsecuretext: false,
                       width: size.width,
                       controller: emailController,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(color: AppColors.grey)),
-                      hintText: "Email"),
-                  SizedBox(
-                    height: (size.height > 400)
-                        ? size.height * .30
-                        : size.height * .10,
-                  ),
+                      hintText: "E-mail"),
+                  const Spacer(),
                   CustomButton(
                     onTap: () {
                       if (emailController.text.isEmpty) {
@@ -96,10 +95,13 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     },
                     text: "Next",
                   ),
+                  const SizedBox(
+                    height: 30,
+                  ),
                 ],
               ),
             ),
-          ),
+          ],
         ),
       ),
     );

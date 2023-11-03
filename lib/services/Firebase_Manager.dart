@@ -35,6 +35,7 @@ class FirebaseManager {
   static AddImages(List<File> selectedimages,
       {price, title, age, description, category, subcategory, isFree}) async {
     try {
+      debugger();
       List<String> urlImage = [];
       for (var i = 0; i < selectedimages.length; i++) {
         String uniqueFileName =
@@ -46,6 +47,7 @@ class FirebaseManager {
         referenceImageToUpload.putFile(File(selectedimages[i].path));
         urlImage.add(await referenceImageToUpload.getDownloadURL());
       }
+      debugger();
       addProduct(
           urlImage: urlImage,
           price: price,

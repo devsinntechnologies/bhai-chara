@@ -338,7 +338,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           }
 
                           return GridView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
+                            physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: filteredData.length,
                             itemBuilder: (context, index) {
@@ -360,10 +360,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                               );
                             },
+
+                            // ignore: prefer_const_constructors
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                            ),
+                                    crossAxisCount: 2, childAspectRatio: .85),
                           );
                         } else {
                           return Center(child: CustomLoader());

@@ -117,6 +117,7 @@ class CustomTextField extends StatelessWidget {
       required this.obsecuretext,
       this.prefixcolor,
       this.prfixicon,
+      this.labeltext,
       this.keyboardtype = TextInputType.text
       // this.pad_left = 20,
       // this.pad_bottom,
@@ -132,7 +133,8 @@ class CustomTextField extends StatelessWidget {
       hintText,
       prfixicon,
       prefixcolor,
-      keyboardtype;
+      keyboardtype,
+      labeltext;
   bool obsecuretext;
 
   @override
@@ -162,6 +164,8 @@ class CustomTextField extends StatelessWidget {
                   suffixIcon: suffixIcon,
                   suffixIconColor: suffixIconColor,
                   hintText: hintText,
+                  labelText: labeltext,
+                  // labelStyle: TextStyle(color: AppColors.blue, fontSize: 17),
                   hintStyle: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,

@@ -91,7 +91,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                                   )
                                 ]))),
                         const SizedBox(
-                          height: 20,
+                          height: 50,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -109,6 +109,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                                         BorderSide(color: AppColors.grey),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
+                                  labeltext: "Password",
                                   hintText: "Password",
                                   suffixIcon: x % 2 != 0
                                       ? IconButton(
@@ -139,7 +140,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                           ],
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 30,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -156,6 +157,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                                       borderSide:
                                           BorderSide(color: AppColors.grey)),
                                   hintText: "Confirm Password",
+                                  labeltext: "Confirm Password",
                                   suffixIcon: y % 2 != 0
                                       ? IconButton(
                                           onPressed: () {
