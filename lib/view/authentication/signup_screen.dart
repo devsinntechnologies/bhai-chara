@@ -77,22 +77,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                tap: (){
-                // debugger();
                  var provider=    context.read<FireAuthProvider>();
                    provider.SignUpByGoogle(context);
-                  // debugger();
-                  // FireAuthProvider().SignUpByGoogle(context);
-                  push(context,RootScreen());
+                 // push(context,RootScreen());
                 },
               );}),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // CustomContainerTile(
-              //     image: "assets/images/facebook.png",
-              //     text: "Continue with Facebook",
-              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-              //     tap: () {}),
+             
               const SizedBox(
                 height: 20,
               ),
@@ -106,19 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   tap: () {
                     push(context, SignupByEmail());
                   }),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // CustomContainerTile(
-              //     ontap: () {
-              //       push(context, SignUpScreenByPhone());
-              //     },
-              //     image: "assets/images/phone.png",
-              //     text: "Continue with Phone",
-              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-              //     tap: () {
-              //       push(context, SignUpScreenByPhone());
-              //     }),
+              
               const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
