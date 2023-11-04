@@ -4,6 +4,11 @@ import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer';
+import '../../controller/provider/firebase/firebaseauthentication.dart';
+import '../../view/home-screens/root_screen.dart';
+import 'package:provider/provider.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -63,20 +68,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(
                 height: 20,
               ),
+               Builder(
+                builder: (context){
+                  var blox = context.watch<FireAuthProvider>();
+                  return blox.isLoading ? CircularProgressIndicator():
               CustomContainerTile(
                 image: "assets/images/google.png",
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                tap: () {},
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomContainerTile(
-                  image: "assets/images/facebook.png",
-                  text: "Continue with Facebook",
-                  style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {}),
+               tap: (){
+                // debugger();
+                 var provider=    context.read<FireAuthProvider>();
+                   provider.SignUpByGoogle(context);
+                  // debugger();
+                  // FireAuthProvider().SignUpByGoogle(context);
+                  push(context,RootScreen());
+                },
+              );}),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // CustomContainerTile(
+              //     image: "assets/images/facebook.png",
+              //     text: "Continue with Facebook",
+              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+              //     tap: () {}),
               const SizedBox(
                 height: 20,
               ),
@@ -90,19 +106,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   tap: () {
                     push(context, SignupByEmail());
                   }),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomContainerTile(
-                  ontap: () {
-                    push(context, SignUpScreenByPhone());
-                  },
-                  image: "assets/images/phone.png",
-                  text: "Continue with Phone",
-                  style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {
-                    push(context, SignUpScreenByPhone());
-                  }),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // CustomContainerTile(
+              //     ontap: () {
+              //       push(context, SignUpScreenByPhone());
+              //     },
+              //     image: "assets/images/phone.png",
+              //     text: "Continue with Phone",
+              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+              //     tap: () {
+              //       push(context, SignUpScreenByPhone());
+              //     }),
               const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

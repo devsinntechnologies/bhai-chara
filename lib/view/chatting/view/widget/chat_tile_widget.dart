@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
-import 'package:bhai_chara/view/chatting/model/chat_model.dart';
 
-import '../view/chatting/view/conversation_screen.dart';
-
+import '../../controller/provider/chat_provider.dart';
+import '../../model/chat_model.dart';
+import '../conversation_screen.dart';
 
 class ChatTileWidget extends StatelessWidget {
   final ChatModel? model;

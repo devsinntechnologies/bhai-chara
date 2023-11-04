@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../common/app_images.dart';
 import '../../model/chat_model.dart';
+import '../../resource/app_images.dart';
 
 class ChatProvider extends ChangeNotifier {
   List<ChatModel> listOfChatModel = [

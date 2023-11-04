@@ -1,10 +1,8 @@
-import 'package:bhai_chara/utils/chat_tile_widget.dart';
+import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-
-import '../../controller/provider/chat_provider.dart';
-
+import 'package:sizer/sizer.dart';
+import 'widget/chat_tile_widget.dart';
 
 class ChatView extends StatefulWidget {
   const ChatView({super.key});
@@ -29,7 +27,7 @@ class _ChatViewState extends State<ChatView> {
               height: 10,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 1.5),
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.5.w),
               child: searchField(),
             ),
             Expanded(
@@ -38,7 +36,7 @@ class _ChatViewState extends State<ChatView> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 2, vertical: 1),
+                        EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
                     child: ChatTileWidget(
                       model: chatVM.listOfChatModel[index],
                     ),

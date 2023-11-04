@@ -5,7 +5,8 @@ import 'package:bhai_chara/controller/provider/slider_provider.dart';
 import 'package:bhai_chara/controller/provider/timer_provider.dart';
 import 'package:bhai_chara/controller/provider/switch_provider.dart';
 import 'package:bhai_chara/controller/provider/visibility_provider.dart';
-import 'package:bhai_chara/view/chatt/chat_view.dart';
+import 'package:bhai_chara/view/authentication/signup_screen.dart';
+import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,7 +17,6 @@ import 'controller/provider/authentication_provider/auth_provider.dart';
 import 'controller/provider/authentication_provider/number_provider.dart';
 import 'controller/provider/authentication_provider/variable_provider.dart';
 import 'firebase_options.dart';
-import 'controller/provider/chat_provider.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,10 +61,10 @@ class MyApp extends StatelessWidget {
                   return RootScreen();
                 } else if (snapshot.connectionState ==
                     ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const  Center(child: CircularProgressIndicator());
                 }
 
-                return SplashScreen();
+                return const SignUpScreen();
               }),
         ));
   }

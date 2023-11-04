@@ -1,12 +1,10 @@
-import 'package:bhai_chara/model/chat_model.dart';
+import 'package:bhai_chara/view/chatting/model/chat_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../controller/provider/chat_provider.dart';
-
+import '../controller/provider/chat_provider.dart';
 
 class ConversationScreen extends StatefulWidget {
   const ConversationScreen({super.key, ChatModel? model});

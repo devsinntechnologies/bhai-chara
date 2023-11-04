@@ -6,11 +6,10 @@ import 'package:bhai_chara/view/home-screens/sell_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../controller/provider/root_provider.dart';
+import '../../view/chatting/view/chat_view.dart';
 import '../account/account_screen.dart';
 import '../ads/ads_screen.dart';
-import '../chatt/chat_list_screen.dart';
-import '../chatt/chat_view.dart';
-import '../chatt/conversation_screen.dart';
+
 
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});

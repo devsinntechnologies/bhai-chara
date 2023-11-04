@@ -20,7 +20,7 @@ class CustomContainerTile extends StatelessWidget {
   var width, style_text;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: ontap,
       child: Container(
         height: height,

@@ -1,20 +1,25 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../../../utils/push.dart';
-import '../../../view/authentication/signup_screen_by_phone.dart';
-import '../../services/Firebase_Manager.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FireAuthProvider extends ChangeNotifier {
-  bool isLoading = false;
+  var isLoading = false ;
   SignUpByGoogle(context) async {
-    isLoading = true;
+    debugger();
+    isLoading= true;
     notifyListeners();
-    var data = await FirebaseManager.SignInWithGoogle();
-
-    if (data != null) {
-      pushUntil(context, SignUpScreenByPhone());
-      return data;
+    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken:  gAuth.accessToken,
+      idToken: gAuth.idToken,
+    );
+    debugger();
+    
+    isLoading= false;
+    notifyListeners();
+    return await FirebaseAuth.instance.signInWithCredential(credential);
     }
-    isLoading = false;
-    notifyListeners();
-  }
 }
