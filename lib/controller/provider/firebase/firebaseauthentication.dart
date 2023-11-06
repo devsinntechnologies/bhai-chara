@@ -9,7 +9,7 @@ import '../../../utils/showSnack.dart';
 class FireAuthProvider extends ChangeNotifier {
   var isLoading = false ;
   SignUpByGoogle(context) async {
-    debugger();
+
     isLoading= true;
     notifyListeners();
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();

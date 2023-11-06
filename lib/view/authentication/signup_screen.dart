@@ -27,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         body: Container(
           height: double.infinity,
           width: double.infinity,
-          padding: EdgeInsets.all(10),
+          padding:const  EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,13 +71,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                Builder(
                 builder: (context){
                   var blox = context.watch<FireAuthProvider>();
-                  return blox.isLoading ? CircularProgressIndicator():
+                  return blox.isLoading ? const  CircularProgressIndicator():
               CustomContainerTile(
                 image: "assets/images/google.png",
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-               tap: (){
-                debugger();
+               ontap: (){
+               
                 //  var provider=    context.read<FireAuthProvider>();
                   var data= blox.SignUpByGoogle(context);
                 print(data);
@@ -90,14 +90,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               CustomContainerTile(
                   ontap: () {
-                    push(context, SignupByEmail());
+                    push(context,const  SignupByEmail());
                   },
                   image: "assets/images/mail.png",
                   text: "Continue with Email",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {
-                    push(context, SignupByEmail());
-                  }),
+                  ),
               
               const Spacer(),
               Row(

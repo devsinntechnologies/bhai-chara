@@ -46,7 +46,7 @@ class _AdsScreenState extends State<AdsScreen> {
                       height: 20,
                     ),
                     CustomContainerTile(
-                      tap: () {},
+                     ontap: () {},
                       height: 40.0,
                       width: 100.0,
                       chil_widget: const Icon(
