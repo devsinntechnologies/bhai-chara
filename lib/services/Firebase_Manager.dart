@@ -35,28 +35,28 @@ class FirebaseManager {
   static AddImages(List<File> selectedimages,
       {price, title, age, description, category, subcategory, isFree}) async {
     try {
-      debugger();
       List<String> urlImage = [];
+      Reference referenceRoot = FirebaseStorage.instance.ref();
+      Reference referenceDirImages = referenceRoot.child('images');
       for (var i = 0; i < selectedimages.length; i++) {
         String uniqueFileName =
             DateTime.now().millisecondsSinceEpoch.toString();
-        Reference referenceRoot = FirebaseStorage.instance.ref();
-        Reference referenceDirImages = referenceRoot.child('images');
         Reference referenceImageToUpload =
             referenceDirImages.child(uniqueFileName);
         referenceImageToUpload.putFile(File(selectedimages[i].path));
-        urlImage.add(await referenceImageToUpload.getDownloadURL());
+        // debugger();
+        String url = await referenceImageToUpload.getDownloadURL();
+        urlImage.add(url);
       }
-      debugger();
-      addProduct(
-          urlImage: urlImage,
-          price: price,
-          age: age,
-          title: title,
-          description: description,
-          category: category,
-          subcategory: subcategory,
-          isFree: isFree);
+      // await addProduct(
+      //     urlImage: urlImage,
+      //     price: price,
+      //     age: age,
+      //     title: title,
+      //     description: description,
+      //     category: category,
+      //     subcategory: subcategory,
+      //     isFree: isFree);
     } catch (e) {
       showSnack(text: e.toString());
     }

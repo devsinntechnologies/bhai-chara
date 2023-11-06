@@ -13,6 +13,7 @@ import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import '../../common/custom_container_children.dart';
 import '../../utils/circle_avatar.dart';
@@ -113,16 +114,34 @@ class _HomeScreenState extends State<HomeScreen> {
                                       height: 55,
                                       width: 80,
                                       child: CustomLoader())
-                                  : Text(
-                                      pro.currentAddress.isEmpty
-                                          ? "Oops! Error 404"
-                                          : pro.currentAddress,
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                          color: AppColors.white),
-                                      textAlign: TextAlign.center,
-                                    )
+                                  : pro.currentAddress.isEmpty
+                                      ? ElevatedButton(
+                                          onPressed: () {
+                                            pro = context.read<AuthProvider>();
+                                            String currentAddress = "";
+                                            // ignore: unused_field
+                                            Position? _currentPosition;
+                                            pro.Location(
+                                                context,
+                                                _currentPosition,
+                                                currentAddress);
+                                          },
+                                          child: Text(
+                                            "Location",
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500,
+                                                color: AppColors.blue),
+                                            textAlign: TextAlign.center,
+                                          ))
+                                      : Text(
+                                          pro.currentAddress,
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.white),
+                                          textAlign: TextAlign.center,
+                                        )
                             ],
                           ),
                           Icon(

@@ -1,4 +1,5 @@
 import 'package:bhai_chara/firebase_options.dart';
+import 'package:bhai_chara/provider/Image_Picker/compress_provider.dart';
 import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/provider/firebase/addproduct.dart';
 import 'package:bhai_chara/provider/root_provider.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => ProductProvider()),
           ChangeNotifierProvider(create: (context) => FireStoreProvider()),
           ChangeNotifierProvider(create: (context) => AuthProvider()),
+          ChangeNotifierProvider(create: (context) => CompressProvider()),
 
           // ChangeNotifierProvider(create: (context) => ()),
         ],

@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable, unnecessary_null_comparison
 
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:bhai_chara/common/custom_button.dart';
@@ -14,6 +15,7 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
+import 'package:bhai_chara/view/testfile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
@@ -36,6 +38,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   TextEditingController titlleController = TextEditingController();
   TextEditingController describeController = TextEditingController();
   List<File> selectedImages = [];
+  List<File> compressedImage = [];
   List<String> urlImage = [];
   ImagePicker picker = ImagePicker();
   var selected = "";
@@ -464,48 +467,49 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                               ),
                               CustomButton(
                                 onTap: () async {
-                                  if (titlleController.text.isEmpty) {
-                                    showSnack(
-                                        context: context,
-                                        text: "Enter Please Title Field");
-                                  } else if (describeController.text.isEmpty) {
-                                    showSnack(
-                                        context: context,
-                                        text: "Enter Please Description Field");
-                                  } else if (!isFree &&
-                                      priceController.text.isEmpty) {
-                                    showSnack(
-                                        context: context,
-                                        text: "Please Enter Price Field");
-                                  } else {
-                                    if (selectedImages.isNotEmpty) {
-                                      var data =
-                                          context.read<FireStoreProvider>();
-                                      await data.addImage(
-                                        selectedImages,
-                                        price: priceController.text,
-                                        age: ageController.text,
-                                        title: titlleController.text,
-                                        description: describeController.text,
-                                        category: widget.titletext,
-                                        subcategory: widget.subtext,
-                                        isFree: isFree,
+                                  // if (titlleController.text.isEmpty) {
+                                  //   showSnack(
+                                  //       context: context,
+                                  //       text: "Enter Please Title Field");
+                                  // } else if (describeController.text.isEmpty) {
+                                  //   showSnack(
+                                  //       context: context,
+                                  //       text: "Enter Please Description Field");
+                                  // } else if (!isFree &&
+                                  //     priceController.text.isEmpty) {
+                                  //   showSnack(
+                                  //       context: context,
+                                  //       text: "Please Enter Price Field");
+                                  // } else {
+                                  //   if (selectedImages.isNotEmpty) {
+                                  //     var data =
+                                  //         context.read<FireStoreProvider>();
+                                  //     await data.addImage(
+                                  //       selectedImages,
+                                  //       price: priceController.text,
+                                  //       age: ageController.text,
+                                  //       title: titlleController.text,
+                                  //       description: describeController.text,
+                                  //       category: widget.titletext,
+                                  //       subcategory: widget.subtext,
+                                  //       isFree: isFree,
 
-                                        // categoryID: "",
-                                        // subcategoryID:"",
+                                  //       // categoryID: "",
+                                  //       // subcategoryID:"",
 
-                                        // itemAddress: "",
-                                        // date:"",
+                                  //       // itemAddress: "",
+                                  //       // date:"",
 
-                                        // ownerID:ownerID,
-                                        // itemLocation:""
-                                      );
-                                    }
+                                  //       // ownerID:ownerID,
+                                  //       // itemLocation:""
+                                  //     );
+                                  //   }
 
-                                    FocusScope.of(context).nextFocus();
-                                    // uploadImage(selectedImages);
-                                    pushUntil(context, RootScreen());
-                                  }
+                                  FocusScope.of(context).nextFocus();
+                                  // uploadImage(selectedImages);
+                                  push(context,
+                                      TestScreen(images: selectedImages));
+                                  // }
                                 },
                                 text: "Post Now",
                               ),
@@ -525,37 +529,44 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   }
 
   Future getImages() async {
-    final pickedFile = await picker.pickMultiImage(imageQuality: 85);
+    final pickedFile = await picker.pickMultiImage(imageQuality: 25);
     List<XFile> xfilePick = pickedFile;
-
-    if (xfilePick.isNotEmpty) {
-      for (var i = 0; i < xfilePick.length; i++) {
-        File selectedImage = File(xfilePick[i].path);
-        try {
-          File compressedImage = await compressImage(selectedImage);
-          selectedImages.add(compressedImage);
-        } catch (e) {
-          // Handle the error (e.g., log it or show a message)
-          print('Error compressing image: $e');
+    setState(() {
+      if (xfilePick.isNotEmpty) {
+        for (var i = 0; i < xfilePick.length; i++) {
+          selectedImages.add(File(xfilePick[i].path));
         }
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Nothing is selected')));
       }
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Nothing is selected')));
-    }
+    });
   }
 
-  Future compressImage(File image) async {
-    final result = await FlutterImageCompress.compressAndGetFile(
-      image.path,
-      image.path,
-      quality: 75, // Adjust the quality as needed
-    );
-
-    if (result != null) {
-      return result;
-    } else {
-      throw 'Image compression failed'; // You can customize this error message
+  Future compressImage(List<File> selected) async {
+    debugger();
+    for (var i = 0; i < selected.length; i++) {
+      var compressedFile = await FlutterImageCompress.compressAndGetFile(
+        selected[i].path,
+        selected[i].path,
+        quality: 75,
+      );
+      compressedImage.add(File(compressedFile!.path));
+    }
+    try {} catch (e) {
+      return null; //If any error occurs during compression, the process is stopped.
     }
   }
+  // final result = await FlutterImageCompress.compressAndGetFile(
+  //   image.path,
+  //   image.path,
+  //   quality: 75, // Adjust the quality as needed
+  // );
+
+  // if (result != null) {
+  //   return result;
+  // } else {
+  //   throw 'Image compression failed'; // You can customize this error message
+  // }
 }
+// }
