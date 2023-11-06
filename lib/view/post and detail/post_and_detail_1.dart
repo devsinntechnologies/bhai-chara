@@ -7,6 +7,7 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
+import 'package:bhai_chara/provider/Image_Picker/compress_provider.dart';
 import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
@@ -15,7 +16,6 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
-import 'package:bhai_chara/view/testfile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
@@ -467,49 +467,51 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                               ),
                               CustomButton(
                                 onTap: () async {
-                                  // if (titlleController.text.isEmpty) {
-                                  //   showSnack(
-                                  //       context: context,
-                                  //       text: "Enter Please Title Field");
-                                  // } else if (describeController.text.isEmpty) {
-                                  //   showSnack(
-                                  //       context: context,
-                                  //       text: "Enter Please Description Field");
-                                  // } else if (!isFree &&
-                                  //     priceController.text.isEmpty) {
-                                  //   showSnack(
-                                  //       context: context,
-                                  //       text: "Please Enter Price Field");
-                                  // } else {
-                                  //   if (selectedImages.isNotEmpty) {
-                                  //     var data =
-                                  //         context.read<FireStoreProvider>();
-                                  //     await data.addImage(
-                                  //       selectedImages,
-                                  //       price: priceController.text,
-                                  //       age: ageController.text,
-                                  //       title: titlleController.text,
-                                  //       description: describeController.text,
-                                  //       category: widget.titletext,
-                                  //       subcategory: widget.subtext,
-                                  //       isFree: isFree,
+                                  if (titlleController.text.isEmpty) {
+                                    showSnack(
+                                        context: context,
+                                        text: "Enter Please Title Field");
+                                  } else if (describeController.text.isEmpty) {
+                                    showSnack(
+                                        context: context,
+                                        text: "Enter Please Description Field");
+                                  } else if (!isFree &&
+                                      priceController.text.isEmpty) {
+                                    showSnack(
+                                        context: context,
+                                        text: "Please Enter Price Field");
+                                  } else {
+                                    if (selectedImages.isNotEmpty) {
+                                      var comp =
+                                          context.read<CompressProvider>();
+                                      await comp.compressImages(selectedImages);
+                                      var data =
+                                          context.read<FireStoreProvider>();
+                                      await data.addImage(
+                                        comp.compressedImage,
+                                        price: priceController.text,
+                                        age: ageController.text,
+                                        title: titlleController.text,
+                                        description: describeController.text,
+                                        category: widget.titletext,
+                                        subcategory: widget.subtext,
+                                        isFree: isFree,
 
-                                  //       // categoryID: "",
-                                  //       // subcategoryID:"",
+                                        // categoryID: "",
+                                        // subcategoryID:"",
 
-                                  //       // itemAddress: "",
-                                  //       // date:"",
+                                        // itemAddress: "",
+                                        // date:"",
 
-                                  //       // ownerID:ownerID,
-                                  //       // itemLocation:""
-                                  //     );
-                                  //   }
+                                        // ownerID:ownerID,
+                                        // itemLocation:""
+                                      );
+                                    }
 
-                                  FocusScope.of(context).nextFocus();
-                                  // uploadImage(selectedImages);
-                                  push(context,
-                                      TestScreen(images: selectedImages));
-                                  // }
+                                    FocusScope.of(context).nextFocus();
+                                    // uploadImage(selectedImages);
+                                    push(context, RootScreen());
+                                  }
                                 },
                                 text: "Post Now",
                               ),
