@@ -77,11 +77,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                ontap: (){
-               
-                //  var provider=    context.read<FireAuthProvider>();
-                  var data= blox.SignUpByGoogle(context);
+                // var provider = context.read<FireAuthProvider>();
+                var data= blox.SignUpByGoogle(context);
                 print(data);
-                 // push(context,RootScreen());
                 },
               );}),
              
