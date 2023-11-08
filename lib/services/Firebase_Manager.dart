@@ -61,6 +61,7 @@ class FirebaseManager {
           isFree: isFree);
     } catch (e) {
       showSnack(text: e.toString());
+      return null;
     }
   }
 }
