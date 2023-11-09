@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
                   return const  Center(child: CircularProgressIndicator());
                 }
 
-                return const SignUpScreen();
+                return const SplashScreen();
               }),
         ));
   }
