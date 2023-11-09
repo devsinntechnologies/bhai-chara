@@ -9,11 +9,11 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 class CompressProvider extends ChangeNotifier {
   bool isLoading = false;
   List<File> compressedImage = [];
-  Future compressImages(List<File> imageFiles) async {
+  compressImages(List<File> imageFiles) async {
     List<File> compressedImages = [];
     try {
       for (File imageFile in imageFiles) {
-        XFile? compressedImage = await FlutterImageCompress.compressAndGetFile(
+        var compressedImage = await FlutterImageCompress.compressAndGetFile(
           imageFile.path,
           imageFile.path + 'file.jpg',
           quality: 50, // Adjust the image quality (0-100).
@@ -26,7 +26,7 @@ class CompressProvider extends ChangeNotifier {
         }
       }
 
-      this.compressedImage = compressedImages;
+      compressedImage = compressedImages;
     } catch (e) {
       showSnack(text: e.toString());
     }
