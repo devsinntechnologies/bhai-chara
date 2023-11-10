@@ -177,34 +177,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
                 tap: () {},
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomContainerTile(
-                  ontap: () {
-                    push(context, SignupByEmail());
-                  },
-                  width: size.width * .80,
-                  image: "assets/images/mail.png",
-                  text: "Continue with Email",
-                  style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {
-                    push(context, SignupByEmail());
-                  }),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomContainerTile(
-                  ontap: () {
-                    push(context, SignUpScreenByPhone());
-                  },
-                  width: size.width * .80,
-                  image: "assets/images/phone.png",
-                  text: "Continue with Phone",
-                  style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {
-                    push(context, SignUpScreenByPhone());
-                  }),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // CustomContainerTile(
+              //     ontap: () {
+              //       push(context, SignupByEmail());
+              //     },
+              //     width: size.width * .80,
+              //     image: "assets/images/mail.png",
+              //     text: "Continue with Email",
+              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+              //     tap: () {
+              //       push(context, SignupByEmail());
+              //     }),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // CustomContainerTile(
+              //     ontap: () {
+              //       push(context, SignUpScreenByPhone());
+              //     },
+              //     width: size.width * .80,
+              //     image: "assets/images/phone.png",
+              //     text: "Continue with Phone",
+              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+              //     tap: () {
+              //       push(context, SignUpScreenByPhone());
+              //     }),
               SizedBox(
                 height: 10,
               ),
