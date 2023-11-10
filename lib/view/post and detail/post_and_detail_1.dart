@@ -139,7 +139,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                             selectedImages.length <= 9
                                         ? InkWell(
                                             onTap: () {
-                                              getImages();
+                                              GetImages();
                                             },
                                             child: Container(
                                               height: 50,
@@ -165,7 +165,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 selectedImages.isEmpty
                                     ? InkWell(
                                         onTap: () async {
-                                          getImages();
+                                          GetImages();
                                         },
                                         child: Container(
                                             height: 180.0,
@@ -518,14 +518,14 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                           text: "Please Enter Price Field");
                                     } else {
                                       if (selectedImages.isNotEmpty) {
-                                        var comp =
-                                            context.read<CompressProvider>();
-                                        await comp
-                                            .compressImages(selectedImages);
+                                        // var comp =
+                                        //     context.read<CompressProvider>();
+                                        // await comp
+                                        //     .compressImages(selectedImages);
                                         var data =
                                             context.read<FireStoreProvider>();
                                         await data.addImage(
-                                          comp.compressedImage,
+                                          selectedImages,
                                           price: priceController.text,
                                           age: ageController.text,
                                           title: titlleController.text,
@@ -568,34 +568,37 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
     );
   }
 
-  Future getImages() async {
-    final pickedFile = await picker.pickMultiImage(imageQuality: 25);
-    List<XFile> xfilePick = pickedFile;
-    setState(() {
-      if (xfilePick.isNotEmpty) {
-        for (var i = 0; i < xfilePick.length; i++) {
-          selectedImages.add(File(xfilePick[i].path));
-        }
-      } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text('Nothing is selected')));
-      }
-    });
-  }
+  // getImages() async {
+  //   final pickedFile = await picker.pickMultiImage(imageQuality: 25);
+  //   List<XFile> xfilePick = pickedFile;
 
-  Future compressImage(List<File> selected) async {
-    debugger();
-    for (var i = 0; i < selected.length; i++) {
-      var compressedFile = await FlutterImageCompress.compressAndGetFile(
-        selected[i].path,
-        selected[i].path,
-        quality: 75,
-      );
-      compressedImage.add(File(compressedFile!.path));
-    }
-    try {} catch (e) {
-      return null; //If any error occurs during compression, the process is stopped.
-    }
+  //   if (xfilePick.isNotEmpty) {
+  //     for (var i = 0; i < xfilePick.length; i++) {
+
+  //     }
+  //   } else {
+  //     ScaffoldMessenger.of(context)
+  //         .showSnackBar(const SnackBar(content: Text('Nothing is selected')));
+  //   }
+  // }
+
+  Future GetImages() async {
+    final pickedFile = await picker.pickMultiImage(
+      imageQuality: 25,
+    );
+    List<XFile> xfilePick = pickedFile;
+    setState(
+      () {
+        if (xfilePick.isNotEmpty) {
+          for (var i = 0; i < xfilePick.length; i++) {
+            selectedImages.add(File(xfilePick[i].path));
+          }
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Nothing is selected')));
+        }
+      },
+    );
   }
   // final result = await FlutterImageCompress.compressAndGetFile(
   //   image.path,
