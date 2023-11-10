@@ -72,14 +72,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(
                 height: 20,
               ),
-              CustomContainerTile(
-                  image: "assets/images/facebook.png",
-                  text: "Continue with Facebook",
-                  style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {}),
-              const SizedBox(
-                height: 20,
-              ),
+              // CustomContainerTile(
+              //     image: "assets/images/facebook.png",
+              //     text: "Continue with Facebook",
+              //     style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
+              //     tap: () {}),
+              // const SizedBox(
+              //   height: 20,
+              // ),
               CustomContainerTile(
                   ontap: () {
                     push(context, SignupByEmail());

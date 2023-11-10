@@ -113,7 +113,7 @@ class CustomTextField extends StatelessWidget {
       required this.border,
       this.suffixIcon,
       this.suffixIconColor,
-      required this.hintText,
+      this.hintText,
       required this.obsecuretext,
       this.prefixcolor,
       this.prfixicon,
