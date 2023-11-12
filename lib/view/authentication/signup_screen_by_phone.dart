@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bhai_chara/common/custonPhoneTextField.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -78,7 +80,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                       : size.height * .28,
                 ),
                 CustomButton(
-                  onTap: () {
+                  onTap: () async {
                     if (numberController.text.isEmpty) {
                       showSnack(
                           context: context, text: "Please Enter Phone Field");
@@ -86,7 +88,9 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                       showSnack(context: "invalid phone number");
                     } else {
                       FocusScope.of(context).nextFocus();
-                      push(context, OTPScreen(phone: numberController.text));
+                      debugger();
+                      var number = await CustomCountryPhoneField().controller;
+                      push(context, OTPScreen(phone: number.toString()));
                     }
                   },
                   text: "Next",

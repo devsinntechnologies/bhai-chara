@@ -90,7 +90,11 @@ class _SignupByEmailState extends State<SignupByEmail> {
                         showSnack(
                             context: context, text: "Enter correct email");
                       } else {
-                        push(context, CreatePassword());
+                        push(
+                            context,
+                            CreatePassword(
+                              emailController: emailController.text,
+                            ));
                       }
                     },
                     text: "Next",

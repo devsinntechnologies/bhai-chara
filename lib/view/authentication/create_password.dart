@@ -3,6 +3,7 @@ import 'package:bhai_chara/provider/authentication_provider/variable.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
+import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 
 import 'package:flutter/material.dart';
 
@@ -11,8 +12,8 @@ import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
 class CreatePassword extends StatefulWidget {
-  const CreatePassword({super.key});
-
+  CreatePassword({super.key, this.emailController});
+  var emailController;
   @override
   State<CreatePassword> createState() => _CreatePasswordState();
 }
@@ -74,18 +75,18 @@ class _CreatePasswordState extends State<CreatePassword> {
                                 textAlign: TextAlign.center,
                                 TextSpan(children: [
                                   TextSpan(
-                                    text: "You are creating a password for",
+                                    text: "You are creating a password for ",
                                     style:
                                         AppTextStyles.textStyleNormalBodyXSmall,
                                   ),
                                   TextSpan(
-                                    text: " +923233342939. ",
+                                    text: widget.emailController,
                                     style:
                                         AppTextStyles.textStyleBoldBodyXSmall,
                                   ),
                                   TextSpan(
                                     text:
-                                        "This will help you login faster next time.",
+                                        " This will help you login faster next time.",
                                     style:
                                         AppTextStyles.textStyleNormalBodyXSmall,
                                   )
@@ -204,7 +205,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                               text: "Please Enter Correct Password");
                         } else {
                           FocusScope.of(context).unfocus();
-                          push(context, const LocationScreen());
+                          push(context, const SignUpScreenByPhone());
                         }
                       },
                       text: "Next"),

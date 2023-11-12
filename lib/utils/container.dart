@@ -17,19 +17,21 @@ class CustomContainer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: IconButton(
-              onPressed: () {
-                pop(context);
-              },
-              icon: Icon(
-                iconVar,
-                size: 24,
-                color: Colors.white,
-              ),
-            ),
-          ),
+          iconVar == null
+              ? Text("")
+              : Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: IconButton(
+                    onPressed: () {
+                      pop(context);
+                    },
+                    icon: Icon(
+                      iconVar,
+                      size: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
           Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Text(text,

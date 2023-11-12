@@ -581,7 +581,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   //   }
   // }
 
-  Future GetImages() async {
+  GetImages() async {
     final pickedFile = await picker.pickMultiImage(
       imageQuality: 25,
     );
