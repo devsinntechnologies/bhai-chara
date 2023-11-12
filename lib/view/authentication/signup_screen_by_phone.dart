@@ -3,9 +3,7 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
-
 import 'package:flutter/material.dart';
-
 import '../../common/custom_button.dart';
 
 class SignUpScreenByPhone extends StatefulWidget {
