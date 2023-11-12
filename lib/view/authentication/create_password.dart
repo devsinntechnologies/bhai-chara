@@ -1,5 +1,5 @@
 import 'package:bhai_chara/common/custom_button.dart';
-import 'package:bhai_chara/provider/authentication_provider/variable.dart';
+
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/location.dart';

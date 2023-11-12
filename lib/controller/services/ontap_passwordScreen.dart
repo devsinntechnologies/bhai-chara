@@ -10,15 +10,15 @@ Widget ontapPasswordScreen({context,confirmpasswordController,passwordController
   return  CustomButton(
                         onTap: () async {
                           if (passwordController.text.isEmpty) {
-                            showSnack(context, "Please Enter Password");
+                            showSnack(context:context, text:"Please Enter Password");
                           } else if (confirmpasswordController.text.isEmpty) {
-                            showSnack(context, "Please Enter Confirm Password");
+                            showSnack(context: context, text:"Please Enter Confirm Password");
                           } else if (passwordController.text !=
                               confirmpasswordController.text) {
-                            showSnack(context, "Please Enter Correct Password");
+                            showSnack(context:context, text:"Please Enter Correct Password");
                           } else if (passwordController.text.length < 6) {
-                            showSnack(context,
-                                "Password must at least 6 character long");
+                            showSnack(context:context,
+                                text:"Password must at least 6 character long");
                           } else {
                             final auth = FirebaseAuth.instance;
                             auth.createUserWithEmailAndPassword(

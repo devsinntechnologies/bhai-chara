@@ -6,9 +6,6 @@ import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
-import 'package:bhai_chara/provider/Image_Picker/compress_provider.dart';
-import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
-import 'package:bhai_chara/provider/firebase/addImages.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
@@ -16,10 +13,11 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
+import '../../controller/provider/Image_Picker/compress_provider.dart';
+import '../../controller/provider/authentication_provider/auth_provider.dart';
+import '../../controller/provider/firebase/addImages.dart';
 import '../../utils/container.dart';
 import '../home-screens/root_screen.dart';
 
@@ -173,7 +171,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                                 color: AppColors.blue),
-                                            child: const Column(
+                                            child:  Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               crossAxisAlignment:

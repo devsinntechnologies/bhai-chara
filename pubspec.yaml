@@ -60,7 +60,6 @@ dependencies:
   google_maps_flutter: 
   # fluttertoast: 
   # country_picker: ^2.0.20
-  carousel_slider: ^4.2.1
   google_sign_in: 
 
 dev_dependencies:

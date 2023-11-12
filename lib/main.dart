@@ -1,18 +1,17 @@
 import 'package:bhai_chara/firebase_options.dart';
-import 'package:bhai_chara/provider/Image_Picker/compress_provider.dart';
-import 'package:bhai_chara/provider/firebase/addImages.dart';
-import 'package:bhai_chara/provider/firebase/addproduct.dart';
-import 'package:bhai_chara/provider/root_provider.dart';
-import 'package:bhai_chara/provider/slider_provider.dart';
-import 'package:bhai_chara/provider/timer_provider.dart';
-import 'package:bhai_chara/provider/switch_provider.dart';
-import 'package:bhai_chara/provider/visibility_provider.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'provider/authentication_provider/auth_provider.dart';
+import 'controller/provider/Image_Picker/compress_provider.dart';
+import 'controller/provider/authentication_provider/auth_provider.dart';
+import 'controller/provider/firebase/addImages.dart';
+import 'controller/provider/firebase/addproduct.dart';
+import 'controller/provider/root_provider.dart';
+import 'controller/provider/slider_provider.dart';
+import 'controller/provider/switch_provider.dart';
+import 'controller/provider/timer_provider.dart';
+import 'controller/provider/visibility_provider.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();

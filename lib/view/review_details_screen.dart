@@ -149,7 +149,7 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
             child: CustomButton(
               onTap: () {
                 if (nameController.text.isEmpty) {
-                  showSnack( context, "Please Enter Name Field",);
+                  showSnack( context: context,text: "Please Enter Name Field",);
                 } else {
                   FocusScope.of(context).nextFocus();
                   push(context, RootScreen());

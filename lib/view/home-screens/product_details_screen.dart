@@ -1,4 +1,3 @@
-import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/view/request_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -7,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bhai_chara/common/custom_button.dart';
 
+import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 import '../../utils/utils.dart';

@@ -1,10 +1,11 @@
 import 'dart:io';
-import 'package:bhai_chara/provider/Image_Picker/compress_provider.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../controller/provider/Image_Picker/compress_provider.dart';
 
 // ignore: must_be_immutable
 class TestScreen extends StatelessWidget {
