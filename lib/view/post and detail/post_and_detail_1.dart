@@ -13,6 +13,7 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/provider/Image_Picker/compress_provider.dart';

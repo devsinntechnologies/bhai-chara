@@ -1,8 +1,10 @@
 import 'package:bhai_chara/firebase_options.dart';
+import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 import 'controller/provider/Image_Picker/compress_provider.dart';
 import 'controller/provider/authentication_provider/auth_provider.dart';
@@ -39,15 +41,20 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => FireStoreProvider()),
           ChangeNotifierProvider(create: (context) => AuthProvider()),
           ChangeNotifierProvider(create: (context) => CompressProvider()),
+          ChangeNotifierProvider(create: (context) => ChatProvider()),
 
           // ChangeNotifierProvider(create: (context) => ()),
         ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          // theme: ThemeData(
-          //   fontFamily: "Lora-Regular",
-          // ),
-          home: SplashScreen(),
+        child: Sizer(
+          builder:(context, orientation, deviceType) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              // theme: ThemeData(
+              //   fontFamily: "Lora-Regular",
+              // ),
+              home: SplashScreen(),
+            );
+          }
         ));
   }
 }
