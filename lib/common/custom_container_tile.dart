@@ -14,13 +14,14 @@ class CustomContainerTile extends StatelessWidget {
       this.ontap,
       this.width = double.infinity,
       this.height = 50.0,
-      required Null Function() tap});
+     // required Null Function() tap
+      });
   var image, text, chil_widget;
   var height, ontap;
   var width, style_text;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: ontap,
       child: Container(
         height: height,

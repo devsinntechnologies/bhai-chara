@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../common/custom_button.dart';
-import '../provider/switch_provider.dart';
+import '../controller/provider/switch_provider.dart';
 
 class PostDetailScreen2 extends StatefulWidget {
   const PostDetailScreen2({super.key});
@@ -149,7 +149,7 @@ class _PostDetailScreen2State extends State<PostDetailScreen2> {
             child: CustomButton(
               onTap: () {
                 if (nameController.text.isEmpty) {
-                  showSnack(text: "Please Enter Name Field", context: context);
+                  showSnack( context, "Please Enter Name Field",);
                 } else {
                   FocusScope.of(context).nextFocus();
                   push(context, RootScreen());

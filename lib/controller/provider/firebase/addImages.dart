@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:bhai_chara/services/Firebase_Manager.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/Firebase_Manager.dart';
 
 class FireStoreProvider extends ChangeNotifier {
   bool isLoading = false;

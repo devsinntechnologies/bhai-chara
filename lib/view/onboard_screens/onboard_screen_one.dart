@@ -41,7 +41,7 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                       ),
                     ),
                   const Padding(
-                     padding:  EdgeInsets.symmetric(vertical: 50.0),
+                     padding:  EdgeInsets.symmetric(vertical: 0.0),
                      child:   Image(
                         image: AssetImage("assets/images/onboard1.png"),
                         //height: 350,

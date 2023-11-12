@@ -5,10 +5,11 @@ import 'package:bhai_chara/view/home-screens/home_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../provider/root_provider.dart';
+import '../../controller/provider/root_provider.dart';
+import '../../view/chatting/view/chat_view.dart';
 import '../account/account_screen.dart';
-import '../item/item_screen.dart';
-import '../chatt/chat_list_screen.dart';
+import 'package:bhai_chara/view/order_screen.dart';
+
 
 class RootScreen extends StatelessWidget {
   RootScreen({super.key});
@@ -17,15 +18,15 @@ class RootScreen extends StatelessWidget {
     Icons.home,
     Icons.chat,
     Icons.sell,
-    Icons.ads_click,
+    Icons.sell,
     Icons.person
   ];
 
   var screensList = [
     HomeScreen(),
-    ChattListScreen(),
+    ChatView(),
     SellScreen(),
-    ItemScreen(),
+    OrderScreen(),
     AccountScreen(),
   ];
 
@@ -33,7 +34,7 @@ class RootScreen extends StatelessWidget {
     "Home",
     "Chat",
     "Donate",
-    "Item",
+    "Request",
     "Account",
   ];
 

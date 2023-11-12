@@ -3,6 +3,7 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/help_and_sports_screen.dart';
 import 'package:bhai_chara/view/settings-screens/setting_screen.dart';
+import '../ads/ads_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -40,6 +41,14 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
             const SizedBox(
               height: 50,
+            ),
+             CustomListTileSetting(
+              tap: () {
+                push(context, const AdsScreen());
+              },
+              heading: "My ads",
+              data: '',
+              iconOne: Icons.ads_click,
             ),
             CustomListTileSetting(
               tap: () {

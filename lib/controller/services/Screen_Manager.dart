@@ -22,7 +22,7 @@ class ScreenManager {
         return _currentAddress;
       }
     } catch (e) {
-      showSnack(text: e.toString(), context: context);
+      showSnack( context, e.toString(), );
     }
   }
 
@@ -40,7 +40,7 @@ class ScreenManager {
       }
       return _currentAddress;
     } catch (e) {
-      showSnack(context: context, text: e.toString());
+      showSnack( context,  e.toString());
     }
   }
 }

@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:bhai_chara/common/custom_container_tile.dart';
-import 'package:bhai_chara/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/refresh.dart';
@@ -15,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import '../../common/custom_container_children.dart';
+import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../utils/circle_avatar.dart';
 import '../../utils/container_with_img.dart';
 

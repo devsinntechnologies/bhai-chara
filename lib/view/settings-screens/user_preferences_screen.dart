@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../../provider/slider_provider.dart';
+import '../../controller/provider/slider_provider.dart';
 import '../../utils/container.dart';
 import '../../utils/text-styles.dart';
 

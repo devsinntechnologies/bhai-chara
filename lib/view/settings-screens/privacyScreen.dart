@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/custom_container.dart';
-import '../../provider/switch_provider.dart';
+import '../../controller/provider/switch_provider.dart';
 import '../../utils/text-styles.dart';
 
 class PrivacyScreen extends StatelessWidget {

@@ -10,6 +10,7 @@ import 'package:bhai_chara/common/custom_button.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 import '../../utils/utils.dart';
+import 'mapScreen.dart';
 
 // ignore: must_be_immutable
 class ProductScreen extends StatefulWidget {
@@ -301,11 +302,15 @@ class _ProductScreenState extends State<ProductScreen> {
                       ),
                     ),
                     Container(
-                      height: 190,
-                      width: double.infinity,
-                      child: const Image(
-                          image: AssetImage('assets/images/HILmr (1).png')),
-                    ),
+                  height: 190,
+                  width: double.infinity,
+                  child:  InkWell(
+                onTap: () {
+                  push(context, MapScreen());
+                },
+                child: const Image(
+                      image: AssetImage('assets/images/HILmr (1).png')), ),
+                ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20, left: 8),
                       child: Text('Your safety matters to us!',
