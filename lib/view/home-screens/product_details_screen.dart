@@ -244,17 +244,18 @@ class _ProductScreenState extends State<ProductScreen> {
                   ],
                 ),
               ),
-              InkWell(
+             
+                Container(
+                  height: 190,
+                  width: double.infinity,
+                  child:  InkWell(
                 onTap: () {
                   push(context, MapScreen());
                 },
-                child: Container(
-                  height: 190,
-                  width: double.infinity,
-                  child: const Image(
-                      image: AssetImage('assets/images/HILmr (1).png')),
+                child: const Image(
+                      image: AssetImage('assets/images/HILmr (1).png')), ),
                 ),
-              ),
+             
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 8),
                 child: Text('Your safety matters to us!',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
+import '../../utils/app_colors.dart';
 import '../../utils/utils.dart';
 
 const LatLng currentLocation = LatLng(24.630160,46.752530);
@@ -46,13 +46,17 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar:AppBar(
+        backgroundColor: AppColors.black,
+        foregroundColor: AppColors.white,
           leading: IconButton(onPressed: (){
             pop(context);
-          },icon:Icon(Icons.arrow_back_ios)),
+          },
+          icon:const Icon(Icons.arrow_back_ios)),
       ),
       body: GoogleMap(
-          initialCameraPosition: CameraPosition(target: currentLocation, zoom:13,),
+          initialCameraPosition: const CameraPosition(target: currentLocation, zoom:13,),
          onMapCreated :(controller){
           mapController = controller;
           addMarker("test ",currentLocation);

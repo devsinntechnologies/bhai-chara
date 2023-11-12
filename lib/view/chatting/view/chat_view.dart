@@ -78,9 +78,4 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
-  // Widget individualChatView({required ChatProvider chatVM}) {
-  //   return ChatTileWidget(
-  //     model: searchList[index],
-  //   );
-  // }
 }
