@@ -8,35 +8,37 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.blue,
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(Icons.close),
-              Center(
-                child: Text(
-                  "2 new notifications",
-                  //textAlign: TextAlign.center,
-                  style: AppTextStyles.textStyleNormalBodyMedium_whiteColor,
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: AppColors.blue,
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                
+                Center(
+                  child: Text(
+                    "2 new notifications",
+                    //textAlign: TextAlign.center,
+                    style: AppTextStyles.textStyleNormalBodyMedium_whiteColor,
+                  ),
                 ),
-              ),
-              OrderContainer(
-                  text: "Kashaf Waheed",
-                  color1: AppColors.grey,
-                  color2: AppColors.blue,
-                  price: "price:\t\t\t3400",
-                  time: "time:\t\t\t\t24 min ago"),
-              OrderContainer(
-                  text: "Farzana waheed",
-                  color1: AppColors.grey,
-                  color2: AppColors.blue,
-                  price: "price:\t\t\t5600",
-                  time: "time:\t\t\t\t1 h ago"),
-            ],
-          ),
-        ));
+                OrderContainer(
+                    text: "Kashaf Waheed",
+                    color1: AppColors.grey,
+                    color2: AppColors.blue,
+                    price: "price:\t\t\t3400",
+                    time: "time:\t\t\t\t24 min ago"),
+                OrderContainer(
+                    text: "Farzana waheed",
+                    color1: AppColors.grey,
+                    color2: AppColors.blue,
+                    price: "price:\t\t\t5600",
+                    time: "time:\t\t\t\t1 h ago"),
+              ],
+            ),
+          )),
+    );
   }
 }
