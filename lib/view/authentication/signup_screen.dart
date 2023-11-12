@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 image: "assets/images/google.png",
                 text: "Continue with Google",
                 style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                tap: () {},
+                ontap: () {},
               ),
               const SizedBox(
                 height: 20,
@@ -80,14 +80,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // const SizedBox(
               //   height: 20,
               // ),
-              CustomContainerTile(
-                  ontap: () {
-                    push(context, SignupByEmail());
-                  },
+              CustomContainerTile(                  
                   image: "assets/images/mail.png",
                   text: "Continue with Email",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,
-                  tap: () {
+                  ontap: () {
                     push(context, SignupByEmail());
                   }),
               // const SizedBox(

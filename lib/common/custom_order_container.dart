@@ -55,8 +55,8 @@ class OrderContainer extends StatelessWidget {
                 textAlign: TextAlign.start,
               ),
             ),
-            const Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
+            Padding(
+              padding:  EdgeInsets.symmetric(vertical: 12),
               child: Row(
                 children: [
                   Icon(Icons.location_on),

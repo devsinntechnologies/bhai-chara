@@ -1,6 +1,7 @@
-import 'package:bhai_chara/services/Firebase_Manager.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:flutter/material.dart';
+
+import '../../controller/services/Firebase_Manager.dart';
 
 class ProductProvider extends ChangeNotifier {
   bool isLoading = false;

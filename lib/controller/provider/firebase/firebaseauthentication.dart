@@ -26,7 +26,7 @@ class FireAuthProvider extends ChangeNotifier {
     if(data!=null)
     return data;
     else{
-      showSnack(context,"google auth not working");
+      showSnack(context:context,text:"google auth not working");
     }
    
     }
