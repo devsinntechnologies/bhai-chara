@@ -7,9 +7,7 @@ import 'package:bhai_chara/utils/container.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
+import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
@@ -34,7 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              CustomContainer(text: "Login"),
+              CustomContainer(
+                text: "Login",
+                iconVar: null,
+              ),
               const SizedBox(
                 height: 50,
               ),
@@ -137,7 +138,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: AppTextStyles.textStyleSubtitleBody,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      push(context, SignUpScreen());
+                    },
                     child: Text(
                       "Sign up",
                       style: AppTextStyles.textStyleSubtitleBody
@@ -205,8 +208,8 @@ class _LoginScreenState extends State<LoginScreen> {
               //     tap: () {
               //       push(context, SignUpScreenByPhone());
               //     }),
-              SizedBox(
-                height: 10,
+              const SizedBox(
+                height: 20,
               ),
               Container(
                 margin: EdgeInsets.only(bottom: 5),

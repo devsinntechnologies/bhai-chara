@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable, unnecessary_null_comparison
 
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:bhai_chara/common/custom_button.dart';
@@ -111,7 +110,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             "Please Wait ......",
                             style: AppTextStyles.textStyleBoldBodyMedium,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                         ],
@@ -221,7 +220,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                                                   i]));
                                                 },
                                                 child: Container(
-                                                  margin: EdgeInsets.only(
+                                                  margin: const EdgeInsets.only(
                                                       right: 10),
                                                   height: 100,
                                                   width: 100,
@@ -429,7 +428,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                       title_text: "Location",
                                       title_style:
                                           AppTextStyles.textStyleTitleBodySmall,
-                                      subtitle_text: pro.currentAddress != null
+                                      subtitle_text: pro.currentAddress != Null
                                           ? pro.currentAddress
                                           : "Choose",
                                       subtitle_style:
@@ -518,10 +517,12 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                           text: "Please Enter Price Field");
                                     } else {
                                       if (selectedImages.isNotEmpty) {
-                                        // var comp =
-                                        //     context.read<CompressProvider>();
-                                        // await comp
-                                        //     .compressImages(selectedImages);
+                                        var comp =
+                                            context.read<CompressProvider>();
+                                        await comp
+                                            .compressImages(selectedImages);
+                                        String datetime =
+                                            DateTime.now().toString();
                                         var data =
                                             context.read<FireStoreProvider>();
                                         await data.addImage(
@@ -533,12 +534,12 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                           category: widget.titletext,
                                           subcategory: widget.subtext,
                                           isFree: isFree,
+                                          dateTime: datetime,
 
                                           // categoryID: "",
                                           // subcategoryID:"",
 
                                           // itemAddress: "",
-                                          // date:"",
 
                                           // ownerID:ownerID,
                                           // itemLocation:""
@@ -571,10 +572,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   // getImages() async {
   //   final pickedFile = await picker.pickMultiImage(imageQuality: 25);
   //   List<XFile> xfilePick = pickedFile;
-
   //   if (xfilePick.isNotEmpty) {
   //     for (var i = 0; i < xfilePick.length; i++) {
-
   //     }
   //   } else {
   //     ScaffoldMessenger.of(context)
@@ -591,7 +590,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
       () {
         if (xfilePick.isNotEmpty) {
           for (var i = 0; i < xfilePick.length; i++) {
-            selectedImages.add(File(xfilePick[i].path));
+            File selected = File(xfilePick[i].path);
+            selectedImages.add(selected);
           }
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -611,5 +611,5 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
   // } else {
   //   throw 'Image compression failed'; // You can customize this error message
   // }
-}
 // }
+}

@@ -110,7 +110,6 @@ class _CreatePasswordState extends State<CreatePassword> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   labeltext: "Password",
-                                  hintText: "Password",
                                   suffixIcon: x % 2 != 0
                                       ? IconButton(
                                           onPressed: () {

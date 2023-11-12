@@ -2,6 +2,7 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomContainerBox extends StatelessWidget {
   var text, secondText, imgLink, ontap, isfree;
   CustomContainerBox(
@@ -13,6 +14,7 @@ class CustomContainerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: ontap,

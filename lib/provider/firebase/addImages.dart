@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 
 class FireStoreProvider extends ChangeNotifier {
   bool isLoading = false;
-  addImage(
-    List<File> selectedImages, {
-    price,
-    age,
-    title,
-    description,
-    category,
-    subcategory,
-    isFree,
-  }) async {
+  addImage(List<File> selectedImages,
+      {price,
+      age,
+      title,
+      description,
+      category,
+      subcategory,
+      isFree,
+      dateTime}) async {
     isLoading = true;
     notifyListeners();
     var data = await FirebaseManager.AddImages(
@@ -26,6 +25,7 @@ class FireStoreProvider extends ChangeNotifier {
       category: category,
       subcategory: subcategory,
       isFree: isFree,
+      datetime: dateTime,
     );
 
     if (data != null) {

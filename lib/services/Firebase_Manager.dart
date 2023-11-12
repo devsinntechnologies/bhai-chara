@@ -13,7 +13,8 @@ class FirebaseManager {
       category,
       subcategory,
       List<String>? urlImage,
-      isFree}) async {
+      isFree,
+      datetime}) async {
     try {
       var data = await FirebaseFirestore.instance.collection("Products").add({
         "price": price,
@@ -23,7 +24,8 @@ class FirebaseManager {
         "category": category,
         "subcategory": subcategory,
         "urlImage": urlImage,
-        "isFree": isFree
+        "isFree": isFree,
+        "Time": datetime,
       });
       return data;
     } catch (e) {
@@ -33,23 +35,50 @@ class FirebaseManager {
   }
 
   static AddImages(List<File> selectedimages,
-      {price, title, age, description, category, subcategory, isFree}) async {
+      {price,
+      title,
+      age,
+      description,
+      category,
+      subcategory,
+      isFree,
+      datetime}) async {
     try {
-      debugger();
       List<String> urlImage = [];
-      Reference referenceRoot = FirebaseStorage.instance.ref();
-      // ignore: unused_local_variable
-      Reference referenceDirImages = referenceRoot.child('images');
-      for (var i = 0; i < selectedimages.length; i++) {
-        String uniqueFileName =
-            DateTime.now().millisecondsSinceEpoch.toString();
-        Reference referenceRoot = FirebaseStorage.instance.ref();
-        Reference referenceDirImages = referenceRoot.child('images');
-        Reference referenceImageToUpload =
-            referenceDirImages.child(uniqueFileName);
-        referenceImageToUpload.putFile(File(selectedimages[i].path));
-        // urlImage.add(await referenceImageToUpload.getDownloadURL());
+
+      Future<void> uploadImages(List<File> selectedImages) async {
+        for (var i = 0; i < selectedImages.length; i++) {
+          String uniqueFileName =
+              DateTime.now().millisecondsSinceEpoch.toString();
+          Reference referenceRoot = FirebaseStorage.instance.ref();
+          Reference referenceDirImages = referenceRoot.child('images');
+          Reference referenceImageToUpload =
+              referenceDirImages.child(uniqueFileName);
+
+          await referenceImageToUpload.putFile(File(selectedImages[i].path));
+
+          String downloadUrl = await referenceImageToUpload.getDownloadURL();
+          urlImage.add(downloadUrl);
+        }
       }
+
+// Call the function with your selected images list
+      await uploadImages(selectedimages);
+
+      // List<String> urlImage = [];
+      // Reference referenceRoot = FirebaseStorage.instance.ref();
+      // // ignore: unused_local_variable
+      // Reference referenceDirImages = referenceRoot.child('images');
+      // for (var i = 0; i < selectedimages.length; i++) {
+      //   String uniqueFileName =
+      //       DateTime.now().millisecondsSinceEpoch.toString();
+      //   Reference referenceRoot = FirebaseStorage.instance.ref();
+      //   Reference referenceDirImages = referenceRoot.child('images');
+      //   Reference referenceImageToUpload =
+      //       referenceDirImages.child(uniqueFileName);
+      //   referenceImageToUpload.putFile(File(selectedimages[i].path));
+      //   urlImage.add(await referenceImageToUpload.getDownloadURL());
+      // }
       await addProduct(
           urlImage: urlImage,
           price: price,
@@ -58,7 +87,8 @@ class FirebaseManager {
           description: description,
           category: category,
           subcategory: subcategory,
-          isFree: isFree);
+          isFree: isFree,
+          datetime: datetime);
     } catch (e) {
       // showSnack(text: e.toString());
       return null;
