@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   } else if (passwordController.text.isEmpty) {
                     showSnack(context: context, text: "Please Enter Password");
                   } else if (passwordController.text.length < 7) {
-                    showSnack(context: "Invalid Password");
+                    showSnack(context:context, text: "Invalid Password");
                   } else {
                     String currentAddress = "";
                     // ignore: unused_field
