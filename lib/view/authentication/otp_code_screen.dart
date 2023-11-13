@@ -175,13 +175,13 @@ class _OTPScreenState extends State<OTPScreen> {
                 CustomButton(
                   onTap: () {
                     if (otp_1.text.isEmpty) {
-                      showSnack( context:context,text:" ");
+                      showSnack(context: context, text: " ");
                     } else if (otp_2.text.isEmpty) {
-                      showSnack( context:context,text:" ");
+                      showSnack(context: context, text: " ");
                     } else if (otp_3.text.isEmpty) {
-                      showSnack( context:context,text:" ");
+                      showSnack(context: context, text: " ");
                     } else if (otp_4.text.isEmpty) {
-                      showSnack( context:context,text:" ");
+                      showSnack(context: context, text: " ");
                     } else {
                       FocusScope.of(context).unfocus();
                       push(context, LocationScreen());
