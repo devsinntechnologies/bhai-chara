@@ -17,6 +17,7 @@ class SignupByEmail extends StatefulWidget {
 
 class _SignupByEmailState extends State<SignupByEmail> {
   TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size * 1;
@@ -55,7 +56,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     height: 50,
                   ),
                   Text(
-                    "Enter your email",
+                    "Enter your Details",
                     style: AppTextStyles.textStyleBoldSubTitleLarge,
                   ),
                   const SizedBox(
@@ -63,7 +64,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                   ),
                   Container(
                       child: Text(
-                    "We will send a confirmation code to your email",
+                    "Your Details is the most secure method to verify your Account",
                     maxLines: 3,
                     textAlign: TextAlign.center,
                     style: AppTextStyles.textStyleNormalBodyXSmall,
@@ -72,21 +73,40 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     height: 20,
                   ),
                   CustomTextField(
-                      height: 60.0,
-                      labeltext: "E-mail",
-                      obsecuretext: false,
-                      width: size.width,
-                      controller: emailController,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(color: AppColors.grey)),
-                      hintText: "E-mail"),
+                    // height: 60.0,
+                    labeltext: "Full Name",
+                    obsecuretext: false,
+                    width: size.width,
+                    controller: nameController,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: AppColors.grey)),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    // height: 60.0,
+                    labeltext: "E-mail",
+                    obsecuretext: false,
+                    width: size.width,
+                    controller: emailController,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: AppColors.grey)),
+                  ),
                   const Spacer(),
                   CustomButton(
                     onTap: () {
-                      if (emailController.text.isEmpty) {
-                        showSnack(context: context);
-                      } else if (emailController.text.contains("@") == false) {
+                      if (nameController.text.isEmpty) {
+                        showSnack(
+                            context: context,
+                            text: "Enter please Your Full Name");
+                      } else if (emailController.text.isEmpty) {
+                        showSnack(
+                            context: context, text: "Enter please Your Email");
+                      } else if (emailController.text.contains("@")! &&
+                          !emailController.text.contains(".com")) {
                         showSnack(
                             context: context, text: "Enter correct email");
                       } else {
@@ -94,6 +114,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                             context,
                             CreatePassword(
                               emailController: emailController.text,
+                              fullName: nameController.text,
                             ));
                       }
                     },

@@ -1,10 +1,3 @@
-import 'package:bhai_chara/common/custom_button.dart';
-
-import 'package:bhai_chara/utils/push.dart';
-import 'package:bhai_chara/utils/showSnack.dart';
-import 'package:bhai_chara/view/authentication/location.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
-
 import 'package:flutter/material.dart';
 import '../../common/custom_container_tile.dart';
 import '../../controller/provider/authentication_provider/variable.dart';
@@ -12,10 +5,10 @@ import '../../controller/services/ontap_passwordScreen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
 
-
+// ignore: must_be_immutable
 class CreatePassword extends StatefulWidget {
-  CreatePassword({super.key, this.emailController});
-  var emailController;
+  CreatePassword({super.key, this.emailController, this.fullName});
+  var emailController, fullName;
   @override
   State<CreatePassword> createState() => _CreatePasswordState();
 }
@@ -158,7 +151,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                                       borderRadius: BorderRadius.circular(20),
                                       borderSide:
                                           BorderSide(color: AppColors.grey)),
-                                  hintText: "Confirm Password",
+                                  // hintText: "Confirm Password",
                                   labeltext: "Confirm Password",
                                   suffixIcon: y % 2 != 0
                                       ? IconButton(
@@ -191,12 +184,11 @@ class _CreatePasswordState extends State<CreatePassword> {
                     ),
                   ),
                   const Spacer(),
-                    ontapPasswordScreen(
-                        context: context,
-                        confirmpasswordController: confirmpasswordController,
-                        passwordController: passwordController,
-                        email: widget.emailController),
-                 
+                  ontapPasswordScreen(
+                      context: context,
+                      confirmpasswordController: confirmpasswordController,
+                      passwordController: passwordController,
+                      email: widget.emailController),
                   const SizedBox(
                     height: 30,
                   ),

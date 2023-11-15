@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';

@@ -1,6 +1,7 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
+import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
 
@@ -43,10 +44,17 @@ class _OTPScreenState extends State<OTPScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const Icon(
-                              Icons.arrow_back_ios,
-                              size: 20,
-                              color: AppColors.black,
+                            IconButton(
+                              onPressed: () {
+                                pop(
+                                  context,
+                                );
+                              },
+                              icon: Icon(
+                                Icons.arrow_back_ios,
+                                size: 20,
+                                color: AppColors.black,
+                              ),
                             ),
                             const SizedBox(
                               width: 25,
@@ -175,16 +183,16 @@ class _OTPScreenState extends State<OTPScreen> {
                 CustomButton(
                   onTap: () {
                     if (otp_1.text.isEmpty) {
-                      showSnack(context: context, text: " ");
+                      showSnack(context: context, text: "Enter OTP Please");
                     } else if (otp_2.text.isEmpty) {
-                      showSnack(context: context, text: " ");
+                      showSnack(context: context, text: "Enter OTP Please");
                     } else if (otp_3.text.isEmpty) {
-                      showSnack(context: context, text: " ");
+                      showSnack(context: context, text: "Enter OTP Please");
                     } else if (otp_4.text.isEmpty) {
-                      showSnack(context: context, text: " ");
+                      showSnack(context: context, text: "Enter OTP Please");
                     } else {
                       FocusScope.of(context).unfocus();
-                      push(context, LocationScreen());
+                      push(context, const LocationScreen());
                     }
                   },
                   text: "Next",

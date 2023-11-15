@@ -1,4 +1,5 @@
 import 'package:bhai_chara/utils/custom_loader.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/request_screen.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -302,15 +303,16 @@ class _ProductScreenState extends State<ProductScreen> {
                       ),
                     ),
                     Container(
-                  height: 190,
-                  width: double.infinity,
-                  child:  InkWell(
-                onTap: () {
-                  push(context, MapScreen());
-                },
-                child: const Image(
-                      image: AssetImage('assets/images/HILmr (1).png')), ),
-                ),
+                      height: 190,
+                      width: double.infinity,
+                      child: InkWell(
+                        onTap: () {
+                          push(context, MapScreen());
+                        },
+                        child: const Image(
+                            image: AssetImage('assets/images/HILmr (1).png')),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20, left: 8),
                       child: Text('Your safety matters to us!',

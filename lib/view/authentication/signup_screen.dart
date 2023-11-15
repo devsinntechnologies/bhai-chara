@@ -2,7 +2,6 @@ import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';
-import 'package:bhai_chara/view/authentication/signup_screen_by_phone.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -80,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // const SizedBox(
               //   height: 20,
               // ),
-              CustomContainerTile(                  
+              CustomContainerTile(
                   image: "assets/images/mail.png",
                   text: "Continue with Email",
                   style_text: AppTextStyles.textStyleNormalBoldXLBodySmall,

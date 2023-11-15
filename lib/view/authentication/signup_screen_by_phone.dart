@@ -2,14 +2,12 @@ import 'dart:developer';
 
 import 'package:bhai_chara/common/custonPhoneTextField.dart';
 import 'package:bhai_chara/provider/firebase/phone_number.dart';
-import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../common/custom_button.dart';
 
@@ -94,11 +92,8 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                       if (numberController.text.isEmpty) {
                         showSnack(
                             context: context, text: "Please Enter Phone Field");
-                      } else if (numberController.text.length < 5) {
-                        showSnack(context: "invalid phone number");
                       } else {
-                        FocusScope.of(context).nextFocus();
-                        debugger();
+                        FocusScope.of(context).unfocus();
 
                         // numberController =
                         //     await CustomCountryPhoneField().controller;
