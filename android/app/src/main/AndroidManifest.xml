@@ -5,7 +5,7 @@
    <application
         android:label="bhai_chara"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         android:allowBackup="false"
         <activity
             android:name=".MainActivity"
