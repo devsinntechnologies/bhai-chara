@@ -1,6 +1,3 @@
 class PhoneProvider {
-  String phonenumber = '';
-  Number(number) async {
-    phonenumber = await number;
-  }
+  static String phonenumber = '';
 }

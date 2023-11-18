@@ -5,8 +5,13 @@ import '../utils/text-styles.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  CustomButton({super.key, this.onTap, this.text, this.width});
-  var onTap, text, height = 50.0, width;
+  CustomButton(
+      {super.key,
+      this.onTap,
+      this.text,
+      this.width,
+      this.colorBox = AppColors.blue});
+  var onTap, text, height = 50.0, width, colorBox;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -26,7 +31,7 @@ class CustomButton extends StatelessWidget {
             ),
           ),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: AppColors.blue),
+              borderRadius: BorderRadius.circular(20), color: colorBox),
         ));
   }
 }

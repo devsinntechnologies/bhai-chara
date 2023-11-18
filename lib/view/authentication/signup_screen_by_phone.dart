@@ -1,11 +1,17 @@
+import 'dart:developer';
+
 import 'package:bhai_chara/common/custonPhoneTextField.dart';
+import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
 import 'package:bhai_chara/provider/firebase/phone_number.dart';
+import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../common/custom_button.dart';
 
@@ -15,6 +21,9 @@ class SignUpScreenByPhone extends StatefulWidget {
   @override
   State<SignUpScreenByPhone> createState() => _SignUpScreenByPhoneState();
 }
+
+bool selected = true;
+String completePhoneNumber = '';
 
 class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
   TextEditingController numberController = TextEditingController();
@@ -79,11 +88,12 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                   ),
                   CustomCountryPhoneField(
                     controller: numberController,
+                    completePhoneNumber: completePhoneNumber,
                   ),
                   SizedBox(
                     height: (size.height < 300)
                         ? size.height * .05
-                        : size.height * .28,
+                        : size.height * .20,
                   ),
                   CustomButton(
                     onTap: () async {
@@ -96,11 +106,25 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                         // numberController =
                         //     await CustomCountryPhoneField().controller;
 
-                        push(context,
-                            OTPScreen(phone: PhoneProvider().phonenumber));
+                        push(
+                            context,
+                            OTPScreen(
+                              phone: PhoneProvider.phonenumber,
+                            ));
                       }
                     },
                     text: "Next",
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CustomButton(
+                    colorBox: AppColors.grey,
+                    onTap: () async {
+                      var data = context.read<SignUpProvider>();
+                      pushUntil(context, RootScreen());
+                    },
+                    text: "Skip",
                   ),
                 ],
               ),

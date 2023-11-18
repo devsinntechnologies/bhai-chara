@@ -6,7 +6,11 @@ import '../../utils/showSnack.dart';
 import '../../view/authentication/signup_screen_by_phone.dart';
 
 Widget ontapPasswordScreen(
-    {context, confirmpasswordController, passwordController, email, name}) {
+    {context = BuildContext,
+    confirmpasswordController,
+    passwordController,
+    email,
+    name}) {
   return CustomButton(
       onTap: () async {
         if (passwordController.text.isEmpty) {
@@ -20,11 +24,17 @@ Widget ontapPasswordScreen(
               context: context,
               text: "Password must at least 6 character long");
         } else {
-          final auth = FirebaseAuth.instance;
-          auth.createUserWithEmailAndPassword(
+          UserCredential userCredential =
+              await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: email,
             password: passwordController.text,
           );
+
+          if (userCredential != null) {
+            User? user = userCredential.user;
+            return user;
+          }
+
           push(context, SignUpScreenByPhone());
         }
       },

@@ -1,7 +1,10 @@
 import 'dart:developer';
+import 'dart:html';
 import 'dart:io';
+import 'dart:js_interop';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseManager {
@@ -94,4 +97,40 @@ class FirebaseManager {
       return null;
     }
   }
+
+  static SignUpFirebaseStoreage(
+    context,
+    name,
+    email,
+    password,
+    isEmailVerified,
+  ) async {
+    try {
+      debugger();
+      var data = await FirebaseFirestore.instance.collection("Client").add({
+        "Name": name,
+        "Email": email,
+        "Password": password,
+        "isEmailVerified": isEmailVerified,
+      });
+      return data;
+    } catch (e) {
+      debugger();
+      showSnack(text: e.toString());
+    }
+  }
+
+  static PhoneNumberVerification(String phoneNo) async {
+    final _auth = FirebaseAuth.instance;
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phoneNo,
+      verificationCompleted: (credentials) async {
+        await _auth.signInWithCredential(credentials);
+      },
+      codeSent: (verificationId, resendToken) {},
+      codeAutoRetrievalTimeout: (verificationId) {},
+      verificationFailed: (e) {},
+    );
+  }
 }
+// }

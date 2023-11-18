@@ -12,7 +12,7 @@ import '../../utils/text-styles.dart';
 // ignore: must_be_immutable
 class OTPScreen extends StatefulWidget {
   var phone;
-  OTPScreen({this.phone});
+  OTPScreen({this.phone = ""});
 
   @override
   State<OTPScreen> createState() => _OTPScreenState();

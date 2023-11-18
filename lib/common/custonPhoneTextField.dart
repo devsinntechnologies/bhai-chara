@@ -1,12 +1,15 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../provider/firebase/phone_number.dart';
+
 // ignore: must_be_immutable
 class CustomCountryPhoneField extends StatelessWidget {
-  CustomCountryPhoneField({super.key, this.controller});
-  var controller;
+  CustomCountryPhoneField(
+      {super.key, this.controller, this.completePhoneNumber = ""});
+  var controller, completePhoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +29,7 @@ class CustomCountryPhoneField extends StatelessWidget {
         ),
         initialCountryCode: 'IN',
         onChanged: (phone) async {
-          print(phone.completeNumber);
-          var num = phone.completeNumber;
-          print(num);
-          debugger();
-          // await PhoneProvider().Number(phone.completeNumber);
+          PhoneProvider.phonenumber = phone.completeNumber;
         },
       ),
     );
