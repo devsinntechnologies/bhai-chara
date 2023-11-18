@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:bhai_chara/provider/firebase/phone_number.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -31,7 +30,7 @@ class CustomCountryPhoneField extends StatelessWidget {
           var num = phone.completeNumber;
           print(num);
           debugger();
-          await PhoneProvider().Number(phone.completeNumber);
+          // await PhoneProvider().Number(phone.completeNumber);
         },
       ),
     );

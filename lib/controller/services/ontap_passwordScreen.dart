@@ -6,7 +6,7 @@ import '../../utils/showSnack.dart';
 import '../../view/authentication/signup_screen_by_phone.dart';
 
 Widget ontapPasswordScreen(
-    {context, confirmpasswordController, passwordController, email}) {
+    {context, confirmpasswordController, passwordController, email, name}) {
   return CustomButton(
       onTap: () async {
         if (passwordController.text.isEmpty) {

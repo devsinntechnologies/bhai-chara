@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bhai_chara/common/custonPhoneTextField.dart';
 import 'package:bhai_chara/provider/firebase/phone_number.dart';
 import 'package:bhai_chara/utils/push.dart';
