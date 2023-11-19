@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:bhai_chara/view/chatting/view/widget/chat_tile_widget.dart';
+import 'package:bhai_chara/view/chatting/model/chattUser.dart';
+
 import 'dart:convert';
 import 'package:bhai_chara/view/chatting/api/apis.dart';
 class ChatView extends StatefulWidget {
@@ -13,6 +15,7 @@ class ChatView extends StatefulWidget {
 }
 
 class _ChatViewState extends State<ChatView> {
+    List<ChattUser> list = [];
   FocusNode searchFN = FocusNode();
   TextEditingController searchController = TextEditingController();
   PageController pageMove = PageController();
@@ -35,28 +38,27 @@ class _ChatViewState extends State<ChatView> {
               child:StreamBuilder(
                 stream: APIS.firestore.collection('users').snapshots(),
                 builder: (context,snapshot){
-                  final list = [];
-                  if(snapshot.hasData){
+                  switch(snapshot.connectionState){
+                    case ConnectionState.waiting:
+                    case ConnectionState.none:
+                          return const Center(child: CircularProgressIndicator());
+                    case ConnectionState.active:
+                    case ConnectionState.done:
+                               
+                  
                     final data = snapshot.data!.docs;
-                   for(var i in data){
-                      print('Data: ${jsonEncode(i.data())}');
-                    list.add(i.data()["name"]);
-                   }
-                  }
+                  list = data?.map((e) => ChattUser.fromJson(e.data())).toList()??[];
+                  
                   return  ListView.builder(
                 itemCount: list.length,
                 itemBuilder: (context, index) {
-                  return 
-                 Text('name: ${list[index]}');
-                  // Padding(
-                  //   padding:
-                  //       EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                  //   child: ChatTileWidget(
-                  //     model: chatVM.listOfChatModel[index],
-                  //   ),
-                  // );
+                  return ChattUserCard(user: list[index],);
+                
                 },
               );
+
+                  }
+            
                 }
               )
             ),

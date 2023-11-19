@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => FireStoreProvider()),
           ChangeNotifierProvider(create: (context) => AuthProvider()),
           ChangeNotifierProvider(create: (context) => CompressProvider()),
-          ChangeNotifierProvider(create: (context) => ChatProvider()),
+          // ChangeNotifierProvider(create: (context) => ChatProvider()),
 
           // ChangeNotifierProvider(create: (context) => ()),
         ],
