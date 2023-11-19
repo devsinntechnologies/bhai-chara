@@ -1,13 +1,16 @@
 import 'dart:developer';
-import 'dart:html';
+import 'dart:ffi';
 import 'dart:io';
-import 'dart:js_interop';
+
+// import 'dart:js_interop';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseManager {
+  static final _auth = FirebaseAuth.instance;
+  static String verifyId = '';
   static addProduct(
       {price,
       age,
@@ -120,17 +123,35 @@ class FirebaseManager {
     }
   }
 
-  static PhoneNumberVerification(String phoneNo) async {
-    final _auth = FirebaseAuth.instance;
+  static PhoneNumberVerification(context, String phoneNo) async {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNo,
       verificationCompleted: (credentials) async {
         await _auth.signInWithCredential(credentials);
       },
-      codeSent: (verificationId, resendToken) {},
-      codeAutoRetrievalTimeout: (verificationId) {},
-      verificationFailed: (e) {},
+      codeSent: (verificationId, resendToken) async {
+        verifyId = verificationId;
+      },
+      codeAutoRetrievalTimeout: (verificationId) {
+        verifyId = verificationId;
+      },
+      verificationFailed: (e) {
+        if (e.code == "invalid-phone-number") {
+          showSnack(
+              context: context,
+              text: "Error, The Provider phone number is not valid");
+        } else {
+          showSnack(context: context, text: "Something went wrong, Try Again!");
+        }
+      },
     );
+  }
+
+  // ignore: non_constant_identifier_names
+  static VerifyOTP(String OTP) async {
+    var credentials = await _auth.signInWithCredential(
+        PhoneAuthProvider.credential(verificationId: verifyId, smsCode: OTP));
+    return credentials.user != null ? true : false;
   }
 }
 // }

@@ -5,17 +5,17 @@ import 'package:flutter/services.dart';
 
 // ignore: must_be_immutable
 class CustomContainerTile extends StatelessWidget {
-  CustomContainerTile(
-      {super.key,
-      this.image,
-      this.text,
-      this.style_text,
-      this.chil_widget,
-      this.ontap,
-      this.width = double.infinity,
-      this.height = 50.0,
-     // required Null Function() tap
-      });
+  CustomContainerTile({
+    super.key,
+    this.image,
+    this.text,
+    this.style_text,
+    this.chil_widget,
+    this.ontap,
+    this.width = double.infinity,
+    this.height = 50.0,
+    // required Null Function() tap
+  });
   var image, text, chil_widget;
   var height, ontap;
   var width, style_text;
@@ -76,13 +76,15 @@ class CustomTextFormField extends StatelessWidget {
       required this.hint_text,
       required this.border,
       this.alignment,
-      this.keyboard_type});
+      this.keyboard_type,
+      this.onsubmit});
   var controller,
       maxlength = null,
       alignment,
       hint_text = "",
       border = InputBorder.none,
-      keyboard_type;
+      keyboard_type,
+      onsubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +102,7 @@ class CustomTextFormField extends StatelessWidget {
           hintText: hint_text,
           counterText: " ",
           hintStyle: AppTextStyles.textStyleBoldBodyMedium),
+      onFieldSubmitted: onsubmit,
     );
   }
 }

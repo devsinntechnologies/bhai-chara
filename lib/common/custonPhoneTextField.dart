@@ -29,7 +29,7 @@ class CustomCountryPhoneField extends StatelessWidget {
         ),
         initialCountryCode: 'IN',
         onChanged: (phone) async {
-          PhoneProvider.phonenumber = phone.completeNumber;
+          PhoneProvider.phonenumber = await phone.completeNumber;
         },
       ),
     );

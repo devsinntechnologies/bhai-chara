@@ -102,7 +102,9 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                             context: context, text: "Please Enter Phone Field");
                       } else {
                         FocusScope.of(context).unfocus();
-
+                        var data = context.read<SignUpProvider>();
+                        data.PhoneVerifyFireBase(
+                            context, PhoneProvider.phonenumber);
                         // numberController =
                         //     await CustomCountryPhoneField().controller;
 
@@ -121,7 +123,6 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                   CustomButton(
                     colorBox: AppColors.grey,
                     onTap: () async {
-                      var data = context.read<SignUpProvider>();
                       pushUntil(context, RootScreen());
                     },
                     text: "Skip",
