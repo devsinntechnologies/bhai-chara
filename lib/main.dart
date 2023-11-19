@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:bhai_chara/view/chatting/view/chat_view.dart';
 
 import 'controller/provider/Image_Picker/compress_provider.dart';
 import 'controller/provider/authentication_provider/auth_provider.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
               // theme: ThemeData(
               //   fontFamily: "Lora-Regular",
               // ),
-              home: SplashScreen(),
+              home: ChatView(),
             );
           }
         ));
