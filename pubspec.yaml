@@ -48,11 +48,7 @@ dependencies:
   country_picker: ^2.0.20
   intl_phone_field: ^3.2.0
   cloud_firestore: 
-  # emoji_picker_flutter:
-  # cached_network_image:
   firebase_messaging:
-  # flutter_nification_channel:
-  # gallery_savoter:
   firebase_storage: ^11.2.7
   permission_handler: ^11.0.1
   geolocator: ^10.1.0
