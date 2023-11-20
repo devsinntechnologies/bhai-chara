@@ -61,6 +61,7 @@ dependencies:
   # fluttertoast: 
   # country_picker: ^2.0.20
   google_sign_in: 
+  pinput: ^3.0.1
 
 dev_dependencies:
   flutter_test:

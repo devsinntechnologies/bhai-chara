@@ -1,4 +1,5 @@
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/custom_pinput.dart';
 import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -34,15 +35,17 @@ class _OTPScreenState extends State<OTPScreen> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            height: size.height * .90,
             padding: EdgeInsets.only(left: 20, right: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.all(20),
+                  margin: EdgeInsets.all(10),
                   child: Column(
                     children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Container(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -60,7 +63,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                             const SizedBox(
-                              width: 25,
+                              width: 10,
                             ),
                             Text(
                               "Login",
@@ -117,44 +120,45 @@ class _OTPScreenState extends State<OTPScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          for (int i = 1; i <= 4; i++)
-                            Container(
-                              margin: EdgeInsets.only(right: 10),
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: AppColors.grey),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: CustomTextFormField(
-                                controller: i == 1
-                                    ? otp_1
-                                    : i == 2
-                                        ? otp_2
-                                        : i == 3
-                                            ? otp_3
-                                            : otp_4,
-                                keyboard_type: TextInputType.number,
-                                maxlength: 1,
-                                alignment: TextAlign.center,
-                                border: InputBorder.none,
-                                hint_text: i == 1 ? " " : "-",
-                                onsubmit: i == 3
-                                    ? (code) {
-                                        otp = code;
-                                        var pro =
-                                            context.read<SignUpProvider>();
-                                        pro.OTPVerify(context, otp);
-                                      }
-                                    : null,
-                              ),
-                            ),
-                          //–
-                        ],
-                      ),
+                      CustomPinPut(),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     for (int i = 1; i <= 4; i++)
+                      //       Container(
+                      //         margin: EdgeInsets.only(right: 10),
+                      //         width: 60,
+                      //         height: 60,
+                      //         decoration: BoxDecoration(
+                      //           border: Border.all(color: AppColors.grey),
+                      //           borderRadius: BorderRadius.circular(20),
+                      //         ),
+                      //         child: CustomTextFormField(
+                      //           controller: i == 1
+                      //               ? otp_1
+                      //               : i == 2
+                      //                   ? otp_2
+                      //                   : i == 3
+                      //                       ? otp_3
+                      //                       : otp_4,
+                      //           keyboard_type: TextInputType.number,
+                      //           maxlength: 1,
+                      //           alignment: TextAlign.center,
+                      //           border: InputBorder.none,
+                      //           hint_text: i == 1 ? " " : "-",
+                      //           onsubmit: i == 3
+                      //               ? (code) {
+                      //                   otp = code;
+                      //                   var pro =
+                      //                       context.read<SignUpProvider>();
+                      //                   pro.OTPVerify(context, otp);
+                      //                 }
+                      //               : null,
+                      //         ),
+                      //       ),
+                      //     //–
+                      //   ],
+                      // ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -193,18 +197,18 @@ class _OTPScreenState extends State<OTPScreen> {
                 ),
                 CustomButton(
                   onTap: () {
-                    if (otp_1.text.isEmpty) {
-                      showSnack(context: context, text: "Enter OTP Please");
-                    } else if (otp_2.text.isEmpty) {
-                      showSnack(context: context, text: "Enter OTP Please");
-                    } else if (otp_3.text.isEmpty) {
-                      showSnack(context: context, text: "Enter OTP Please");
-                    } else if (otp_4.text.isEmpty) {
-                      showSnack(context: context, text: "Enter OTP Please");
-                    } else {
-                      FocusScope.of(context).unfocus();
-                      push(context, const LocationScreen());
-                    }
+                    // if (otp_1.text.isEmpty) {
+                    //   showSnack(context: context, text: "Enter OTP Please");
+                    // } else if (otp_2.text.isEmpty) {
+                    //   showSnack(context: context, text: "Enter OTP Please");
+                    // } else if (otp_3.text.isEmpty) {
+                    //   showSnack(context: context, text: "Enter OTP Please");
+                    // } else if (otp_4.text.isEmpty) {
+                    //   showSnack(context: context, text: "Enter OTP Please");
+                    // } else {
+                    FocusScope.of(context).unfocus();
+                    push(context, const LocationScreen());
+                    // }
                   },
                   text: "Next",
                 ),
