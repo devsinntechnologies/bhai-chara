@@ -7,6 +7,7 @@ import '../../utils/text-styles.dart';
 import '../../common/custom_button.dart';
 import 'package:provider/provider.dart';
 import '../../controller/services/auth_service.dart';
+import '../../utils/showSnack.dart';
 
 
 // ignore: must_be_immutable
@@ -191,9 +192,10 @@ class _CreatePasswordState extends State<CreatePassword> {
                   CustomButton(onTap: ()async{
                       final authService = Provider.of<AuthService>(context,listen: false);
                       try{
-                          await authService.signInWithEmailandPassword(widget.emailController.text,passwordController.text)
+                          await authService.signInWithEmailandPassword(widget.emailController.text,passwordController.text);
                       }catch(e){
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                        showSnack(context: context, text: e.toString());
+                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
                       }
                   },text: "Next",),
                   // ontapPasswordScreen(
