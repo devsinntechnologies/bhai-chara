@@ -105,8 +105,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                       } else if (emailController.text.isEmpty) {
                         showSnack(
                             context: context, text: "Enter please Your Email");
-                      } else if (emailController.text.contains("@")! &&
-                          !emailController.text.contains(".com")) {
+                      } else if (!emailController.text.contains("@.com")) {
                         showSnack(
                             context: context, text: "Enter correct email");
                       } else {

@@ -109,7 +109,6 @@ class FirebaseManager {
     isEmailVerified,
   ) async {
     try {
-      debugger();
       var data = await FirebaseFirestore.instance.collection("Client").add({
         "Name": name,
         "Email": email,
