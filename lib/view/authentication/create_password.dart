@@ -4,6 +4,10 @@ import '../../controller/provider/authentication_provider/variable.dart';
 import '../../controller/services/ontap_passwordScreen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
+import '../../common/custom_button.dart';
+import 'package:provider/provider.dart';
+import '../../controller/services/auth_service.dart';
+
 
 // ignore: must_be_immutable
 class CreatePassword extends StatefulWidget {
@@ -184,11 +188,19 @@ class _CreatePasswordState extends State<CreatePassword> {
                     ),
                   ),
                   const Spacer(),
-                  ontapPasswordScreen(
-                      context: context,
-                      confirmpasswordController: confirmpasswordController,
-                      passwordController: passwordController,
-                      email: widget.emailController),
+                  CustomButton(onTap: ()async{
+                      final authService = Provider.of<AuthService>(context,listen: false);
+                      try{
+                          await authService.signInWithEmailandPassword(widget.emailController.text,passwordController.text)
+                      }catch(e){
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                      }
+                  },text: "Next",),
+                  // ontapPasswordScreen(
+                  //     context: context,
+                  //     confirmpasswordController: confirmpasswordController,
+                  //     passwordController: passwordController,
+                  //     email: widget.emailController),
                   const SizedBox(
                     height: 30,
                   ),
