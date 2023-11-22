@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
@@ -10,7 +12,7 @@ import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
-
+import '../../controller/services/auth_service.dart';
 import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../controller/provider/authentication_provider/variable.dart';
 
@@ -108,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               CustomButton(
-                onTap: () {
+                onTap: () async{
                   if (emailController.text.isEmpty) {
                     showSnack(context: context, text: "Please Enter Email");
                   } else if (passwordController.text.isEmpty) {
@@ -116,6 +118,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   } else if (passwordController.text.length < 7) {
                     showSnack(context:context, text: "Invalid Password");
                   } else {
+                    final authService = Provider.of<AuthService>(context,listen: false);
+                      try{
+                        debugger();
+                          await authService.signInWithEmailandPassword(emailController.text,passwordController.text);
+                      }catch(e){
+                        showSnack(context: context, text: e.toString());
+                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                      }
                     String currentAddress = "";
                     // ignore: unused_field
                     Position? _currentPosition;
