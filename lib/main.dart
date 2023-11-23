@@ -3,7 +3,6 @@ import 'package:bhai_chara/firebase_options.dart';
 import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
-import 'package:bhai_chara/view/testfile.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +54,7 @@ class MyApp extends StatelessWidget {
             // theme: ThemeData(
             //   fontFamily: "Lora-Regular",
             // ),
-            home: OTPScreen(),
+            home: SplashScreen(),
           );
         }));
   }

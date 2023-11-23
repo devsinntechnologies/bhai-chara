@@ -70,4 +70,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     def multidex_version = "2.0.1"
     implementation "androidx.multidex:multidex:$multidex_version"
+    implementation("com.google.firebase:firebase-auth")
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
 }

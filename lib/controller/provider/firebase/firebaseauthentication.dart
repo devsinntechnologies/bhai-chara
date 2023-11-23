@@ -22,6 +22,7 @@ class FireAuthProvider extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
     var data = await FirebaseAuth.instance.signInWithCredential(credential);
+    // ignore: unnecessary_null_comparison
     if (data != null)
       return data;
     else {

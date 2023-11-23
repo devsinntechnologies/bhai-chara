@@ -1,19 +1,25 @@
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
-import 'package:bhai_chara/view/home-screens/root_screen.dart';
+import 'package:bhai_chara/view/authentication/location.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUpProvider extends ChangeNotifier {
   bool isLoading = false;
-  bool isEmailV = false;
-  var VerficationId = '';
-  SignUpFirebase(context, name, email, password, {isEmailVerified}) async {
-    isEmailVerified = isEmailV;
+  bool isPhoneVf = false;
+  String verifiedID = "";
+  String OTPCode = "";
+  var user;
+  SignUpFirebase(context, name, email, password, {isPhoneVerified}) async {
     isLoading = true;
     notifyListeners();
+    // ignore: unused_local_variable
+    user = FirebaseAuth.instance.currentUser;
     var data = await FirebaseManager.SignUpFirebaseStoreage(
-        context, name, email, password, isEmailVerified);
+        context, name, email, password, isPhoneVerified);
+    isPhoneVerified = isPhoneVf;
+
     if (data != null) {
       showSnack(context: context, text: "SignUp SuccessFully");
       return data;
@@ -28,8 +34,11 @@ class SignUpProvider extends ChangeNotifier {
     notifyListeners();
     var data =
         await FirebaseManager.PhoneNumberVerification(context, phoneNumber);
+    verifiedID = FirebaseManager.verifyId;
+
     if (data != null) {
       showSnack(context: context, text: "Phone Verified SuccessFully");
+
       return data;
     }
 
@@ -37,12 +46,15 @@ class SignUpProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  OTPVerify(context, String Otp) {
+  OTPVerify(context, String Otp) async {
     isLoading = true;
     notifyListeners();
-    var isVerified = FirebaseManager.VerifyOTP(Otp);
+    var isVerified = await FirebaseManager.VerifyOTP(verifiedID, Otp);
     if (isVerified) {
-      pushUntil(context, RootScreen());
+      isPhoneVf = true;
+      pushUntil(context, LocationScreen());
     }
+    isLoading = false;
+    notifyListeners();
   }
 }

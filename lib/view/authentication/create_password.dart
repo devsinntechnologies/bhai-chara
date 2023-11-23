@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import '../../common/custom_button.dart';
 import '../../common/custom_container_tile.dart';
 import '../../controller/provider/authentication_provider/variable.dart';
-import '../../controller/services/ontap_passwordScreen.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/push.dart';
 import '../../utils/showSnack.dart';
@@ -237,6 +236,10 @@ class _CreatePasswordState extends State<CreatePassword> {
                                   // );
 
                                   // if (userCredential != null) {
+                                  // await FirebaseAuth.instance
+                                  //     .createUserWithEmailAndPassword(
+                                  //         email: widget.emailController,
+                                  //         password: passwordController.text);
                                   var pro = context.read<SignUpProvider>();
                                   await pro.SignUpFirebase(
                                       context,

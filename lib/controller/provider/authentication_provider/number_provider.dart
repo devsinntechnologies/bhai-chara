@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/push.dart';
@@ -16,7 +14,7 @@ class NumberProvider extends ChangeNotifier {
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {},
       codeSent: (String verificationId, int? resendToken) {
-       // debugger();
+        // debugger();
         push(context, OTPScreen(phone: completeNumber));
       },
       codeAutoRetrievalTimeout: (String verificationId) {},

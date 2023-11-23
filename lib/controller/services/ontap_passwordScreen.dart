@@ -30,6 +30,7 @@ Widget ontapPasswordScreen(
             password: passwordController.text,
           );
 
+          // ignore: unnecessary_null_comparison
           if (userCredential != null) {
             User? user = userCredential.user;
             return user;
