@@ -1,11 +1,11 @@
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'view/authentication/login_screen.dart';
+import 'controller/services/auth_service.dart';
 import 'package:bhai_chara/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:bhai_chara/view/chatting/view/chat_view.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
-import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
 
 import 'package:provider/provider.dart';
 import 'controller/provider/root_provider.dart';
@@ -15,8 +15,10 @@ import 'controller/provider/switch_provider.dart';
 import 'controller/provider/firebase/addImages.dart';
 import 'controller/provider/firebase/addproduct.dart';
 import 'controller/provider/visibility_provider.dart';
+import 'view/authentication/signup_screen_by_email.dart';
 import 'controller/provider/Image_Picker/compress_provider.dart';
 import 'controller/provider/authentication_provider/auth_provider.dart';
+import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => ProductProvider()),
           ChangeNotifierProvider(create: (context) => FireStoreProvider()),
           ChangeNotifierProvider(create: (context) => AuthProvider()),
+          ChangeNotifierProvider(create: (context) => AuthService()),
+
           ChangeNotifierProvider(create: (context) => CompressProvider()),
           // ChangeNotifierProvider(create: (context) => ChatProvider()),
 
@@ -54,6 +58,7 @@ class MyApp extends StatelessWidget {
               // theme: ThemeData(
               //   fontFamily: "Lora-Regular",
               // ),
+              // home: SignupByEmail(),
               home: LoginScreen(),
             );
           }

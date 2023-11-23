@@ -8,6 +8,7 @@ import '../../common/custom_button.dart';
 import 'package:provider/provider.dart';
 import '../../controller/services/auth_service.dart';
 import '../../utils/showSnack.dart';
+import 'dart:developer';
 
 
 // ignore: must_be_immutable
@@ -190,6 +191,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   ),
                   const Spacer(),
                   CustomButton(onTap: ()async{
+                    debugger();
                       final authService = Provider.of<AuthService>(context,listen: false);
                       try{
                           await authService.signInWithEmailandPassword(widget.emailController.text,passwordController.text);

@@ -1,5 +1,6 @@
 import 'dart:developer';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
@@ -26,6 +27,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+    final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  static FirebaseFirestore firestore= FirebaseFirestore.instance;
+
   var x = 0;
   @override
   Widget build(BuildContext context) {
@@ -118,21 +122,40 @@ class _LoginScreenState extends State<LoginScreen> {
                   } else if (passwordController.text.length < 7) {
                     showSnack(context:context, text: "Invalid Password");
                   } else {
-                    final authService = Provider.of<AuthService>(context,listen: false);
-                      try{
-                        debugger();
-                          await authService.signInWithEmailandPassword(emailController.text,passwordController.text);
-                      }catch(e){
-                        showSnack(context: context, text: e.toString());
-                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-                      }
-                    String currentAddress = "";
-                    // ignore: unused_field
-                    Position? _currentPosition;
-                    var pro = context.read<AuthProvider>();
-                    pro.Location(context, _currentPosition, currentAddress);
-                    FocusScope.of(context).nextFocus();
-                    push(context, RootScreen());
+
+ try {
+      var userCredential = await firebaseAuth
+          .signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+           debugger();
+          firestore.collection('users').doc(userCredential.user!.uid).set({
+            'uid': userCredential.user!.uid,
+            'email':emailController,
+          },SetOptions(merge: true)
+          );
+          debugger();
+           return userCredential;
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e.code);
+    }
+
+
+
+
+                    // final authService = Provider.of<AuthService>(context,listen: false);
+                    //   try{
+                    //       await authService.signInWithEmailandPassword(emailController.text,passwordController.text);
+                    //     debugger();
+                    //   }catch(e){
+                    //     showSnack(context: context, text: e.toString());
+                    //     //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                    //   }
+                    // String currentAddress = "";
+                    // // ignore: unused_field
+                    // Position? _currentPosition;
+                    // var pro = context.read<AuthProvider>();
+                    // pro.Location(context, _currentPosition, currentAddress);
+                    // FocusScope.of(context).nextFocus();
+                    // push(context, RootScreen());
                   }
                 },
                 text: "Continue",
