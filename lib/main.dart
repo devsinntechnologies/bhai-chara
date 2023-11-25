@@ -58,8 +58,8 @@ class MyApp extends StatelessWidget {
               // theme: ThemeData(
               //   fontFamily: "Lora-Regular",
               // ),
-              // home: SignupByEmail(),
-              home: LoginScreen(),
+              home: ChatView(),
+              // home: LoginScreen(),
             );
           }
         ));

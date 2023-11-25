@@ -115,40 +115,22 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               CustomButton(
                 onTap: () async{
-                  if (emailController.text.isEmpty) {
-                    showSnack(context: context, text: "Please Enter Email");
-                  } else if (passwordController.text.isEmpty) {
-                    showSnack(context: context, text: "Please Enter Password");
-                  } else if (passwordController.text.length < 7) {
-                    showSnack(context:context, text: "Invalid Password");
-                  } else {
+                  // if (emailController.text.isEmpty) {
+                  //   showSnack(context: context, text: "Please Enter Email");
+                  // } else if (passwordController.text.isEmpty) {
+                  //   showSnack(context: context, text: "Please Enter Password");
+                  // } else if (passwordController.text.length < 7) {
+                  //   showSnack(context:context, text: "Invalid Password");
+                  // } else {
 
- try {
-      var userCredential = await firebaseAuth
-          .signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
-           debugger();
-          firestore.collection('users').doc(userCredential.user!.uid).set({
-            'uid': userCredential.user!.uid,
-            'email':emailController,
-          },SetOptions(merge: true)
-          );
-          debugger();
-           return userCredential;
-    } on FirebaseAuthException catch (e) {
-      throw Exception(e.code);
-    }
-
-
-
-
-                    // final authService = Provider.of<AuthService>(context,listen: false);
-                    //   try{
-                    //       await authService.signInWithEmailandPassword(emailController.text,passwordController.text);
-                    //     debugger();
-                    //   }catch(e){
-                    //     showSnack(context: context, text: e.toString());
-                    //     //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-                    //   }
+                    final authService = Provider.of<AuthService>(context,listen: false);
+                      try{
+                          await authService.signInWithEmailandPassword(emailController.text,passwordController.text);
+                        debugger();
+                      }catch(e){
+                        showSnack(context: context, text: e.toString());
+                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                      }
                     // String currentAddress = "";
                     // // ignore: unused_field
                     // Position? _currentPosition;
@@ -156,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     // pro.Location(context, _currentPosition, currentAddress);
                     // FocusScope.of(context).nextFocus();
                     // push(context, RootScreen());
-                  }
+                  // }
                 },
                 text: "Continue",
                 width: size.width * .90,

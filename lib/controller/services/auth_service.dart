@@ -15,16 +15,16 @@ class AuthService extends ChangeNotifier{
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
 
-        debugger();
+        // debugger();
 
 
 
-          firestore.collection('users').doc(userCredential.user!.uid).set({
-            'uid': userCredential.user!.uid,
-            'email':email,
-          },SetOptions(merge: true)
-          );
-          debugger();
+          // firestore.collection('users').doc(userCredential.user!.uid).set({
+          //   'uid': userCredential.user!.uid,
+          //   'email':email,
+          // },SetOptions(merge: true)
+          // );
+          // debugger();
 
 
 
