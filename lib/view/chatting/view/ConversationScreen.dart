@@ -42,7 +42,9 @@ class _ConversationScreenState extends State<ConversationScreen> {
             //hintText:,
             //style: TextStyle(),
           )),
-          IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward))
+          SizedBox(width: 15),
+          CircleAvatar(radius: 35,child:IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward))),
+          
         ],
       ),
     );
@@ -94,8 +96,8 @@ class _ConversationScreenState extends State<ConversationScreen> {
               ChatBubble(
                   message: data['message'],
                   color: data['senderId'] == firebaseAuth.currentUser!.uid
-                      ? AppColors.darkBlue
-                      : AppColors.skyblue),
+                      ? AppColors.blue
+                      : AppColors.Green),
             ],
           ),
         ));
@@ -104,10 +106,21 @@ class _ConversationScreenState extends State<ConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
         appBar: AppBar(
+           backgroundColor: AppColors.black,
+          foregroundColor: AppColors.white,
           title: Text(widget.reciverUserEmail),
         ),
-        body: Column(
+        body: Container( 
+          height:double.infinity,
+          width: double.infinity,
+       
+          decoration :BoxDecoration(  
+             gradient: LinearGradient(colors: [AppColors.light_black,AppColors.white]),
+          ),
+          child:
+        Column(
           children: [
             Expanded(
               child: buildMessageList(),
@@ -117,7 +130,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
               height: 25,
             )
           ],
-        )
+        )),
         //  body: Container(),
         );
   }

@@ -64,11 +64,11 @@ class MyApp extends StatelessWidget {
                 stream: FirebaseAuth.instance.authStateChanges(),
                 builder: (context,AsyncSnapshot<User?> snapshot){
                   if(snapshot.hasData && snapshot.data !=null){
-                      return ChatView();
+                      return RootScreen();
                   }else if(snapshot.connectionState== ConnectionState.waiting){
                     return Center(child: CircularProgressIndicator(),);
                   }
-                  return LoginScreen();
+                  return SplashScreen();
                 }
               )
             );

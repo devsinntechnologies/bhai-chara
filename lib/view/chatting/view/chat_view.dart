@@ -34,23 +34,14 @@ class _ChatViewState extends State<ChatView> {
         appBar: AppBar(
           backgroundColor: AppColors.black,
           foregroundColor: AppColors.white,
-          leading: Text("Chatt"),
+          title: Text("Chatt"),
           // actions: [
           //   IconButton(onPressed: (){
           //     FirebaseAuth.instance.signOut();
           //   }, icon: Icon(Icons.star)),
           // ],
         ),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.5.w),
-              child: searchField(),
-            ),
-            StreamBuilder<QuerySnapshot>(
+        body:  StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance.collection('users').snapshots(),
               builder: (context,snapshot){
                   
@@ -63,11 +54,10 @@ class _ChatViewState extends State<ChatView> {
                     );
                   }
 
-                  return Text("Loading");
+                  return Text("Loading . . .");
               }
             ),
-            ],
-        ),
+           
       );
    // }
     
@@ -78,16 +68,17 @@ class _ChatViewState extends State<ChatView> {
     Map<String,dynamic> data= document.data()! as Map<String,dynamic>;
     
     if(auth.currentUser!.email != data['email']){
-      return Card(child:
+      return 
+       Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+      child:
       ListTile(
         trailing: Text('25/11/2023'),
-        leading: CircleAvatar(radius: 15),
-        title:Column(
-          children: [
-            Text( data['email'],style:AppTextStyles.textStyleNormalBodyMedium),
-            Text('hello',style:AppTextStyles.textStyleNormalBodySmall)
-          ],
-        ),
+        leading: CircleAvatar(radius: 35),
+        title: Text( data['email'],style:AppTextStyles.textStyleNormalBodySmall),
+        subtitle:  Text('hello',style:AppTextStyles.textStyleNormalBodyXSmall),
+        hoverColor:AppColors.skyblue,
+        tileColor: AppColors.blue,
         onTap: (){
           push(context,ConversationScreen(
               reciverUserID: data['uid'],
@@ -95,7 +86,7 @@ class _ChatViewState extends State<ChatView> {
 
           ));
         },
-       ) );
+       ));
     }
     else{
       return Container(
@@ -106,33 +97,33 @@ class _ChatViewState extends State<ChatView> {
 
 
 
-  Widget searchField() {
-    return TextFormField(
-      focusNode: searchFN,
-      controller: searchController,
-      keyboardType: TextInputType.text,
-      textInputAction: TextInputAction.done,
-      onChanged: (value) {
-        debugPrint('Search');
-        setState(() {});
-      },
-      onTap: () {
-        setState(() {});
-      },
-      onFieldSubmitted: (value) {
-        setState(() {});
-      },
-      // validator: FieldValidator.validateEmail,
-      // autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration: InputDecoration(
-         border: OutlineInputBorder(),
-        hintText: "Search",
-        icon: Icon(
-          Icons.search,
-          color: searchFN.hasFocus ? Colors.green : Colors.grey,
-        ),
-      ),
-    );
-  }
+//   Widget searchField() {
+//     return TextFormField(
+//       focusNode: searchFN,
+//       controller: searchController,
+//       keyboardType: TextInputType.text,
+//       textInputAction: TextInputAction.done,
+//       onChanged: (value) {
+//         debugPrint('Search');
+//         setState(() {});
+//       },
+//       onTap: () {
+//         setState(() {});
+//       },
+//       onFieldSubmitted: (value) {
+//         setState(() {});
+//       },
+//       // validator: FieldValidator.validateEmail,
+//       // autovalidateMode: AutovalidateMode.onUserInteraction,
+//       decoration: InputDecoration(
+//          border: OutlineInputBorder(),
+//         hintText: "Search",
+//         icon: Icon(
+//           Icons.search,
+//           color: searchFN.hasFocus ? Colors.green : Colors.grey,
+//         ),
+//       ),
+//     );
+//   }
 
 }
