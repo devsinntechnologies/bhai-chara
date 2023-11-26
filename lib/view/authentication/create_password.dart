@@ -9,6 +9,12 @@ import 'package:provider/provider.dart';
 import '../../controller/services/auth_service.dart';
 import '../../utils/showSnack.dart';
 import 'dart:developer';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/view/authentication/login_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
+
 
 
 // ignore: must_be_immutable
@@ -23,7 +29,10 @@ class _CreatePasswordState extends State<CreatePassword> {
   var x = 1;
   var y = 1;
   TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmpasswordController = TextEditingController();
+  TextEditingController confirmpasswordController = TextEditingController();  
+  static FirebaseFirestore firestore= FirebaseFirestore.instance;
+
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -191,15 +200,28 @@ class _CreatePasswordState extends State<CreatePassword> {
                   ),
                   const Spacer(),
                   CustomButton(onTap: ()async{
-                    debugger();
-                      final authService = Provider.of<AuthService>(context,listen: false);
-                      try{
-                          await authService.signInWithEmailandPassword(widget.emailController.text,passwordController.text);
-                      }catch(e){
-                        showSnack(context: context, text: e.toString());
-                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
-                      }
-                  },text: "Next",),
+                    if (passwordController.text.isEmpty) {
+                    showSnack(context: context, text: "Please Enter Password");
+                  } else if (passwordController.text.length < 7) {
+                    showSnack(context:context, text: "Invalid Password");
+                  }else if (passwordController.text != confirmpasswordController.text) {
+                    showSnack(context:context, text: "Invalid Password");
+                  }else{
+                    try{
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+             var  userCredential=   await   firebaseAuth
+          .createUserWithEmailAndPassword(email:widget.emailController, password: passwordController.text);
+ firestore.collection('users').doc(userCredential.user!.uid).set({
+            'uid': userCredential.user!.uid,
+            'email':widget.emailController,
+          },SetOptions(merge: true)
+          );
+  push(context,RootScreen());
+
+                    } on FirebaseAuthException catch (e) {
+      throw Exception(e.code); 
+                    }
+                  }},text: "Next",),
                   // ontapPasswordScreen(
                   //     context: context,
                   //     confirmpasswordController: confirmpasswordController,

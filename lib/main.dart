@@ -6,6 +6,7 @@ import 'package:bhai_chara/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:bhai_chara/view/chatting/view/chat_view.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:provider/provider.dart';
 import 'controller/provider/root_provider.dart';
@@ -18,7 +19,7 @@ import 'controller/provider/visibility_provider.dart';
 import 'view/authentication/signup_screen_by_email.dart';
 import 'controller/provider/Image_Picker/compress_provider.dart';
 import 'controller/provider/authentication_provider/auth_provider.dart';
-import 'package:bhai_chara/view/chatting/controller/provider/chat_provider.dart';
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => RootProvider()),
           ChangeNotifierProvider(create: (context) => ProductProvider()),
           ChangeNotifierProvider(create: (context) => FireStoreProvider()),
-          ChangeNotifierProvider(create: (context) => AuthProvider()),
+          // ChangeNotifierProvider(create: (context) => AuthProvider()),
           ChangeNotifierProvider(create: (context) => AuthService()),
 
           ChangeNotifierProvider(create: (context) => CompressProvider()),
@@ -58,8 +59,18 @@ class MyApp extends StatelessWidget {
               // theme: ThemeData(
               //   fontFamily: "Lora-Regular",
               // ),
-              home: ChatView(),
-              // home: LoginScreen(),
+              // home: ChatView(),
+              home: StreamBuilder<User?>(
+                stream: FirebaseAuth.instance.authStateChanges(),
+                builder: (context,AsyncSnapshot<User?> snapshot){
+                  if(snapshot.hasData && snapshot.data !=null){
+                      return ChatView();
+                  }else if(snapshot.connectionState== ConnectionState.waiting){
+                    return Center(child: CircularProgressIndicator(),);
+                  }
+                  return LoginScreen();
+                }
+              )
             );
           }
         ));

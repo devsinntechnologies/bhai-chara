@@ -16,6 +16,8 @@ import 'package:provider/provider.dart';
 import '../../controller/services/auth_service.dart';
 import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../controller/provider/authentication_provider/variable.dart';
+import 'package:bhai_chara/utils/push.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -126,7 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     final authService = Provider.of<AuthService>(context,listen: false);
                       try{
                           await authService.signInWithEmailandPassword(emailController.text,passwordController.text);
-                        debugger();
+                        // debugger();
+                        push(context,RootScreen());
                       }catch(e){
                         showSnack(context: context, text: e.toString());
                         //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
