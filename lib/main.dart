@@ -21,6 +21,8 @@ import 'controller/provider/Image_Picker/compress_provider.dart';
 import 'controller/provider/authentication_provider/auth_provider.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 
+import 'view/chatting/view/ConversationScreen.dart';
+
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -64,7 +66,7 @@ class MyApp extends StatelessWidget {
                 stream: FirebaseAuth.instance.authStateChanges(),
                 builder: (context,AsyncSnapshot<User?> snapshot){
                   if(snapshot.hasData && snapshot.data !=null){
-                      return RootScreen();
+                      return ChatView();
                   }else if(snapshot.connectionState== ConnectionState.waiting){
                     return Center(child: CircularProgressIndicator(),);
                   }

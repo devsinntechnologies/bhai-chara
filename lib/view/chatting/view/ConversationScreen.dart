@@ -30,21 +30,26 @@ class _ConversationScreenState extends State<ConversationScreen> {
 
   Widget buildMessageInput() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 8),
       child: Row(
         children: [
           Expanded(
               child: TextField(
-                 decoration: InputDecoration(
-         border: OutlineInputBorder(),),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+               borderRadius: BorderRadius.circular(30)
+              ),
+            ),
             controller: messageController,
             obscureText: false,
             //hintText:,
             //style: TextStyle(),
           )),
           SizedBox(width: 15),
-          CircleAvatar(radius: 35,child:IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward))),
-          
+          CircleAvatar(
+              radius: 30,
+              child: IconButton(
+                  onPressed: sendMessage, icon: Icon(Icons.send))),
         ],
       ),
     );
@@ -91,13 +96,36 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     ? MainAxisAlignment.end
                     : MainAxisAlignment.start,
             children: [
-              Text(data['senderEmail']),
+              Row(
+                children: [
+                  data['senderId'] == firebaseAuth.currentUser!.uid
+                     ? Text(" ") :CircleAvatar(radius: 15),
+                  Text(data['senderEmail']),
+                ],
+              ),
               const SizedBox(height: 5),
-              ChatBubble(
-                  message: data['message'],
-                  color: data['senderId'] == firebaseAuth.currentUser!.uid
-                      ? AppColors.blue
-                      : AppColors.Green),
+              
+                                ChatBubble(
+                 message: data['message'],
+                 color: data['senderId'] == firebaseAuth.currentUser!.uid
+                     ? AppColors.blue
+                     : AppColors.skyblue),
+
+                     Row(
+                      
+                       crossAxisAlignment:
+                (data['senderId'] == firebaseAuth.currentUser!.uid)
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
+            mainAxisAlignment:
+                (data['senderId'] == firebaseAuth.currentUser!.uid)
+                    ? MainAxisAlignment.end
+                    : MainAxisAlignment.start,
+                      children:[
+                      Text(data['timestamp']),
+                       
+                    
+                     ])
             ],
           ),
         ));
@@ -106,32 +134,38 @@ class _ConversationScreenState extends State<ConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-        appBar: AppBar(
-           backgroundColor: AppColors.black,
-          foregroundColor: AppColors.white,
-          title: Text(widget.reciverUserEmail),
-        ),
-        body: Container( 
-          height:double.infinity,
+      appBar: AppBar(
+        backgroundColor: AppColors.black,
+        foregroundColor: AppColors.white,
+        title: Text(widget.reciverUserEmail),
+        leading: CircleAvatar(radius: 20)
+      ),
+      body: Container(
+          height: double.infinity,
           width: double.infinity,
-       
-          decoration :BoxDecoration(  
-             gradient: LinearGradient(colors: [AppColors.light_black,AppColors.white]),
+          decoration: BoxDecoration(
+            // gradient:
+            // gradient: LinearGradient(
+            //   begin: Alignment.topLeft,
+            //   end: Alignment.bottomRight,
+            //   colors: [
+            //   Color.fromARGB(255, 142, 189, 250),
+            //   AppColors.white,
+            //   AppColors.grey
+            // ]),
           ),
-          child:
-        Column(
-          children: [
-            Expanded(
-              child: buildMessageList(),
-            ),
-            buildMessageInput(),
-            const SizedBox(
-              height: 25,
-            )
-          ],
-        )),
-        //  body: Container(),
-        );
+          child: Column(
+            children: [
+              Expanded(
+                child: buildMessageList(),
+              ),
+              buildMessageInput(),
+              const SizedBox(
+                height: 25,
+              )
+            ],
+          )),
+      //  body: Container(),
+    );
   }
 }

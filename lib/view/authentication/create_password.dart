@@ -211,9 +211,11 @@ class _CreatePasswordState extends State<CreatePassword> {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
              var  userCredential=   await   firebaseAuth
           .createUserWithEmailAndPassword(email:widget.emailController, password: passwordController.text);
+
  firestore.collection('users').doc(userCredential.user!.uid).set({
             'uid': userCredential.user!.uid,
             'email':widget.emailController,
+            'name': widget.fullName,
           },SetOptions(merge: true)
           );
   push(context,RootScreen());

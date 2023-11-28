@@ -73,12 +73,12 @@ class _ChatViewState extends State<ChatView> {
       padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
       child:
       ListTile(
-        trailing: Text('25/11/2023'),
+        trailing:  Text( data['email'],style:AppTextStyles.textStyleNormalBodyXSmall),
         leading: CircleAvatar(radius: 35),
-        title: Text( data['email'],style:AppTextStyles.textStyleNormalBodySmall),
+        title: Text( data['name'],style:AppTextStyles.textStyleNormalBodySmall),
         subtitle:  Text('hello',style:AppTextStyles.textStyleNormalBodyXSmall),
-        hoverColor:AppColors.skyblue,
-        tileColor: AppColors.blue,
+        hoverColor:AppColors.lightblue,
+        tileColor: AppColors.grey,
         onTap: (){
           push(context,ConversationScreen(
               reciverUserID: data['uid'],
