@@ -1,6 +1,5 @@
 import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../common/custom_button.dart';

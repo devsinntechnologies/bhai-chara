@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import '../../common/custom_container_tile.dart';
 import '../../utils/circle_avatar_row.dart';
 import '../../utils/container.dart';
-import '../../utils/utils.dart';
 
 class SellScreen extends StatefulWidget {
   const SellScreen({super.key});
