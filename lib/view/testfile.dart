@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -262,4 +261,31 @@ class _TestScreenState extends State<TestScreen> {
   }
 }
 
-func() {}
+void _fetchData(BuildContext context, [bool mounted = true]) async {
+  // show the loading dialog
+  showDialog(
+      // The user CANNOT close this dialog  by pressing outsite it
+      barrierDismissible: false,
+      context: context,
+      builder: (_) {
+        return Dialog(
+          // The background color
+          backgroundColor: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                // The loading indicator
+                CircularProgressIndicator(),
+                SizedBox(
+                  height: 15,
+                ),
+                // Some text
+                Text('Loading...')
+              ],
+            ),
+          ),
+        );
+      });
+}

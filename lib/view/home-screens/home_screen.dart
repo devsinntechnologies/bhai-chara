@@ -6,7 +6,6 @@ import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/refresh.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
-import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/home-screens/product_details_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';

@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
+import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
@@ -7,43 +10,69 @@ import 'package:flutter/material.dart';
 
 class SignUpProvider extends ChangeNotifier {
   bool isLoading = false;
-  bool isPhoneVf = false;
+  bool isEmailVerified = false;
+  bool isPhoneVerify = false;
   String verifiedID = "";
   String OTPCode = "";
   var user;
-  SignUpFirebase(context, name, email, password, {isPhoneVerified}) async {
-    isLoading = true;
-    notifyListeners();
-    // ignore: unused_local_variable
-    user = FirebaseAuth.instance.currentUser;
-    var data = await FirebaseManager.SignUpFirebaseStoreage(
-        context, name, email, password, isPhoneVerified);
-    isPhoneVerified = isPhoneVf;
+  SignUpFirebase(context, name, email, password, {isEmailVerified}) async {
+    try {
+      isLoading = true;
+      notifyListeners();
+      // ignore: unused_local_variable
+      user = FirebaseAuth.instance.currentUser;
+      var data = await FirebaseManager.SignUpFirebaseStoreage(
+          context, name, email, password, isEmailVerified);
+      isEmailVerified = isEmailVerified;
 
-    if (data != null) {
-      showSnack(context: context, text: "SignUp SuccessFully");
-      return data;
-    }
-
-    isLoading = false;
-    notifyListeners();
+      if (data != null) {
+        showSnack(context: context, text: "SignUp SuccessFully");
+        return data;
+      }
+      isLoading = false;
+      notifyListeners();
+    } catch (e) {}
   }
 
   PhoneVerifyFireBase(context, phoneNumber) async {
-    isLoading = true;
-    notifyListeners();
-    var data =
-        await FirebaseManager.PhoneNumberVerification(context, phoneNumber);
-    verifiedID = FirebaseManager.verifyId;
+    try {
+      isLoading = true;
+      notifyListeners();
+      debugger();
+      if (isLoading) {
+        showLoaderDialog(context) {
+          AlertDialog alert = AlertDialog(
+            content: new Row(
+              children: [
+                CustomLoader(),
+                Container(
+                    margin: EdgeInsets.only(left: 7),
+                    child: Text("Loading...")),
+              ],
+            ),
+          );
+          showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (BuildContext context) {
+              return alert;
+            },
+          );
+        }
+      }
+      var data =
+          await FirebaseManager.PhoneNumberVerification(context, phoneNumber);
+      verifiedID = FirebaseManager.verifyId;
 
-    if (data != null) {
-      showSnack(context: context, text: "Phone Verified SuccessFully");
-
-      return data;
+      if (data != null) {
+        showSnack(context: context, text: "Phone Verified SuccessFully");
+        return data;
+      }
+      isLoading = false;
+      notifyListeners();
+    } catch (e) {
+      showSnack(context: context, text: "Error! Something went wrong");
     }
-
-    isLoading = false;
-    notifyListeners();
   }
 
   OTPVerify(context, String Otp) async {
@@ -51,7 +80,7 @@ class SignUpProvider extends ChangeNotifier {
     notifyListeners();
     var isVerified = await FirebaseManager.VerifyOTP(verifiedID, Otp);
     if (isVerified) {
-      isPhoneVf = true;
+      isPhoneVerify = true;
       pushUntil(context, LocationScreen());
     }
     isLoading = false;
