@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:bhai_chara/view/onboard_screens/intro_slider.dart';
 import 'package:bhai_chara/view/onboard_screens/onboard_screen_one.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Navigation() {
-    pushUntil(context, OnboardScreenOne());
+    pushUntil(context, IntroSlider());
   }
 
   @override
@@ -41,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-            const  Image(
+              const Image(
                 image: AssetImage("assets/images/image.png"),
                 height: 150,
                 width: 175,

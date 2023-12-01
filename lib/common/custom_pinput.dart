@@ -63,7 +63,7 @@ class CustomPinPut extends StatelessWidget {
       showCursor: true,
       onCompleted: (code) async {
         var pro = context.read<SignUpProvider>();
-        await pro.OTPVerify(context, code);
+        pro.OTPCode = code;
       },
     );
   }

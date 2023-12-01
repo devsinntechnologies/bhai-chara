@@ -111,6 +111,7 @@ class FirebaseManager {
     email,
     password,
     isEmailVerified,
+    isPhoneVerify,
   ) async {
     try {
       var data = await FirebaseFirestore.instance.collection("Client").add({
@@ -118,6 +119,7 @@ class FirebaseManager {
         "Email": email,
         "Password": password,
         "isEmailVerified": isEmailVerified,
+        "isPhoneVerified": isPhoneVerify,
       });
       return data;
     } catch (e) {
@@ -128,19 +130,12 @@ class FirebaseManager {
 
   static PhoneNumberVerification(context, String phoneNo) async {
     try {
-      debugger();
       await FirebaseAuth.instance.verifyPhoneNumber(
           phoneNumber: phoneNo,
           verificationCompleted: (PhoneAuthCredential credential) {},
           verificationFailed: (FirebaseAuthException e) {},
           codeSent: (String verificationId, int? resendToken) {
             FirebaseManager.verifyId = verificationId;
-
-            push(
-                context,
-                OTPScreen(
-                  phone: phoneNo,
-                ));
           },
           codeAutoRetrievalTimeout: (String verificationId) {});
     } catch (e) {

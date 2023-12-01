@@ -1,8 +1,11 @@
 import 'package:bhai_chara/common/custom_pinput.dart';
+import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
 import 'package:bhai_chara/utils/push.dart';
+import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../common/custom_button.dart';
 import '../../utils/app_colors.dart';
@@ -192,7 +195,7 @@ class _OTPScreenState extends State<OTPScreen> {
                   ),
                 ),
                 CustomButton(
-                  onTap: () {
+                  onTap: () async {
                     // if (otp_1.text.isEmpty) {
                     //   showSnack(context: context, text: "Enter OTP Please");
                     // } else if (otp_2.text.isEmpty) {
@@ -202,9 +205,18 @@ class _OTPScreenState extends State<OTPScreen> {
                     // } else if (otp_4.text.isEmpty) {
                     //   showSnack(context: context, text: "Enter OTP Please");
                     // } else {
+                    try {
+                      var pro = context.read<SignUpProvider>();
+                      await pro.OTPVerify(context, pro.OTPCode);
 
-                    FocusScope.of(context).unfocus();
-                    push(context, const LocationScreen());
+                      FocusScope.of(context).unfocus();
+                      showSnack(context: context, text: "OTP Code Generated");
+                      push(context, const LocationScreen());
+                    } catch (e) {
+                      showSnack(
+                          context: context, text: "Something Went Wrong!");
+                    }
+
                     // }
                   },
                   text: "Next",
