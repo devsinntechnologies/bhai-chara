@@ -1,13 +1,12 @@
 import 'dart:developer';
 
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
-import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
-import 'package:bhai_chara/view/authentication/location.dart';
-import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../../view/authentication/location.dart';
 
 class SignUpProvider extends ChangeNotifier {
   bool isLoading = false;
@@ -52,31 +51,32 @@ class SignUpProvider extends ChangeNotifier {
       if (data != null) {
         showSnack(context: context, text: "Phone Verified SuccessFully");
 
-        isLoading = false;
-        notifyListeners();
-
         return data;
       }
-
-      pushUntil(
-          context,
-          OTPScreen(
-            phone: phoneNumber,
-          ));
+      isLoading = false;
+      notifyListeners();
     } catch (e) {
       showSnack(context: context, text: "Error! Something went wrong");
     }
   }
 
   OTPVerify(context, String Otp) async {
-    isLoading = true;
-    notifyListeners();
-    var isVerified = await FirebaseManager.VerifyOTP(verifiedID, Otp);
-    if (isVerified) {
-      isPhoneVerify = true;
-      pushUntil(context, LocationScreen());
+    try {
+      isLoading = true;
+      notifyListeners();
+
+      print(Otp);
+      var isVerified = await FirebaseManager.VerifyOTP(verifiedID, Otp);
+      debugger();
+      if (isVerified != null) {
+        isPhoneVerify = true;
+        pushUntil(context, LocationScreen());
+      }
+      isLoading = false;
+      notifyListeners();
+    } catch (e) {
+      print(e.toString());
+      showSnack(context: context, text: e.toString());
     }
-    isLoading = false;
-    notifyListeners();
   }
 }

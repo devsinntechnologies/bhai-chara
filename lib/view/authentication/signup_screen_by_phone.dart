@@ -5,6 +5,7 @@ import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/view/authentication/otp_code_screen.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -96,6 +97,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                       } else {
                         FocusScope.of(context).unfocus();
                         showDialog(
+                          barrierDismissible: false,
                           context: context,
                           builder: (ctx) => AlertDialog(
                             title: const Text("Wait for Verification OTP"),
@@ -114,6 +116,13 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
 
                         await data.PhoneVerifyFireBase(
                             context, PhoneProvider.phonenumber);
+                        data.isLoading
+                            ? null
+                            : push(
+                                context,
+                                OTPScreen(
+                                  phone: PhoneProvider.phonenumber,
+                                ));
                         // numberController =
                         //     await CustomCountryPhoneField().controller;
                       }
@@ -126,7 +135,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
                   CustomButton(
                     colorBox: AppColors.grey,
                     onTap: () async {
-                      pushUntil(context, RootScreen());
+                      push(context, RootScreen());
                     },
                     text: "Skip",
                   ),

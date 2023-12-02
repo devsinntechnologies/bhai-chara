@@ -1,12 +1,12 @@
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/controller/provider/authentication_provider/login_provider.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/container.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/signup_screen.dart';
-import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
@@ -108,21 +108,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               CustomButton(
-                onTap: () {
+                onTap: () async {
                   if (emailController.text.isEmpty) {
                     showSnack(context: context, text: "Please Enter Email");
                   } else if (passwordController.text.isEmpty) {
                     showSnack(context: context, text: "Please Enter Password");
-                  } else if (passwordController.text.length < 7) {
-                    showSnack(context:context, text: "Invalid Password");
+                  } else if (passwordController.text.length <= 5) {
+                    showSnack(context: context, text: "Invalid Password");
                   } else {
                     String currentAddress = "";
                     // ignore: unused_field
                     Position? _currentPosition;
                     var pro = context.read<AuthProvider>();
                     pro.Location(context, _currentPosition, currentAddress);
+                    var login = context.read<LoginProvider>();
+                    login.Login(context, emailController, passwordController);
+
                     FocusScope.of(context).nextFocus();
-                    push(context, RootScreen());
                   }
                 },
                 text: "Continue",

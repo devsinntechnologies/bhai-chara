@@ -8,9 +8,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-import '../../utils/push.dart';
-import '../../view/authentication/otp_code_screen.dart';
-
 class FirebaseManager {
   static final _auth = FirebaseAuth.instance;
   static String verifyId = '';
@@ -166,9 +163,14 @@ class FirebaseManager {
 
   // ignore: non_constant_identifier_names
   static VerifyOTP(String verificationID, String OTP) async {
-    var credentials = await _auth.signInWithCredential(
-        PhoneAuthProvider.credential(verificationId: verifyId, smsCode: code));
-    return credentials.user != null ? true : false;
+    try {
+      var credentials = await _auth.signInWithCredential(
+          PhoneAuthProvider.credential(
+              verificationId: verifyId, smsCode: code));
+      return credentials;
+    } catch (e) {
+      print("Firebase Auth Error: $e");
+    }
   }
 }
 // }

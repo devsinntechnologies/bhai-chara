@@ -41,6 +41,7 @@ dependencies:
   intl: ^0.18.1
   firebase_core:
   firebase_auth:
+  firebase_core_platform_interface: ^5.0.0
   http:
   shared_preferences: ^2.1.2 
   fluttertoast: ^8.2.2

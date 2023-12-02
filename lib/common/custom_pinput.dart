@@ -53,6 +53,7 @@ class CustomPinPut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Pinput(
+      length: 6,
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
       submittedPinTheme: submittedPinTheme,
@@ -61,9 +62,12 @@ class CustomPinPut extends StatelessWidget {
       },
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       showCursor: true,
-      onCompleted: (code) async {
+      onCompleted: (value) async {
         var pro = context.read<SignUpProvider>();
-        pro.OTPCode = code;
+
+        pro.OTPCode = value;
+
+        print(pro.OTPCode);
       },
     );
   }

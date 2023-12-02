@@ -1,9 +1,7 @@
 import 'package:bhai_chara/common/custom_pinput.dart';
 import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
-import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/utils.dart';
-import 'package:bhai_chara/view/authentication/location.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -206,12 +204,13 @@ class _OTPScreenState extends State<OTPScreen> {
                     //   showSnack(context: context, text: "Enter OTP Please");
                     // } else {
                     try {
+                      FocusScope.of(context).unfocus();
                       var pro = context.read<SignUpProvider>();
+
                       await pro.OTPVerify(context, pro.OTPCode);
 
-                      FocusScope.of(context).unfocus();
-                      showSnack(context: context, text: "OTP Code Generated");
-                      push(context, const LocationScreen());
+                      // showSnack(context: context, text: "Successfull");
+                      // push(context, LocationScreen());
                     } catch (e) {
                       showSnack(
                           context: context, text: "Something Went Wrong!");
