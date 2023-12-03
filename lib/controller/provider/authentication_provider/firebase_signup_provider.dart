@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
+import 'package:bhai_chara/provider/firebase/phone_number.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,10 +25,13 @@ class SignUpProvider extends ChangeNotifier {
       // ignore: unused_local_variable
       user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-
+      var uid = FirebaseAuth.instance.currentUser!.uid;
       isEmailVerified = true;
-      var data = await FirebaseManager.SignUpFirebaseStoreage(
-          context, name, email, password, isEmailVerified, isPhoneVerified);
+      var data = await FirebaseManager.SignUpFirebaseStoreage(context, name,
+          email, password, uid, isEmailVerified, isPhoneVerified);
+      UID_Provider.uid != uid;
+      print(UID_Provider.uid);
+
       isEmailVerified = isEmailVerified;
 
       if (user != null) {

@@ -107,6 +107,7 @@ class FirebaseManager {
     name,
     email,
     password,
+    uid,
     isEmailVerified,
     isPhoneVerify,
   ) async {
@@ -115,6 +116,7 @@ class FirebaseManager {
         "Name": name,
         "Email": email,
         "Password": password,
+        "UID": uid.toString(),
         "isEmailVerified": isEmailVerified,
         "isPhoneVerified": isPhoneVerify,
       });

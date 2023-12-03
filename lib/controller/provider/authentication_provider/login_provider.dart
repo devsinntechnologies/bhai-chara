@@ -27,6 +27,8 @@ class LoginProvider extends ChangeNotifier {
       push(context, RootScreen());
       // ignore: unused_catch_clause
     } on FirebaseAuth catch (e) {
+      isLoading = false;
+
       showSnack(
           context: context, text: "SomeThing Went Wrong Try Again Please");
     }

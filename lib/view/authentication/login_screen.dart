@@ -7,6 +7,7 @@ import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
+import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var size = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () {
-        return push(context, LoginScreen());
+        return pop(context);
       },
       child: SafeArea(
         child: Scaffold(
