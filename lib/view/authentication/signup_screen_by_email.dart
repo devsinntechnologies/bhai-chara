@@ -56,7 +56,7 @@ class _SignupByEmailState extends State<SignupByEmail> {
                     height: 50,
                   ),
                   Text(
-                    "Enter your Details",
+                    "Enter your Detail",
                     style: AppTextStyles.textStyleBoldSubTitleLarge,
                   ),
                   const SizedBox(

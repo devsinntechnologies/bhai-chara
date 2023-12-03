@@ -7,10 +7,8 @@ import '../../common/custom_button.dart';
 import '../../common/custom_container_tile.dart';
 import '../../controller/provider/authentication_provider/variable.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/push.dart';
 import '../../utils/showSnack.dart';
 import '../../utils/text-styles.dart';
-import 'signup_screen_by_phone.dart';
 
 // ignore: must_be_immutable
 class CreatePassword extends StatefulWidget {

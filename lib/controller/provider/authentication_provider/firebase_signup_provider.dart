@@ -1,4 +1,7 @@
 import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 import '../../provider/phone_number.dart';
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
 import 'package:bhai_chara/utils/push.dart';
@@ -12,38 +15,33 @@ import '../../../view/authentication/signup_screen_by_phone.dart';
 class SignUpProvider extends ChangeNotifier {
   bool isLoading = false;
   String PhoneNumber = "";
-  bool isEmailVerified = false;
-  bool isPhoneVerify = false;
   String verifiedID = "";
   String OTPCode = "";
   var user;
   SignUpFirebase(context, name, email, password,
-      {isEmailVerified, isPhoneVerified}) async {
+      {isEmailVerified = false, isPhoneVerified = false}) async {
     try {
+      // debugger();
       isLoading = true;
       notifyListeners();
       // ignore: unused_local_variable
       user = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       var uid = FirebaseAuth.instance.currentUser!.uid;
-      isEmailVerified = true;
+      // isEmailVerified = true;
       var data = await FirebaseManager.SignUpFirebaseStoreage(context, name,
           email, password, uid, isEmailVerified, isPhoneVerified);
+      isLoading = false;
+      notifyListeners();
       UID_Provider.uid = uid.toString();
-      debugger();
+      // debugger();/
       print(UID_Provider.uid);
-
-      isEmailVerified = isEmailVerified;
 
       if (user != null) {
         showSnack(context: context, text: "SignUp SuccessFully");
-
+        push(context, SignUpScreenByPhone());
         return data;
       }
-      isLoading = false;
-      notifyListeners();
-
-      push(context, SignUpScreenByPhone());
     } catch (e) {
       isLoading = false;
       notifyListeners();
@@ -77,13 +75,19 @@ class SignUpProvider extends ChangeNotifier {
     try {
       isLoading = true;
       notifyListeners();
-
+      // debugger();
       print(Otp);
       var isVerified = await FirebaseManager.VerifyOTP(verifiedID, Otp);
-      debugger();
+      // debugger();
       if (isVerified) {
-        isPhoneVerify = true;
-        pushUntil(context, LocationScreen());
+        String? uid = UID_Provider.uid;
+        if (uid != null) {
+          FirebaseFirestore.instance
+              .collection("Client")
+              .doc(uid)
+              .update({"isPhoneVerified": true});
+          pushUntil(context, LocationScreen());
+        }
       }
       isLoading = false;
       notifyListeners();

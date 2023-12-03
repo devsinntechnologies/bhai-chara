@@ -2,7 +2,9 @@
 
 import 'dart:async';
 
+import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/intro_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
@@ -23,7 +25,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Navigation() {
-    pushUntil(context, IntroSlider());
+    var user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      pushUntil(context, RootScreen());
+    } else {
+      pushUntil(context, IntroSlider());
+    }
   }
 
   @override

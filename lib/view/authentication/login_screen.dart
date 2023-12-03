@@ -7,7 +7,6 @@ import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
-import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/onboard_screen_three.dart';
 import 'package:flutter/material.dart';

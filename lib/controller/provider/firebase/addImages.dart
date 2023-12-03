@@ -14,20 +14,20 @@ class FireStoreProvider extends ChangeNotifier {
       category,
       subcategory,
       isFree,
+      uid,
       dateTime}) async {
     isLoading = true;
     notifyListeners();
-    var data = await FirebaseManager.AddImages(
-      selectedImages,
-      price: price,
-      title: title,
-      description: description,
-      age: age,
-      category: category,
-      subcategory: subcategory,
-      isFree: isFree,
-      datetime: dateTime,
-    );
+    var data = await FirebaseManager.AddImages(selectedImages,
+        price: price,
+        title: title,
+        description: description,
+        age: age,
+        category: category,
+        subcategory: subcategory,
+        isFree: isFree,
+        datetime: dateTime,
+        uid: uid);
 
     if (data != null) {
       return data;

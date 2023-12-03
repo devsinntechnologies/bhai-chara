@@ -3,10 +3,14 @@ import 'dart:developer';
 import 'dart:io';
 
 // import 'dart:js_interop';
+import 'package:bhai_chara/model/user_model.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+
+const USER_COLLECTION = "Client";
+const PRODUCT_COLLECTION = "Products";
 
 class FirebaseManager {
   static final _auth = FirebaseAuth.instance;
@@ -18,6 +22,7 @@ class FirebaseManager {
       title,
       description,
       category,
+      uid,
       subcategory,
       List<String>? urlImage,
       isFree,
@@ -33,6 +38,7 @@ class FirebaseManager {
         "urlImage": urlImage,
         "isFree": isFree,
         "Time": datetime,
+        "uid": uid
       });
       return data;
     } catch (e) {
@@ -48,6 +54,7 @@ class FirebaseManager {
       description,
       category,
       subcategory,
+      uid,
       isFree,
       datetime}) async {
     try {
@@ -94,6 +101,7 @@ class FirebaseManager {
           description: description,
           category: category,
           subcategory: subcategory,
+          uid: uid,
           isFree: isFree,
           datetime: datetime);
     } catch (e) {
@@ -112,7 +120,8 @@ class FirebaseManager {
     isPhoneVerify,
   ) async {
     try {
-      var data = await FirebaseFirestore.instance.collection("Client").add({
+      var data =
+          await FirebaseFirestore.instance.collection("Client").doc(uid).set({
         "Name": name,
         "Email": email,
         "Password": password,
@@ -173,7 +182,7 @@ class FirebaseManager {
     // } catch (e) {
     //   print("Firebase Auth Error: $e");
     // }
-
+    // debugger();
     String otp = OTP.trim();
     if (otp.isNotEmpty) {
       try {
@@ -182,12 +191,8 @@ class FirebaseManager {
           verificationId: verificationID,
           smsCode: otp,
         );
-        UserCredential authResult =
-            await _auth.signInWithCredential(credential);
 
         // If verification is successful, you can access the user information
-        User? user = authResult.user;
-        print('User ID: ${user?.uid}');
 
         return true;
         // Now, you can navigate to the next screen or perform other actions
@@ -202,3 +207,13 @@ class FirebaseManager {
   }
 }
 // }
+
+Future<UserModel?> firebaseGetUserDetail(uid) async {
+  var data = await FirebaseFirestore.instance
+      .collection(USER_COLLECTION)
+      .doc(uid)
+      .get();
+  if (data != null) {
+    return UserModel.fromJson(data.data()!);
+  }
+}

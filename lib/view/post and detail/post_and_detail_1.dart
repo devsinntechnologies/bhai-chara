@@ -1,17 +1,21 @@
 // ignore_for_file: must_be_immutable, unnecessary_null_comparison
 
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:bhai_chara/common/custom_button.dart';
 import 'package:bhai_chara/common/custom_container_children.dart';
 import 'package:bhai_chara/common/custom_container_tile.dart';
 import 'package:bhai_chara/common/custom_list_tile.dart';
+import 'package:bhai_chara/controller/provider/phone_number.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/ImagesScreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -101,8 +105,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
               child: Builder(builder: (context) {
                 var provider = context.watch<FireStoreProvider>();
                 return provider.isLoading
-                    ? Center(
-                        child: Column(
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CustomLoader(),
                           Text(
@@ -110,10 +114,10 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                             style: AppTextStyles.textStyleBoldBodyMedium,
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                         ],
-                      ))
+                      )
                     : Column(
                         children: [
                           CustomContainer(
@@ -172,7 +176,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                                 color: AppColors.blue),
-                                            child:  Column(
+                                            child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               crossAxisAlignment:
@@ -524,6 +528,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                             DateTime.now().toString();
                                         var data =
                                             context.read<FireStoreProvider>();
+                                        debugger();
                                         await data.addImage(
                                           selectedImages,
                                           price: priceController.text,
@@ -534,6 +539,8 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                           subcategory: widget.subtext,
                                           isFree: isFree,
                                           dateTime: datetime,
+                                          uid: FirebaseAuth
+                                              .instance.currentUser!.uid,
 
                                           // categoryID: "",
                                           // subcategoryID:"",

@@ -115,12 +115,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: CustomLoader())
                                   : pro.currentAddress.isEmpty
                                       ? ElevatedButton(
-                                          onPressed: () {
+                                          onPressed: () async {
                                             pro = context.read<AuthProvider>();
                                             String currentAddress = "";
                                             // ignore: unused_field
                                             Position? _currentPosition;
-                                            pro.Location(
+                                            await pro.Location(
                                                 context,
                                                 _currentPosition,
                                                 currentAddress);
@@ -372,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   push(
                                     context,
                                     ProductScreen(
-                                      index: index,
+                                      id: dataDoc.id,
                                     ),
                                   );
                                 },

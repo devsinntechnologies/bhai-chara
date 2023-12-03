@@ -105,7 +105,7 @@ class _ItemScreenState extends State<ItemScreen> {
                                                 push(
                                                     context,
                                                     ProductScreen(
-                                                      index: index,
+                                                      id: dataDoc.id,
                                                     ));
                                               },
                                             );

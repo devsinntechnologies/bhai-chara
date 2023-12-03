@@ -1,4 +1,5 @@
 import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
+import 'package:bhai_chara/controller/provider/product/product_detail.dart';
 import 'package:bhai_chara/firebase_options.dart';
 import 'package:bhai_chara/view/chatting/controller/service/chatt_service.dart';
 import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => ChatService()),
           ChangeNotifierProvider(create: (context) => SignUpProvider()),
           ChangeNotifierProvider(create: (context) => LoginProvider()),
+          ChangeNotifierProvider(create: (context) => ProductDetailProvider()),
 
           // ChangeNotifierProvider(create: (context) => ()),
         ],

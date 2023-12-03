@@ -16,6 +16,7 @@ class LoginProvider extends ChangeNotifier {
 
       final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
+      // ignore: unused_local_variable
       var uid = await firebaseAuth.signInWithEmailAndPassword(
           email: emailController, password: passwordController);
 
