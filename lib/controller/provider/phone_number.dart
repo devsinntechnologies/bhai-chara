@@ -7,5 +7,5 @@ class PhoneProvider {
 }
 
 class UID_Provider {
-  static User? uid;
+  static String? uid;
 }

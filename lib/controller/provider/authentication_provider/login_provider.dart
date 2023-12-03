@@ -19,7 +19,7 @@ class LoginProvider extends ChangeNotifier {
       var uid = await firebaseAuth.signInWithEmailAndPassword(
           email: emailController, password: passwordController);
 
-      UID_Provider.uid = await FirebaseAuth.instance.currentUser;
+      UID_Provider.uid = await FirebaseAuth.instance.currentUser!.uid;
 
       print(UID_Provider.uid);
       isLoading = false;
