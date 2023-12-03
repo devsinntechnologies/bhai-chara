@@ -22,32 +22,33 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
           backgroundColor: AppColors.black,
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical:35.0,horizontal:25.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 35.0, horizontal: 25.0),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                  const  Image(
+                    const Image(
                       image: AssetImage("assets/images/logo.png"),
                       height: 114,
                       width: 90,
                     ),
-                 const  SizedBox(height:20),
-                   Text(
+                    const SizedBox(height: 20),
+                    Text(
                       "Welcome to Bhai Chara",
                       textAlign: TextAlign.center,
                       style: AppTextStyles.textStyleBoldSubTitleLarge.copyWith(
                         color: AppColors.white,
                       ),
                     ),
-                  const Padding(
-                     padding:  EdgeInsets.symmetric(vertical: 0.0),
-                     child:   Image(
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 0.0),
+                      child: Image(
                         image: AssetImage("assets/images/onboard1.png"),
                         //height: 350,
                         width: 270,
                       ),
-                   ),
+                    ),
                     Text(
                       "Embrace Unity, Foster Brotherhood",
                       textAlign: TextAlign.center,
@@ -56,8 +57,8 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                       ),
                     ),
                     Padding(
-                      padding:
-                        const   EdgeInsets.symmetric(horizontal: 23, vertical: 15),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 23, vertical: 15),
                       child: Text(
                         "Join a community that believes in the power of unity and brotherhood. Connect, collaborate, and make a positive impact together.",
                         textAlign: TextAlign.center,
@@ -77,15 +78,12 @@ class _OnboardScreenOneState extends State<OnboardScreenOne> {
                         ],
                       ),
                     ),
-                    
                     CustomButton(
                       onTap: () {
                         pushUntil(context, const OnboardScreenTwo());
                       },
                       text: "Next",
                     ),
-                  
-                  
                   ]),
             ),
           )),

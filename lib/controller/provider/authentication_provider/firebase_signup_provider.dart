@@ -10,6 +10,7 @@ import '../../../view/authentication/location.dart';
 
 class SignUpProvider extends ChangeNotifier {
   bool isLoading = false;
+  String PhoneNumber = "";
   bool isEmailVerified = false;
   bool isPhoneVerify = false;
   String verifiedID = "";
@@ -50,7 +51,7 @@ class SignUpProvider extends ChangeNotifier {
       verifiedID = FirebaseManager.verifyId;
       if (data != null) {
         showSnack(context: context, text: "Phone Verified SuccessFully");
-
+        PhoneNumber = phoneNumber.toString();
         return data;
       }
       isLoading = false;
@@ -68,7 +69,7 @@ class SignUpProvider extends ChangeNotifier {
       print(Otp);
       var isVerified = await FirebaseManager.VerifyOTP(verifiedID, Otp);
       debugger();
-      if (isVerified != null) {
+      if (isVerified) {
         isPhoneVerify = true;
         pushUntil(context, LocationScreen());
       }

@@ -80,7 +80,7 @@ class _OnboardScreenThreeState extends State<OnboardScreenThree> {
                     ),
                     CustomButton(
                       onTap: () {
-                        pushUntil(context, const LoginScreen());
+                        push(context, const LoginScreen());
                       },
                       text: "Next",
                     ),

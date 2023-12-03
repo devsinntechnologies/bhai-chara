@@ -34,6 +34,7 @@ class _SignUpScreenByPhoneState extends State<SignUpScreenByPhone> {
     return SafeArea(
       child: Scaffold(
         body: Builder(builder: (context) {
+          // ignore: unused_local_variable
           var phone = context.watch<SignUpProvider>();
           return Container(
             padding: EdgeInsets.all(20),

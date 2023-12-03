@@ -163,13 +163,39 @@ class FirebaseManager {
 
   // ignore: non_constant_identifier_names
   static VerifyOTP(String verificationID, String OTP) async {
-    try {
-      var credentials = await _auth.signInWithCredential(
-          PhoneAuthProvider.credential(
-              verificationId: verifyId, smsCode: code));
-      return credentials;
-    } catch (e) {
-      print("Firebase Auth Error: $e");
+    // try {
+    //   var credentials = await _auth.signInWithCredential(
+    //       PhoneAuthProvider.credential(
+    //           verificationId: verifyId, smsCode: code));
+    //   return credentials;
+    // } catch (e) {
+    //   print("Firebase Auth Error: $e");
+    // }
+
+    String otp = OTP.trim();
+    if (otp.isNotEmpty) {
+      try {
+        // Use the Firebase Auth instance to sign in with the OTP
+        AuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationID,
+          smsCode: otp,
+        );
+        UserCredential authResult =
+            await _auth.signInWithCredential(credential);
+
+        // If verification is successful, you can access the user information
+        User? user = authResult.user;
+        print('User ID: ${user?.uid}');
+
+        return true;
+        // Now, you can navigate to the next screen or perform other actions
+      } catch (e) {
+        print('Error verifying OTP: $e');
+        // Handle the error, e.g., show an error message
+      }
+    } else {
+      // Display an error message for an empty OTP
+      print('Please enter the OTP');
     }
   }
 }

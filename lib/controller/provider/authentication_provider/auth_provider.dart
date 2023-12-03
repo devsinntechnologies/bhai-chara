@@ -12,16 +12,23 @@ class AuthProvider extends ChangeNotifier {
   Position? _currentPosition;
   Location(context, _currentPosition, _currentAddress) async {
     // debugger();
-    isLoading = true;
-    notifyListeners();
+    try {
+      isLoading = true;
+      notifyListeners();
 
-    var data = await ScreenManager.geoLocation(
-        context, _currentPosition, _currentAddress);
-    if (data != null) {
-      currentAddress = data;
+      var data = await ScreenManager.geoLocation(
+          context, _currentPosition, _currentAddress);
+      if (data != null) {
+        currentAddress = data;
+      }
+      showSnack(context: context, text: "Location Update Successfully");
+      isLoading = false;
+      notifyListeners();
+    } catch (e) {
+      isLoading = false;
+      notifyListeners();
+      showSnack(
+          context: context, text: "Here Have Some Problem Please Try Again");
     }
-    showSnack( context:context,text: "Location Update Successfully");
-    isLoading = false;
-    notifyListeners();
   }
 }

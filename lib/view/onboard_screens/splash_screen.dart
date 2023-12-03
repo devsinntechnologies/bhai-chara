@@ -3,7 +3,6 @@
 import 'dart:async';
 
 import 'package:bhai_chara/view/onboard_screens/intro_slider.dart';
-import 'package:bhai_chara/view/onboard_screens/onboard_screen_one.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
