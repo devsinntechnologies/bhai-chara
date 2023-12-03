@@ -9,6 +9,7 @@ import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/utils/utils.dart';
 import 'package:bhai_chara/view/authentication/signup_screen.dart';
+import 'package:bhai_chara/view/onboard_screens/onboard_screen_three.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../controller/provider/authentication_provider/variable.dart';
@@ -29,7 +30,9 @@ class _LoginScreenState extends State<LoginScreen> {
     var size = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () {
-        return pop(context);
+        var pro = context.watch<LoginProvider>();
+        pro.isLoading = false;
+        return push(context, OnboardScreenThree());
       },
       child: SafeArea(
         child: Scaffold(
@@ -121,6 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (emailController.text.isEmpty) {
                               showSnack(
                                   context: context, text: "Please Enter Email");
+                            } else if (!emailController.text.contains('@') &&
+                                !emailController.text.contains('.com')) {
+                              showSnack(
+                                  context: context,
+                                  text: "Enter Please Correct Email");
                             } else if (passwordController.text.isEmpty) {
                               showSnack(
                                   context: context,

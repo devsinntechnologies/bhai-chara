@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../view/authentication/location.dart';
+import '../../../view/authentication/signup_screen_by_phone.dart';
 
 class SignUpProvider extends ChangeNotifier {
   bool isLoading = false;
@@ -28,19 +29,27 @@ class SignUpProvider extends ChangeNotifier {
       isEmailVerified = true;
       var data = await FirebaseManager.SignUpFirebaseStoreage(context, name,
           email, password, uid, isEmailVerified, isPhoneVerified);
-      UID_Provider.uid != uid;
+      UID_Provider.uid = uid.toString();
+      debugger();
       print(UID_Provider.uid);
 
       isEmailVerified = isEmailVerified;
 
       if (user != null) {
         showSnack(context: context, text: "SignUp SuccessFully");
+
         return data;
       }
       isLoading = false;
       notifyListeners();
+
+      push(context, SignUpScreenByPhone());
     } catch (e) {
-      showSnack(context: context, text: "Error ! Something Went Wrong");
+      isLoading = false;
+      notifyListeners();
+      showSnack(
+          context: context,
+          text: "The email address is already in use by another account.");
     }
   }
 
