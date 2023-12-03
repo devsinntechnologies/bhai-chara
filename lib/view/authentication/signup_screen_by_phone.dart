@@ -1,6 +1,5 @@
 import 'package:bhai_chara/common/custonPhoneTextField.dart';
 import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
-import 'package:bhai_chara/provider/firebase/phone_number.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -12,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/custom_button.dart';
+import '../../controller/provider/phone_number.dart';
 import '../../utils/custom_loader.dart';
 
 class SignUpScreenByPhone extends StatefulWidget {

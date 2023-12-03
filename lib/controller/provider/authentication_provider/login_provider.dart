@@ -1,9 +1,11 @@
-import 'package:bhai_chara/provider/firebase/phone_number.dart';
-import 'package:bhai_chara/utils/push.dart';
-import 'package:bhai_chara/utils/showSnack.dart';
-import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../../../utils/push.dart';
+import '../../../utils/showSnack.dart';
+import '../../../view/home-screens/root_screen.dart';
+import '../phone_number.dart';
+
 
 class LoginProvider extends ChangeNotifier {
   bool isLoading = false;

@@ -1,7 +1,6 @@
 import 'dart:developer';
-
+import '../../provider/phone_number.dart';
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
-import 'package:bhai_chara/provider/firebase/phone_number.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:firebase_auth/firebase_auth.dart';

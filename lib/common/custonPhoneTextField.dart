@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../provider/firebase/phone_number.dart';
+import '../controller/provider/phone_number.dart';
 
 // ignore: must_be_immutable
 class CustomCountryPhoneField extends StatelessWidget {
