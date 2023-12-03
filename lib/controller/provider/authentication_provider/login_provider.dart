@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bhai_chara/provider/firebase/phone_number.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -13,11 +15,11 @@ class LoginProvider extends ChangeNotifier {
       notifyListeners();
 
       final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-
+      debugger();
       var uid = await firebaseAuth.signInWithEmailAndPassword(
           email: emailController, password: passwordController);
 
-      UID_Provider.uid = await FirebaseAuth.instance.currentUser;
+      UID_Provider.uid = await FirebaseAuth.instance.currentUser!.uid;
 
       print(UID_Provider.uid);
       isLoading = false;
@@ -26,9 +28,9 @@ class LoginProvider extends ChangeNotifier {
       FocusScope.of(context).nextFocus();
       push(context, RootScreen());
       // ignore: unused_catch_clause
-    } on FirebaseAuth catch (e) {
+    } catch (e) {
       isLoading = false;
-
+      notifyListeners();
       showSnack(
           context: context, text: "SomeThing Went Wrong Try Again Please");
     }
