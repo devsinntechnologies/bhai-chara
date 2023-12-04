@@ -133,7 +133,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                       ? Alignment.bottomRight
                       : Alignment.bottomLeft,
                   child: Padding(
-                    padding: const EdgeInsets.only(right:23.0,top:8,left:8),
+                    padding: const EdgeInsets.only(left:50.0,top:8),
                     child: Text(
                         DateFormat('dd/MMM/yyyy, hh:mm a')
                             .format(data['timestamp'].toDate()),
