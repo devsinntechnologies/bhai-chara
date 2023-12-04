@@ -8,20 +8,14 @@ class ChatBubble extends StatelessWidget {
   final String message;
   final Color color;
   final Color fontcolor;
-  final Color timecolor;
   var leftpadding;
   var rightpadding;
-  var time;
-  var crossAxisAlignment;
    ChatBubble({super.key,
    required this.message,
    required this.color,
    required this.fontcolor,
   required this.leftpadding,
   required this.rightpadding,
-  required this.time,
-  required this.timecolor,
-  required this.crossAxisAlignment,
   });
 
   @override
@@ -36,16 +30,9 @@ class ChatBubble extends StatelessWidget {
       
           
         ),
-        child: Column(
-          crossAxisAlignment: crossAxisAlignment,
-          children: [
+        child: 
             Text(message,style: TextStyle(fontSize: 16,color: fontcolor)),
-            SizedBox(width: 12,),
-            Align(
-            alignment:  Alignment.bottomRight,
-              child: Text(time,style:AppTextStyles.textStyleNormalBodyXSmall.copyWith(color:timecolor,fontSize: 8))),
-          ],
-        ),
+           
       ),
     );
   }

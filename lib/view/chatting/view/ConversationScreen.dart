@@ -22,7 +22,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
   final ChatService chatService = ChatService();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   DateTime now = new DateTime.now();
-   sendMessage() async {
+  sendMessage() async {
     if (messageController.text.isNotEmpty) {
       await chatService.sendMessage(
           widget.reciverUserID, messageController.text);
@@ -41,9 +41,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
               fillColor: Colors.grey,
               hintText: "Type Here",
               border: OutlineInputBorder(
-                gapPadding: 8,
-               borderRadius: BorderRadius.circular(30)
-              ),
+                  gapPadding: 8, borderRadius: BorderRadius.circular(30)),
             ),
             controller: messageController,
             obscureText: false,
@@ -51,8 +49,8 @@ class _ConversationScreenState extends State<ConversationScreen> {
           SizedBox(width: 15),
           CircleAvatar(
               radius: 30,
-              child: IconButton(
-                  onPressed: sendMessage, icon: Icon(Icons.send))),
+              child:
+                  IconButton(onPressed: sendMessage, icon: Icon(Icons.send))),
         ],
       ),
     );
@@ -100,49 +98,49 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     : MainAxisAlignment.start,
             children: [
               Row(
-                 crossAxisAlignment:
-                (data['senderId'] == firebaseAuth.currentUser!.uid)
-                    ? CrossAxisAlignment.end
-                    : CrossAxisAlignment.start,
-            mainAxisAlignment:
-                (data['senderId'] == firebaseAuth.currentUser!.uid)
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
+                crossAxisAlignment:
+                    (data['senderId'] == firebaseAuth.currentUser!.uid)
+                        ? CrossAxisAlignment.end
+                        : CrossAxisAlignment.start,
+                mainAxisAlignment:
+                    (data['senderId'] == firebaseAuth.currentUser!.uid)
+                        ? MainAxisAlignment.end
+                        : MainAxisAlignment.start,
                 children: [
                   data['senderId'] == firebaseAuth.currentUser!.uid
-                     ? Text(" ") 
-                     : CircleAvatar(radius: 15),
-                  SizedBox(width:8),
+                      ? Text(" ")
+                      : CircleAvatar(radius: 15),
+                  SizedBox(width: 8),
                   Text(data['senderEmail']),
                 ],
               ),
               const SizedBox(height: 5),
-            
-               ChatBubble(
-                 message: data['message'],
-                 time: DateFormat('dd/MMM/yyyy, hh:mm a').format(data['timestamp'].toDate()),
-                 leftpadding:data['senderId'] == firebaseAuth.currentUser!.uid
-                      ? 60
-                      : 40,
-                 rightpadding:data['senderId'] == firebaseAuth.currentUser!.uid
-                      ? 0
-                      : 40,
-                 fontcolor:data['senderId'] == firebaseAuth.currentUser!.uid
-                     ? AppColors.white
-                     : AppColors.black,
-                  timecolor:data['senderId'] == firebaseAuth.currentUser!.uid
-                     ? AppColors.white
-                     : AppColors.black,
-                 color: data['senderId'] == firebaseAuth.currentUser!.uid
-                     ? const Color.fromARGB(255, 5, 101, 179)
-                     : AppColors.skyblue,
-                 crossAxisAlignment: data['senderId'] == firebaseAuth.currentUser!.uid
-                     ? CrossAxisAlignment.end
-                     : CrossAxisAlignment.start,
-                     
-                     ),
-                
-                  
+              ChatBubble(
+                message: data['message'],
+                leftpadding:
+                    data['senderId'] == firebaseAuth.currentUser!.uid ? 60 : 40,
+                rightpadding:
+                    data['senderId'] == firebaseAuth.currentUser!.uid ? 0 : 40,
+                fontcolor: data['senderId'] == firebaseAuth.currentUser!.uid
+                    ? AppColors.white
+                    : AppColors.black,
+                color: data['senderId'] == firebaseAuth.currentUser!.uid
+                    ? const Color.fromARGB(255, 5, 101, 179)
+                    : AppColors.skyblue,
+              ),
+              Align(
+                  alignment: data['senderId'] == firebaseAuth.currentUser!.uid
+                      ? Alignment.bottomRight
+                      : Alignment.bottomLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right:23.0,top:8,left:8),
+                    child: Text(
+                        DateFormat('dd/MMM/yyyy, hh:mm a')
+                            .format(data['timestamp'].toDate()),
+                        style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
+                            color: AppColors.black,
+                            fontSize: 10)),
+                  )),
             ],
           ),
         ));
@@ -152,26 +150,26 @@ class _ConversationScreenState extends State<ConversationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 90,
-        backgroundColor: AppColors.black,
-        foregroundColor: AppColors.white,
-        title:Text(widget.reciverUserEmail,style:AppTextStyles.textStyleBoldXLBodySmall.copyWith(color: AppColors.white)),
-        leading:
-         Row(
-          children: [
-            IconButton(icon:Icon(Icons.arrow_back_ios), onPressed: (){
-            Navigator.pop(context);
-            }),
-            CircleAvatar(radius: 18),
-          ],
-        )
-      ),
+          leadingWidth: 90,
+          backgroundColor: AppColors.black,
+          foregroundColor: AppColors.white,
+          title: Text(widget.reciverUserEmail,
+              style: AppTextStyles.textStyleBoldXLBodySmall
+                  .copyWith(color: AppColors.white)),
+          leading: Row(
+            children: [
+              IconButton(
+                  icon: Icon(Icons.arrow_back_ios),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+              CircleAvatar(radius: 18),
+            ],
+          )),
       body: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
-           
-          ),
+          decoration: BoxDecoration(),
           child: Column(
             children: [
               Expanded(
