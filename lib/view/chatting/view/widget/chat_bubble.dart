@@ -9,10 +9,13 @@ class ChatBubble extends StatelessWidget {
   final Color color;
   final Color fontcolor;
   var leftpadding;
+  var  text;
   var rightpadding;
    ChatBubble({super.key,
    required this.message,
    required this.color,
+  //  required this.alignment,
+   required this.text,
    required this.fontcolor,
   required this.leftpadding,
   required this.rightpadding,
@@ -31,7 +34,25 @@ class ChatBubble extends StatelessWidget {
           
         ),
         child: 
-            Text(message,style: TextStyle(fontSize: 16,color: fontcolor)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(message,style: TextStyle(fontSize: 16,color: fontcolor)),
+                  SizedBox(height: 7),
+                 Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                   children: [
+                    // Spacer(),
+                     Text(
+                        text,
+                         style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
+                             color: fontcolor,
+                             fontSize: 10)),
+                   ],
+                 ),
+              ],
+            ),
            
       ),
     );

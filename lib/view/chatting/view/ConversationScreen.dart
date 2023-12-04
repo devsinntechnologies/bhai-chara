@@ -116,6 +116,10 @@ class _ConversationScreenState extends State<ConversationScreen> {
               ),
               const SizedBox(height: 5),
               ChatBubble(
+                text:  DateFormat('dd/MMM/yyyy, hh:mm a')
+                            .format(data['timestamp'].toDate()),
+                // alignment: alinment,
+
                 message: data['message'],
                 leftpadding:
                     data['senderId'] == firebaseAuth.currentUser!.uid ? 60 : 40,
@@ -128,19 +132,19 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     ? const Color.fromARGB(255, 5, 101, 179)
                     : AppColors.skyblue,
               ),
-              Align(
-                  alignment: data['senderId'] == firebaseAuth.currentUser!.uid
-                      ? Alignment.bottomRight
-                      : Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left:50.0,top:8),
-                    child: Text(
-                        DateFormat('dd/MMM/yyyy, hh:mm a')
-                            .format(data['timestamp'].toDate()),
-                        style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
-                            color: AppColors.black,
-                            fontSize: 10)),
-                  )),
+              // Align(
+              //     alignment: data['senderId'] == firebaseAuth.currentUser!.uid
+              //         ? Alignment.bottomRight
+              //         : Alignment.bottomLeft,
+              //     child: Padding(
+              //       padding: const EdgeInsets.only(left:50.0,top:8),
+              //       child: Text(
+              //           DateFormat('dd/MMM/yyyy, hh:mm a')
+              //               .format(data['timestamp'].toDate()),
+              //           style: AppTextStyles.textStyleNormalBodyXSmall.copyWith(
+              //               color: AppColors.black,
+              //               fontSize: 10)),
+              //     )),
             ],
           ),
         ));
