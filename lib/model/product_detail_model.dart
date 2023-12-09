@@ -5,6 +5,7 @@ class ProductDetailModel {
   String? description;
   String? category;
   String? subcategory;
+  String? location;
   List<String>? urlImage;
   bool? isFree;
   String? time;
@@ -17,6 +18,7 @@ class ProductDetailModel {
       this.description,
       this.category,
       this.subcategory,
+      this.location,
       this.urlImage,
       this.isFree,
       this.time,
@@ -29,6 +31,7 @@ class ProductDetailModel {
     description = json['description'];
     category = json['category'];
     subcategory = json['subcategory'];
+    location = json['location'];
     urlImage = json['urlImage'].cast<String>();
     isFree = json['isFree'];
     time = json['Time'];
@@ -43,6 +46,7 @@ class ProductDetailModel {
     data['description'] = this.description;
     data['category'] = this.category;
     data['subcategory'] = this.subcategory;
+    data['location'] = this.location;
     data['urlImage'] = this.urlImage;
     data['isFree'] = this.isFree;
     data['Time'] = this.time;

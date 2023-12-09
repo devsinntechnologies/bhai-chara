@@ -14,9 +14,9 @@ class ProductDetailProvider extends ChangeNotifier {
   ProductDetailModel? productDetailModel;
 
   getDonerDetail(uid) async {
-    // debugger();
+    debugger();
     var data = await firebaseGetUserDetail(uid);
-    // debugger();
+
     if (data != null) {
       donnerDetail = data;
       return donnerDetail;
@@ -32,12 +32,12 @@ class ProductDetailProvider extends ChangeNotifier {
           .doc(id)
           .get();
 
-      // debugger();
+      debugger();
       if (data != null) {
         productDetailModel = ProductDetailModel.fromJson(data.data()!);
-        donnerDetail = await getDonerDetail(productDetailModel!.uid);
-
+        donnerDetail = await getDonerDetail(productDetailModel?.uid);
         notifyListeners();
+        return donnerDetail;
       }
       isLoading = false;
       notifyListeners();

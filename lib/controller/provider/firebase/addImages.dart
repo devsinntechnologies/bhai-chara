@@ -13,6 +13,7 @@ class FireStoreProvider extends ChangeNotifier {
       description,
       category,
       subcategory,
+      location,
       isFree,
       uid,
       dateTime}) async {
@@ -25,6 +26,7 @@ class FireStoreProvider extends ChangeNotifier {
         age: age,
         category: category,
         subcategory: subcategory,
+        location: location,
         isFree: isFree,
         datetime: dateTime,
         uid: uid);

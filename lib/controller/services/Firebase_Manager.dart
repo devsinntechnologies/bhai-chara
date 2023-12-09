@@ -24,6 +24,7 @@ class FirebaseManager {
       category,
       uid,
       subcategory,
+      location,
       List<String>? urlImage,
       isFree,
       datetime}) async {
@@ -35,6 +36,7 @@ class FirebaseManager {
         "description": description,
         "category": category,
         "subcategory": subcategory,
+        "location": location,
         "urlImage": urlImage,
         "isFree": isFree,
         "Time": datetime,
@@ -54,6 +56,7 @@ class FirebaseManager {
       description,
       category,
       subcategory,
+      location,
       uid,
       isFree,
       datetime}) async {
@@ -101,6 +104,7 @@ class FirebaseManager {
           description: description,
           category: category,
           subcategory: subcategory,
+          location: location,
           uid: uid,
           isFree: isFree,
           datetime: datetime);
@@ -209,6 +213,7 @@ class FirebaseManager {
 // }
 
 Future<UserModel?> firebaseGetUserDetail(uid) async {
+  debugger();
   var data = await FirebaseFirestore.instance
       .collection(USER_COLLECTION)
       .doc(uid)
@@ -216,4 +221,5 @@ Future<UserModel?> firebaseGetUserDetail(uid) async {
   if (data != null) {
     return UserModel.fromJson(data.data()!);
   }
+  return null;
 }
