@@ -1,11 +1,11 @@
-import 'package:bhai_chara/common/custom_button.dart';
+import 'package:bhai_chara/common/buttons/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/view/authentication/create_password.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/custom_container_tile.dart';
+import '../../common/containers/custom_container_tile.dart';
 import '../../utils/text-styles.dart';
 
 class SignupByEmail extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/containers/custom_container_tile.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/authentication/signup_screen_by_email.dart';

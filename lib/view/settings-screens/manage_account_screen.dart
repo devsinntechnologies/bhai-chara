@@ -5,7 +5,7 @@ import 'package:bhai_chara/view/settings-screens/dialogBox.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/container.dart';
+import 'package:bhai_chara/common/containers/container.dart';
 import '../../utils/text-styles.dart';
 
 class ManageAccountScreen extends StatefulWidget {

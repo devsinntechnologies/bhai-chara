@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/utils.dart';
+import '../../utils/push.dart';
 
 const LatLng currentLocation = LatLng(24.630160,46.752530);
 class MapScreen extends StatefulWidget {

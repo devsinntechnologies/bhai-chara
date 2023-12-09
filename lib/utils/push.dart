@@ -9,6 +9,12 @@ push(context, screen) {
   );
 }
 
+pop(context) {
+  Navigator.pop(
+    context,
+  );
+}
+
 pushUntil(context, screen) {
   Navigator.pushAndRemoveUntil(
       context, CupertinoPageRoute(builder: (_) => screen), (route) => false);

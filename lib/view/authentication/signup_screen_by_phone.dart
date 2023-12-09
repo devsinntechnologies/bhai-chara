@@ -10,7 +10,7 @@ import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../common/custom_button.dart';
+import '../../common/buttons/custom_button.dart';
 import '../../controller/provider/phone_number.dart';
 import '../../utils/custom_loader.dart';
 

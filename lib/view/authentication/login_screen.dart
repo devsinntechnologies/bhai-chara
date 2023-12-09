@@ -1,8 +1,8 @@
-import 'package:bhai_chara/common/custom_button.dart';
-import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/buttons/custom_button.dart';
+import 'package:bhai_chara/common/containers/custom_container_tile.dart';
 import 'package:bhai_chara/controller/provider/authentication_provider/login_provider.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/container.dart';
+import 'package:bhai_chara/common/containers/container.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
@@ -11,7 +11,7 @@ import 'package:bhai_chara/view/authentication/signup_screen.dart';
 import 'package:bhai_chara/view/onboard_screens/onboard_screen_three.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../controller/provider/authentication_provider/variable.dart';
+import '../../controller/provider/authentication_provider/variable_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

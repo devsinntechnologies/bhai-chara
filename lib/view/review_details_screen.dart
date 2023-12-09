@@ -1,6 +1,6 @@
-import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/containers/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
-import 'package:bhai_chara/utils/container.dart';
+import 'package:bhai_chara/common/containers/container.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/showSnack.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -8,7 +8,7 @@ import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../common/custom_button.dart';
+import '../common/buttons/custom_button.dart';
 import '../controller/provider/switch_provider.dart';
 
 class PostDetailScreen2 extends StatefulWidget {

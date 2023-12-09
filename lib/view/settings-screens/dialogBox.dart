@@ -1,4 +1,4 @@
-import 'package:bhai_chara/common/Custom_button_small.dart';
+import '../../common/buttons/Custom_button_small.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 
 import 'package:bhai_chara/utils/text-styles.dart';

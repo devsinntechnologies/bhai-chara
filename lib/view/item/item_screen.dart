@@ -1,4 +1,4 @@
-import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/containers/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/itemContainer.dart';
@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../common/custom_container.dart';
+import '../../common/containers/custom_container.dart';
 import '../../controller/provider/firebase/addproduct.dart';
 import '../../utils/push.dart';
 import '../../utils/text-styles.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../utils/app_colors.dart';
-import '../utils/text-styles.dart';
+import 'package:bhai_chara/utils/app_colors.dart';
+import 'package:bhai_chara/utils/text-styles.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {

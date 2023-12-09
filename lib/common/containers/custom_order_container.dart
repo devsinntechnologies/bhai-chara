@@ -1,7 +1,7 @@
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/app_colors.dart';
+import 'package:bhai_chara/utils/app_colors.dart';
 
 class OrderContainer extends StatelessWidget {
   OrderContainer(

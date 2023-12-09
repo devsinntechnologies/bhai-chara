@@ -3,7 +3,6 @@
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class Alert extends StatefulWidget {
   String? maintext;

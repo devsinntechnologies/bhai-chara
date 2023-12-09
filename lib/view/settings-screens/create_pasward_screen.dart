@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import '../../common/custom_button.dart';
+import '../../common/buttons/custom_button.dart';
 import '../../controller/provider/visibility_provider.dart';
-import '../../utils/container.dart';
+import '../../common/containers/container.dart';
 
 import '../../utils/custom_textfield.dart';
 import '../../utils/push.dart';

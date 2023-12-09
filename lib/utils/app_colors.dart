@@ -5,7 +5,7 @@ class AppColors {
 
   static const white = Colors.white;
   static const primary = Color(0xfaFFFFFF);
-  static Color orangeColor = Color(0xfaF7931E);
+  static const orangeColor = Color(0xfaF7931E);
   static const orange = Color.fromARGB(255, 247, 147, 30);
   static const yellow = Color.fromARGB(255, 254, 192, 15);
   static const Green = Color.fromARGB(255, 57, 181, 74);
@@ -18,15 +18,15 @@ class AppColors {
   static const greyOutline = Color(0xff808080);
 
   static const skyblue = Color.fromARGB(255, 220, 236, 250);
-  static Color lightblue = Color.fromARGB(248, 214, 219, 221);
+  static const lightblue = Color.fromARGB(248, 214, 219, 221);
   static const dividerColor = Color(0xffE6E6E6);
 
   static const App = Color(0xff001B26);
-  static Color appbar = Color(0xfa001B26);
+  static const appbar = Color(0xfa001B26);
   static const darkBlue = Color.fromARGB(255, 0, 27, 38);
 
   static const black = Colors.black;
   static const TextColor = Color(0xff000000);
-  static Color light_black = Color(0xfa000000);
+  static const light_black = Color(0xfa000000);
   static const cardColor = Color(0xfaDDA315);
 }

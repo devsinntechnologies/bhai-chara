@@ -6,7 +6,7 @@ import 'package:bhai_chara/view/settings-screens/privacyScreen.dart';
 import 'package:bhai_chara/view/settings-screens/user_preferences_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/custom_container.dart';
+import '../../common/containers/custom_container.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});

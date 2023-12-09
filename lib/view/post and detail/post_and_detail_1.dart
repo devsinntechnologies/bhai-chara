@@ -3,10 +3,10 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:bhai_chara/common/custom_button.dart';
-import 'package:bhai_chara/common/custom_container_children.dart';
-import 'package:bhai_chara/common/custom_container_tile.dart';
-import 'package:bhai_chara/common/custom_list_tile.dart';
+import 'package:bhai_chara/common/buttons/custom_button.dart';
+import 'package:bhai_chara/common/containers/custom_container_children.dart';
+import 'package:bhai_chara/common/containers/custom_container_tile.dart';
+import 'package:bhai_chara/common/list_Tile/custom_list_tile.dart';
 import 'package:bhai_chara/controller/provider/phone_number.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
@@ -23,7 +23,7 @@ import 'package:provider/provider.dart';
 import '../../controller/provider/Image_Picker/compress_provider.dart';
 import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../controller/provider/firebase/addImages.dart';
-import '../../utils/container.dart';
+import '../../common/containers/container.dart';
 import '../home-screens/root_screen.dart';
 
 class PostDetailScreen1 extends StatefulWidget {
@@ -176,7 +176,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                                 color: AppColors.blue),
-                                            child: Column(
+                                            child: const Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               crossAxisAlignment:

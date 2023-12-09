@@ -16,12 +16,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:bhai_chara/common/custom_button.dart';
+import 'package:bhai_chara/common/buttons/custom_button.dart';
 
 import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/text-styles.dart';
-import '../../utils/utils.dart';
+import '../../utils/push.dart';
 import 'mapScreen.dart';
 
 // ignore: must_be_immutable

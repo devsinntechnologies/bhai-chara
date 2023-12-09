@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:bhai_chara/common/custom_button.dart';
+import 'package:bhai_chara/common/buttons/custom_button.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
@@ -8,9 +8,9 @@ import 'package:bhai_chara/view/home-screens/sell_sub_categorie_screen.dart';
 import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 // import '../../common/custom_container_tile.dart';
-import '../../common/custom_container_tile.dart';
+import '../../common/containers/custom_container_tile.dart';
 import '../../utils/circle_avatar_row.dart';
-import '../../utils/container.dart';
+import '../../common/containers/container.dart';
 
 class SellScreen extends StatefulWidget {
   const SellScreen({super.key});

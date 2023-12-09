@@ -1,4 +1,4 @@
-import 'package:bhai_chara/common/custom_button.dart';
+import 'package:bhai_chara/common/buttons/custom_button.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/view/authentication/login_screen.dart';
 import 'package:flutter/material.dart';

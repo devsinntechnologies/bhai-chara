@@ -1,24 +1,23 @@
-import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
-import 'package:bhai_chara/controller/provider/product/product_detail.dart';
-import 'package:bhai_chara/firebase_options.dart';
-import 'package:bhai_chara/view/chatting/controller/service/chatt_service.dart';
-import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
-// import 'package:bhai_chara/view/testfile.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:bhai_chara/firebase_options.dart';
+import 'package:bhai_chara/view/onboard_screens/splash_screen.dart';
+import 'package:bhai_chara/view/chatting/controller/service/chatt_service.dart';
+import 'package:bhai_chara/controller/provider/product/product_detail.dart';
+import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
 
+import 'controller/provider/root_provider.dart';
+import 'controller/provider/timer_provider.dart';
+import 'controller/provider/switch_provider.dart';
+import 'controller/provider/slider_provider.dart';
+import 'controller/provider/firebase/addImages.dart';
+import 'controller/provider/firebase/addproduct.dart';
+import 'controller/provider/visibility_provider.dart';
 import 'controller/provider/Image_Picker/compress_provider.dart';
 import 'controller/provider/authentication_provider/auth_provider.dart';
 import 'controller/provider/authentication_provider/login_provider.dart';
-import 'controller/provider/firebase/addImages.dart';
-import 'controller/provider/firebase/addproduct.dart';
-import 'controller/provider/root_provider.dart';
-import 'controller/provider/slider_provider.dart';
-import 'controller/provider/switch_provider.dart';
-import 'controller/provider/timer_provider.dart';
-import 'controller/provider/visibility_provider.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();

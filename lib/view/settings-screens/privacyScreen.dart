@@ -3,7 +3,7 @@ import 'package:bhai_chara/view/settings-screens/create_pasward_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../common/custom_container.dart';
+import '../../common/containers/custom_container.dart';
 import '../../controller/provider/switch_provider.dart';
 import '../../utils/text-styles.dart';
 

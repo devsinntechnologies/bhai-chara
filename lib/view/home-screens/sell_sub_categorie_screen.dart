@@ -5,7 +5,7 @@ import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/post%20and%20detail/post_and_detail_1.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/container.dart';
+import '../../common/containers/container.dart';
 
 class SubCategorieScreen extends StatefulWidget {
   SubCategorieScreen({super.key, this.link, this.text, this.color});

@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison
 
-import 'package:bhai_chara/common/custom_container_tile.dart';
+import 'package:bhai_chara/common/containers/custom_container_tile.dart';
 import 'package:bhai_chara/utils/app_colors.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
 import 'package:bhai_chara/utils/push.dart';
@@ -13,10 +13,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
-import '../../common/custom_container_children.dart';
+import '../../common/containers/custom_container_children.dart';
 import '../../controller/provider/authentication_provider/auth_provider.dart';
 import '../../utils/circle_avatar.dart';
-import '../../utils/container_with_img.dart';
+import '../../common/containers/container_with_img.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image(
+                          const Image(
                             image: AssetImage(
                                 'assets/images/Bhai Chara svg 1.png'),
                             height: 45,
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.my_location_outlined,
+                             const  Icon(Icons.my_location_outlined,
                                   size: 24, color: Colors.white),
                               pro.isLoading
                                   ? Container(
@@ -125,9 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 _currentPosition,
                                                 currentAddress);
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             "Location",
-                                            style: TextStyle(
+                                            style:TextStyle(
                                                 fontSize: 15,
                                                 fontWeight: FontWeight.w500,
                                                 color: AppColors.blue),
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ))
                                       : Text(
                                           pro.currentAddress,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 15,
                                               fontWeight: FontWeight.w500,
                                               color: AppColors.white),
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         )
                             ],
                           ),
-                          Icon(
+                         const  Icon(
                             Icons.notifications,
                             size: 24,
                             color: AppColors.white,
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       margin: EdgeInsets.all(10),
                       child: CustomTextField(
-                          prfixicon: Icon(Icons.search),
+                          prfixicon: const Icon(Icons.search),
                           prefixcolor: AppColors.Grey,
                           controller: searchController,
                           border: OutlineInputBorder(
@@ -381,11 +381,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
                             // ignore: prefer_const_constructors
                             gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
+                             const    SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2, childAspectRatio: .85),
                           );
                         } else {
-                          return Center(child: CustomLoader());
+                          return const Center(child: CustomLoader());
                         }
                       },
                     ),

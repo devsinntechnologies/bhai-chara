@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/provider/slider_provider.dart';
-import '../../utils/container.dart';
+import '../../common/containers/container.dart';
 import '../../utils/text-styles.dart';
 
 class UserPreferencesScreen extends StatelessWidget {

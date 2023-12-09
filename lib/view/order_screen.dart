@@ -1,6 +1,6 @@
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:flutter/material.dart';
-import '../common/custom_order_container.dart';
+import '../common/containers/custom_order_container.dart';
 import '../utils/app_colors.dart';
 
 class OrderScreen extends StatelessWidget {

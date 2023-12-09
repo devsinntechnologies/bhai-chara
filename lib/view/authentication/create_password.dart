@@ -1,11 +1,11 @@
 import 'package:bhai_chara/controller/provider/authentication_provider/firebase_signup_provider.dart';
 import 'package:bhai_chara/utils/custom_loader.dart';
-import 'package:bhai_chara/utils/utils.dart';
+import 'package:bhai_chara/utils/push.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../common/custom_button.dart';
-import '../../common/custom_container_tile.dart';
-import '../../controller/provider/authentication_provider/variable.dart';
+import '../../common/buttons/custom_button.dart';
+import '../../common/containers/custom_container_tile.dart';
+import '../../controller/provider/authentication_provider/variable_provider.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/showSnack.dart';
 import '../../utils/text-styles.dart';
