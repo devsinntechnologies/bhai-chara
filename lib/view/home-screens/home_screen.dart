@@ -66,6 +66,16 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   var selected = "All";
+  @override
+  void initState() async {
+    // TODO: implement initState
+    super.initState();
+    var pro = context.read<AuthProvider>();
+    String currentAddress = "";
+    // ignore: unused_field
+    Position? _currentPosition;
+    await pro.Location(context, _currentPosition, currentAddress);
+  }
 
   @override
   Widget build(BuildContext context) {

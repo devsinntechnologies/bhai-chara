@@ -103,6 +103,7 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
           body: SingleChildScrollView(
             child: Container(
               child: Builder(builder: (context) {
+                var pro = context.read<AuthProvider>();
                 var provider = context.watch<FireStoreProvider>();
                 return provider.isLoading
                     ? Column(
@@ -426,12 +427,11 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                 GestureDetector(
                                   onTap: () async {},
                                   child: Builder(builder: (context) {
-                                    var pro = context.read<AuthProvider>();
                                     return CutomListTileUser(
                                       title_text: "Location",
                                       title_style:
                                           AppTextStyles.textStyleTitleBodySmall,
-                                      subtitle_text: pro.currentAddress != Null
+                                      subtitle_text: pro.currentAddress != null
                                           ? pro.currentAddress
                                           : "Choose",
                                       subtitle_style:
@@ -518,6 +518,11 @@ class _PostDetailScreen1State extends State<PostDetailScreen1> {
                                       showSnack(
                                           context: context,
                                           text: "Please Enter Price Field");
+                                    } else if (pro.currentAddress == null) {
+                                      showSnack(
+                                          context: context,
+                                          text:
+                                              "Please Click on Location Field");
                                     } else {
                                       if (selectedImages.isNotEmpty) {
                                         var comp =
