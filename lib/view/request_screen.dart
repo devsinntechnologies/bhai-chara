@@ -4,6 +4,7 @@ import 'package:bhai_chara/utils/push.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 import 'package:bhai_chara/view/home-screens/root_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:bhai_chara/view/chatting/view/chat_view.dart';
 
 class RequestScreen extends StatefulWidget {
   const RequestScreen({super.key});
@@ -15,6 +16,7 @@ class RequestScreen extends StatefulWidget {
 class _RequestScreenState extends State<RequestScreen> {
   @override
   Widget build(BuildContext context) {
+    int msg=0;
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -66,7 +68,9 @@ class _RequestScreenState extends State<RequestScreen> {
             ),
             CustomButton(
               onTap: () {
-                pushUntil(context, RootScreen());
+                // msg=1;
+                ChatView()
+                pushUntil(context, ChatView());
               },
               text: "Check Your Inbox",
               width: size.width * .60,

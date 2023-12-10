@@ -1,3 +1,5 @@
+import 'package:bhai_chara/view/chatting/model/message.dart';
+
 import '../../../../utils/app_colors.dart';
 import 'package:bhai_chara/utils/push.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +9,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bhai_chara/utils/text-styles.dart';
 
 class ChatView extends StatefulWidget {
-  const ChatView({super.key});
+  // int msg;
+   ChatView({super.key,
+  //  required this.msg
+   });
 
   @override
   State<ChatView> createState() => _ChatViewState();
@@ -27,21 +32,22 @@ class _ChatViewState extends State<ChatView> {
         backgroundColor: AppColors.black,
         foregroundColor: AppColors.white,
         title: Text("Chatt"),
-        // actions: [
-        //   IconButton(onPressed: (){
-        //     FirebaseAuth.instance.signOut();
-        //   }, icon: Icon(Icons.star)),
-        // ],
+      
       ),
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance.collection('users').snapshots(),
           builder: (context, snapshot) {
-            if (snapshot.hasData) {
+            if (snapshot.hasData ) {
+              if(FirebaseFirestore.instance.collection('chat_room').doc(chatRoomId).collection('message') != null)
               return Column(
-                  children: snapshot.data!.docs
+                  children:snapshot.data!.docs
                       .map((docs) => buildUserListItems(docs))
-                      .toList());
+                      .toList()
+            );
+            else{
+              Text("check condition");
             }
+             }
 
             return Text("Loading . . .");
           }),
@@ -59,6 +65,7 @@ class _ChatViewState extends State<ChatView> {
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
         child: Column(
           children: [
+            // searchField(),
             ListTile(
               trailing: Text(data['email'],
                   style: AppTextStyles.textStyleNormalBodyXSmall),
@@ -84,32 +91,32 @@ class _ChatViewState extends State<ChatView> {
     }
   }
 
-//   Widget searchField() {
-//     return TextFormField(
-//       focusNode: searchFN,
-//       controller: searchController,
-//       keyboardType: TextInputType.text,
-//       textInputAction: TextInputAction.done,
-//       onChanged: (value) {
-//         debugPrint('Search');
-//         setState(() {});
-//       },
-//       onTap: () {
-//         setState(() {});
-//       },
-//       onFieldSubmitted: (value) {
-//         setState(() {});
-//       },
-//       // validator: FieldValidator.validateEmail,
-//       // autovalidateMode: AutovalidateMode.onUserInteraction,
-//       decoration: InputDecoration(
-//          border: OutlineInputBorder(),
-//         hintText: "Search",
-//         icon: Icon(
-//           Icons.search,
-//           color: searchFN.hasFocus ? Colors.green : Colors.grey,
-//         ),
-//       ),
-//     );
-//   }
+  Widget searchField() {
+    return TextFormField(
+      focusNode: searchFN,
+      controller: searchController,
+      keyboardType: TextInputType.text,
+      textInputAction: TextInputAction.done,
+      onChanged: (value) {
+        debugPrint('Search');
+        setState(() {});
+      },
+      onTap: () {
+        setState(() {});
+      },
+      onFieldSubmitted: (value) {
+        setState(() {});
+      },
+      // validator: FieldValidator.validateEmail,
+      // autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+         border: OutlineInputBorder(),
+        hintText: "Search",
+        icon: Icon(
+          Icons.search,
+          color: searchFN.hasFocus ? Colors.green : Colors.grey,
+        ),
+      ),
+    );
+  }
 }

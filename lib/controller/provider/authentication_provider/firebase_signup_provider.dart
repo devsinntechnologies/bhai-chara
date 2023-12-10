@@ -1,6 +1,4 @@
-import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import '../../provider/phone_number.dart';
 import 'package:bhai_chara/controller/services/Firebase_Manager.dart';
@@ -86,7 +84,7 @@ class SignUpProvider extends ChangeNotifier {
               .collection("Client")
               .doc(uid)
               .update({"isPhoneVerified": true});
-          pushUntil(context, LocationScreen());
+          pushUntil(context, const LocationScreen());
         }
       }
       isLoading = false;

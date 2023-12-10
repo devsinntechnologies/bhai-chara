@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           // ChangeNotifierProvider(create: (context) => ()),
         ],
         child: Sizer(builder: (context, orientation, deviceType) {
-          return MaterialApp(
+          return const MaterialApp(
             debugShowCheckedModeBanner: false,
             // theme: ThemeData(
             //   fontFamily: "Lora-Regular",
