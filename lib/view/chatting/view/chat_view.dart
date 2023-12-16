@@ -34,7 +34,7 @@ class _ChatViewState extends State<ChatView> {
         // ],
       ),
       body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('users').where(field).snapshots(),
+          stream: FirebaseFirestore.instance.collection('users').snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Column(
