@@ -7,11 +7,13 @@ class OrderContainer extends StatelessWidget {
   OrderContainer(
       {super.key,
       required this.text,
+      required this.isFree,
       required this.color1,
       required this.color2,
       required this.time,
+      required this.address,
       required this.price});
-  var text, color1, color2, time, price;
+  var text, color1, color2, time, price, isFree, address;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class OrderContainer extends StatelessWidget {
                 ),
               ],
             ),
+            if(!isFree)
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Text(
@@ -63,7 +66,7 @@ class OrderContainer extends StatelessWidget {
                   SizedBox(
                     width: 8,
                   ),
-                  Text("street no.7,house no.23,samnabde lahore"),
+                  Text(address ?? ""),
                 ],
               ),
             ),

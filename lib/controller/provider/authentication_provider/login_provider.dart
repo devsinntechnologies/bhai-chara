@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -6,19 +8,20 @@ import '../../../utils/showSnack.dart';
 import '../../../view/home-screens/root_screen.dart';
 import '../phone_number.dart';
 
-
 class LoginProvider extends ChangeNotifier {
   bool isLoading = false;
   Login(context, emailController, passwordController) async {
     try {
       isLoading = true;
       notifyListeners();
-
+// debugger();
       final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
       // ignore: unused_local_variable
       var uid = await firebaseAuth.signInWithEmailAndPassword(
           email: emailController, password: passwordController);
+
+      // debugger();
 
       UID_Provider.uid = await FirebaseAuth.instance.currentUser!.uid;
 
@@ -27,13 +30,12 @@ class LoginProvider extends ChangeNotifier {
       notifyListeners();
       showSnack(context: context, text: "SignIn Successfully");
       FocusScope.of(context).nextFocus();
-      push(context, RootScreen());
+      pushUntil(context, RootScreen());
       // ignore: unused_catch_clause
-    } on FirebaseAuth catch (e) {
+    } catch (e) {
       isLoading = false;
-
-      showSnack(
-          context: context, text: "SomeThing Went Wrong Try Again Please");
+      notifyListeners();
+      showSnack(context: context, text: e.toString());
     }
   }
 }

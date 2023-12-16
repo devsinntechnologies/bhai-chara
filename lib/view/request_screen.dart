@@ -66,7 +66,7 @@ class _RequestScreenState extends State<RequestScreen> {
             ),
             CustomButton(
               onTap: () {
-                pushUntil(context, RootScreen());
+              pushUntil(context, RootScreen());
               },
               text: "Check Your Inbox",
               width: size.width * .60,

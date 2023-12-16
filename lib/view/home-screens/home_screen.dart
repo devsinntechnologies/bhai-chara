@@ -117,13 +117,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ? ElevatedButton(
                                           onPressed: () async {
                                             pro = context.read<AuthProvider>();
-                                            String currentAddress = "";
-                                            // ignore: unused_field
-                                            Position? _currentPosition;
+                                            String currentAddress = "";                                            
                                             await pro.Location(
-                                                context,
-                                                _currentPosition,
-                                                currentAddress);
+                                                context
+                                                );
                                           },
                                           child: Text(
                                             "Location",

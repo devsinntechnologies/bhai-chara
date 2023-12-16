@@ -78,7 +78,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         onTap: () async {
                           var loc = context.read<AuthProvider>();
                           loc.Location(
-                              context, _currentPosition, _currentAddress);
+                              context);
                           push(context, RootScreen());
                         },
                         child: Container(

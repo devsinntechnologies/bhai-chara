@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 const USER_COLLECTION = "Client";
+const REQUEST_COLLECTION = "requests";
 const PRODUCT_COLLECTION = "Products";
 
 class FirebaseManager {
@@ -213,7 +214,9 @@ Future<UserModel?> firebaseGetUserDetail(uid) async {
       .collection(USER_COLLECTION)
       .doc(uid)
       .get();
+      // debugger();
   if (data != null) {
+    print(data.data());
     return UserModel.fromJson(data.data()!);
   }
 }

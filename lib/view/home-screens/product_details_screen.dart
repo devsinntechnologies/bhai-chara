@@ -377,7 +377,7 @@ class _ProductScreenState extends State<ProductScreen> {
                             UserModel? user = await firebaseGetUserDetail(uid);
                             // debugger();
                             if (user!.isPhoneVerified!) {
-                              push(context, RequestScreen());
+                              await provider.addRequest(context,productID:widget.id );                        
                             } else {
                               showDialog(
                                   context: context,
